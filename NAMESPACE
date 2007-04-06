@@ -1,0 +1,15 @@
+export(shape, display.lty, display.marks, gx.hist, bxplot, 
+	gx.ecdf, cnpplt, remove.na, inset, inset.exporter, 
+	gx.stats, ltdl.fix, ltdl.fix.df, bwplot, bwplot.by.var, 
+	tbplot, tbplot.by.var, cat2list, var2fact, caplot, 
+	edamap, edamap7, edamap8, syms.pfunc, syms, 
+	cutter, gx.subset, display.rainbow, fences, fences.summary, 
+	framework.stats, framework.summary, anova1, anova2, dftest, 
+	display.alts, display.ascii.d, display.ascii.o, thplot1, 
+	thplot2)
+
+
+
+
+
+
