@@ -22,7 +22,7 @@ cnpplt(xx, xlab = deparse(substitute(xx)),
   \item{ifshape}{ when used with function \code{\link{shape}} or \code{\link{caplot}} to plot into a panel set \code{ifshape = TRUE} to ensure only essential probability scale axis labels are displayed to avoid overplotting on the reduced size panel plot. }
 }
 \note{
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to displaying the plot.
 

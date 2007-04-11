@@ -21,7 +21,7 @@ inset(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
 A histogram is displayed on the left, and a cumulative normal percentage probability plot on the right.  Between the two is a table of simple summary statistics, computed in \code{\link{gx.stats}}, including minimum, maximum and percentile values, robust estimates of standard deviation, and the mean, standard deviation and coefficient of variation.  The plots may be displayed with logarithmic axes, however, the summary statistics are not computed with a logarithmic transform.
 }
 \note{
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any NAs in the data vector are removed prior to displaying the plot. 
 
