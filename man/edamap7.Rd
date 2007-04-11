@@ -35,7 +35,7 @@ If the grey-scale option is chosen the symbols are plotted 100\% black for the f
 The default colours, \code{symcolr = c(25, 22, 20, 13, 6, 4, 1)}, are selected from the \code{rainbow(36)} pallette, and alternate colour schemes need to be selected from the same palette.  See \code{\link{display.rainbow}} for the available colours.  It is essential that 7 colours be provided, e.g., \code{symcolr = c(27, 24, 22, 12, 5, 3, 36)}, if exactly 7 are not provided the default colours will be displayed.
 }
 \note{
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to displaying the plot.
 

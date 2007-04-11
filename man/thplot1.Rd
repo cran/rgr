@@ -27,6 +27,14 @@ Duplicate pairs containing any \code{NA}s are omitted from the calculations.
 
 If the data are as a single concatenated vector from a matrix or data frame as \code{x[1], ..., x[n]} followed by \code{x[n+1], ..., x[2n]}, or alternated as \code{x[1]} and \code{x[2]} being a pair through to \code{x[2*i+1]} and \code{x[2*i+2]}, for the \code{i in 1:n} duplicate pairs use function \code{\link{thplot2}}.   
 }
+\note{ 
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+
+Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
+
+This script was published by Garrett and Grunsky (2003)
+}
+\author{ Robert G. Garrett }
 \references{ 
 Garrett, R.G. & Grunsky, E.C., 2003. S and R functions to display Thompson-Howarth plots. Computers & Geosciences 29(2):239-242.
 
@@ -35,14 +43,6 @@ Stanley, C.R., 2003. THPLOT.M: A MATLAB function to implement generalized Thomps
 Thompson, M. and Howarth, R.J, 1973. The rapid estimation and control of precision by duplicate determinations. The Analyst, 98(1164):153-160.
 
 Thompson, M. and Howarth, R.J., 1978.  A new approach to the estimation of analytical precision.  Journal of Geochemical Exploration, 9(1):23-30.
-}
-\author{ Robert G. Garrett }
-\note{ 
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
-
-Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
-
-This script was published by Garrett and Grunsky (2003)
 }
 \seealso{ \code{\link{thplot2}}, \code{\link{ltdl.fix.df}} }
 \examples{

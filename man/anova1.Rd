@@ -20,6 +20,16 @@ A random effects ANOVA is undertaken, the ANOVA table is displayed, together wit
 
 If the data are as a single concatenated vector from a matrix or data frame as \code{x1[1], ..., x1[n]} followed by \code{x[n+1], ..., x[2n]}, or alternated as \code{x[1]} and \code{x[2]} being a pair through to \code{x[2*i+1]} and \code{x[2*i+2]}, for the \code{i in 1:n} duplicate pairs use function \code{\link{anova2}}.
 }
+\note{
+The script does not follow a standard computation of Mean Squares, but is based on a procedure developed after Garrett (1969) for use in the field in the 1970s when pocket calculators first had mean and standard deviation functions.
+
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+
+Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
+
+If a log transformation is undertaken and any less than or equal to zero values occur in the data the function will halt with a warning to that effect. 
+}
+\author{ Robert G. Garrett }
 \references{
 Bolviken, B. and Sinding-Larsen, R., 1973. Total error and other criteria in the interpretation of stream sediment data. In Geochemical Exploration 1972, Institution of Mining and Metallurgy, London, pp. 285-295.
 
@@ -28,16 +38,6 @@ Garrett, R.G., 1969. The determination of sampling and analytical errors in expl
 Garrett, R.G., 1983. Sampling methodology. In Chapter 4 of Handbook of Exploration Geochemistry, Vol. 2, Statistics and Data Analysis in Geochemical Prospecting (Ed. R.J. Howarth), Elsevier, pp. 83-110.
 
 Miesch, A.T. et al., 1976. Geochemical survey of Missouri - methods of sampling, analysis and statistical reduction of data. U.S. Geological Survey Professional Paper 954A, 39 p.
-}
-\author{ Robert G. Garrett }
-\note{
-The script does not follow a standard computation of Mean Squares, but is based on a procedure developed after Garrett (1969) for use in the field in the 1970s when pocket calculators first had mean and standard deviation functions.
-
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
-
-Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
-
-If a log transformation is undertaken and any less than or equal to zero values occur in the data the function will halt with a warning to that effect. 
 }
 \seealso{ \code{\link{anova2}}, \code{\link{ltdl.fix.df}} }
 \examples{

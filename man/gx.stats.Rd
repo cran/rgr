@@ -12,6 +12,9 @@ gx.stats(xx, xlab = deparse(substitute(xx)), display = TRUE)
   \item{xlab}{ a title for the table. It is often desirable to replace the default table title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{display}{ if \code{display = TRUE} the summary statistics are displayed on the current device.  If \code{display = FALSE} output is suppressed.}
 }
+\details{
+The summary statistics comprise the data minimum, maximum and percentile values, robust estimates of standard deviation, the Median Absolute Deviation (MAD) and the Inter Quartile Standard Deviation (IQSD), and the mean, variance, standard deviation (SD) and coefficient of variation (CV\%).
+}
 \value{
   \item{table}{ 
 the computed summary statistics to be used in function \code{\link{inset}}.  The list returned, \code{table}, is a 26-element vector, see below. }
@@ -25,11 +28,8 @@ the computed summary statistics to be used in function \code{\link{inset}}.  The
  \item{[25]}{ the data (sample) Standard Deviation (SD) }
  \item{[26]}{ the Coefficient of Variation as a percentage (CV\%) }
 }
-\details{
-The summary statistics comprise the data minimum, maximum and percentile values, robust estimates of standard deviation, the Median Absolute Deviation (MAD) and the Inter Quartile Standard Deviation (IQSD), and the mean, variance, standard deviation (SD) and coefficient of variation (CV\%).
-}
 \note{
-Any less than detection limit values represented by negative values or zeros or other numeric codes representing blanks in the data vector must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to computation. 
 }
