@@ -7,7 +7,7 @@ Plots a histogram for a data set, the user has options for defining the axis and
 \usage{
 gx.hist(xx, xlab = deparse(substitute(xx)), 
 	ylab = "Number of Observations", log = FALSE, xlim = NULL, 
-	main = "", nclass = "scott", colr = 8, ifnright = TRUE)
+	main = "", nclass = "Scott", colr = 8, ifnright = TRUE)
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted }
