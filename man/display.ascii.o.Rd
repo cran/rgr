@@ -8,7 +8,7 @@ A utility function to display the octal numbers corresponding to the Windows Lat
 display.ascii.o()
 }
 \details{
-The ASCII octal \sQuote{escape codes} are used to insert special characters in text strings for axis labelling, and titles etc., in graphical displays.  For example the escape string \code{\265} results in the Greek letter mu, µ, being displayed.
+The ASCII octal \sQuote{escape codes} are used to insert special characters in text strings for axis labelling, and titles etc., in graphical displays.  For example the escape string \code{\265} results in the Greek letter mu, being displayed.
 
 Based on a function shared on S-News.
 }
