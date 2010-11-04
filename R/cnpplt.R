@@ -1,4 +1,4 @@
-`cnpplt` <-
+cnpplt <-
 function(xx, xlab = deparse(substitute(xx)), ylab = "% Cumulative Probability", log = FALSE, xlim = NULL,
      main = " ", pch = 3, cex.axis = 1, ifqs = FALSE, ifshape = FALSE)
 {

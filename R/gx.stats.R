@@ -1,4 +1,4 @@
-`gx.stats` <-
+gx.stats <-
 function(xx, xlab = deparse(substitute(xx)), display = TRUE)
 {
      # Function to generate a 'one-page' univariate summary statistics report.

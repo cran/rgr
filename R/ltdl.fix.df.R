@@ -1,4 +1,4 @@
-`ltdl.fix.df` <-
+ltdl.fix.df <-
 function(x, zero2na = FALSE, coded = NA)
 {
      # Function for pre-processing a matrix or data frame where -ve values

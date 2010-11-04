@@ -1,4 +1,4 @@
-`cat2list` <-
+cat2list <-
 function(x, a)
 {
      # Function from Doug Nytchka, April 28, 1992, that is an integral part

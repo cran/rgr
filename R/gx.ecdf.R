@@ -1,4 +1,4 @@
-`gx.ecdf` <-
+gx.ecdf <-
 function(xx, xlab = deparse(substitute(xx)), ylab = "Empirical Cumulative Distribution Function", 
      log = FALSE, xlim = NULL, main = " ", pch = 3, ifqs = FALSE)
 {

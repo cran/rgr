@@ -1,4 +1,4 @@
-`remove.na` <-
+remove.na <-
 function(xx)
 {
      # Function to remove 'rows' containing NAs from a vector or a matrix

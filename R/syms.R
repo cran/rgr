@@ -1,4 +1,4 @@
-"syms" <-
+syms <-
 function(z, zrange = c(NA, NA), p = 1)
 {
      # Function to compute the relative diameter, between 0.1 to 1, of a

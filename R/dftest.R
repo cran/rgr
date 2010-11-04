@@ -1,4 +1,4 @@
-`dftest` <-
+dftest <-
 function(dfname, x = NULL)
 {
      # Function to check for the existence of a data frame and whether it

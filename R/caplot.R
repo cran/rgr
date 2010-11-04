@@ -1,6 +1,6 @@
 `caplot` <-
 function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)),
-     log = FALSE, ifjit = FALSE, ifrev = FALSE, ngrid = 100, colr = topo.colors(16),
+     log = TRUE, ifjit = FALSE, ifrev = FALSE, ngrid = 100, colr = topo.colors(16),
      xcoord = "Easting", ycoord = "Northing")
 {
      # Original wrapper written by Graeme Bonham-Carter, April 2004, to prepare
@@ -15,8 +15,10 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      # convex hull of the observations are set to NA for later removal.  To
      # estimate area the function assumes that the count of grid points is
      # proportional to area.  To result in a reasonable model the observations
-     # should be 'evenly' spread over the plane.  If log = TRUE the data are
-     # log-transformed prior to interpolation.  If ifjit = TRUE the x and y
+     # should be 'evenly' spread over the plane.  By default log = TRUE and the
+     # probability plots are log-scaled and the data are log-transformed prior
+     # to interpolation.  Setting log = FALSE results in plotting on linear
+     # scales and no data transformation.  If ifjit = TRUE the x and y
      # coordinates are jittered so that no duplicate locations exist, which
      # can cause the interpolation function to fail.  If ifrev= TRUE the
      # empirical concentration-area function is plotted from lowest value to
@@ -49,7 +51,7 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      par(mfrow = c(2, 2), pty = "m", cex.main = 0.8)
      u <- na.exclude(cbind(x, y, abs(z)))
      xlim <- range(u[, 3])
-     cnpplt(u[, 3], xlab = zname, log = TRUE, xlim = xlim, main = 
+     cnpplt(u[, 3], xlab = zname, log = log, xlim = xlim, main = 
          "% Cumulative Probability Plot\nOriginal Data", cex.axis = 1, ifshape = TRUE)
      if(ifjit) {
          u[, 1] <- jitter(u[, 1], 0.5)
@@ -66,7 +68,7 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      znew <- na.omit(as.vector(new$z))
      if(log)
          znew <- 10^znew
-     cnpplt(as.vector(znew), xlab = zname, log = TRUE, xlim = xlim, main = 
+     cnpplt(as.vector(znew), xlab = zname, log = log, xlim = xlim, main = 
          "% Cumulative Probability Plot\nGridded Data", cex.axis = 0.8, ifshape = TRUE)
      # frame(), so that function will plot correctly under R
      eqscplot(range(new$x), range(new$y), plot = "n", xlab = xcoord, ylab = ycoord,

@@ -1,12 +1,12 @@
-`framework.summary` <-
+framework.summary <-
 function(group, x, file = NULL)
 {
      # Function to generate files of framework summary statistics.  The file
-     # name prefix should identify the data source, e.g., "kola_c", the group
-     # and variable names are appended with "_summary.csv" prior to opening a
-     # file for the results in the R working directory; these can be opened or
-     # viewed later with MS Excel or other compatible spreadsheet software.
-     # Function framework.stats is used to compute the summary statistics. 
+     # name prefix should identify the data source and framework group, e.g.,
+     # "d:\\stuff\\soils", the group name and variable name are appended together
+     # with ".csv" prior to opening a file for the results; these can be opened/
+     # viewed with MS Excel.  Function framework.stats is used to compute the
+     # summary statistics. 
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # variable, 'x', data must be run through ltdl.fix.df to convert any <dl
@@ -18,15 +18,14 @@ function(group, x, file = NULL)
      # attached prior to running this function, and detached following, i.e. 
      # attach(dfname) and at close, detach(dfname).
      #
-     if(is.null(file)) stop("Must supply name prefix for the output file,",
-         " e.g., \"kola_c\"\n",
-         "\t\"_groupname_xname_summary.csv\" will be appended for the full file name\n")
+     if(is.null(file)) stop("Must supply name prefix for output file,",
+         " e.g., \"d:\\\\stuff\\\\soils\"\n",
+         "\t\"_groupname_xname.csv\" will be appended for the full file name\n")
      groupname <- deparse(substitute(group))
      xname <- deparse(substitute(x))
-     filename <- paste(file, "_", groupname, "_", xname, "_summary.csv", sep = "")
-     savename <- file.path(getwd(), filename)
-     cat("  Variable", xname, "subset by", groupname, "- output will be in", savename, "\n")
-     sink(savename)
+     filename <- paste(file, "_", groupname, "_", xname, ".csv", sep = "")
+     cat("  Variable", xname, "subset by", groupname, "- output will be in", filename, "\n")
+     sink(filename)
      cat("Variable,Group,N,NA,Min,2%ile,5%ile,10%ile,25%ile,Median,75%ile,90%ile,95%ile,98%ile,Max,LCI,UCI,MAD,IQSD,Mean,SD,CV%"
          )
      on.exit(sink())

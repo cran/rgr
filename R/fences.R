@@ -1,4 +1,4 @@
-`fences` <-
+fences <-
 function(xx, display = TRUE)
 {
      # Function to display the mean, SD, median and MAD, and then the mean +- 2SD,

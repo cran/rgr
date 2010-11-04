@@ -1,4 +1,4 @@
-`cutter` <-
+cutter <-
 function(x, cuts) 
 {
     # Function to determine in which interval of a set of cut

@@ -1,4 +1,4 @@
-`display.rainbow` <-
+display.rainbow <-
 function()
 {
      # Function to display the colours of the rainbow(36) palette.

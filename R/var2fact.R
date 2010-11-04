@@ -1,4 +1,4 @@
-`var2fact` <-
+var2fact <-
 function(xmat)
 {
      # Function used in conjunction with bwplot.by.var and tbplot.by.var

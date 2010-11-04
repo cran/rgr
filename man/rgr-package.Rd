@@ -27,6 +27,8 @@ Reimann, C., Filzmoser, P. and Garrett, R.G., 2005. Background and threshold: cr
 
 Reimann, C. and Garrett, R.G., 2005. Geochemical background - Concept and reality.  Science of the Total Environment, 350(1/3):12-27.
 
-Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer.
+Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. Wiley, 362 p.
+
+Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer,  501 p.
 }
 \keyword{ package }

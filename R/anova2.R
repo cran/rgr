@@ -1,4 +1,4 @@
-`anova2` <-
+anova2 <-
 function(x, name = deparse(substitute(x)), log = FALSE, ifalt = FALSE)
 {
      # Function to compute a pairs ANOVA for simple duplicates, either

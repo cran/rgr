@@ -1,13 +1,11 @@
-`fences.summary` <-
+fences.summary <-
 function(group, x, file = NULL)
 {
-     # Function to generate a file of framework or subsetfences to assist in
-     # threshold selection.  The file name prefix should identify the data source,
-     # e.g.,"kola_c", the framework and variable names are appended with
-     # "_fences.txt_" prior to opening a file for the results in the R working
-     # directory; these can be viewed and cosmetically edited later with a viewer
-     # or ASCII editor.  Function fences is used to generate the fence statistical
-     # estimates.
+     # Function to generate a file of framework fences to assist in threshold selection.
+     # The file name prefix should identify the data source, e.g., "d:\\stuff\\soils",
+     # the group name and variable name are appended with "_fences.txt" prior to opening
+     # a file for the results; these can be viewed later with Notebook or a viewer.
+     # Function fences is used to compute the fences.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # variable, 'x', data must be run through ltdl.fix.df to convert any <dl
@@ -15,19 +13,18 @@ function(group, x, file = NULL)
      # required, to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #
-     # For the function to perform correctly the dataframe containing the data
-     # should be attached prior to running this function, and detached following
-     # execution, i.e. attach(dfname) and at close, detach(dfname).
+     # For the function to perform correctly the dataframe containing the data should
+     # be attached prior to running this function, and detached following execution,
+     # i.e. attach(dfname) and at close, detach(dfname).
      #
-     if(is.null(file)) stop("Must supply name prefix for the output file,",
-         " e.g., \"kola_c\"\n",
+     if(is.null(file)) stop("Must supply name prefix for output file,",
+         " e.g., \"d:\\\\stuff\\\\soils\"\n",
          "\t\"_groupname_xname_fences.txt\" will be appended for the full file name\n")
      groupname <- deparse(substitute(group))
      xname <- deparse(substitute(x))
      filename <- paste(file, "_", groupname, "_", xname, "_fences.txt", sep = "")
-     savename <- file.path(getwd(), filename)
-     cat("  Variable", xname, "subset by", groupname, "- output will be in", savename, "\n")
-     sink(savename)
+     cat("  Variable", xname, "subset by", groupname, "- output will be in", filename, "\n")
+     sink(filename)
      on.exit(sink())
      #
      framework.fences <- tapply(x, group, fences, display = FALSE)

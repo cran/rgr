@@ -1,4 +1,4 @@
-"inset" <-
+inset <-
 function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = NULL, ifnright = TRUE, ...)
 {
      # Function to plot a graphical EDA summary to be used as an inset

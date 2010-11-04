@@ -1,4 +1,4 @@
-`bxplot` <-
+bxplot <-
 function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0.05, xlim = NULL,
      main = " ", colr = 8)
 {

@@ -9,23 +9,22 @@ function(xx)
      # statistics, e.g., temp <- framework.stats(Cu)
      #
      # NOTE: Prior to using this function the data or data frame/matrix
-     # must be run through ltdl.fix or ltdl.fix.df, respectively,
-     # to convert any <dl -ve values to positive half that value, and, if
-     # required, to convert any zero values to NAs, zero2na = TRUE.
+     # must be run through ltdl.fix or ltdl.fix.df, respectively, to
+     # convert any <dl -ve values to positive half that value, and,
+     # if required, to convert any zero values to NAs, by setting
+     # zero2na = TRUE.
      #
      probs <- c(0, 0.02, 0.05, 0.1, 0.25, 0.5, 0.75, 0.90, 0.95, 0.98, 1)
      table <- numeric(20)
      temp.x <- remove.na(xx)
      x <- temp.x$x[1:temp.x$n]
-     nx <- temp.x$n
-     nna <- temp.x$nna
      sortedx <- sort(x)
-     j <- qbinom(0.025, nx, 0.5)
-     table[1] <- nx
-     table[2] <- nna
+     j <- qbinom(0.025, temp.x$n, 0.5)
+     table[1] <- temp.x$n
+     table[2] <- temp.x$nna
      table[3:13] <- quantile(sortedx, probs = probs)
      table[14] <- sortedx[j]
-     table[15] <- sortedx[nx - j + 1]
+     table[15] <- sortedx[temp.x$n - j + 1]
      table[16] <- mad(x)
      table[17] <- 0.7613 * (table[8] - table[6])
      table[18] <- mean(x)

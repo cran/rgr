@@ -1,4 +1,4 @@
-"bwplot" <-
+bwplot <-
 function(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 

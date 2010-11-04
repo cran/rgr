@@ -1,4 +1,4 @@
-`display.lty` <-
+display.lty <-
 function()
 {
      # Function to plot line types and colours for the default palette.

@@ -1,4 +1,4 @@
-`thplot2` <-
+thplot2 <-
 function(x, name = deparse(substitute(x)), ifzero = 0.01, xlow = NA, xhih = NA,
      yhih = NA, rsd = 5, ptile = 95, main = "", ifalt = FALSE)
 {
@@ -40,3 +40,4 @@ function(x, name = deparse(substitute(x)), ifzero = 0.01, xlow = NA, xhih = NA,
          yhih = yhih, rsd = rsd, ptile = ptile, main = main)
      invisible()
 }
+

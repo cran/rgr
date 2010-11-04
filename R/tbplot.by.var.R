@@ -1,4 +1,4 @@
-"tbplot.by.var" <-
+tbplot.by.var <-
 function(xmat, log = FALSE, logx = FALSE, notch = FALSE, xlab = "Measured Variables",
 	ylab = "Reported Values", main = "", label = NULL, plot.order = NULL, 
 	xpos = NA, las = 1, cex = 1, adj = 0.5, colr = 8, ...)

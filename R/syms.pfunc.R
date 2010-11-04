@@ -1,4 +1,4 @@
-`syms.pfunc` <-
+syms.pfunc <-
 function()
 {
      # Function to display the behaviour of the symbol plotting power

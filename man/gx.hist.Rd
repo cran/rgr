@@ -7,7 +7,7 @@ Plots a histogram for a data set, the user has options for defining the axis and
 \usage{
 gx.hist(xx, xlab = deparse(substitute(xx)), 
 	ylab = "Number of Observations", log = FALSE, xlim = NULL, 
-	main = "", nclass = "Scott", colr = 8, ifnright = TRUE)
+	main = " ", nclass = "Scott", colr = 8, ifnright = TRUE)
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted }
@@ -16,7 +16,7 @@ gx.hist(xx, xlab = deparse(substitute(xx)),
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data. }
+  \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "Sturges"} or \code{nclass = "FD"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data. }
   \item{colr}{ by default the histogram is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }
   \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}. }
 }

@@ -1,4 +1,4 @@
-"tbplot" <-
+tbplot <-
 function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 

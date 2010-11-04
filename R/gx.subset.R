@@ -1,4 +1,4 @@
-"gx.subset" <-
+gx.subset <-
 function(dfname, subset = TRUE)
 {
      # Function, to subset a dataframe on the basis of some criterion or
@@ -9,3 +9,4 @@ function(dfname, subset = TRUE)
          if(is.factor(x)) x[, drop = T] else x),
          row.names = row.names(dfname)[subset])
 }
+

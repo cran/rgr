@@ -1,4 +1,4 @@
-`display.ascii.o` <-
+display.ascii.o <-
 function()
 {
      # Function to display Windows Latin 1 font octal table.  Used to identify
