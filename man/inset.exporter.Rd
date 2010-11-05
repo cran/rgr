@@ -44,11 +44,11 @@ In some R installations the generation of multi-panel displays and the use of fu
 #endif
 } 
 \examples{
-#ifdef WINDOWS
-##
 ## Make test data available
 data(kola.o)
 attach(kola.o)
+
+#ifdef WINDOWS
 
 ## Saves a graphics file, kola_o_Cu_inset.wmf, in the R working
 ## directory in the default Windows metafile format for later
@@ -56,10 +56,10 @@ attach(kola.o)
 inset.exporter(Cu, xlab = "Cu (mg/kg) in\n<2 mm O-horizon soil", 
 	log = TRUE, file = "kola_o")
 
+#endif
+
 ## Detach test data
 detach(kola.o)
-##
-#endif
 }
 \keyword{ hplot }
  

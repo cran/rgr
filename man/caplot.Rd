@@ -6,7 +6,7 @@ Displays a concentration-area (C-A) plot to assess whether the data are spatiall
 }
 \usage{
 caplot(x, y, z, zname = deparse(substitute(z)),
-	caname = deparse(substitute(z)), log =  FALSE, ifjit = FALSE,
+	caname = deparse(substitute(z)), log =  TRUE, ifjit = FALSE,
 	ifrev = FALSE, ngrid = 100, colr = topo.colors(16), 
 	xcoord = "Easting", ycoord = "Northing")
 }
@@ -16,7 +16,7 @@ caplot(x, y, z, zname = deparse(substitute(z)),
   \item{z}{ name of the variable to be processed and plotted. }
   \item{zname}{ a title for the x-axes of the CPP (Cumulative Normal Percentage Probability) and C-A plot panels. It is often desirable to replace the default x-axis titles of the input variable name text string with a more informative title, e.g., \code{zname = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{caname}{ a title for the image of the interpolated data. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil"}.  For no title, set \code{caname = ""}. }
-  \item{log}{ if it is required to undertake the C-A plot interpolation following a logarithmic data transformation, set \code{log = TRUE}.  This also results in the accompanying probability (CPP) plots being logarithmically scaled (x-axes). }
+  \item{log}{ the default is set to \code{log = FALSE} as in most cases this function is used with positively skewed data, where a logarithmic data transform is appropriate.  If it is required to undertake the C-A plot interpolation without a logarithmic data transformation, set \code{log = FALSE}.  This also results in the accompanying probability (CPP) plots being arithmically scaled (x-axes). }
   \item{ifjit}{ if there is a possibility that the data set contains multiple measurements at an identical spatial (x,y) location set \code{ifjit = TRUE}.  The presence of multiple data at an identical location will cause the Akima (1996) interpolation function to fail. }
   \item{ifrev}{ by default the empirical C-A function is plotted from highest value to lowest, \code{ifrev = FALSE}.  As the C-A plot is a log-log display this provides greater detail for the highest values.  The direction of accumulation can be key in detecting multi-fractal patterns, it is usually informative to also prepare a plot with \code{ifrev = TRUE}, i.e. accumaulation from lowest to highest values.  To see a dramatic example of this, run the Examples below. }
   \item{ngrid}{ by default \code{ngrid = 100}, this results in the data being interpolated into a 100 x 100 grid that extends between the data set's spatial extremes determined for the (x,y) spatial coordinates for the data.  See Details below. }

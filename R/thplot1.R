@@ -1,4 +1,4 @@
-`thplot1` <-
+thplot1 <-
 function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
      rsd = 5, ptile = 95, main = "")
 {

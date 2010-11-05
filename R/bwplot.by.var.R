@@ -1,4 +1,4 @@
-"bwplot.by.var" <-
+bwplot.by.var <-
 function(xmat, log = FALSE, wend = 0.05, notch = FALSE, xlab = "Measured Variables", 
 	ylab = "Reported Values", main = "", label = NULL, plot.order = NULL, 
 	xpos = NA, las = 1, cex = 1, adj = 0.5, colr = 8, pch = 3, ...)

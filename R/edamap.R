@@ -2,9 +2,9 @@
 function(x, y, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
      ylab = "Northing", zlab = deparse(substitute(zz)), main = "", tol = 0.04)
 {
-     # Function to plot an EDA map where the data are plotted as inceasing
-     # sized circles.  The rate of increase of the diameter in proportion to
-     # the value of z is controlled by the value of p.  See syms.pfunc
+     # Function to plot an EDA map where the data, z, are plotted as increasing
+     # sized circles.  The rate of increase of the diameter is in proportion 
+     # to the value of z and controlled by the value of p.  See syms.pfunc
      # for a function that plots the result of changes in values of p over
      # the normalized 0 to 1 range of the data.  The final size of the symbol
      # on plotting is controlled by sfact.  Setting zmin and/or zmax results
@@ -14,7 +14,7 @@ function(x, y, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # x, y, and z data must be run through ltdl.fix.df to convert any <dl
-     # -ve values to positive half that value, and set zero2na = TRUE if it is
+     # -ve values to positive half that value, setting zero2na = TRUE if it is
      # required, to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #

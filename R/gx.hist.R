@@ -1,6 +1,6 @@
 `gx.hist` <-
 function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", log = FALSE,
-     xlim = NULL, main = "", nclass = "Scott", colr = 8, ifnright = TRUE)
+     xlim = NULL, main = " ", nclass = "Scott", colr = 8, ifnright = TRUE)
 {
      # Function to plot a histogram for a variable; optionally the data may be
      # presented with log scaling and the x-axis limits may be defined by providing

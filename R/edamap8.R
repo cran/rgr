@@ -1,4 +1,4 @@
-"edamap8" <-
+edamap8 <-
 function(x, y, zz, sfact = 1, xlab = "Easting", ylab = "Northing", zlab = deparse(
      substitute(zz)), main = "", ifgrey = FALSE, symcolr = NULL, tol = 0.04)
 {

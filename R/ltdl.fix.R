@@ -1,11 +1,15 @@
 `ltdl.fix` <-
 function(x, zero2na = FALSE, coded = NA)
 {
-     # Function for pre-processing a vector where -ve values indicating <dl
-     # are set to +ve half the value, optionally zeros or other numeric codes,
+     # Function for pre-processing a numeric vector where -ve values indicating
+     # <dl are set to +ve half the value, optionally zeros or other numeric codes,
      # e.g., -9999 may be set to NAs.  All rgr functions remove NAs internally
      # if required.
      #
+     if(!is.numeric(x)) {
+         cat("\nThe function argument must be numeric\n")
+         return()
+     }
      n <- length(x)
      nna <- sum(is.na(x))
      cat(" ", n, "records checked,", nna, "NA(s) present")

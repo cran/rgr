@@ -1,4 +1,4 @@
-`display.marks` <-
+display.marks <-
 function()
 {
      # Function to display pch codes offered on S-News, July 1996, by 

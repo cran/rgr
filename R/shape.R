@@ -1,4 +1,4 @@
-`shape` <-
+shape <-
 function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = "scott", ifbw = FALSE, wend = 
      0.05, colr = 8, ifnright = TRUE, ...)
 {

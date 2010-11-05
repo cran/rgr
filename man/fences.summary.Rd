@@ -45,7 +45,6 @@ attach(kola.c)
 fences.summary(COUNTRY, Cu, file = "kola_c")
 
 ## Detach test data 
-detach(kola.c)     
-}
+detach(kola.c)
 }
 \keyword{ univar }

@@ -11,7 +11,7 @@ shape(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
-  \item{xlab}{ a title for the x-axes. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{xlab}{ a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ is determined by \code{\link{gx.hist}} and used to ensure all four panels in this function have the same x-axis scaling. \code{xlim} may be defined, see Note below. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.}

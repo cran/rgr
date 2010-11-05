@@ -2,7 +2,7 @@
 \alias{ltdl.fix}
 \title{ Replace Negative Values Representing Less Than Detects for a Vector }
 \description{
-Function to process a vector to replace negative values representing less than detects (\code{<}value) with positive half that value.  This permits processing of these effectively categorical data as real numbers and their display on logarithmically scaled axes.  In addition, some software packages replace blank fields that should be interpreted as \code{NA}s, i.e. no information, with zeros.  The facility is provided to replace any zero values with \code{NA}s.  In other instances data files have been built using an integer code, e.g., -9999, to indicate 'no data', i.e. the equivalent of \code{NA}s.  The facility is provided to replace any so coded values with \code{NA}s.
+Function to process a numeric vector to replace negative values representing less than detects (\code{<}value) with positive half that value.  This permits processing of these effectively categorical data as real numbers and their display on logarithmically scaled axes.  In addition, some software packages replace blank fields that should be interpreted as \code{NA}s, i.e. no information, with zeros.  The facility is provided to replace any zero values with \code{NA}s.  In other instances data files have been built using an integer code, e.g., -9999, to indicate 'no data', i.e. the equivalent of \code{NA}s.  The facility is provided to replace any so coded values with \code{NA}s.
 
 A report of the changes made is displayed on the current device.
 
@@ -17,7 +17,7 @@ ltdl.fix(x, zero2na = FALSE, coded = NA)
   \item{coded}{ to replace any numeric coded values, e.g., -9999 with \code{NA}s, set \code{coded = -9999}. }
 }
 \value{
-A vector identical to that input but where any negative values have been replaced by half their positive values, and optionally any zero or numeric coded values have been replaced by \code{NA}s.
+A numeric vector identical to that input but where any negative values have been replaced by half their positive values, and optionally any zero or numeric coded values have been replaced by \code{NA}s.
 }
 \note{
 If data are being accessed through an ODBC link to a database, rather than from a dataframe that can be processed by \code{\link{ltdl.fix.df}}, it may be important to run this function on the retrieved vector prior to any subsequent processing.  The necessity for such vector processing can be ascertained using the range function, e.g., \code{range(na.omit(x))}, where x is the variable name, to determine the presence of any negative values.  The presence of any \code{NA}s in the vector will return \code{NA}s in the \code{\link{range}} function without the \code{\link{na.omit}}, i.e. \code{range(x)}.
