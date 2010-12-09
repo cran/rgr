@@ -1,6 +1,6 @@
 bxplot <-
-function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0.05, xlim = NULL,
-     main = " ", colr = 8)
+function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0.05, 
+     xlim = NULL, main = "", colr = 8, cex = 1, ...)
 {
      # Function to plot a single horizontal box plot; the default is a Tukey boxplot, 
      # ifbw = T generates an IDEAS style box-and-whisker plot, and wend defines the
@@ -34,16 +34,16 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0
      }
      else logplot <- ""
      if(is.null(xlim)) {
-         plot(x = rangex, y = c(0, 0), xlab = xlab, ylab = "", log = logplot, ylim = c(-1, 1),
-             yaxt = "n", type = "n", main = main)
+         plot(x = rangex, y = c(0, 0), xlab = xlab, ylab = "", log = logplot,
+             ylim = c(-1, 1), yaxt = "n", type = "n", main = main, ...)
          limits <- par("usr")
          if(log)
              limits[1:2] <- 10^limits[1:2]
          nxx <- 0
      }
      else {
-         plot(x = rangex, y = c(0, 0), xlab = xlab, ylab = "", log = logplot, xlim = xlim, ylim = 
-             c(-1, 1), yaxt = "n", type = "n", main = main)
+         plot(x = rangex, y = c(0, 0), xlab = xlab, ylab = "", log = logplot,
+             xlim = xlim, ylim = c(-1, 1), yaxt = "n", type = "n", main = main, ...)
          limits <- par("usr")
          if(log)
              limits[1:2] <- 10^limits[1:2]
@@ -62,8 +62,8 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0
          else {
           if(wend > 0.25)
                wend <- 0.05
-          q <- as.vector(quantile(x, probs = c(wend, 0.25, 0.5, 0.75, 1 - wend), na.rm = TRUE)
-               )
+          q <- as.vector(quantile(x, probs = c(wend, 0.25, 0.5, 0.75, 1 - wend), 
+               na.rm = TRUE))
           lowend <- q[1]
           q1 <- q[2]
           q2 <- q[3]
@@ -98,14 +98,17 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0
          q3 <- q[3]
          hihend <- max(x[x < xcut[3]])
          for(i in 1:nx) {
-          if((x[i] < lowend) || (x[i] > hihend)) {
-               pch <- 3
-               if((x[i] <= xcut[1]) || (x[i] >= xcut[4]))
-                    pch <- 1
-               if(is.null(xlim) || ((x[i] <= xlim[2]) & (x[i] >= xlim[1]))) {
-                    points(x[i], 0, pch = pch)
-               }
-          }
+             if((x[i] < lowend) || (x[i] > hihend)) {
+                 pch <- 3
+                 sym.cex <- 1
+                 if((x[i] <= xcut[1]) || (x[i] >= xcut[4])) {
+                      pch <- 1
+                      sym.cex <- 1.6
+                 }
+                 if(is.null(xlim) || ((x[i] <= xlim[2]) & (x[i] >= xlim[1]))) {
+                    points(x[i], 0, pch = pch, cex = sym.cex)
+                 }
+             }
          }
      }
      polygon(c(q1, q1, q3, q3, q1), c(0.4, -0.4, -0.4, 0.4, 0.4), col = colr)
@@ -117,10 +120,11 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0
           0.05)
      else xpos <- limits[2] - (limits[2] - limits[1]) * 0.05
      ypos <- limits[3] + (limits[4] - limits[3]) * 0.15
-     text(xpos, ypos, labels = paste("N =", nx), adj = 1)
+     text(xpos, ypos, labels = paste("N =", nx), adj = 1, cex = cex)
      if(nxx != 0) {
          ypos <- limits[3] + (limits[4] - limits[3]) * 0.06
-         text(xpos, ypos, labels = paste(nxx, "points omitted"), adj = 1)
+         text(xpos, ypos, labels = paste(nxx, "points omitted"), adj = 1,
+             cex = cex * 0.8)
      }
      invisible()
 }

@@ -6,8 +6,8 @@ Displays an empirical cumulative distribution function (ECDF) plot with a zero-t
 }
 \usage{
 gx.ecdf(xx, xlab = deparse(substitute(xx)), 
-	ylab = "Empirical Cumulative Distribution Function", 
-	log = FALSE, xlim = NULL, main = " ", pch = 3, ifqs = FALSE)
+	ylab = "Empirical Cumulative Distribution Function", log = FALSE,
+	xlim = NULL, main = "", pch = 3, ifqs = FALSE, cex = 0.8, ...)
 }
 \arguments{
   \item{xx}{name of the variable to be plotted.}
@@ -18,6 +18,8 @@ gx.ecdf(xx, xlab = deparse(substitute(xx)),
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
   \item{pch}{ by default the plotting symbol is set to a plus, \code{pch = 3}, alternate plotting symbols may be chosen from those displayed by \code{\link{display.marks}}. }
   \item{ifqs}{ setting \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively. }
+  \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }.  
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codesrepresenting blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

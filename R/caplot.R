@@ -1,4 +1,4 @@
-`caplot` <-
+caplot <-
 function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)),
      log = TRUE, ifjit = FALSE, ifrev = FALSE, ngrid = 100, colr = topo.colors(16),
      xcoord = "Easting", ycoord = "Northing")
@@ -15,10 +15,8 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      # convex hull of the observations are set to NA for later removal.  To
      # estimate area the function assumes that the count of grid points is
      # proportional to area.  To result in a reasonable model the observations
-     # should be 'evenly' spread over the plane.  By default log = TRUE and the
-     # probability plots are log-scaled and the data are log-transformed prior
-     # to interpolation.  Setting log = FALSE results in plotting on linear
-     # scales and no data transformation.  If ifjit = TRUE the x and y
+     # should be 'evenly' spread over the plane.  If log = TRUE the data are
+     # log-transformed prior to interpolation.  If ifjit = TRUE the x and y
      # coordinates are jittered so that no duplicate locations exist, which
      # can cause the interpolation function to fail.  If ifrev= TRUE the
      # empirical concentration-area function is plotted from lowest value to
@@ -51,8 +49,9 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      par(mfrow = c(2, 2), pty = "m", cex.main = 0.8)
      u <- na.exclude(cbind(x, y, abs(z)))
      xlim <- range(u[, 3])
-     cnpplt(u[, 3], xlab = zname, log = log, xlim = xlim, main = 
-         "% Cumulative Probability Plot\nOriginal Data", cex.axis = 1, ifshape = TRUE)
+     cnpplt(u[, 3], xlab = zname, log = TRUE, xlim = xlim, main = 
+         "% Cumulative Probability Plot\nOriginal Data", cex.axis = 1,
+         ifshape = TRUE, cex.lab = 0.8)
      if(ifjit) {
          u[, 1] <- jitter(u[, 1], 0.5)
          u[, 2] <- jitter(u[, 2], 0.5)
@@ -68,18 +67,20 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      znew <- na.omit(as.vector(new$z))
      if(log)
          znew <- 10^znew
-     cnpplt(as.vector(znew), xlab = zname, log = log, xlim = xlim, main = 
-         "% Cumulative Probability Plot\nGridded Data", cex.axis = 0.8, ifshape = TRUE)
+     cnpplt(as.vector(znew), xlab = zname, log = TRUE, xlim = xlim, main = 
+         "% Cumulative Probability Plot\nGridded Data", cex.axis = 0.8,
+         ifshape = TRUE, cex.lab = 0.8)
      # frame(), so that function will plot correctly under R
      eqscplot(range(new$x), range(new$y), plot = "n", xlab = xcoord, ylab = ycoord,
-          main = caname, pch = 32)
+          main = caname, pch = 32, cex.lab = 0.8)
      image(new, add = TRUE, col = colr)
      # image.legend(new, horizontal = FALSE, xlab = zlgnd), image.legend call not in R
      conc <- znew[order(znew)]
      cumarea <- seq(1, length(znew))/length(znew) * 100
      if(!ifrev) conc <- rev(conc)
      plot(conc, cumarea, log = "xy", xlab = zname, ylab = "Cumulative area (%)",
-          main = "Concentration-Area Plot", xlim = xlim, yaxt = "n", pch = 3)
+          main = "Concentration-Area Plot", xlim = xlim, yaxt = "n", pch = 3,
+          cex.lab = 0.8)
      axis(2, at = c(0.01, 0.1 ,1 ,10, 100), labels = c("0.01", "0.1", "1", "10", "100"),
           las = 1, cex = 1) 
      limits <- par("usr")
@@ -87,7 +88,7 @@ function(x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z)
      if(ifrev)
          ypos <- 10^(limits[3] + (limits[4] - limits[3]) * 0.11)
      else ypos <- 10^(limits[4] - (limits[4] - limits[3]) * 0.11)
-     text(xpos, ypos, labels = paste("N =", length(conc)), adj = 1)
+     text(xpos, ypos, labels = paste("N =", length(conc)), adj = 1, cex=0.8)
      invisible()
 }
 

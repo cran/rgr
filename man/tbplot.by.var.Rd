@@ -11,7 +11,7 @@ tbplot.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
 	las = 1, cex = 1, adj = 0.5, colr = 8, ...)
 }
 \arguments{
-  \item{xmat}{ the data matrix or data frame containing the data. }
+  \item{xmat}{ the data matrix or dataframe containing the data. }
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{logx}{ if the positions of the Tukey boxplot fences are to be computed on the basis of log transformed data set \code{logx = TRUE}. For general usage, if \code{log = TRUE} then set \code{logx = TRUE}. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is not to notch the boxplots, to have notches set \code{notch = TRUE}. }
@@ -28,7 +28,7 @@ tbplot.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
   \item{\dots}{ further arguments to be passed to methods. }
 }
 \details{
-There are two ways to provide data to this function.  Firstly, if all the variables in a data frame are to be displayed, and there are no factor variables, the data frame name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
+There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
 
 Long variable names can lead to display problems, changing the \code{las} parameter from its default of \code{las = 1} which plots subset labels parallel to the axis to \code{las = 2}, to plot perpendicular to the axis, can help.  It may also help to use \code{label} and split the character string into two lines, e.g., by changing the string \code{"Specific Conductivity"} that was supplied to replace the variable name \code{SC} to \code{"Specific\\nConductivity"}.  If this, or setting \code{las = 2}, causes a conflict with the x-axis title, if one is needed, the title can be moved down a line by using \code{xlab = "\\nPhysical soil properties"}.  In both cases the \code{\\n} forces the following text to be placed on the next lower line.
 
@@ -40,6 +40,8 @@ The notches in the boxplots indicate the 95\% confidence intervals for the media
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
+
+For a summary statistics display to complement the graphics see \code{\link{gx.summary.mat}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{tbplot}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
@@ -61,8 +63,9 @@ detach(kola.c)
 ## Make test data ms.data1 available
 data(ms.data1)
 
-## Display variables in a data frame
-tbplot.by.var(ms.data1, log=TRUE, logx = TRUE)
+## Display variables in a dataframe, remembering to omit the
+## sample IDs
+tbplot.by.var(ms.data1[, -1], log=TRUE, logx = TRUE)
 }
 \keyword{ hplot }
 

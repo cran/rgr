@@ -1,19 +1,21 @@
-edamap8 <-
-function(x, y, zz, sfact = 1, xlab = "Easting", ylab = "Northing", zlab = deparse(
-     substitute(zz)), main = "", ifgrey = FALSE, symcolr = NULL, tol = 0.04)
+map.eda8 <-
+function(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
+         zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE, symcolr = NULL,
+         tol = 0.04, ...)
 {
      # Function to plot an EDA map where the data are divided into 8 groups based
      # on divisions at the 2nd, 5, 25, 50, 75, 95 and 98th percentiles; data below
      # the median are plotted as increasing sized circles, and data above the median
      # as increasing sized squares.  The variable sfact is used to scale the symbols
-     # as appropriate for the display device.  The default set of colours are 
-     # inceasingly deeper blues for <Q2, green for between Q2 and Q3, and oranges
-     # and reds for >Q3.  Alternately a grey-scale map may be generated.
+     # as appropriate for the display device.  The default set of colours from the
+     # rainbow(36) pallette (see display.rainbow()) are inceasingly deeper blues for
+     # <Q2, green for between Q2 and Q3, and oranges and reds for >Q3.  Alternately
+     # a grey-scale map may be generated.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # x, y, and z data must be run through ltdl.fix.df to convert any <dl
      # -ve values to positive half that value, and set zero2na = TRUE if it is
-     # required, to convert any zero values or other numeric codes representing 
+     # required to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #
      # The V&R MASS Library must be attached to access eqscplot.
@@ -22,15 +24,17 @@ function(x, y, zz, sfact = 1, xlab = "Easting", ylab = "Northing", zlab = depars
      oldpar <- par()
      on.exit(par(oldpar))
      par(pty = "m")
-     temp.z <- remove.na(zz)
-     z <- temp.z$x[1:temp.z$n]
-     nz <- temp.z$n
+     temp.x <- remove.na(cbind(xx, yy, zz))
+     x <- temp.x$x[1:temp.x$n, 1]
+     y <- temp.x$x[1:temp.x$n, 2]
+     z <- temp.x$x[1:temp.x$n, 3]
+     nz <- temp.x$n
      if(main == "")
          if(zlab == "")
           banner <- ""
          else banner <- paste("EDA Percentile Based Map for", zlab)
      else banner <- main
-     eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol)
+     eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol, ...)
      zcut <- quantile(z, probs = c(0.02, 0.05, 0.25, 0.5, 0.75, 
          0.95, 0.98))
      zzz <- cutter(z, zcut)
@@ -46,8 +50,8 @@ function(x, y, zz, sfact = 1, xlab = "Easting", ylab = "Northing", zlab = depars
      for(i in 1:nz) {
          points(x[i], y[i], pch = npch[zzz[i]], cex = size[zzz[i]], col = symcolr[zzz[i]])
      }
-     cat("\tCut Levels\t No. of Symbols    Symbol & cex & Colour\n\t\t\t\t\t\tsfact =",
-         format(sfact, nsmall=2), "\n")
+     cat("\tCut Levels\t No. of Symbols   Symbol - size - Colour\n\t\t\t\t\t\tsfact =",
+         format(sfact, nsmall=2), "\n\n")
      stype <- character(8)
      stype[1:4] <- "Circle"
      stype[5:8] <- "Square"

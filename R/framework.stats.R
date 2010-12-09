@@ -1,36 +1,34 @@
-`framework.stats` <-
+framework.stats <-
 function(xx)
 {
-     # Function for use with tapply within framework.stats to compute
+     # Function for use with tapply within framework.summary to compute
      # selected percentiles, 95% CI on the median, MAD, IQR estimate of
-     # SD, mean, SD and CV%.
+     # SD, mean, SD and CV%.  The statistical calculations are performed
+     # by function gx.stats.
      #
      # Function may be used stand alone to generate a table of summary
-     # statistics, e.g., temp <- framework.stats(Cu)
+     # statistics, e.g., temp <- framework.stats(Cu), however, direct 
+     # use of gx.stats is recommended.
      #
      # NOTE: Prior to using this function the data or data frame/matrix
-     # must be run through ltdl.fix or ltdl.fix.df, respectively, to
-     # convert any <dl -ve values to positive half that value, and,
-     # if required, to convert any zero values to NAs, by setting
-     # zero2na = TRUE.
+     # containing xx must be run through ltdl.fix or ltdl.fix.df,
+     # respectively, to convert any <dl -ve values to positive half that
+     # value, and set zero2na = TRUE if it is required to convert any zero
+     # values or other numeric codes representing blanks to NAs.
      #
-     probs <- c(0, 0.02, 0.05, 0.1, 0.25, 0.5, 0.75, 0.90, 0.95, 0.98, 1)
+     stats <- gx.stats(xx, display = F)
      table <- numeric(20)
-     temp.x <- remove.na(xx)
-     x <- temp.x$x[1:temp.x$n]
-     sortedx <- sort(x)
-     j <- qbinom(0.025, temp.x$n, 0.5)
-     table[1] <- temp.x$n
-     table[2] <- temp.x$nna
-     table[3:13] <- quantile(sortedx, probs = probs)
-     table[14] <- sortedx[j]
-     table[15] <- sortedx[temp.x$n - j + 1]
-     table[16] <- mad(x)
-     table[17] <- 0.7613 * (table[8] - table[6])
-     table[18] <- mean(x)
-     table[19] <- sqrt(var(x))
-     table[20] <- (100 * table[19])/table[18]
-     table[3:20] <- signif(table[3:20], 4)
+     table[1] <- stats$stats[20]
+     table[2] <- length(xx) - stats$stats[20]
+     table[3:13] <- stats$stats[c(1, 3, 4, 5, 7, 10, 13, 15, 16, 17, 19)]
+     table[14] <- stats$stats[27]
+     table[15] <- stats$stats[28]
+     table[16] <- stats$stats[21]
+     table[17] <- stats$stats[22]
+     table[18] <- stats$stats[23]
+     table[19] <- stats$stats[25]
+     table[14:19] <- signif(table[14:19], 4)
+     table[20] <- stats$stats[26]
      invisible(table)
 }
 

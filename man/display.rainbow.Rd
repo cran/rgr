@@ -8,4 +8,5 @@ Displays the available colours in the rainbow(36) pallette to support the select
 display.rainbow()
 }
 \author{ Robert G. Garrett }
+\keyword{ color }
 \keyword{ misc }

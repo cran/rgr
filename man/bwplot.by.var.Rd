@@ -11,7 +11,7 @@ bwplot.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
 	las = 1, cex = 1, adj = 0.5, colr = 8, pch = 3, ...)
 }
 \arguments{
-  \item{xmat}{ the data matrix or data frame containing the data. }
+  \item{xmat}{ the data matrix or dataframe containing the data. }
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{wend}{ the locations of the whisker-ends has to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. See Details below. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is not to notch the boxplots, to have notches set \code{notch = TRUE}. }
@@ -29,7 +29,7 @@ bwplot.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
   \item{\dots}{ further arguments to be passed to methods. }
 }
 \details{
-There are two ways to provide data to this function.  Firstly, if all the variables in a data frame are to be displayed, and there are no factor variables, the data frame name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
+There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
 
 In a box-and-whisker plot there are two special cases.  When \code{wend = 0} the whiskers extend to the observed minima and maxima that are not plotted with the plus symbol.  When \code{wend = 0.25} no whiskers or the data minima and maxima are plotted, only the medians and boxes representing the span of the middle 50\% of the data are displayed.
 
@@ -43,6 +43,8 @@ The notches in the boxplots indicate the 95\% confidence intervals for the media
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
+
+For a summary statistics display to complement the graphics see \code{\link{gx.summary.mat}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{bwplot}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
@@ -64,9 +66,10 @@ detach(kola.c)
 ## Make test data ms.data1 available
 data(ms.data1)
 
-## Display variables in a data frame extending the whiskers to the
-## 2nd and 98th percentiles of the data
-bwplot.by.var(ms.data1, log=TRUE, wend = 0.02)
+## Display variables in a dataframe extending the whiskers to the
+## 2nd and 98th percentiles of the data, remembering to omit the
+## sample IDs
+bwplot.by.var(ms.data1[, -1], log=TRUE, wend = 0.02)
 
 }
 \keyword{ hplot }

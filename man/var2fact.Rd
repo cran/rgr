@@ -21,7 +21,7 @@ The \code{m} variables for \code{n} cases results in a \code{n * m} by \code{2} 
 }
 \author{ Robert G. Garrett }
 \examples{
-## Display, convert data frame and display the result
+## Display, convert dataframe and display the result
 data(ms.data1)
 ms.data1
 temp <- var2fact(ms.data1)

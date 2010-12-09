@@ -1,6 +1,7 @@
-`gx.hist` <-
-function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", log = FALSE,
-     xlim = NULL, main = " ", nclass = "Scott", colr = 8, ifnright = TRUE)
+gx.hist <-
+function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations",
+	log = FALSE, xlim = NULL, main = "", nclass = "Scott", colr = 8, 
+	ifnright = TRUE, cex = 1, ...)
 {
      # Function to plot a histogram for a variable; optionally the data may be
      # presented with log scaling and the x-axis limits may be defined by providing
@@ -13,8 +14,8 @@ function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", lo
      # is infilled with grey (colr = 8), if no infill is required set colr = 0.  
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
-     # variable, 'xx', data must be run through ltdl.fix.df to convert any <dl
-     # -ve values to positive half that value, and set zero2na = TRUE if it is
+     # variable 'xx' must be run through ltdl.fix.df to convert any <dl -ve
+     # values to positive half that value, and set zero2na = TRUE if it is
      # required, to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #
@@ -26,17 +27,18 @@ function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", lo
          x.save <- x
          x <- log10(x)
          if((!is.null(xlim)) && (xlim[1] <= 0))
-          xlim[1] <- xrange[1]
+             xlim[1] <- xrange[1]
      }
      else logx <- ""
      nx <- length(x)
      q <- as.vector(quantile(x, c(0.25, 0.75)))
-     h <- switch(as.character(pmatch(nclass, c("sturges", "Sturges", "scott", "Scott", "fd", "FD"), nomatch = 4)),
-         "1" = ,
+     h <- switch(pmatch(nclass, c("sturges", "Sturges", "scott", "Scott", "fd", "FD"),
+         nomatch = ""),
+         "1" = diff(range(x))/(logb(nx, 2) + 1),
          "2" = diff(range(x))/(logb(nx, 2) + 1),
-         "3" = ,
+         "3" = 3.5 * sqrt(var(x)) * nx^(-1/3),
          "4" = 3.5 * sqrt(var(x)) * nx^(-1/3),
-         "5" = ,
+         "5" = 2 * (q[2] - q[1]) * nx^(-1/3),
          "6" = 2 * (q[2] - q[1]) * nx^(-1/3))
      nhb <- ceiling(diff(range(x))/h)
      breaks <- pretty(x, nhb)
@@ -62,14 +64,14 @@ function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", lo
      ypos <- numeric(nvec + 1)
      for(i in 1:nb) {
          for(j in 1:2) {
-          xpos[(i - 1) * 2 + j] <- breaks[i]
+             xpos[(i - 1) * 2 + j] <- breaks[i]
          }
      }
      xpos[nvec + 1] <- breaks[1]
      ypos[1] <- 0
      for(i in 1:nk) {
          for(j in 1:2) {
-          ypos[(i - 1) * 2 + j + 1] <- nink[i]
+             ypos[(i - 1) * 2 + j + 1] <- nink[i]
          }
      }
      ypos[nvec] <- 0
@@ -89,8 +91,8 @@ function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", lo
          x <- xpos
          y <- ypos
      }
-     plot(x, y, log = logx, xlim = xlim, ylim = c(0, kmax), xlab = xlab, ylab = ylab, main = main,
-         type = "n", las = 1)
+     plot(x, y, log = logx, xlim = xlim, ylim = c(0, kmax), xlab = xlab, 
+         ylab = ylab, main = main, type = "n", las = 1, ...)
      polygon(x, y, col = colr)
      lines(x, y)
      limits <- par("usr")
@@ -105,10 +107,11 @@ function(xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", lo
      if(log)
          xpos <- 10^xpos
      ypos <- limits[4] - (limits[4] - limits[3]) * 0.1
-     text(xpos, ypos, labels = paste("N =", nx), adj = adj)
+     text(xpos, ypos, labels = paste("N =", nx), adj = adj, cex = cex, ...)
      if(nnx >= 1) {
          ypos <- limits[4] - (limits[4] - limits[3]) * 0.2
-         text(xpos, ypos, labels = paste("Bins for", nnx, "points omitted"), cex = 0.8, adj = adj)
+         text(xpos, ypos, labels = paste("Bins for", nnx, "\npoints omitted"), 
+             cex = cex * 0.8, adj = adj, ...)
      }
      invisible(list(xlim = xlim))
 }

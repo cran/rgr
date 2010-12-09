@@ -1,6 +1,6 @@
 thplot1 <-
 function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
-     rsd = 5, ptile = 95, main = "")
+     rsd = 5, ptile = 95, main = "", ...)
 {
      # Function to display Thompson-Howarth plots of duplicate measurements, 
      # see Thompson, M & Howarth, RJ, 1978: A new approach to the estimation
@@ -49,8 +49,9 @@ function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
          yhih <- max(xdif)
      if(yhih == ifzero)
          yhih <- ifzero * 10
-     plot(xbar, xdif, xlim = c(xlow, xhih), ylim = c(ifzero, yhih), xlab = "Mean of Duplicates", ylab
-          = "Absolute Difference between Duplicates", log = "xy", type = "n", main = main)
+     plot(xbar, xdif, xlim = c(xlow, xhih), ylim = c(ifzero, yhih), 
+          xlab = "Mean of Duplicates", ylab = "Absolute Difference between Duplicates",
+          log = "xy", type = "n", main = main, ...)
      points(xbar, xdif)
      limits <- par("usr")
      ypos <- 10^(limits[3] + (limits[4] - limits[3]) * 0.05)

@@ -17,10 +17,10 @@ remove.na(xx)
   \item{nna}{ the number of rows removed from \code{xx}. }
 }
 \details{
-This function is called by many of the procedures in the rgr package.  If one or more \code{NA}s are found the user is informed of how many.  In general a dataframe will have been cleared of any <values represented by negative values or zeros prior to executing the procedure calling this function, see \code{\link{ltdl.fix.df}}, or \code{\link{ltdl.fix}} if a single vector is being processed.
+This function is called by many of the procedures in the \sQuote{rgr} package.  If one or more \code{NA}s are found the user is informed of how many.  In general a dataframe will have been cleared of any <values represented by negative values or zeros prior to executing the procedure calling this function, see \code{\link{ltdl.fix.df}}, or \code{\link{ltdl.fix}} if a single vector is being processed.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}} } 
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{which.na}} } 
 \examples{
 ## remove NAs
 xx <- c(15, 39, 18, 16, NA, 53)
