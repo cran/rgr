@@ -11,5 +11,6 @@ display.lty()
 Several rgr functions that plot boxes or polygons may have their default infill colour of grey, \code{colr = 8}, changed to an alternate colour, \code{colr = 1} to \code{7} or \code{9}.  For no infill colour, set \code{colr} = 0.
 }
 \author{ Robert G. Garrett }
+\keyword{ color }
 \keyword{ misc }
 

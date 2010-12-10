@@ -5,8 +5,9 @@
 Plots a single horizontal boxplot as part of the multi-panel display provided by function \code{\link{shape}}, the default is a Tukey boxplot, alternately a box-and-whisker plot may be displayed.
 }
 \usage{
-bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, 
-	wend = 0.05, xlim = NULL, main = " ", colr = 8)
+bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE,
+	ifbw = FALSE, wend = 0.05, xlim = NULL, main = "", colr = 8,
+	cex = 1, ...)
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
@@ -16,7 +17,9 @@ bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE,
   \item{wend}{ if \code{ifbw = TRUE} the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{colr}{ by default the histogram and box are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. } 
+  \item{colr}{ by default the box is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. }
+  \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. } 
 }
 \details{
 The function can be used stand-alone, but as Tukey boxplots and box-and-whisker plots are usually used to compare the distributions of data subsets the functions \code{\link{tbplot}} (Tukey boxplots) and \code{\link{bwplot}} (box-and-whisker plots) are required for that purpose.
@@ -46,7 +49,6 @@ attach(kola.o)
 
 ## Display a simple boxplot
 bxplot(Cu)
-
 
 ## Display a more appropriately labelled and scaled boxplot
 bxplot(Cu, xlab = "Cu (mg/kg) in <2 mm O-horizon soil", log = TRUE)

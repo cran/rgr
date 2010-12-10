@@ -1,9 +1,10 @@
-dftest <-
+df.test <-
 function(dfname, x = NULL)
 {
      # Function to check for the existence of a data frame and whether it
      # is already attached.  If the data frame is 'legitimate' the variable
-     # names are displayed, specifying 'x' displays the length of 'x'.
+     # names are displayed, specifying a variable name, x, displays the
+     # length of x.
      #
      dfn <- deparse(substitute(dfname))
      if(exists(dfn)) {
@@ -13,7 +14,7 @@ function(dfname, x = NULL)
              attach(dfname)
              on.exit(detach(dfname))
          }
-         cat("  Names:", names(dfname), "\n")
+         cat(paste("  Names of variables in ", dfn, ":\n ", sep = ""), names(dfname), "\n")
          if(!is.null(x)) {
              xname <- deparse(substitute(x))
              if(match(xname, names(dfname), nomatch = 0))
@@ -21,7 +22,7 @@ function(dfname, x = NULL)
              else cat(" ", xname, "is not present in", dfn, "\n")
          }
      }
-     else cat(" ", dfn, "not in search path\n")
+     else cat(" ", dfn, "is not in the search path\n")
      invisible()
 }
 

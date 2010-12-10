@@ -7,7 +7,7 @@ Plots a series of vertical box-and-whisker plots where the individual boxplots r
 \usage{
 bwplot(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "",
-        label = NULL, plot.order = NULL, xpos = NA, width, 
+	label = NULL, plot.order = NULL, xpos = NA, width, 
 	space = 0.25, las = 1, cex = 1, adj = 0.5, add = FALSE, 
 	ssll = 1, colr = 8, pch = 3, ...)
 }
@@ -36,7 +36,7 @@ bwplot(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
   \item{\dots}{ further arguments to be passed to methods. }
 }
 \details{
-There are two ways to execute this function.  Firstly by defining \code{x} and \code{by}, and secondly by combining the two variables with the \code{\link{split}} function.  See the first two examples below.  The \code{\link{split}} function can be useful if the factors to use in the boxplot are to be generated at run-time, see the last example below.  Note that when the \code{\link{split}} construct is used instead of \code{by} the whole \code{split} statement will be displayed as the default y-axis title.  Also note that when using \code{by} the subsets are listed in the order that the factors are encountered in the data, but when using \code{split} the subsets are listed alphabetically.  In either case they can be re-ordered using \code{plot.order, see Examples. }
+There are two ways to execute this function.  Firstly by defining \code{x} and \code{by}, and secondly by combining the two variables with the \code{\link{split}} function.  See the first two examples below.  The \code{\link{split}} function can be useful if the factors to use in the boxplot are to be generated at run-time, see the last example below.  Note that when the \code{\link{split}} construct is used instead of \code{by} the whole \code{split} statement will be displayed as the default y-axis title.  Also note that when using \code{by} the subsets are listed in the order that the factors are encountered in the data, but when using \code{split} the subsets are listed alphabetically.  In either case they can be re-ordered using \code{plot.order}, see Examples. 
 
 In a box-and-whisker plot there are two special cases.  When \code{wend = 0} the whiskers extend to the observed minima and maxima that are not plotted with the plus symbol.  When \code{wend = 0.25} no whiskers or the data minima and maxima are plotted, only the medians and boxes representing the span of the middle 50\% of the data are displayed.
 
@@ -54,8 +54,10 @@ This function is based on a script shared by Doug Nychka on S-News, April 28, 19
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to preparing the boxplots.
+
+For summary statistics displays to complement the graphics see \code{\link{gx.summary.groups}} or\cr\code{\link{framework.summary}}.
 }
-\author{ Robert G. Garrett and Douglas W. Nychka }
+\author{ Douglas W. Nychka and Robert G. Garrett }
 \seealso{ \code{\link{cat2list}}, \code{\link{ltdl.fix.df}} } 
 \examples{
 ## Make test data kola.c available
@@ -95,10 +97,12 @@ bwplot(split(Cu,trunc(pH+0.5)), log=TRUE, wend = 0.02,
 ## As above, but demonstrating the use of variable box widths and the
 ## suppression of 95\% confidence interval notches.  The box widths are
 ## computed as (Log10(n)+0.1)/5, the 0.1 is added as one subset has a
-## population of 1.
+## population of 1.  Note: paste is used in constructing xlab, below,
+## as the label is long and overflows the text line length
 table(trunc(pH+0.5))
 bwplot(split(Cu,trunc(pH+0.5)), log=TRUE, wend = 0.02, notch = FALSE,
-	xlab = "O-horizon soil pH to the nearest pH unit,\nbox widths proportional to Log(subset_size)",
+	xlab = paste("O-horizon soil pH to the nearest pH unit,",
+	"\nbox widths proportional to Log(subset_size)"),
 	ylab = "Cu (mg/kg) in <2 mm O-horizon soil",
 	width = c(0.26, 0.58, 0.24, 0.02))
 

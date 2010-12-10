@@ -1,6 +1,6 @@
 shape <-
-function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = "scott", ifbw = FALSE, wend = 
-     0.05, colr = 8, ifnright = TRUE, ...)
+function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = "Scott", 
+         ifbw = FALSE, wend = 0.05, ifnright = TRUE, colr = 8, cex = 0.8, ...)
 {
      # Function to plot a graphical EDA summary for a variable, consisting of the 
      # display of a histogram, an empirical cumulative distribution function (ECDF), a
@@ -17,8 +17,8 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = 
      # comparison.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
-     # variable, 'x', data must be run through ltdl.fix.df to convert any <dl
-     # -ve values to positive half that value, and set zero2na = TRUE if it is
+     # variable 'xx' must be run through ltdl.fix.df to convert any <dl -ve
+     # values to positive half that value, and set zero2na = TRUE if it is
      # required, to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #
@@ -28,18 +28,19 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, nclass = 
      par(mfrow = c(2, 2), pty = "m", cex.main = 0.9)
      temp.x <- remove.na(xx)
      x <- temp.x$x[1:temp.x$n]
-     save <- gx.hist(x, xlab = xlab, ylab = "", log = log, xlim = xlim, main = "Histogram",
-         nclass =  nclass, colr = colr, ifnright = ifnright)
+     save <- gx.hist(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, main = "Histogram",
+         nclass =  nclass, ifnright = ifnright, cex = cex, colr = colr, ...)
      xlim <- save$xlim
      if(ifbw)
          banner <- "Box and Whisker Plot"
      else banner <- "Tukey Boxplot"
      bxplot(x, xlab = xlab, log = log, xlim = xlim, main = banner, ifbw = ifbw, col = colr,
-         wend = wend)
-     gx.ecdf(x, xlab = xlab, ylab = "", log = log, xlim = xlim, main = 
-         "Empirical Cumulative Distribution\nFunction (ECDF)", ...)
-     cnpplt(x, xlab = xlab, ylab = "", log = log, xlim = xlim, main = 
-         "% Cumulative (Normal) Percentage\nProbability (CPP) Plot", ifshape = TRUE, ...)
+         wend = wend, cex = cex, colr = colr, ...)
+     gx.ecdf(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, main = 
+         "Empirical Cumulative Distribution\nFunction (ECDF)", cex = cex, ...)
+     cnpplt(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, main = 
+         "% Cumulative Percentage\n(Normal) Probability (CPP) Plot", ifshape = TRUE,
+         cex = cex, ...)
      invisible()
 }
 

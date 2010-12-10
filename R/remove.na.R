@@ -19,7 +19,7 @@ function(xx)
          intype <- "matrix"
      }
      nna <- nx - n
-     if(nna > 0) cat(paste(" ", nna, "row(s) with missing value(s), NA(s), removed from", intype, "\n"))
+     if(nna > 0) cat(paste(nna, "row(s) with missing value(s), NA(s), removed from", intype, "\n\n"))
      invisible(list(x = x, n = n, m = m, nna = nna))
 }
 

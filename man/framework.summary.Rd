@@ -13,12 +13,12 @@ framework.summary(group, x, file = NULL)
   \item{file}{ the first part of the file name identifying the data source for saving the function output in the R working directory, see Details below. }
 }
 \details{
-\code{file} contains the first part of the file name identifying the data source for the output file to be saved in the R working directory, see Note below. The function concatenates the working directory name with \code{file}, \code{_}, \code{group} as a character string, \code{_}, \code{x} as a character string, and \code{_summary.csv} to be used as the file name.
+\code{file} contains the first part of the file name identifying the data source for the output file to be saved in the R working directory, see Note below. The function concatenates the working directory name with \code{file}\code{_}\code{deparse(substitute(group))}\code{_}\code{deparse(substitute(x))}\code{_summary.csv} to be used as the file name.
 
 Output to the current device is suppressed. The output file can be inspected with spread sheet software or a viewer of the user's choice.
 }
 \note{
-To set the R working directory, use at the R command line, for example, \code{setwd("C:\\\R\\\WDn")} which will result in all saved output being placed in that folder.
+To set the R working directory, if it has not already been set in a \code{first} function, use at the R command line, for example, \code{setwd("C:\\\R\\\WDn")}, where \sQuote{n} is some number, which will result in all saved output being placed in that folder.
  
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 

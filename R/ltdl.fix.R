@@ -1,8 +1,8 @@
-`ltdl.fix` <-
+ltdl.fix <-
 function(x, zero2na = FALSE, coded = NA)
 {
-     # Function for pre-processing a numeric vector where -ve values indicating
-     # <dl are set to +ve half the value, optionally zeros or other numeric codes,
+     # Function for pre-processing a vector where -ve values indicating <dl
+     # are set to +ve half the value, optionally zeros or other numeric codes,
      # e.g., -9999 may be set to NAs.  All rgr functions remove NAs internally
      # if required.
      #
