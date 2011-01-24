@@ -8,7 +8,7 @@ Rearranges data from a matrix or dataframe into a matrix where data are tagged b
 var2fact(xmat)
 }
 \arguments{
-  \item{xmat}{ name of the n x m data matrix or dataframe to be processed. }
+  \item{xmat}{ name of the n by m data matrix or dataframe to be processed. }
 }
 \value{
   \item{xx}{ a \code{n * m} by \code{2} matrix where each of the \code{n * m} rows contains a value that is paired with its variable name as a factor, see Note below. }
@@ -26,6 +26,9 @@ data(ms.data1)
 ms.data1
 temp <- var2fact(ms.data1)
 temp
+
+## Clean-up
+rm(temp)
 }
 \keyword{ misc }
  

@@ -22,7 +22,7 @@ The contents of elements \code{[10:15]} depend on the \sQuote{value} of \code{lo
   \item{[10]}{ the data (sample) Mean. } 
   \item{[11]}{ the data (sample) Standard Deviation (SD). }
   \item{[12]}{ the Coefficient of Variation as a percentage (CV\%). }
-  \item{[13]}{ the Stanadrd Error (S.E.) of the Mean. }
+  \item{[13]}{ the Standard Error (S.E.) of the Mean. }
   \item{[14]}{ the Lower 95\% Confidence Limit on the Mean. }
   \item{[15]}{ the Upper 95\% Confidence Limit on the Mean. }
 If \code{log = TRUE}, the results for the mean, \code{[13]}, and confidence limits, \code{[14:15]}, are backtransformed to the natural scale.

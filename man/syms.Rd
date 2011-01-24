@@ -21,6 +21,9 @@ A p value of \code{1} results in a linear rate of change.  Values of p less than
 
 If zmin or zmax are defined this has the effect of setting a minimum or maximum value of z, respectively, beyond which changes in the value of z do not result in changes in symbol diameter.  This can be useful in limiting the effect of one or a few extreme outliers while still plotting them, they simply plot at the minimum or maximum symbol size and are not involved in the calculation of the range of z over which the diameter varies.
 }
+\value{
+  \item{zdiam}{ the computed diameter of the symbol. }
+}
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{syms.pfunc}} }  
 \examples{ 
@@ -37,8 +40,9 @@ circle.diam
 circle.diam <- syms(Cu, zrange = c(NA, 1000), p = 0.3)
 circle.diam 
 
-## Detach test data
-detach(kola.o) 
+## Clean-up and detach test data
+rm(circle.diam)
+detach(kola.o)
 }
 \keyword{ hplot }
 

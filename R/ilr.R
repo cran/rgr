@@ -1,5 +1,5 @@
 ilr <-
-function(xx, ifclose = FALSE)
+function(xx, ifclose = FALSE, ifwarn = TRUE)
 {
      # Function to compute an isometric log-ratio transformation to 'open'
      # a n x p 'closed' matrix, the result is a n x (p-1) matrix.  Based
@@ -11,12 +11,14 @@ function(xx, ifclose = FALSE)
      # required to convert any zero values or other numeric codes representing 
      # blanks to NAs.
      #
-     if(!is.matrix(xx)) stop(deparse(substitute(xx)), " is not a Matix\n")
+     if(!is.matrix(xx)) stop("  ", deparse(substitute(xx)), " is not a Matrix")
+     # Remove any rows containing NAs
      temp.x <- remove.na(xx)
      x <- temp.x$x
      n <- temp.x$n
+     p <- temp.x$m
+     if(ifwarn) cat("  ** Are the data all in the same measurement units? **\n" )
      if(ifclose) x <- 100 * sweep(x, 1, rowSums(x), "/")
-     p <- length(x[1, ])
      x.iso <- matrix(NA, n, p-1)
      for (i in 1:n) {
          for (k in 1:(p-1)) {

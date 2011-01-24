@@ -10,9 +10,8 @@ function(xx, ifclr = FALSE, ifwarn = TRUE)
      temp.x <- remove.na(xx)
      x <- temp.x$x
      if(ifclr) {
-         x <- clr(x)
+         x <- clr(x, ifwarn = ifwarn)
          cat("Data have been Centred Log-Ratio transformed\n")
-         if(ifwarn) cat("** Were the data all in the same measurement units? **\n" )
      }
      #Compute correlation matrix
      r <- cor(x, method = "spearman")

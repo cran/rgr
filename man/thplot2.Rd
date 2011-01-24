@@ -20,7 +20,7 @@ thplot2(x, name = deparse(substitute(x)), ifzero = 0.01,
   \item{ptile}{ defines the confidence interval for a line to be drawn on the plot above which only 100 - ptile\% of the points should plot if the defined target RSD is being met. A default of \code{ptile = 95} is provided. The function counts the number of points falling \sQuote{out of limits} and reports the probability that this number would have fallen \sQuote{out of limits} by chance alone. }
   \item{main}{ a title may be added optionally above the display, e.g., \code{main = "Stanley (2003) Test Data"} }
   \item{ifalt}{ set \code{ifalt = TRUE} to accommodate alternating sets of paired observations. } 
-  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }.  
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }  
 }
 \details{
 This function expects the RSD\% as a measure of measurement repeatability (precision), which is more familiar to the current generation of applied geochemists, rather than the precision at the 2 Standard Deviation level.  The necessary calculations to conform with the Thompson and Howarth procedure are made internally.
@@ -35,7 +35,7 @@ Any less than detection limit values represented by negative values, or zeros or
 \author{Robert G. Garrett }
 \seealso{ \code{\link{thplot1}}, \code{\link{ltdl.fix.df}} }
 \examples{
-## Make test data ms.data2 available
+## Make test data available
 data(ms.data2)
 attach(ms.data2)
 
@@ -43,10 +43,10 @@ attach(ms.data2)
 thplot2(MS, name = "Magnetic Susceptibility", 
 	main = "Stanley (2003) Test Data")
 
-## Detach test data ms.data2
+## Detach test data
 detach(ms.data2)
 
-## Make test data ms.data3 available
+## Make test data available
 data(ms.data3)
 attach(ms.data3)
 
@@ -55,7 +55,7 @@ attach(ms.data3)
 thplot2(MS, name = "Magnetic Susceptibility", rsd = 7.5, ptile = 90,
 	main = "Stanley (2003) Test Data", ifalt = TRUE)
 
-## Detach test data ms.data3
+## Detach test data
 detach(ms.data3)
 } 
 \keyword{ univar }

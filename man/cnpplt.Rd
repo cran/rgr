@@ -7,7 +7,7 @@ Displays a cumulative normal percentage probability (CPP) plot, equivalent to a 
 \usage{
 cnpplt(xx, xlab = deparse(substitute(xx)), 
 	ylab = "\% Cumulative Probability", log = FALSE, xlim = NULL, 
-	main = "", ifqs = FALSE, ifshape = FALSE, pch =3,
+	main = "", ifqs = FALSE, ifshape = FALSE, pch = 3,
 	cex = 0.8, cexp = 1, cex.axis = 0.8, ...)
 }
 \arguments{
@@ -21,7 +21,7 @@ cnpplt(xx, xlab = deparse(substitute(xx)),
   \item{ifshape}{ when used with function \code{\link{shape}} or \code{\link{caplot}} to plot into a panel set \code{ifshape = TRUE} to ensure only essential probability scale axis labels are displayed to avoid overplotting on the reduced size panel plot. }
   \item{pch}{ by default the plotting symbol is set to a plus, \code{pch = 3}, alternate plotting symbols may be chosen from those displayed by \code{\link{display.marks}}. }
   \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
-  \item{cexp}{ by default the size of the plotting symbol, \code{pch}, is set to100\%, and may be changed if required. }
+  \item{cexp}{ by default the size of the plotting symbol, \code{pch}, is set to 100\%, and may be changed if required. }
   \item{cex.axis}{ if overplotting occurs in the y-axis labelling the size of the y-axis labels may be reduced by setting \code{cex.axis} to a number smaller than the default of \code{cex.axis = 0.8}. }
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }.  
 }

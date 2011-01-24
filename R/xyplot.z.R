@@ -29,14 +29,14 @@ function(xx, yy, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, log = NULL,
      if(main == "")
          if(zlab == "")
              banner <- ""
-         else banner <- paste("Proportional Symbol Map for", zlab)
+         else banner <- paste("Proportional Symbol Plot for", zlab)
      else banner <- main
      zrange <- c(zmin, zmax)
      rgz <- syms(z, zrange, p = p)
      if(is.null(log)) log <- ""
      plot(x, y, type = "n", xlab = xlab, ylab = ylab, xlim = xlim, 
          ylim = ylim, log = log, main = banner, ...)
-     symbols(x, y, circles = rgz, inches = sfact * 0.05, add = T,
+     symbols(x, y, circles = rgz, inches = sfact * 0.05, add = TRUE,
          fg = symcolr)
      if(iflgnd) text(locator(1), paste("Symbols for", zlab,"\np =", p,
          "& sfact =", sfact, "\nzmin =", zmin, "& zmax =", zmax), 

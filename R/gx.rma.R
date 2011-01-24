@@ -32,9 +32,10 @@ function(xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute(
      xsdv <- sqrt(xvar)
      slope <- xsdv[2]/xsdv[1]
      r <- cor(x1, x2)
+     if(r < 0) slope <- slope * (-1)
+     incpt <- xbar[2] - xbar[1] * slope
      temp <- (1 - r * r)/xlen
      seslp <- slope * sqrt(temp)
-     incpt <- xbar[2] - xbar[1] * slope
      seint <- xsdv[2] * sqrt(temp * (1 + (xbar[1] * xbar[1])/xvar[1]))
      temp <- qt(0.975, xlen - 1)
      cislp <- seslp * temp

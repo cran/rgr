@@ -23,7 +23,7 @@ gx.ks.test(xx1, xx2, xlab = " ", x1lab = deparse(substitute(xx1)),
   \item{pch1}{ the plotting symbol for the first distribution, defaults to a \sQuote{+} sign, \code{pch = 3}, and may be changed if required, see \code{\link{display.marks}}. }
   \item{col1}{ the colour of the plotting symbol for the first distribution, defaults to red, \code{col1 = 2}, and may be changed if required, see \code{\link{display.lty}}. }
   \item{pch2}{ the plotting symbol for the second distribution, defaults to a \sQuote{x} sign, \code{pch = 4}, and may be changed if required, see \code{\link{display.marks}}. }
-  \item{col2}{ the colour of the plotting symbol for the second distribution, defaults to blue, \code{col1 = 4}, and may be changed if required, see \code{\link{display.lty}}. }
+  \item{col2}{ the colour of the plotting symbol for the second distribution, defaults to blue, \code{col2 = 4}, and may be changed if required, see \code{\link{display.lty}}. }
   \item{ifresult}{ setting \code{ifresult = FALSE} suppresses the ability to add the results of the Kolmogorov-Smirnov test to the plot, the default is \code{ifresult = TRUE}. }
   \item{cex}{ the scaling factor for the test results and legend identifying the symbology for each distribution and its population size is set to \code{cex = 0.8} by default, it may be changed if required. }
   \item{cexp}{ the scaling factor for the plotting symbol size is set to \code{cexp = 0.9} by default, if may be changed if required. }
@@ -65,7 +65,7 @@ Finland <- gx.subset(kola.c,COUNTRY=="FIN")[,19]
 ##	ifresult = F, cex = 0.75, cexp = 0.75, cex.main = 0.9, cex.lab = 0.8,
 ##	cex.axis = 0.8)
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(Norway)
 rm(Russia)
 rm(Finland)

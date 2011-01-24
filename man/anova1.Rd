@@ -41,7 +41,7 @@ Miesch, A.T. et al., 1976. Geochemical survey of Missouri - methods of sampling,
 }
 \seealso{ \code{\link{anova2}}, \code{\link{ltdl.fix.df}} }
 \examples{
-## Make test data ms.data1 available
+## Make test data available
 data(ms.data1)
 attach(ms.data1)
 
@@ -49,7 +49,7 @@ attach(ms.data1)
 anova1(MS.1, MS.2, log = TRUE, 
 	name = "Duplicate measurements of Magnetic Susceptibility")
 
-## Detach test data ms.data1
+## Detach test data 
 detach(ms.data1)
 }
 \keyword{ univar }

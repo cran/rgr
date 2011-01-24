@@ -34,7 +34,7 @@ function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
          logplot <- "y"
      else logplot <- ""
      cols <- length(data)
-     range.data <- range(as.numeric(unlist(data)), na.rm = T)
+     range.data <- range(as.numeric(unlist(data)), na.rm = TRUE)
      if(missing(label)) {
          if(is.null(names(data)))
           label <- format(1:cols)

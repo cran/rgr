@@ -24,10 +24,10 @@ The following are returned as an object to be saved for further use:
    \item{ri}{ the vector of relative importances provided by the user }
    \item{w}{ the vector of weights computed from the relative importances }
    \item{a}{ the vector of coefficients - the normalized weights }
-   \item{[ws]}{ the computed weighted sums }
+   \item{ws}{ the computed weighted sums }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any rows in the data matrix with with \code{NA}s are removed prior to computing the weighted sums.
 }

@@ -45,7 +45,7 @@ fs
 fs <- framework.stats(Cu[COUNTRY == "FIN"])
 fs
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(fs)
 detach(kola.c)
 }

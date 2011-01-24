@@ -21,7 +21,7 @@ pch: 0 = square, 1 = circle, 2 = triangle, 3 = plus, 4 = X,\cr
      15 = square, 16 = circle, 17 = triangle, 18 = diamond.\cr
 The available colours from the default \sQuote{palette} are:\cr
 Col: 0 = none, 1 = black, 2 = red, 3 = green, 4 = dark blue,\cr
-     5 = turquoise, 6 = pink, 7 = yellow, 8 = gray, 9 = black.
+     5 = turquoise, 6 = pink, 7 = yellow, 8 = grey, 9 = black.
 }
 \value{
   \item{pchs}{ a vector of 9 elements defining the symbols, marks, to use for plotting the 1 to 9 permissable subsets. }

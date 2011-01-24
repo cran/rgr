@@ -4,17 +4,18 @@
 \description{
 Undertakes an isometric log-ratio transformation to remove the effects of closure in a data matrix. }
 \usage{
-ilr(xx, ifclose = FALSE)
+ilr(xx, ifclose = FALSE, ifwarn = TRUE)
 }
 \arguments{
-  \item{xx}{ a n x p matrix to be isometrically log-ratio transformed.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
+  \item{xx}{ a n by p matrix to be isometrically log-ratio transformed.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
+  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
 Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  However, isometrically transformed data are not suitable for univariate EDA inspection as the new synthetic variables bear a complex relationship to the original measurements. Other procedures for removing closure effects are arithmetic log-ratios (\code{alr}) and centred log-ratios (\code{clr}).
 }
 \value{
-  \item{x}{ a n x p matrix of isometric log-ratio values.  The names of the p new synthetic variables, \code{iso1} through to \code{isop}, are entered as column names in the matrix. }
+  \item{x}{ a n by (p-1) matrix of isometric log-ratio values.  The names of the new (p-1) synthetic variables, \code{iso1} through to \code{isop}, are entered as column names in the matrix. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -47,9 +48,10 @@ sind.mat[, 2] <- sind.mat[, 2] * 10000
 temp <- ilr(sind.mat)
 temp
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(sind.mat)
 rm(temp)
 }
+\keyword{ multivariate }
 \keyword{ manip }
 

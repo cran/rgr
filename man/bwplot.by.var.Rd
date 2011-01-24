@@ -8,7 +8,7 @@ Plots a series of vertical box-and-whisker plots where the individual boxplots r
 bwplot.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE, 
 	xlab = "Measured Variables", ylab = "Reported Values", 
 	main = "", label = NULL, plot.order = NULL, xpos = NA, 
-	las = 1, cex = 1, adj = 0.5, colr = 8, pch = 3, ...)
+	las = 1, cex.axis = 1, adj = 0.5, colr = 8, pch = 3, ...)
 }
 \arguments{
   \item{xmat}{ the data matrix or dataframe containing the data. }
@@ -22,11 +22,11 @@ bwplot.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
   \item{plot.order}{ provides an alternate order for the boxplots.  By default the boxplots are plotted in alphabetical order of the factor variables.  Thus, \code{plot.order = c(2, 1, 3)} will plot the 2nd alphabetically ordered factor in the 1st position, the 1st in the 2nd, and the 3rd in its alphabetically 3rd ordered postion. }
   \item{xpos}{ the locations along the x-axis for the individual vertical boxplots to be plotted.  By default this is set to \code{NA}, which causes default equally spaced positions to be used, i.e. boxplot 1 plots at value 1 on the x-axis, boxplot 2 at value 2, etc., up to boxplot \dQuote{n} at value \dQuote{n}.  See Details below for defining \code{xpos}. }
   \item{las}{ controls whether the x-axis labels are written parallel to the x-axis, the default \code{las = 1}, or are written down from the x-axis by setting \code{las = 2}.  See also, Details below.}
-  \item{cex}{ controls the size of the font used for the factor labels plotted along the x-axis.  By default this is \code{1}, however, if the labels are long it is sometimes necessary to use a smaller font, for example \code{cex = 0.8} results in a font 80\% of normal size. }
+  \item{cex.axis}{ controls the size of the font used for the factor labels plotted along the x-axis.  By default this is \code{1}, however, if the labels are long it is sometimes necessary to use a smaller font, for example \code{cex.axis = 0.8} results in a font 80\% of normal size. }
   \item{adj}{ controls the justification of the x-axis labels.  By default they are centred, \code{adj = 0.5}, to left justify them if the labels are written downwards set \code{adj = 0}. }
   \item{colr}{ by default the boxes are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. }
   \item{pch}{ by default the plotting symbol for the subset maxima and minima are set to a plus, \code{pch =} 3, alternate plotting symbols may be chosen from those displayed by \code{\link{display.marks}}. } 
-  \item{\dots}{ further arguments to be passed to methods. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
 There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
@@ -49,7 +49,7 @@ For a summary statistics display to complement the graphics see \code{\link{gx.s
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{bwplot}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
 \examples{
-## Make test data kola.c available
+## Make test dataavailable
 data(kola.c)
 attach(kola.c)
 
@@ -58,18 +58,18 @@ bwplot.by.var(cbind(Co,Cu,Ni))
 
 ## Display a more appropriately labelled and scaled box-and-whisker plot
 bwplot.by.var(cbind(Co,Cu,Ni), log = TRUE, 
-	ylab = "Levels (mg/kg) in < 2 mm C-horizon soil")
+	ylab = "Levels (mg/kg) in <2 mm Kola C-horizon soil")
 
-## Detach test data kola.c
+## Detach test data
 detach(kola.c)
 
-## Make test data ms.data1 available
+## Make test data available
 data(ms.data1)
 
 ## Display variables in a dataframe extending the whiskers to the
 ## 2nd and 98th percentiles of the data, remembering to omit the
 ## sample IDs
-bwplot.by.var(ms.data1[, -1], log=TRUE, wend = 0.02)
+bwplot.by.var(ms.data1[, -1], log = TRUE, wend = 0.02)
 
 }
 \keyword{ hplot }

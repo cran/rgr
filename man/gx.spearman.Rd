@@ -36,7 +36,7 @@ gx.pearson(sind.mat)
 sind.mat[, 2] <- sind.mat[, 2] * 10000
 gx.pearson(sind.mat, ifclr = TRUE)
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(sind.mat)
 detach(sind)  
 }

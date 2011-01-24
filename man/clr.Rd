@@ -5,17 +5,18 @@
 Undertakes a centred log-ratio transformation to remove the effects of closure in a data matrix.
 }
 \usage{
-clr(xx, ifclose = FALSE)
+clr(xx, ifclose = FALSE, ifwarn = TRUE)
 }
 \arguments{
-  \item{xx}{ a n x p matrix to be log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
+  \item{xx}{ a n by p matrix to be log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
+  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
 Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are arithmetic log-ratios (\code{alr}) and isometric log-ratios (\code{ilr}).
 }
 \value{
-  \item{x}{ a n x p matrix of log-centred values. }
+  \item{x}{ a n by p matrix of log-centred values. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -52,9 +53,10 @@ sind.mat[, 2] <- sind.mat[, 2] * 10000
 temp <- clr(sind.mat)
 temp
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(sind.mat)
 rm(temp)
 }
+\keyword{ multivariate }
 \keyword{ manip }
 

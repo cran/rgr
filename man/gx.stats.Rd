@@ -18,8 +18,8 @@ The summary statistics comprise the data minimum, maximum and percentile values,
 \value{
   \item{stats}{ 
 the computed summary statistics to be used in function \code{\link{inset}}, and by \code{gx.summary.*} functions.  The list returned, \code{stats}, is a 32-element vector, see below: }
-  \item{[1:10]}{ the minimum value, and the 1st, 2nd, 5th, 10th, 20th, 25th (Q1), 30th, 40 and 50th(Q2) percentiles. }
-  \item{[11:19]}{ the 60th, 70th, 75th(Q3), 80th  90th, 95th, 98th and 99th percentiles and the maximum value. }
+  \item{[1:10]}{ the minimum value, and the 1st, 2nd, 5th, 10th, 20th, 25th (Q1), 30th, 40th and 50th (Q2) percentiles. }
+  \item{[11:19]}{ the 60th, 70th, 75th (Q3), 80th  90th, 95th, 98th and 99th percentiles and the maximum value. }
   \item{[20]}{ the sample size, N. }
   \item{[21]}{ the Median Absolute Deviation (MAD). }
   \item{[22]}{ the Inter-Quartile Standard Deviation (IQSD). }
@@ -34,7 +34,7 @@ the computed summary statistics to be used in function \code{\link{inset}}, and 
   \item{[31]}{ the log10 transformed data (sample) SD. }
   \item{[32]}{ the log10 transformed data (sample) CV\%. }
 
-If the minimum data value is \code{<= 0}, \code{stats[29:32] <- NA}.
+If the minimum data value is \code{<= 0}, then \code{stats[29:32] <- NA}.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

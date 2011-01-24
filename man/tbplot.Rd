@@ -32,12 +32,12 @@ tbplot(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
   \item{add}{ permits the user to plot additional boxplots into an existing display.  It is recommended that this option is left as \code{add = FALSE}. }
   \item{ssll}{ determines the minimum data subset size for which a subset will be plotted.  By default this is set to \code{1}, which leads to only a circle with a median bar being plotted, as the subset size increases additional features of the boxplot are displayed.  If \code{ssll} results in subset boxplots not being plotted, a gap is left and the factor label is still plotted on the x-axis. }
   \item{colr}{ by default the boxes are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. } 
-  \item{\dots}{ further arguments to be passed to methods. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\% }
 }
 \details{
 There are two ways to execute this function.  Firstly by defining \code{x} and \code{by}, and secondly by combining the two variables with the \code{\link{split}} function.  See the first two examples below.  The \code{\link{split}} function can be useful if the factors to use in the boxplot are to be generated at run-time, see the last example below.  Note that when the \code{\link{split}} construct is used instead of \code{by} the whole \code{split} statement will be displayed as the default y-axis title.  Also note that when using \code{by} the subsets are listed in the order that the factors are encountered in the data, but when using \code{split} the subsets are listed alphabetically.  In either case they can be re-ordered using \code{plot.order}, see Examples.
 
-The \code{width} option can be used to define different widths for the individual boxplots.  For example, the widths could be scaled to be proportional to the subset population sizes as some function of the square root (const * sqrt(n)) or logarithm (const * log10(n)) of those sizes (n).  The constant, const, would need to be chosen so that on average the width of the individual boxes would be approximately 0.25, see Example below.  It may be desirable for cosmetic purposes to adjust the positions of the boxes along the x-axis, this can be achieved by specifying xpos.
+The \code{width} option can be used to define different widths for the individual boxplots.  For example, the widths could be scaled to be proportional to the subset population sizes as some function of the square root (const * sqrt(n)) or logarithm (const * log10(n)) of those sizes (n).  The constant, const, would need to be chosen so that on average the width of the individual boxes would be approximately 0.25, see Example below.  It may be desirable for cosmetic purposes to adjust the positions of the boxes along the x-axis, this can be achieved by specifying \code{xpos}.
 
 Long subset (factor) names can lead to display problems, changing the \code{las} parameter from its default of \code{las = 1} which plots subset labels parallel to the axis to \code{las = 2}, to plot perpendicular to the axis, can help.  It may also help to use \code{label} and split the character string into two lines, e.g., by changing the string \code{"Granodiorite"} that was supplied to replace the coded factor variable \code{GRDR} to \code{"Grano-\\ndiorite"}.  If this, or setting \code{las = 2}, causes a conflict with the x-axis title, if one is needed, the title can be moved down a line by using \code{xlab = "\\nLithological Units"}.  In both cases the \code{\\n} forces the following text to be placed on the next lower line.
 
@@ -67,11 +67,11 @@ tbplot(split(Cu,COUNTRY))
 
 ## Display a more appropriately labelled and scaled boxplot
 tbplot(Cu, by = COUNTRY, log =  TRUE, logx = TRUE, xlab = "Country", 
-	ylab = "Ni (mg/kg) in <2 mm C-horizon soil")
+	ylab = "Ni (mg/kg) in <2 mm Kola C-horizon soil")
 
 ## Display a west-to-east re-ordered plot using the full country names
 tbplot(split(Cu, COUNTRY), log = TRUE, logx = TRUE, 
-	ylab = "Ni (mg/kg) in <2 mm C-horizon soil",
+	ylab = "Ni (mg/kg) in <2 mm Kola C-horizon soil",
 	label = c("Finland", "Norway", "Russia"), 
 	plot.order = c(2, 1, 3))
 
@@ -88,7 +88,7 @@ attach(kola.o.fixed)
 ## O-horizon (humus) soil
 tbplot(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, 
 	xlab = "O-horizon soil pH to the nearest pH unit",
-	ylab = "Cu (mg/kg) in <2 mm O-horizon soil")
+	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
 ## As above, but demonstrating the use of variable box widths and the
 ## suppression of 95\% confidence interval notches.  The box widths are
@@ -99,7 +99,7 @@ table(trunc(pH+0.5))
 tbplot(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, notch = FALSE,
 	xlab = paste("O-horizon soil pH to the nearest pH unit,",
 	"\nbox widths proportional to Log(subset_size)"),
-	ylab = "Cu (mg/kg) in <2 mm O-horizon soil",
+	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil",
 	width = c(0.26, 0.58, 0.24, 0.02))
 
 ## Detach test data kola.o.fixed

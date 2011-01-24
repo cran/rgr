@@ -65,7 +65,7 @@ map.eda8(UTME/1000, UTMN/1000, Cu, ifgrey = TRUE,
 map.eda8(UTME/1000, UTMN/1000, Cu,
 	xlab = "Kola Project UTM Eastings (km)",
 	ylab = "Kola Project UTM Northings (km)",
-	symcolr = c(27, 24, 22, 12,12, 5, 3, 36)) 
+	symcolr = c(27, 24, 22, 12, 12, 5, 3, 36)) 
 
 ## Detach test data
 detach(kola.o) 

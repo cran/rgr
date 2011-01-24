@@ -11,7 +11,7 @@ remove.na(xx)
   \item{xx}{ name of the vector or matrix to be processed. }
 }
 \value{
-  \item{x}{ a data vector or matrix containing the rows of \code{xx} without \code{NA}s. }
+  \item{x}{ a data vector or matrix containing the elements in the vector or rows of the matrix \code{xx} without \code{NA}s. }
   \item{n}{ the length of \code{x}. }
   \item{m}{ the number of columns in the matrix \code{xx}, if \code{xx} is a vector the value \code{1} is returned. }
   \item{nna}{ the number of rows removed from \code{xx}. }
@@ -20,7 +20,7 @@ remove.na(xx)
 This function is called by many of the procedures in the \sQuote{rgr} package.  If one or more \code{NA}s are found the user is informed of how many.  In general a dataframe will have been cleared of any <values represented by negative values or zeros prior to executing the procedure calling this function, see \code{\link{ltdl.fix.df}}, or \code{\link{ltdl.fix}} if a single vector is being processed.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{which.na}} } 
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{where.na}} } 
 \examples{
 ## remove NAs
 xx <- c(15, 39, 18, 16, NA, 53)
@@ -37,6 +37,15 @@ data(kola.o)
 kola.o.fixed <- ltdl.fix.df(kola.o, coded = -9999)
 temp.x <- remove.na(kola.o.fixed$pH)
 x <- temp.x$x[1:temp.x$n]
+
+## Clean-up
+rm(xx)
+rm(temp.x)
+rm(x)
+rm(n)
+rm(m)
+rm(nna)
+rm(kola.o.fixed)
 }
 \keyword{ misc }
  
