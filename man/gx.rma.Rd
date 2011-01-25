@@ -41,7 +41,7 @@ Miller, R.L. and Kahn, J.S., 1962. Statistical Analysis in the Geological Scienc
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}} } 
 \examples{
-## Make test data ms.data1 available
+## Make test available
 data(ms.data1)
 attach(ms.data1)
 
@@ -63,7 +63,7 @@ plot(MS.1, MS.2, log = "xy", xlim = c(min(MS.1, MS.2), max(MS.1, MS.2)),
 abline(save.rma$a0, save.rma$a1, lty = 3)
 par <- oldpar	
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(save.rma)
 detach(ms.data1)
 }

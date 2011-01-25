@@ -10,12 +10,12 @@ gx.triples.aov(x, name = deparse(substitute(x)), log = FALSE,
 }
 \arguments{
   \item{x}{ a file of triplicate determinations, the order is critical, see Details below. }
-  \item{name}{ a informative description of the variable in the data file \code{x} for display as a table heading, for example, \code{name = "Ba (mg/kg - Aqua Regia digestion) in <2 mm unmilled C-horizon soil"}.  The default is simply the data file name, \code{deparse(substitute(x))}. }
+  \item{name}{ an informative description of the variable, \code{x}, in the data file for a table heading, for example, \code{name = "Ba (mg/kg - Aqua Regia digestion) in <2 mm unmilled C-horizon soil"}.  The default is simply the data file name, \code{deparse(substitute(x))}. }
   \item{log}{ if a logarithmic transformation of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
   \item{table}{ set \code{table = TRUE} if the input data file is to be displayed. the default is no display. }
 }
 \details{
-As noted above, the order of the data is critical and must be as follows for each triplicate: Analytical Duplicate, Field Duplicate for the Analytical Duplicate Split, other Field Duplicate.  The 'other Field Duplicate' is equivalent to a regular regional-coverage sample, but is at a 'Field Duplicate' site.  Thus below, xx[i,1] will contain the Analytical Duplicates, xx[i,2] the Field Duplicates from which the Analytical Duplicates were split, and xx[i,3] the other analytically unduplicated Field Duplicates.  See Details in \code{\link{triples.test1}} for additional information. }
+As noted above, the order of the data is critical and must be as follows for each triplicate: Analytical Duplicate, Field Duplicate for the Analytical Duplicate Split, other Field Duplicate.  The 'other Field Duplicate' is equivalent to a regular regional-coverage sample, but is at a 'Field Duplicate' site.  Thus below, x[i,1] will contain the Analytical Duplicates, x[i,2] the Field Duplicates from which the Analytical Duplicates were split, and x[i,3] the other analytically unduplicated Field Duplicates.  See Details in \code{\link{triples.test1}} for additional information. }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 

@@ -17,12 +17,12 @@ inset(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
   \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}. }
   \item{table.cex}{ on some display devices the table may be \sQuote{cramped}
 and the text lines overlap.  If this is true \code{table.cex} can be decreased,
-the default is \code{table.cex = 0.85}, conversely it can be increased if the
+the default is \code{table.cex = 0.7}, conversely it can be increased if the
 table appears \sQuote{skinny}. }
-  \item{\dots}{ further arguments to be passed to or from methods.  For example, by default individual data points in the CPP plot are marked by a plus sign, \code{pch = 3}, if a cross or open circle is desired, then set \code{pch = 4} or \code{pch = 1}, respectively.  See \code{\link{display.marks}} for all available symbols. Adding \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively, in the CPP plot. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, by default individual data points in the CPP plot are marked by a plus sign, \code{pch = 3}, if a cross or open circle is desired, then set \code{pch = 4} or \code{pch = 1}, respectively.  See \code{\link{display.marks}} for all available symbols. Adding \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively, in the CPP plot. }
 }
 \details{
-A histogram is displayed on the left, and a cumulative normal percentage probability plot on the right.  Between the two is a table of simple summary statistics, computed in \code{\link{gx.stats}}, including minimum, maximum and percentile values, robust estimates of standard deviation, and the mean, standard deviation and coefficient of variation.  The plots may be displayed with logarithmic axes, however, the summary statistics are not computed with a logarithmic transform.
+A histogram is displayed on the left, and a cumulative normal percentage probability plot on the right.  Between the two is a table of simple summary statistics, computed by \code{\link{gx.stats}}, including minimum, maximum and percentile values, robust estimates of standard deviation, and the mean, standard deviation and coefficient of variation.  The plots may be displayed with logarithmic axes, however, the summary statistics are not computed with a logarithmic transform.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -31,13 +31,13 @@ Any NAs in the data vector are removed prior to displaying the plot.
 
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.
 
-The purpose of this function is to prepare publication quality graphics (.wmf) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
+The purpose of this function is to prepare publication quality graphics (wmf) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
 
-In some instances if the graphics window has been resized the last line(s) of the table may not be displayed. Resizing the window to be smaller will display the whole table. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
+In some instances if the graphics window has been resized the last line(s) of the table may not be displayed, if so, resize the table until it is entirely visible. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
 
 For summary statistics displays to complement the graphics see, \code{\link{gx.summary1}} and \cr\code{\link{gx.summary2}}.
 
-In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the rgr package, etc.
+In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the \sQuote{rgr} package, etc.
 }
 \author{ Robert G. Garrett }
 \references{ 

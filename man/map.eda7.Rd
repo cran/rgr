@@ -40,7 +40,7 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any \code{NA}s in the data vector are removed prior to displaying the plot.
 
-In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the rgr package, etc.
+In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the \sQuote{rgr} package, etc.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{display.rainbow}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}} }  

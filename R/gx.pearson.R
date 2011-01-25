@@ -15,9 +15,8 @@ function(xx, log = FALSE, ifclr = FALSE, ifwarn = TRUE)
          cat("Data have been Log10 transformed\n")
          }
      else if(ifclr) {
-         x <- clr(x)
+         x <- clr(x, ifwarn = ifwarn)
          cat("Data have been Centred Log-Ratio transformed\n")
-         if(ifwarn) cat("** Were the data all in the same measurement units? **\n" )
      }
      #Convert data to SNDs and compute correlation matrix
      z <- scale(x)

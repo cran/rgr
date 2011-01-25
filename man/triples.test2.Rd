@@ -1,4 +1,4 @@
-\name{triple.test2}
+\name{triples.test2}
 \alias{triples.test2}
 \docType{data}
 \title{ North American Geochemical Soil Landscapes Project QA/QC data}

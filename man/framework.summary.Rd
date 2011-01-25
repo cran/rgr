@@ -2,7 +2,7 @@
 \alias{framework.summary}
 \title{ Generate and Save Framework/Subset Summary Statistics }
 \description{
-Function to generate \sQuote{framework} or subset summary statistics and save them as a .csv file in the R working directory.  The file can be directly imported into a spreadsheet, e.g., MS Excel, for inspection, or into other software, e.g., a Geographical Information System (GIS) where the spatial information concerning the \sQuote{framework} units is available, e.g., ecoclassification units.
+Function to generate \sQuote{framework} or subset summary statistics and save them as a \sQuote{csv} file in the R working directory.  The file can be directly imported into a spreadsheet, e.g., MS Excel, for inspection, or into other software, e.g., a Geographical Information System (GIS) where the spatial information concerning the \sQuote{framework} units is available, e.g., ecoclassification units.
 }
 \usage{
 framework.summary(group, x, file = NULL)
@@ -13,7 +13,7 @@ framework.summary(group, x, file = NULL)
   \item{file}{ the first part of the file name identifying the data source for saving the function output in the R working directory, see Details below. }
 }
 \details{
-\code{file} contains the first part of the file name identifying the data source for the output file to be saved in the R working directory, see Note below. The function concatenates the working directory name with \code{file}\code{_}\code{deparse(substitute(group))}\code{_}\code{deparse(substitute(x))}\code{_summary.csv} to be used as the file name.
+\code{file} contains the first part of the file name identifying the data source for the file to be saved in the R working directory, see Note below. The function concatenates the working directory name with \code{file}\code{_}\code{deparse(substitute(group))}\code{_}\code{deparse(substitute(x))}\code{_summary.csv} to be used as the file name.
 
 Output to the current device is suppressed. The output file can be inspected with spread sheet software or a viewer of the user's choice.
 }

@@ -27,7 +27,7 @@ caplot(x, y, z, zname = deparse(substitute(z)),
 \details{
 The function creates a four panel display.  The percentage cumulative probabity (CPP) plot of the data in the upper left, and the CPP plot of the interpolated data to be used in the C-A plot in the upper right.  The lower left panel contains an image of the interpolated data, and the lower right the C-A plot.
 
-Akima's (1978, 1996) interpolation function is used to obtain a linear interpolation between the spatial data values.  If the data are positively skewed the use of a logarithmic data transformation, \code{log = TRUE}, is highly recommended.  Following generation of the interpolated grid and prior to futher processing the interpolated grid values are clipped by the convex-hull of the spatial locations, therefore there no interpolation beyond the spatial extent, support, of the data is displayed.
+Akima's (1978, 1996) interpolation function is used to obtain a linear interpolation between the spatial data values.  If the data are positively skewed the use of a logarithmic data transformation, \code{log = TRUE}, is highly recommended, as noted above this is commonly the case and is the default.  Following generation of the interpolated grid and prior to futher processing the interpolated grid values are clipped by the convex-hull of the spatial locations, therefore there is no interpolation beyond the spatial extent, support, of the data is displayed.
 
 The use of the \code{topo.colors(16)} palette to display the image of the interpolated values leads to low values being plotted in blue, and as the interpolated values increase they take on green, yellow and orange colors.  For a grey-scale display for black-and-white use set \code{colr = grey(0:8/8)}.  This leads to lowest interpolated values being plotted in black and the highest in white, using \code{colr = grey(8:0/8)} reverses this, with the lowest values being plotted in white and the highest in black.  In either case, if the values plotted in white occur at the study area boundary, i.e. at the convex hull, the difference between no data and white cannot be discerned.
 
@@ -40,7 +40,7 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any sites with \code{NA}s in the (x,y,z) data vector are removed prior to spatial interpolation and preparation of the C-A plot.
 
-In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the rgr package, etc.
+In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user for loading the \sQuote{rgr} package, etc.
 }
 \author{ Graham F. Bonham-Carter and Robert G. Garrett }
 \references{

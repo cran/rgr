@@ -15,7 +15,7 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.
 
-For a less extensive summary statistics display, see \code{link{gx.summary1}}.  For summary graphical displays see \code{\link{shape}} or \code{\link{inset}}.
+For a less extensive summary statistics display, see \code{\link{gx.summary1}}.  For summary graphical displays see \code{\link{shape}} or \code{\link{inset}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.summary}}, \code{\link{gx.stats}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{gx.summary1}} }
@@ -28,7 +28,7 @@ attach(kola.o)
 gx.summary2(Cu)
 
 ## Provide a more informative display
-gx.summary2(Cu, "Cu (mg/kg) in <2 mm O-horizon soil")
+gx.summary2(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
 ## Detach test data
 detach(kola.o)

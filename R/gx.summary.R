@@ -9,7 +9,7 @@ function (xx, log = log)
      #
      nxx <- length(xx)
      table <- numeric(15)
-     stats <- gx.stats(xx, display = F)
+     stats <- gx.stats(xx, display = FALSE)
      table[1] <- stats$stats[20]
      table[2] <- nxx - stats$stats[20]
      table[3:7] <- stats$stats[c(1, 7, 10, 13, 19)]

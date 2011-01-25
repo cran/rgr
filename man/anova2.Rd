@@ -24,7 +24,7 @@ Any less than detection limit values represented by negative values, or zeros or
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{anova1}}, \code{\link{ltdl.fix.df}} }
 \examples{
-## Make test data ms.data2 available
+## Make test data available
 data(ms.data2)
 attach(ms.data2)
 
@@ -32,10 +32,10 @@ attach(ms.data2)
 anova2(MS, log = TRUE, 
 	name = "Duplicate measurements of Magnetic Susceptibility")
 
-## Detach test data ms.data2
+## Detach test data
 detach(ms.data2)
 
-## Make test data ms.data3 available
+## Make test data available
 data(ms.data3)
 attach(ms.data3)
 
@@ -43,7 +43,7 @@ attach(ms.data3)
 anova2(MS, log = TRUE, ifalt = TRUE, 
 	name = "Duplicate measurements of Magnetic Susceptibility")
 
-## Detach test data ms.data3
+## Detach test data
 detach(ms.data3)
 }
 \keyword{ univar }

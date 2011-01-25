@@ -33,7 +33,7 @@ gx.fractile(As, 20)
 temp <- gx.fractile(As, 20)
 temp
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(temp)
 detach(kola.o) 
 }

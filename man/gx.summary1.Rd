@@ -14,7 +14,7 @@ gx.summary1(xx, xname = deparse(substitute(xx)), log = FALSE)
   \item{log}{ if the summary statistics are required following a log10 transformation, set \code{log = TRUE}. }
 }
 \details{
-Setting \code{log = TRUE} results in a log transformation for the parametric statistical estimates.  The maximum, minimum, quartiles and robust estimates of spread are estimated and reported in natural measurement units.  Of the parametric statistics, the mean (the geometric mean) and 95\%confidence are reported backtransformed into natural measurement units.  If all the results are required following a log10, or some other transformation, this can be achieved by executing \cr\code{gx.summary1(log10(Cu))}, where the transformation is undertaken previously or in the call, e.g., \code{gx.summary1(sqrt(Cu))}.
+Setting \code{log = TRUE} results in a log transformation for the parametric statistical estimates.  The maximum, minimum, quartiles and robust estimates of spread are estimated and reported in natural measurement units.  Of the parametric statistics, the mean (the geometric mean) and 95\%confidence are reported backtransformed into natural measurement units.  If all the results are required following a log10, or some other transformation, this can be achieved by executing the transformation in thecall, e.g., \code{gx.summary1(log10(Cu))} or \code{gx.summary1(sqrt(Cu))}.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -34,11 +34,11 @@ attach(kola.o)
 gx.summary1(Cu)
 
 ## Provide a more informative display
-gx.summary1(Cu, "Cu (mg/kg) in <2 mm O-horizon soil")
+gx.summary1(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
 ## As above but with a log10 transformation to display
 ## the geometric mean, etc.
-gx.summary1(Cu, "Cu (mg/kg) in <2 mm O-horizon soil", log = TRUE)
+gx.summary1(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE)
 
 ## Detach test data
 detach(kola.o)

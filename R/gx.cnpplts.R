@@ -28,7 +28,7 @@ function (xlab = " ", log = FALSE, xlim = NULL, main = "", iflgnd = FALSE,
      nxs <- numeric(k)
      ranges <- numeric(k * 2)
      for(j in 1:k) {
-         temp <- range(ListofDataSets[[j]], na.rm = T)
+         temp <- range(ListofDataSets[[j]], na.rm = TRUE)
          nxs[j] <- length(ListofDataSets[[j]]) 
          ranges[(j*2)-1] <- temp[1]
          ranges[j*2] <- temp[2]

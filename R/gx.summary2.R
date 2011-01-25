@@ -6,7 +6,7 @@ function(xx, xname = deparse(substitute(xx)))
      #
      nxx <- length(xx)
      table <- numeric(28)
-     stats <- gx.stats(xx, display = F)
+     stats <- gx.stats(xx, display = FALSE)
      table[1] <- stats$stats[20]
      table[2] <- nxx - stats$stats[20]
      table[3] <- stats$stats[23]

@@ -50,11 +50,11 @@ attach(kola.o)
 gx.hist(Cu)
 
 ## Provides a more appropriate initial display
-gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm O-horizon soil", log = TRUE)
+gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE)
 
 ## Causes the Friedman-Diaconis rule to be used to select the number 
 ## of histogram bins
-gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm O-horizon soil", log = TRUE, 
+gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE, 
 	nclass = "fd")
 
 ## Detach test data

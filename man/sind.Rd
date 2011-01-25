@@ -12,12 +12,12 @@ A small subset of data from a regional geochemical stream sediment survey undert
     \item{ID}{ an arbitrary ID (numeric vector). }
     \item{E}{ an Eastings coordinate. }
     \item{N}{ a Northings coordinate. }
-    \item{Zn}{ Zn (mg/kg) in stream sediment. }
-    \item{Fe}{ Fe (\%) in stream sediment. }
-    \item{Mn}{ Mn (mg/kg) in stream sediment. }
-    \item{Cd}{ Cd (mg/kg) in stream sediment. }
-    \item{Cu}{ Cu (mg/kg) in stream sediment. }
-    \item{Pb}{ Pb (mg/kg) in stream sediment. }
+    \item{Zn}{ zinc (mg/kg) in stream sediment. }
+    \item{Fe}{ iron (\%) in stream sediment. }
+    \item{Mn}{ manganese (mg/kg) in stream sediment. }
+    \item{Cd}{ cadmium (mg/kg) in stream sediment. }
+    \item{Cu}{ copper (mg/kg) in stream sediment. }
+    \item{Pb}{ lead (mg/kg) in stream sediment. }
   }
 }
 \details{

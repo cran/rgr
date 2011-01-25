@@ -8,7 +8,7 @@ Function to sort a dataframe on any combination of numerical values or factors i
 gx.sort.df(formula, dfname)
 }
 \arguments{
-  \item{formula}{ a \sQuote{formula} defining the variables to be used in the sort and whether the sort for each is to be in ascending or descending order.  The sort order is from left to right in the formula.  See details and examples below. }
+  \item{formula}{ a \sQuote{formula} defining the variables to be used in the sort and whether the sort for each is to be in ascending or descending order.  The sort order is from left to right in the formula.  See Details and Examples below. }
   \item{dfname}{ the name of the dataframe to be sorted. }
 }
 \details{
@@ -41,7 +41,7 @@ gx.sort.df(test, ~COUNTRY-As)
 ## As and Ni
 gx.sort.df(test, ~COUNTRY-As-Ni)
 
-## Clean up and detach test data
+## Clean-up and detach test data
 rm(test)
 rm(temp)
 detach(kola.c)

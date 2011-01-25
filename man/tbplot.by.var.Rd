@@ -25,7 +25,7 @@ tbplot.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
   \item{cex}{ controls the size of the font used for the factor labels plotted along the x-axis.  By default this is \code{1}, however, if the labels are long it is sometimes necessary to use a smaller font, for example \code{cex = 0.8} results in a font 80\% of normal size. }
   \item{adj}{ controls the justification of the x-axis labels.  By default they are centred, \code{adj = 0.5}, to left justify them if the labels are written downwards set \code{adj = 0}. }
   \item{colr}{ by default the boxes are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. }
-  \item{\dots}{ further arguments to be passed to methods. }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
 There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
@@ -55,7 +55,7 @@ tbplot.by.var(cbind(Co,Cu,Ni))
 
 ## Display a more appropriately labelled and scaled Tukey boxplot
 tbplot.by.var(cbind(Co,Cu,Ni), log = TRUE, logx = TRUE,
-	ylab = "Levels (mg/kg) in <2 mm C-horizon soil")
+	ylab = "Contentrations (mg/kg) in <2 mm Kola C-horizon soil")
 
 ## Detach test data kola.c
 detach(kola.c)

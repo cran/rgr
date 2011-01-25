@@ -38,6 +38,9 @@ fix.test.fixed
 ## As above, and replace any zero values with NAs
 fix.test.fixed <- ltdl.fix.df(fix.test, coded = -9999, zero2na = TRUE)
 fix.test.fixed
+
+## Clean-up
+rm(fix.test.fixed)
 }
 \keyword{ misc }
  

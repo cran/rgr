@@ -45,7 +45,7 @@ Norway <- gx.subset(kola.c,COUNTRY=="NOR")[,19]
 Russia <- gx.subset(kola.c,COUNTRY=="RUS")[,19]
 Finland <- gx.subset(kola.c,COUNTRY=="FIN")[,19]
 
-## Clean up
+## Clean-up
 rm(Norway)
 rm(Russia)
 rm(Finland)

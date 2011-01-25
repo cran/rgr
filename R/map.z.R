@@ -37,7 +37,7 @@ function(xx, yy, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
      zrange <- c(zmin, zmax)
      rgz <- syms(z, zrange, p = p)
      eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol, ...)
-     symbols(x, y, circles = rgz, inches = sfact * 0.05, add = T, ...)
+     symbols(x, y, circles = rgz, inches = sfact * 0.05, add = TRUE, ...)
      if(iflgnd) text(locator(1), paste("Symbols for", zlab,"\np =", p,
          "& sfact =", sfact, "\nzmin =", zmin, "& zmax =", zmax), adj = 0.5, ...)
      invisible()

@@ -34,8 +34,8 @@ function(xx, yy, zz, sfact = 1, logz = FALSE, xlab = "Easting",
              banner <- ""
          else {
              if(logz) banner <-
-                        paste("EDA Tukey Boxplot Based Plot for Log10", zlab)
-         else banner <- paste("EDA Tukey Boxplot Based Plot for", zlab)
+                        paste("EDA Tukey Boxplot Based Map for Log10", zlab)
+         else banner <- paste("EDA Tukey Boxplot Based Map for", zlab)
          }
      else banner <- main
      eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol, ...)

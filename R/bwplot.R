@@ -2,7 +2,7 @@ bwplot <-
 function(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
-	las = 1, cex = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
+	las = 1, cex.axis = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
 	pch = 3, ...)
 {
      # Original script to plot box-and-whisker plots shared by Doug Nychka on
@@ -34,7 +34,7 @@ function(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
          logy <- "y"
      else logy <- ""
      cols <- length(data)
-     range.data <- range(as.numeric(unlist(data)), na.rm = T)
+     range.data <- range(as.numeric(unlist(data)), na.rm = TRUE)
      if(missing(label)) {
          if(is.null(names(data)))
           label <- format(1:cols)
@@ -112,7 +112,7 @@ function(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
      }
      #    if((length(label) > 7) & missing(label))
      #         las <- 2
-     axis(1, xpos, label, tick = F, las = las, cex.axis = cex, adj = adj)
+     axis(1, xpos, label, tick = F, las = las, cex.axis = cex.axis, adj = adj)
      invisible()
 }
 

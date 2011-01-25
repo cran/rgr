@@ -31,7 +31,7 @@ function (x, name = deparse(substitute(x)), log = FALSE, table = FALSE)
          x <- log10(x)
          cat(paste("\n Data for", data.name, "have been log10 tansformed\n"))
      } 
-     xx <- matrix(x, nrow = ntrip,ncol = 3, byrow = T) 
+     xx <- matrix(x, nrow = ntrip,ncol = 3, byrow = TRUE) 
      if(table) {
          cat(paste("\n Input triplicate data for:\n", name, "\n"))
          for (i in 1:ntrip) cat(" ", xx[i, 1:3], "\n")
