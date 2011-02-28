@@ -51,13 +51,13 @@ pH.fixed <- ltdl.fix(pH, coded = -9999)
 ## Display relationship between pH in one pH unit intervals and Cu in 
 ## O-horizon (humus) soil, extending the whiskers to the 2nd and 98th
 ## percentiles, finally removing the temporary data vector pH.fixed
-bwplot(split(Cu,trunc(pH.fixed+0.5)), log = TRUE, wend = 0.02, 
+bwplots(split(Cu,trunc(pH.fixed+0.5)), log = TRUE, wend = 0.02, 
 	xlab = "Soil pH to the nearest pH unit",
 	ylab = "Cu (mg/kg) in < 2 mm Kola O-horizon soil")
 rm(pH.fixed)
 
 ## Or directly
-bwplot(split(Cu,trunc(ltdl.fix(pH, coded = -9999)+0.5)), log = TRUE,  
+bwplots(split(Cu,trunc(ltdl.fix(pH, coded = -9999)+0.5)), log = TRUE,  
 	wend = 0.02, xlab = "Soil pH to the nearest pH unit",
 	ylab = "Cu (mg/kg) in < 2 mm Kola O-horizon soil")
 

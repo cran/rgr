@@ -2,7 +2,7 @@
 \alias{gx.robmva}
 \title{ Function to undertake a Robust Exploratory Multivariate Data Analysis }
 \description{
-The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For closed compositional data sets, such as geochemical analyses, use \code{\link{gx.robmva.closed}}.
+The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  For closed compositional, geochemical, data use function \code{\link{gx.robmva.closed}}.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For closed compositional data sets, such as geochemical analyses, use \code{\link{gx.robmva.closed}}.
 }
 \usage{
 gx.robmva(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
@@ -27,9 +27,9 @@ The following are returned as an object to be saved for subsequent display, etc.
   \item{ifilr}{ flag for \code{gx.md.plot}, set to \code{FALSE}. }
   \item{matnames}{ the row numbers and column headings of the input matrix. }
   \item{wts}{ the vector of weights for the n individuals arising from the robust estimation of the covariance matrix and means. }
-  \item{mean}{ the vector the weighted means for the p variables. }
+  \item{mean}{ the length p vector the weighted means for the variables. }
   \item{cov}{ the p by p weighted covariance matrix for the n by p data matrix. }
-  \item{sd}{ the vector of weighted standard deviations for the p variables. }
+  \item{sd}{ the length p vector of weighted standard deviations for the variables. }
   \item{snd}{ the n by p matrix of weighted standard normal deviates. }
   \item{r}{ the p by p matrix of weighted Pearson product moment correlation coefficients. }
   \item{eigenvalues}{ the vector of p \code{eigenvalues} of the scaled Pearson robust correlation matrix for RQ analysis, see Grunsky (2001). }
@@ -64,64 +64,43 @@ Garrett, R.G., 1990. A robust multivariate allocation procedure with application
 
 Garrett, R.G., 1993. Another cry from the heart. Explore - Assoc. Exploration Geochemists Newsletter, 81:9-14.
 
-Grunsky, E.C., 2001. A program for computinRQ-mode principal components analysis for S-Plus and R. Computers & Geosciences, 27(2):229-235.
+Grunsky, E.C., 2001. A program for computing RQ-mode principal components analysis for S-Plus and R. Computers & Geosciences, 27(2):229-235.
 
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
 \examples{
-## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+## Generate a population of synthetic bivariate normal data
+grp1 <- mvrnorm(100, mu = c(40, 30), Sigma = matrix(c(6, 3, 3, 2), 2, 2))
+grp1 <- cbind(grp1, rep(1, 100))
+## Generate a set of six (6) outliers
+anom <- matrix(c(43, 34, 50, 37, 47, 30, 27, 29, 35, 33, 32, 25),6, 2)
+anom <- cbind(anom, rep(2, 6))
+## Bind the test data together and display the test data 
+test.robmva.mat <- rbind(grp1, anom)
+test.robmva <- as.data.frame(test.robmva.mat)
+dimnames(test.robmva)[[2]] <- c("x","y","grp")
+attach(test.robmva)
+xyplot.tags(x, y, dimnames(test.robmva)[[1]], cex = 0.75)
 
-## Generate gx.robmva object after an clr transform using prior weights
-sind.wts <- rep(1, 25)
-## Set weights of all 6 high weighted sums, truly anomalous, individuals
-## to zero
-sind.wts[c(9, 12, 13, 15, 16, 21)] <- 0
-sind.save.rob.clr <- gx.robmva(clr(sind.mat2open), wts = sind.wts)
+## Generate gx.robmva saved object 
+save.rob <- gx.robmva(as.matrix(test.robmva[, c(1:2)]))
 ## Display saved object with alternate main titles
-gx.rqpca.screeplot(sind.save.rob.clr,
-main = "Howarth & Sinding-Larsen\nStream Sediments, clr Transformed Data",
-cex.main = 0.8)
-gx.rqpca.plot(sind.save.rob.clr,
-main = "Howarth & Sinding-Larsen\nStream Sediments, clr Transformed Data",
-cex.main = 0.8)
-gx.md.plot(sind.save.rob.clr,
-main = "Howarth & Sinding-Larsen\nStream Sediments\nclr Transformed Data",
-cex.main = 0.8, cex.lab = 0.9)
-gx.md.print(cbind(sind.save.rob.clr$md,sind.save.rob.clr$ppm,
-ID, Zn, Cu, Cd, Fe, Mn), pcut = 0.5)
-
-## Generate gx.robmva object after an ilr transform
-## ** Function gx.robmva.closed should be used **
-## ** This is for demonstration only **
-sind.save.rob.ilr <- gx.robmva(ilr(sind.mat2open))
-## Display saved object with alternate main titles
-gx.rqpca.screeplot(sind.save.rob.ilr,
-main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data",
-cex.main = 0.8)
-gx.rqpca.plot(sind.save.rob.ilr,
-main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data",
-cex.main = 0.8)
-gx.md.plot(sind.save.rob.ilr,
-main = "Howarth & Sinding-Larsen\nStream Sediments\nilr Transformed Data",
-cex.main = 0.8, cex.lab = 0.9)
-gx.md.print(cbind(sind.save.rob.ilr$md,sind.save.rob.ilr$ppm,
-ID, Zn, Cu, Cd, Fe, Mn), pcut = 0.5)
+gx.rqpca.screeplot(save.rob, main = "Bivariate synthetic data")
+gx.rqpca.plot(save.rob, cex.lab = 0.8, rowids = TRUE, cex = 0.7,
+main = "Bivariate synthetic data")
+gx.md.plot(save.rob, cex.main = 0.9, cex.lab = 0.8, cex.axis = 0.8,
+main = "Bivariate synthetic data")
+gx.md.print(save.rob, pcut = 0.05)
 
 ## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
-rm(sind.wts)
-rm(sind.save.rob.clr)
-rm(sind.save.rob.ilr)
-detach(sind)
+rm(grp1)
+rm(anom)
+rm(test.robmva.mat)
+rm(test.robmva)
+rm(save.rob)
+detach(test.robmva)
 }
 \keyword{ multivariate }
 \keyword{ robust }

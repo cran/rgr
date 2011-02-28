@@ -24,7 +24,7 @@ Any \code{NA}s in the data vector will be removed prior to computation in functi
 
 For a more extensive summary statistics display a variable at a time, see \code{\link{gx.summary2}}, and for a summary with graphical displays see \code{\link{inset}}.
 
-For summary graphical presentations see functions \code{\link{bwplot.by.var}} or \code{\link{tbplot.by.var}}.
+For summary graphical presentations see functions \code{\link{bwplots.by.var}} or \code{\link{tbplots.by.var}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.summary1}}, \code{\link{gx.summary}}, \code{\link{gx.stats}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{gx.summary2}} }

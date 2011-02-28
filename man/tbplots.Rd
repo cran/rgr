@@ -1,11 +1,11 @@
-\name{tbplot}
-\alias{tbplot}
+\name{tbplots}
+\alias{tbplots}
 \title{ Plot Vertical Tukey Boxplots }
 \description{
 Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically and the values of the Tukey fences used to identify near and far outliers may also be optionally based on the logarithmically transformed data.  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-tbplot(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
+tbplots(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
 	las = 1, cex = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
@@ -62,15 +62,15 @@ data(kola.c)
 attach(kola.c)
 
 ## Display a simple Tukey boxplot
-tbplot(Cu, by = COUNTRY)
-tbplot(split(Cu,COUNTRY))
+tbplots(Cu, by = COUNTRY)
+tbplots(split(Cu,COUNTRY))
 
 ## Display a more appropriately labelled and scaled boxplot
-tbplot(Cu, by = COUNTRY, log =  TRUE, logx = TRUE, xlab = "Country", 
+tbplots(Cu, by = COUNTRY, log =  TRUE, logx = TRUE, xlab = "Country", 
 	ylab = "Ni (mg/kg) in <2 mm Kola C-horizon soil")
 
 ## Display a west-to-east re-ordered plot using the full country names
-tbplot(split(Cu, COUNTRY), log = TRUE, logx = TRUE, 
+tbplots(split(Cu, COUNTRY), log = TRUE, logx = TRUE, 
 	ylab = "Ni (mg/kg) in <2 mm Kola C-horizon soil",
 	label = c("Finland", "Norway", "Russia"), 
 	plot.order = c(2, 1, 3))
@@ -86,7 +86,7 @@ attach(kola.o.fixed)
 
 ## Display relationship between pH in one pH unit intervals and Cu in 
 ## O-horizon (humus) soil
-tbplot(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, 
+tbplots(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, 
 	xlab = "O-horizon soil pH to the nearest pH unit",
 	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
@@ -96,7 +96,7 @@ tbplot(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE,
 ## population of 1.  Note: paste is used in constructing xlab, below,
 ## as the label is long and overflows the text line length
 table(trunc(pH+0.5))
-tbplot(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, notch = FALSE,
+tbplots(split(Cu,trunc(pH+0.5)), log=TRUE, logx = TRUE, notch = FALSE,
 	xlab = paste("O-horizon soil pH to the nearest pH unit,",
 	"\nbox widths proportional to Log(subset_size)"),
 	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil",

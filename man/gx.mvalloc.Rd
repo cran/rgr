@@ -10,7 +10,7 @@ gx.mvalloc(pcrit = 0.05, x, ...)
 \arguments{
   \item{pcrit}{ the critical cut-off probability for group membership below which an individual will be classified as an \sQuote{outlier}.  By default the critical probability of group membership is set to \code{pcrit = 0.05}. }
   \item{x}{ a n by p matrix containing the n individuals, with p variables determined on each, to be allocated, see Details below. }
-  \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from any of functions \code{\link{gx.md.gait}}, \code{\link{gx.mva}} or \code{\link{gx.robmva}}, containing the vectors of means and covariance matrices for the \sQuote{reference} groups the individuals are to be classified into. }
+  \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from any of functions \code{\link{gx.md.gait}}, \code{\link{gx.mva}} or \code{\link{gx.robmva}}, containing the vectors of means and covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
 }
 \details{
 It is imperative that the data matrix \code{x} contains no special codes and all records (individuals) with NAs have been removed, see Notes below.  It is also imperative that the variables in the reference groups and in the matrix \code{x} of individuals to be classified are identical in number and in the same order. 
@@ -40,7 +40,7 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.mvalloc.print}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}} }
 \examples{
-## Generate three groups of synthetic multivariate normal data
+## Generate three groups of synthetic bivariate normal data
 grp1 <- mvrnorm(100, mu = c(40, 30), Sigma = matrix(c(6, 3, 3, 2), 2, 2))
 grp1 <- cbind(grp1, rep(1, 100))
 grp2 <- mvrnorm(100 ,mu = c(50, 40), Sigma = matrix(c(4, -3, -3, 5), 2, 2))
@@ -71,7 +71,7 @@ gx.mvalloc.print(test.save.mvalloc)
 
 ## Save the allocation as a csv file
 gx.mvalloc.print(test.save.mvalloc, ifprint = FALSE,
-file = "test.mvalloc.csv")
+file = "test.mvalloc")
 
 ## Clean-up and detach synthetic test data
 rm(grp1)
@@ -84,50 +84,6 @@ rm(test.save.grp2)
 rm(test.save.grp3)
 rm(test.save.mvalloc)
 detach(test.mvalloc)
-
-## Make test data available
-data(ogrady)
-attach(ogrady)
-ogrady.grdr <- gx.subset(ogrady, Lith == "GRDR")
-ogrady.grnt <- gx.subset(ogrady, Lith == "GRNT")
-## Ensure all data are in the same units (mg/kg)
-ogrady.grdr.2open <- ogrady.grdr[, c(5:14)]
-ogrady.grdr.2open[, 1:7] <- ogrady.grdr.2open[, 1:7] * 10000
-ogrady.grnt.2open <- ogrady.grnt[, c(5:14)]
-ogrady.grnt.2open[, 1:7] <- ogrady.grnt.2open[, 1:7] * 10000
-ogrady.2open <- ogrady[, c(5:14)]
-ogrady.2open[, 1:7] <- ogrady.2open[, 1:7] * 10000 
-
-## Create reference data sets
-ogrady.grdr.save <- gx.md.gait(ilr(as.matrix(ogrady.grdr.2open)),
-mcdstart = TRUE)
-ogrady.grnt.save <- gx.md.gait(ilr(as.matrix(ogrady.grnt.2open)),
-mcdstart = TRUE)
-
-## Allocate all O'Grady granitoids
-ogrady.mvalloc <- gx.mvalloc(pcrit = 0.02, ilr(as.matrix(ogrady.2open)),
-ogrady.grdr.save, ogrady.grnt.save)
-
-## Display list of outliers
-gx.mvalloc.print(ogrady.mvalloc)
-
-## Display allocations
-ogrady.mvalloc$xalloc
-
-## Save allocations as a csv file
-gx.mvalloc.print(ogrady.mvalloc, ifprint = FALSE,
-file = "ogrady.mvalloc.csv")
-
-## Clean-up and detach test data
-rm(ogrady.grdr)
-rm(ogrady.grnt)
-rm(ogrady.grdr.2open)
-rm(ogrady.grnt.2open)
-rm(ogrady.2open)
-rm(ogrady.grdr.save)
-rm(ogrady.grnt.save)
-rm(ogrady.mvalloc)
-detach(ogrady)
 } 
 \keyword{ multivariate }
 

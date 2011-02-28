@@ -17,7 +17,7 @@ The summary statistics comprise the data minimum, maximum and percentile values,
 }
 \value{
   \item{stats}{ 
-the computed summary statistics to be used in function \code{\link{inset}}, and by \code{gx.summary.*} functions.  The list returned, \code{stats}, is a 32-element vector, see below: }
+the computed summary statistics to be used in function \code{\link{inset}}, and by \cr\code{gx.summary.*} functions.  The list returned, \code{stats}, is a 32-element vector, see below: }
   \item{[1:10]}{ the minimum value, and the 1st, 2nd, 5th, 10th, 20th, 25th (Q1), 30th, 40th and 50th (Q2) percentiles. }
   \item{[11:19]}{ the 60th, 70th, 75th (Q3), 80th  90th, 95th, 98th and 99th percentiles and the maximum value. }
   \item{[20]}{ the sample size, N. }

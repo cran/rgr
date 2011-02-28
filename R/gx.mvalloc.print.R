@@ -1,9 +1,11 @@
 gx.mvalloc.print <-
-function(save, ifprint = TRUE, unalloc = TRUE, filename = NULL)
+function(save, ifprint = TRUE, unalloc = TRUE, file = NULL)
 {
-     # Function to list posterior allocations and predicted probabilities
-     # of group membership from object saved from gx.mvalloc, either to
-     # the screen or a file, e.g., "d:\\\\stuff\\\\ecg\\\\ecg_mvalloc.txt".
+     # Function to print posterior allocations and predicted probabilities
+     # of group membership from an object saved from gx.mvalloc or
+     # gx.mvalloc.closed either to the screen or a file in the Working
+     # Directory, or elsewhere, e.g.,'d:\\stuff\\ecg\\ecg_mvalloc.csv',
+     # note that the '.csv' is appended by the function.
      #
      kk <- save$kk
      n <- save$n
@@ -20,7 +22,8 @@ function(save, ifprint = TRUE, unalloc = TRUE, filename = NULL)
          }
          cat("\n")
      }
-     if(!is.null(filename)) {
+     if(!is.null(file)) {
+         filename <- paste(file, ".csv", sep = "")
          sink(filename)
          cat("I,Group", paste(",pgm[", 1:kk, "]", sep = ""), sep = "")
          for(i in 1:n) cat("\n", i, ",", save$xalloc[i], paste(",", pgm[i,  ], sep = ""), sep = "")

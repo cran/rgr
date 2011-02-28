@@ -15,9 +15,9 @@ cat2list(x, a)
   \item{data}{ a list containing factors as columns and the values for those factors as rows.  The order of the resulting groups, subsets, is the order in which the factor variable names were encountered in parameter \sQuote{a} passed to the function. }
 }
 \note{
-This function is called by functions \code{\link{tbplot}} and \code{\link{bwplot}} to prepare Tukey boxplots and box-and-whisker plots, respectively. It is an integral part of the script shared by Doug Nychka on S-News, April 28, 1992.  As such it may pre-date the time that \code{\link{split}} was added to the S-Plus library.
+This function is called by functions \code{\link{tbplots}} and \code{\link{bwplots}} to prepare Tukey boxplots and box-and-whisker plots, respectively. It is an integral part of the script shared by Doug Nychka on S-News, April 28, 1992.  As such it may pre-date the time that \code{\link{split}} was added to the S-Plus library.
 
-If \code{by} is undefined in the calling functions, \code{\link{tbplot}} and \code{\link{bwplot}}, the same result may be achieved by using the \code{split(x, a)} construct instead of stating \code{x} as the variable to be displayed as boxplots.  In which case the data are grouped, subsetted, in alphabetical order of factor variable names.
+If \code{by} is undefined in the calling functions, \code{\link{tbplots}} and \code{\link{bwplots}}, the same result may be achieved by using the \code{split(x, a)} construct instead of stating \code{x} as the variable to be displayed as boxplots.  In which case the data are grouped, subsetted, in alphabetical order of factor variable names.
 }
 \author{ Douglas W. Nychka }
 \keyword{ misc }

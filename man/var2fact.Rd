@@ -2,7 +2,7 @@
 \alias{var2fact}
 \title{ Rearranges Data for Variables as Factors }
 \description{
-Rearranges data from a matrix or dataframe into a matrix where data are tagged by their variables names as factors.  Used to concatenate data for display with functions \code{\link{tbplot.by.var}} and \code{\link{bwplot.by.var}}.
+Rearranges data from a matrix or dataframe into a matrix where data are tagged by their variables names as factors.  Used to concatenate data for display with functions \code{\link{tbplots.by.var}} and \code{\link{bwplots.by.var}}.
 }
 \usage{
 var2fact(xmat)

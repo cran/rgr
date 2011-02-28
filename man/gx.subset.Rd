@@ -38,9 +38,9 @@ norway.cugt50 <- gx.subset(kola.c, COUNTRY == "NOR" & Cu >50)
 
 ## Make single element subsets, e.g. for use with function gx.cnpplts
 ## First locate the column in the dataframe where the element of
-## interest is stored using dimnames(kola.c), we find that Be is the
-## 19th column in the dataframe
-dimnames(kola.c)
+## interest is stored using dimnames(kola.c)[[2]], we find that Be is
+## the 19th column in the dataframe
+dimnames(kola.c)[[2]]
 Norway <- gx.subset(kola.c,COUNTRY=="NOR")[,19]
 Russia <- gx.subset(kola.c,COUNTRY=="RUS")[,19]
 Finland <- gx.subset(kola.c,COUNTRY=="FIN")[,19]

@@ -2,7 +2,7 @@
 \alias{gx.robmva.closed}
 \title{ Function to undertake a Robust Closed Data Multivariate EDA }
 \description{
-The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a closed, compositional, dataset and places the results in an object to be saved and post-processed for display and further manipulation.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}, or for non-compositional data and robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.
+The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a closed compositional, geochemical, dataset and places the results in an object to be saved and post-processed for display and further manipulation.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}, or for non-compositional data and robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.
 }
 \usage{
 gx.robmva.closed(xx, proc = "mcd", wts = NULL,
@@ -15,7 +15,7 @@ gx.robmva.closed(xx, proc = "mcd", wts = NULL,
   \item{main}{ by default the name of the object \code{xx}, \code{main = deparse(substitute(xx))}, it may be replaced by the user, but this is not recommended, see Details below. }
 }
 \details{
-The data are initially isometrically log-ratio transformed and a robust covariance matrix and vector of means estimated, by either the Minimum Covariance Determinant (MCD) or Minimum Volume Elloipsoid (MVE) procedures, or on the basis of a vector of user supplied weights. The Mahalanobis distances are computed on the basis of the ilr transformed data. The ilr transformed data and robust estimates are then back-transformed to the centred log-ratio space and a Principal Components Analysis (PCA) undertaken (see Filzmoser, et al., 2009), permitting the results to be interpreted in the original variable space.
+The data are initially isometrically log-ratio transformed and a robust covariance matrix and vector of means estimated, by either the Minimum Covariance Determinant (MCD) or Minimum Volume Elloipsoid (MVE) procedures, or on the basis of a vector of user supplied weights. The Mahalanobis distances are computed on the basis of the ilr transformed data. The ilr transformed data and robust estimates, including the inverse of the covariance matrix, are then back-transformed to the centred log-ratio basis and a Principal Components Analysis (PCA) undertaken (see Filzmoser, et al., 2009), permitting the results to be interpreted in the original variable space.
  
 If \code{main} is undefined the name of the matrix object passed to the function is used to identify the object.  This is the recommended procedure as it helps to track the progression of a data analysis.  Alternate plot titles are best defined when the saved object is passed to \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.screeplot}} or \code{\link{gx.md.plot}} for display.  If no plot title is required set \code{main = " "}, or if a user defined plot title is required it may be defined, e.g., \code{main = "Plot Title Text"}.
 }
@@ -30,9 +30,10 @@ The following are returned as an object to be saved for subsequent display, etc.
   \item{ifilr}{ flag for \code{gx.md.plot}, set to \code{TRUE}. }
   \item{matnames}{ the row numbers and column headings of the input matrix. }
   \item{wts}{ the vector of weights for the n individuals arising from the robust estimation of the covariance matrix and means. }
-  \item{mean}{ the vector of clr-based weighted means for the p variables. }
+  \item{mean}{ the length p vector of clr-based weighted means for the variables. }
   \item{cov}{ the p by p weighted clr-based covariance matrix for the n by p data matrix. }
-  \item{sd}{ the vector of weighted clr-based standard deviations for the p variables. }
+  \item{cov.inv}{ the p by p weighted clr-based inverse of the covariance matrix, for use by function gx.mvalloc.closed. }
+  \item{sd}{ the length p vector of weighted clr-based standard deviations for the variables. }
   \item{snd}{ the n by p matrix of clr-based weighted standard normal deviates. }
   \item{r}{ the p by p matrix of weighted clr-based Pearson product moment correlation coefficients. }
   \item{eigenvalues}{ the vector of p \code{eigenvalues} of the scaled clr-based Pearson robust correlation matrix for RQ analysis, see Grunsky (2001). }
@@ -63,7 +64,7 @@ Garrett, R.G., 1990. A robust multivariate allocation procedure with application
 
 Garrett, R.G., 1993. Another cry from the heart. Explore - Assoc. Exploration Geochemists Newsletter, 81:9-14.
 
-Grunsky, E.C., 2001. A program for computinRQ-mode principal components analysis for S-Plus and R. Computers & Geosciences, 27(2):229-235.
+Grunsky, E.C., 2001. A program for computing RQ-mode principal components analysis for S-Plus and R. Computers & Geosciences, 27(2):229-235.
 
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
@@ -79,7 +80,7 @@ sind.mat2open <- sind.mat
 sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
 
 ## Generate gx.robmva.closed object
-sind.save <- gx.robmva.closed(sind.mat2open)
+sind.save <- gx.robmva(sind.mat2open)
 
 ## Display Mahalanobis distances
 gx.md.plot(sind.save)

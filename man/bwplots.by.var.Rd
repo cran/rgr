@@ -1,11 +1,11 @@
-\name{bwplot.by.var}
-\alias{bwplot.by.var}
+\name{bwplots.by.var}
+\alias{bwplots.by.var}
 \title{ Plot Vertical Box-and-Whisker Plots for Variables}
 \description{
 Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically.  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-bwplot.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE, 
+bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE, 
 	xlab = "Measured Variables", ylab = "Reported Values", 
 	main = "", label = NULL, plot.order = NULL, xpos = NA, 
 	las = 1, cex.axis = 1, adj = 0.5, colr = 8, pch = 3, ...)
@@ -47,17 +47,17 @@ Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
 For a summary statistics display to complement the graphics see \code{\link{gx.summary.mat}}.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{bwplot}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
+\seealso{ \code{\link{bwplots}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
 \examples{
-## Make test dataavailable
+## Make test data available
 data(kola.c)
 attach(kola.c)
 
 ## Display a simple box-and-whisker plot for measured variables
-bwplot.by.var(cbind(Co,Cu,Ni))
+bwplots.by.var(cbind(Co,Cu,Ni))
 
 ## Display a more appropriately labelled and scaled box-and-whisker plot
-bwplot.by.var(cbind(Co,Cu,Ni), log = TRUE, 
+bwplots.by.var(cbind(Co,Cu,Ni), log = TRUE, 
 	ylab = "Levels (mg/kg) in <2 mm Kola C-horizon soil")
 
 ## Detach test data
@@ -69,7 +69,7 @@ data(ms.data1)
 ## Display variables in a dataframe extending the whiskers to the
 ## 2nd and 98th percentiles of the data, remembering to omit the
 ## sample IDs
-bwplot.by.var(ms.data1[, -1], log = TRUE, wend = 0.02)
+bwplots.by.var(ms.data1[, -1], log = TRUE, wend = 0.02)
 
 }
 \keyword{ hplot }

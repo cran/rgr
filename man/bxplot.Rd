@@ -22,7 +22,7 @@ bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE,
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. } 
 }
 \details{
-The function can be used stand-alone, but as Tukey boxplots and box-and-whisker plots are usually used to compare the distributions of data subsets the functions \code{\link{tbplot}} (Tukey boxplots) and \code{\link{bwplot}} (box-and-whisker plots) are required for that purpose.
+The function can be used stand-alone, but as Tukey boxplots and box-and-whisker plots are usually used to compare the distributions of data subsets the functions \code{\link{tbplots}} (Tukey boxplots) and \code{\link{bwplots}} (box-and-whisker plots) are required for that purpose.
 
 When the boxplot is displayed on a logarithmically scaled x-axis, the data are log transformed prior to the computation of the positions of the fences used in the Tukey boxplot to identify near and far outliers, plotted as plusses and circles, respectively.
 
