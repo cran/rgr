@@ -1,6 +1,7 @@
 gx.rqpca.plot <-
 function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL, 
-         ifrot = TRUE, main = "", ...)
+         ifrot = TRUE, main = "", cex = 0.7, cex.lab = 0.9, cex.main = 0.9,
+         ...)
 {
      # Function to plot scores on component v2 vs scores on component v1
      # using the saved output from gx.mva or gx.robmva.  Default is to
@@ -26,7 +27,8 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
      # rplot = T & qplot = T & rowids = T, input matrix row numbers and variable names
      #
      frame()
-     if(main == "") banner <- save$input
+     if(main == "") banner <- paste("PC bi-plots for",
+         deparse(substitute(save)), "\ndata source:", save$input)
      else banner <- main
      nr <- save$nr
      if(is.null(nr)) {
@@ -63,17 +65,17 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
      else {
          if(is.null(nr)) {
              lv1 <- paste("Robust (", save$proc, ") PC-", as.character(v1), ", ",
-                 round(save$pvcontrib[v1],1), "% of total variability", sep = "")
+                 round(save$pvcontrib[v1],1), "% of total score variability", sep = "")
              lv2 <- paste("Robust (", save$proc, ") PC-", as.character(v2), ", ",
-                 round(save$pvcontrib[v2],1), "% of total variability", sep = "")
+                 round(save$pvcontrib[v2],1), "% of total score variability", sep = "")
          }
          else {
              lv1 <- paste("Robust (", save$proc, ") Varimax Rotated PC-",
                  as.character(v1), "\n", round(save$pvvcontrib[v1],1),
-                 "% of total variability", sep = "") 
+                 "% of total score variability", sep = "") 
              lv2 <- paste("Robust (", save$proc, ") Varimax Rotated PC-",
                  as.character(v2), "\n", round(save$pvvcontrib[v2],1),
-                "% of total variability", sep = "")
+                "% of total score variability", sep = "")
          }
      }
      if(rplot & !qplot) {
@@ -95,15 +97,16 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
          y2 <- max(max(rload[, v2]), max(rqscore[, v2]))
      }
      plot(rqscore[, v1], rqscore[, v2], xlab = lv1, ylab = lv2, 
-         xlim = c(x1, x2), ylim = c(y1, y2), type = "n", main = banner, ...)
+         xlim = c(x1, x2), ylim = c(y1, y2), type = "n", main = banner,
+         cex.main = cex.main, cex.lab = cex.lab, ...)
      if((x1 < 0) & (x2 > 0)) abline(v = 0, lty = 2)
      if((y1 < 0) & (y2 > 0)) abline(h = 0, lty = 2)
-     if(rplot) text(rload[, v1], rload[, v2], rnames, ...)
+     if(rplot) text(rload[, v1], rload[, v2], rnames, cex = cex, ...)
      if(qplot) {
          if(is.null(rowids))
              points(rqscore[, v1], rqscore[, v2], ...)
-         else if(rowids) text(rqscore[, v1], rqscore[, v2], ...)
-         else text(rqscore[, v1], rqscore[, v2], qnames, ...)
+         else if(rowids) text(rqscore[, v1], rqscore[, v2], cex = cex, ...)
+         else text(rqscore[, v1], rqscore[, v2], qnames, cex = cex, ...)
      }
      invisible()
 }

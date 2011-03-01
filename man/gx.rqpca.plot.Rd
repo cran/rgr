@@ -6,7 +6,8 @@ Function to display the results of a Principal Components Analysis (PCA) from th
 }
 \usage{
 gx.rqpca.plot(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE,
-	rowids = NULL, ifrot = TRUE, main = "", ...)
+	rowids = NULL, ifrot = TRUE, main = "", cex = 0.7, cex.lab = 0.9,
+        cex.main = 0.9, ...)
 }
 \arguments{
   \item{save}{ a saved object from the execution of function \code{\link{gx.mva}} or \code{\link{gx.robmva}}. }
@@ -16,13 +17,18 @@ gx.rqpca.plot(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE,
   \item{qplot}{ the default is to plot the observation (individual, case or sample) scores.  If scores are not required set \code{qplot = FALSE}. }
   \item{rowids}{ \sQuote{switch} to determine if the input matrix row numbers are to be displayed instead of default plotting symbols.  The default is for default plotting symbols, i.e. \code{rowids = NULL}, set \code{rowids = TRUE} if the row numbers are to be displayed. }
   \item{ifrot}{ by default the post-Varimax rotation scores are displayed if a rotation has been made, see \code{\link{gx.rotate}}.  If rotated scores are available in the saved object but the unrotated biplot is to be displayed set \code{ifrot = FALSE}. }
-  \item{main}{ an alternate plot title to that in the saved object, see Details below. }
+  \item{main}{ an alternate plot title from that generated automatically from information in the saved object, see Details below. }
+  \item{cex}{ the text scale expansion factor for the observation symbols and variable names in the display, by default \code{cex = 0.7}, a 30\% font size reduction. }
+  \item{cex.lab}{ the text scale expansion factor for the axis labels of the display, by default \code{cex.axis = 0.9}, a 10\% font size reduction. }
+  \item{cex.main}{ the text scale expansion factor for the display title, by default \code{cex.axis = 0.9}, a 10\% font size reduction. }
   \item{\dots}{ further arguments to be passed to methods concerning the plot.  For example, if some colour other than black is required for the plotting characters, specify \code{col = 2} to obtain red (see \code{\link{display.lty}} for the default colour palette).  If it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
-If \code{main} is undefined the name of the matrix object from which the PCA was derived is passed to the function via the saved object.  Using the matrix name is the recommended procedure in the source functions as it helps to track the progression of the data analysis, acting as a record of the data source.  However, at a presentation stage an alternate plot title may be preferred and can be defined in this function, e.g., \code{main = "Plot Title Text"}.  If no plot title is required set \code{main = " "}.
+If \code{main} is undefined the name of the matrix object supplied to the function is displayed in the plot title.  On the line below the name of the data matrix from which the PCA was derived is displayed.  However, if an alternate plot title is preferred it may be defined, e.g., \code{main = "Plot Title Text"}.  If no plot title is required set \code{main = " "}.
 
-Information on the percentage of the variability explained by each component, and whether or not rotation has been undertaken, is recoved from the saved object and used to appropriately label the plot axes.
+If the variable names are longer than three characters the display can easily become cluttered.  In which case the user should redefine the variable names in the input matrix from which the PCA was derived using the \code{dimnames(matrix.name)[[2]]} construct, and run the generating function again.  Alternately, the variable names in the saved object may be changed directly via a redefinition of \code{save$matnames[[2]]}.
+
+Information on the percentage of the variability explained by each component, and whether or not rotation has been undertaken, is recoved from the saved object and used to appropriately label the plot axes.  Note that for non-robust models the percentage variability explained will be the same as the percentage variability explained by the corresponding eigenvalues.  However, for robust models the variance explained is expressed as the percentage of the total score variance including the individuals that were removed during robustification.  As a result the percentage of the total score variability is not the same as the percentage of the variability explained by the corresponding eigenvalues that is based on the robust \sQuote{core} data subset.  Plots of components with high percentages of the total score variability are informative as the structure of outliers. 
 
 The following describes the available plot option combinations, the first being the default:\cr
 rplot = TRUE & qplot = TRUE & rowids = NULL, crosses (pch default) and variable names\cr

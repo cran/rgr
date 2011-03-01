@@ -33,12 +33,12 @@ sind.mat <- as.matrix(sind[, -c(1:3)])
 sind.mat2open <- sind.mat
 sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
 
-## Display default 2-D Projection
+## Display default 2-D projection
 sind.save <- gx.2dproj(ilr(sind.mat2open))
 
 ## Display saved object
 gx.2dproj.plot(sind.save,
-	main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data")
+main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data")
 
 ## Clean-up
 rm(sind.mat)

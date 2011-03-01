@@ -8,6 +8,13 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      # ("sam"), the default.  Requires that Library MASS is attached.  At
      # this time (2010/12/15) no R-script is available for minimum spanning
      # trees in the 'planing' mode, it is not available in R-MASS.
+     # Function modified to accomodate isoMDS ("iso") from library MASS and
+     # fastICA ("ica") from library fastICA for a projection pursuit option
+     # (2011/02/04).
+     # The signs of the 2-d coordinates have been adjusted so that the same
+     # general configuration is obtained with the ilr transformed 'sind' data.
+     # Note that the fastICA algorithm provides different reflections of the
+     # 2-d projection on repeated execution.
      #
      # Note: Executing a log transform does effect the subsequent computations.
      # Note: A 0-1 range transformation following a SND normalization does not
@@ -57,13 +64,26 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      else if(proc == "mds") {
          save <- cmdscale(dist.x, k = 2, eig = TRUE, add = TRUE)
          xxx <- save$points[, 1]
+         yyy <- save$points[, 2] * (-1)
+         xlabel <- "Classic Multidimensional Scaling X Coordinate"
+         ylabel <- "Classic Multidimensional Scaling Y Coordinate"
+     }
+     else if(proc == "iso") {
+         save <- isoMDS(dist.x)
+         xxx <- save$points[, 1]
          yyy <- save$points[, 2]
-         xlabel <- "Multidimensional Scaling X Coordinate"
-         ylabel <- "Multidimensional Scaling Y Coordinate"
-         cat("  Eigenvalues:", save$eig, "\n  ac =", save$ac, "\n")
+         xlabel <- "Non-Metric Multidimensional Scaling X Coordinate"
+         ylabel <- "Non-Metric Multidimensional Scaling Y Coordinate"
+     }
+     else if(proc == "ica") {
+         save <- fastICA(x, n = 2)
+         xxx <- save$S[, 1]
+         yyy <- save$S[, 2]
+         xlabel <- "Projection Pursuit (ICA) X Coordinate"
+         ylabel <- "Projection Pursuit (ICA) Y Coordinate"
      }
      else {
-         cat("  MASS 'mstree' not available for R\n")
+         cat("  MASS 'mstree' function not available for R\n")
 #         save <- mstree(x)
 #         xxx <- save$x
 #         yyy <- save$y
@@ -79,7 +99,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      abline(h = 0, lty = 2)
      dist.2d <- dist(cbind(xxx, yyy))
      stress <- signif(sum((dist.x - dist.2d)^2)/sum(dist.2d), 5)
-     cat(" ", proc, "stress =", stress, "\n")
+     cat(" ", paste("'", proc, "'", " stress = ", stress, sep = ""), "\n")
      usage <- paste(deparse(substitute(xx)), "; proc =", proc, "; log =", log, 
          "; rsnd =", rsnd, "; snd =", snd, "; range =", range)
      #

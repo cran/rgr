@@ -5,7 +5,8 @@
 Displays the same concise one-line summary statistics report as \code{\link{gx.summary1}} but with the data grouped by the value of a factor variable.  The table consists of a heading line and a line of summary statistics for each \sQuote{group}, value of the factor variable.
 }
 \usage{
-gx.summary.groups(group, x, xname = deparse(substitute(x)), log = FALSE)
+gx.summary.groups(group, x, xname = deparse(substitute(x)), 
+	log = FALSE)
 }
 \arguments{
   \item{group}{ the name of the factor variable the data are to be grouped by. }
@@ -25,7 +26,7 @@ Alternately, function \code{\link{framework.summary}} generates grouped summary 
 
 For more extensive summary statistics displaying one variable at a time, see \code{\link{gx.summary2}} using a construct like \code{gx.summary2(var[factor == "value"])} or use function \code{\link{inset}} with a similar construct.
 
-For summary graphical presentations see functions \code{\link{bwplot}} or \code{\link{tbplot}}.
+For summary graphical presentations see functions \code{\link{bwplots}} or \code{\link{tbplots}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.summary1}}, \code{\link{gx.summary}}, \code{\link{gx.stats}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{gx.summary2}} }

@@ -17,7 +17,7 @@ orthonorm(p)
 Filzmoser, P., Hron, K., Reimann, C. and Garrett, R., 2009. Robust factor analysis for compositional data. Computers & Geosciences, 35(9):1854-1861.
 }
 \author{ Based on a function by Peter Filzmoser and Karel Hron }
-\seealso{ \code{\link{ilr}}, \code{\link{clr}}, \code{\link{gx.robmva.closed}} }
+\seealso{ \code{\link{ilr}}, \code{\link{clr}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.md.gait.closed}} }
 \examples{
 ## Make test data available
 data(sind)
@@ -37,13 +37,15 @@ sind.ilr <-ilr(sind.mat2open)
 V <- orthonorm(6)
 prmatrix(V)
 
-## Back-transform ilr transformed data to clr and display
-temp <- sind.ilr %*% V
+## Back-transform ilr transformed data to clr form and display
+temp <- sind.ilr \%*\% t(V)
+dimnames(temp)[[2]] <- dimnames(sind.mat)[[2]]
 prmatrix(temp)
 
 ## Clean-up and detach test data
+rm(sind.mat)
+rm(sind.mat2open)
 rm(sind.ilr)
-rm(temp)
 rm(V)
 detach(sind)
 }

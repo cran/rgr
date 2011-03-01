@@ -1,11 +1,11 @@
-\name{tbplot.by.var}
-\alias{tbplot.by.var}
+\name{tbplots.by.var}
+\alias{tbplots.by.var}
 \title{ Plot Vertical Tukey Boxplots for Variables}
 \description{
 Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically.  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-tbplot.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE, 
+tbplots.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE, 
 	xlab = "Measured Variables", ylab = "Reported Values", 
 	main = "", label = NULL, plot.order = NULL, xpos = NA, 
 	las = 1, cex = 1, adj = 0.5, colr = 8, ...)
@@ -44,17 +44,17 @@ Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
 For a summary statistics display to complement the graphics see \code{\link{gx.summary.mat}}.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{tbplot}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
+\seealso{ \code{\link{tbplots}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
 \examples{
 ## Make test data kola.c available
 data(kola.c)
 attach(kola.c)
 
 ## Display a simple Tukey boxplot for measured variables
-tbplot.by.var(cbind(Co,Cu,Ni))
+tbplots.by.var(cbind(Co,Cu,Ni))
 
 ## Display a more appropriately labelled and scaled Tukey boxplot
-tbplot.by.var(cbind(Co,Cu,Ni), log = TRUE, logx = TRUE,
+tbplots.by.var(cbind(Co,Cu,Ni), log = TRUE, logx = TRUE,
 	ylab = "Contentrations (mg/kg) in <2 mm Kola C-horizon soil")
 
 ## Detach test data kola.c
@@ -65,7 +65,7 @@ data(ms.data1)
 
 ## Display variables in a dataframe, remembering to omit the
 ## sample IDs
-tbplot.by.var(ms.data1[, -1], log=TRUE, logx = TRUE)
+tbplots.by.var(ms.data1[, -1], log=TRUE, logx = TRUE)
 }
 \keyword{ hplot }
 

@@ -1,4 +1,4 @@
-tbplot <-
+tbplots <-
 function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
@@ -140,7 +140,7 @@ function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
      }
      #    if((las = 1) & (length(label) > 7) & missing(label))
      #         las <- 2
-     axis(1, xpos, label, tick = F, las = las, cex.axis = cex, adj = adj)
+     axis(1, xpos, label, tick = FALSE, las = las, cex.axis = cex, adj = adj)
      invisible()
 }
 

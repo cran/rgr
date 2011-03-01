@@ -1,11 +1,11 @@
-\name{bwplot}
-\alias{bwplot}
+\name{bwplots}
+\alias{bwplots}
 \title{ Plot Vertical Box-and-Whisker Plots }
 \description{
 Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically. A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-bwplot(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "", 
+bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "",
 	label = NULL, plot.order = NULL, xpos = NA, width, 
 	space = 0.25, las = 1, cex.axis = 1, adj = 0.5, add = FALSE, 
@@ -65,15 +65,15 @@ data(kola.c)
 attach(kola.c)
 
 ## Display a simple box-and-whisker plot
-bwplot(Cu, by = COUNTRY)
-bwplot(split(Cu,COUNTRY))
+bwplots(Cu, by = COUNTRY)
+bwplots(split(Cu,COUNTRY))
 
 ## Display a more appropriately labelled and scaled box-and-whisker plot
-bwplot(Cu, by = COUNTRY, log = TRUE, xlab = "Country", 
+bwplots(Cu, by = COUNTRY, log = TRUE, xlab = "Country", 
 	ylab = "Cu (mg/kg) in <2 mm C-horizon soil")
 
 ## Display a west-to-east re-ordered plot using the full country names
-bwplot(split(Cu, COUNTRY), log = TRUE,
+bwplots(split(Cu, COUNTRY), log = TRUE,
 	ylab = "Cu (mg/kg) in <2 mm C-horizon soil", 
 	label = c("Finland", "Norway", "Russia"), 
 	plot.order = c(2, 1, 3))
@@ -90,7 +90,7 @@ attach(kola.o.fixed)
 ## Display relationship between pH in one pH unit intervals and Cu in 
 ## O-horizon (humus) soil, extending the whiskers to the 2nd and 98th
 ## percentiles
-bwplot(split(Cu,trunc(pH+0.5)), log = TRUE, wend = 0.02, 
+bwplots(split(Cu,trunc(pH+0.5)), log = TRUE, wend = 0.02, 
 	xlab = "O-horizon soil pH to the nearest pH unit",
 	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
@@ -100,7 +100,7 @@ bwplot(split(Cu,trunc(pH+0.5)), log = TRUE, wend = 0.02,
 ## population of 1.  Note: paste is used in constructing xlab, below,
 ## as the label is long and overflows the text line length
 table(trunc(pH+0.5))
-bwplot(split(Cu,trunc(pH+0.5)), log=TRUE, wend = 0.02, notch = FALSE,
+bwplots(split(Cu,trunc(pH+0.5)), log=TRUE, wend = 0.02, notch = FALSE,
 	xlab = paste("O-horizon soil pH to the nearest pH unit,",
 	"\nbox widths proportional to Log(subset_size)"),
 	ylab = "Cu (mg/kg) in <2 mm Kola O-horizon soil",

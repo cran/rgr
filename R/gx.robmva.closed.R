@@ -81,10 +81,14 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
      ppm <- 1 - pf(temp * md, p.ilr, nc - p.ilr)
      epm <- 1 - pchisq(md, p.ilr)
      #
+     # Invert ilr covariance matrix for use in gx.mvalloc.closed
+     inverted <- ginv(save.ilr$cov)
      # Back-transform ilr covariance matrix and means to clr form
      V <- orthonorm(p)
      cov.clr <- V %*% save.ilr$cov %*% t(V)
      dimnames(cov.clr)[[1]] <- dimnames(cov.clr)[[2]] <- matnames[[2]]
+     inverted.clr <- V %*% inverted %*% t(V)
+     dimnames(inverted.clr) <- dimnames(cov.clr)
      corr <- V %*% save.ilr$cor %*% t(V)
      dimnames(corr) <- dimnames(cov.clr)
      center <- as.vector(save.ilr$center %*% t(V))
@@ -103,15 +107,15 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
      cat("  Eigenvalues:", signif(b$d, 4), "\n")
      sumc <- sum(b$d)
      econtrib <- 100 * (b$d/sumc)
-     rqscore <- snd %*% b$v
+     b1 <- b$v * 0
+     diag(b1) <- sqrt(b$d)
+     rload <- b$v %*% b1
+     rqscore <- snd %*% rload
      cpvcontrib <- pvcontrib <- vcontrib <- numeric(p)
      for (j in 1:p) vcontrib[j] <- var(rqscore[, j])
      sumv <- sum(vcontrib)
      pvcontrib <- (100 * vcontrib)/sumv
      cpvcontrib <- cumsum(pvcontrib)
-     b1 <- b$v * 0
-     diag(b1) <- sqrt(b$d)
-     rload <- b$v %*% b1
      rcr <- rload[,  ] * 0
      rcr1 <- apply(rload^2, 1, sum)
      rcr <- 100 * sweep(rload^2, 1, rcr1, "/")
@@ -119,10 +123,10 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
      #
      invisible(list(main = main, input = deparse(substitute(xx)), proc = proc,
          n = n, nc = nc, p = p, ifilr = TRUE, matnames = matnames, wts = wts,
-         mean = center, cov = cov.clr, sd = sd, snd = snd, r = corr, 
-         eigenvalues = b$d, econtrib = econtrib, eigenvectors = b$v,
-         rload = rload, rcr = rcr, rqscore = rqscore, vcontrib = vcontrib,
-         pvcontrib = pvcontrib, cpvcontrib = cpvcontrib, md = md, ppm = ppm,
-         epm = epm, nr = NULL))
+         mean = center, cov = cov.clr, cov.inv = inverted.clr, sd = sd,
+         snd = snd, r = corr, eigenvalues = b$d, econtrib = econtrib,
+         eigenvectors = b$v, rload = rload, rcr = rcr, rqscore = rqscore,
+         vcontrib = vcontrib, pvcontrib = pvcontrib, cpvcontrib = cpvcontrib,
+         md = md, ppm = ppm, epm = epm, nr = NULL))
 }
 
