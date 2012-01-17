@@ -1,5 +1,5 @@
 gx.summary <-
-function (xx, log = log) 
+function (xx, log = log, iftell = iftell) 
 {
      # Function to compile a table of summary statistics, computed by 
      # function gx.stats, to be displayed by other summary statistics 
@@ -9,7 +9,7 @@ function (xx, log = log)
      #
      nxx <- length(xx)
      table <- numeric(15)
-     stats <- gx.stats(xx, display = FALSE)
+     stats <- gx.stats(xx, display = FALSE, iftell = iftell)
      table[1] <- stats$stats[20]
      table[2] <- nxx - stats$stats[20]
      table[3:7] <- stats$stats[c(1, 7, 10, 13, 19)]

@@ -45,7 +45,7 @@ gx.cnpplts(xlab = "Cu (mg/kg) in <2 mm Kola C-horizon soil", log = TRUE,
 
 ## An example that leads to a cleaner legend
 ## First select data for the variable to be plotted for the subsets, from
-## dimnames(kola.c) we know that Be is the 19th column in the dataframe
+## dimnames(kola.c) we know that Be is the 19th column in the data frame
 Norway <- gx.subset(kola.c,COUNTRY=="NOR")[,19]
 Russia <- gx.subset(kola.c,COUNTRY=="RUS")[,19]
 Finland <- gx.subset(kola.c,COUNTRY=="FIN")[,19]

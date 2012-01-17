@@ -7,7 +7,7 @@ A small data set of regional and field duplicate samples from the Maritimes 2007
 }
 \usage{data(triples.test2)}
 \format{
-  A dataframe with 186 observations for the following 3 variables:
+  A data frame with 186 observations for the following 3 variables:
   \describe{
     \item{ID}{ the NAmSGLs unique site identifier. }
     \item{RS}{ the Replicate Status code. }

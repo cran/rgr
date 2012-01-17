@@ -7,7 +7,7 @@ A subset of data, for the O'Grady pluton, NWT, (NTS map sheet 105I) from a regio
 }
 \usage{data(ogrady)}
 \format{
-  A dataframe with 110 observations for the following 24 variables:
+  A data frame with 110 observations for the following 24 variables:
   \describe{
     \item{ID}{ a numeric vector, part of the unique GSC sample number. }
     \item{E}{ UTM Eastings (m) for the sample site (UTM Zone 9). }

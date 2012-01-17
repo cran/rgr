@@ -19,27 +19,19 @@ gx.md.plt0(md, n, p, trim = trim, ptrim = -1, proc = proc,
   \item{ifadd}{ the probability based fences to be displayed on the Chi-square plots, set by the calling function and the user. }
   \item{cexf}{ the text scale expansion factor for the annotation of the probability based fences, set by the calling function and the user. } 
   \item{cex}{ the text scale expansion factor for the other annotation within the \sQuote{frame} of the Chi-square plot, set by the calling function and the user. }
-  \item{\dots}{ further arguments to be passed to methods concerning the generated plots.  For example, if some colour other than black is required for the plotting characters, specify \code{col = 2} to obtain red (see \code{\link{display.lty}} for the default colour palette).  If it is required to make the plot title or axis labelling smaller, add \code{cex.main = 0.9} or \code{cex.lab = 0.9}, respectivel, to reduce the font size by 10\%. }
+  \item{\dots}{ further arguments to be passed to methods concerning the generated plots.  For example, if some colour other than black is required for the plotting characters, specify \code{col = 2} to obtain red (see \code{\link{display.lty}} for the default colour palette).  If it is required to make the plot title or axis labelling smaller, add \code{cex.main = 0.9} or \code{cex.lab = 0.9}, respectively, to reduce the font size by 10\%. }
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.md.plot}}, \code{\link{gx.add.chisq}} }
 \examples{
 ## Make test data available
-data(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Generate and display sets of Mahalanobis distances
 gx.md.gait(ilr(sind.mat2open))
 gx.md.gait(ilr(sind.mat2open), mcdstart = TRUE, ifadd = NULL)
 gx.md.gait(ilr(sind.mat2open), mcdstart = TRUE, mvtstart = TRUE, trim = 3,
 ifadd = 0.9)
-
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
 }
 \keyword{ hplot }
 

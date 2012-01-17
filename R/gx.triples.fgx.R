@@ -1,5 +1,5 @@
 gx.triples.fgx <-
-function (x, RepStat, name=deparse(substitute(x)), log = FALSE) 
+function(x, RepStat, xname=deparse(substitute(x)), log = FALSE) 
 {
      # Function to undertake F-tests to determine if Field Duplicates (RS=1 & RS=2)
      # are a valid subset of the survey coverage (RS=0).
@@ -14,7 +14,7 @@ function (x, RepStat, name=deparse(substitute(x)), log = FALSE)
          cat(paste("\n Data for", data.name, "have been log10 tansformed"))
      } 
      #     
-     cat("\n F-tests to check on triples representivity for:\n", name)
+     cat("\n F-tests to check on triples representivity for:\n", xname)
      var0 <- var(xx[RS==0]); df0 <- length(xx[RS==0]) - 1
      var1 <- var(xx[RS==1]); df1 <- length(xx[RS==1]) - 1
      var2 <- var(xx[RS==2]); df2 <- length(xx[RS==2]) - 1
@@ -47,7 +47,7 @@ function (x, RepStat, name=deparse(substitute(x)), log = FALSE)
           if (F.prob[k] > 0.99) p.char[k] <- " **"
           if (F.prob[k] > 0.999) p.char[k] <- "***"
      }
-     cat("\n F(regional) =", signif(F0, 4), "\tDoFs =", df11, "and", df12,
+     cat("\n\n F(regional) =", signif(F0, 4), "\tDoFs =", df11, "and", df12,
          "\tProb =", signif(F.prob[1], 3), p.char[1], note)
      cat("\n F(1 vs. 2)  =", signif(F12, 4), "\tDoFs =", df21, "and", df22,
          "\t\tProb =", signif(F.prob[2], 3), p.char[2], "\n\n")

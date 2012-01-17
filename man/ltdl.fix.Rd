@@ -6,7 +6,7 @@ Function to process a numeric vector to replace negative values representing les
 
 A report of the changes made is displayed on the current device.
 
-For processing data matrices or dataframes, see \code{\link{ltdl.fix.df}}. 
+For processing data matrices or data frames, see \code{\link{ltdl.fix.df}}. 
 }
 \usage{
 ltdl.fix(x, zero2na = FALSE, coded = NA)
@@ -20,7 +20,7 @@ ltdl.fix(x, zero2na = FALSE, coded = NA)
 A numeric vector identical to that input but where any negative values have been replaced by half their positive values, and optionally any zero or numeric coded values have been replaced by \code{NA}s.
 }
 \note{
-If data are being accessed through an ODBC link to a database, rather than from a dataframe that can be processed by \code{\link{ltdl.fix.df}}, it may be important to run this function on the retrieved vector prior to any subsequent processing.  The necessity for such vector processing can be ascertained using the range function, e.g., \code{range(na.omit(x))}, where x is the variable name, to determine the presence of any negative values.  The presence of any \code{NA}s in the vector will return \code{NA}s in the \code{\link{range}} function without the \code{\link{na.omit}}, i.e. \code{range(x)}.
+If data are being accessed through an ODBC link to a database, rather than from a data frame that can be processed by \code{\link{ltdl.fix.df}}, it may be important to run this function on the retrieved vector prior to any subsequent processing.  The necessity for such vector processing can be ascertained using the range function, e.g., \code{range(na.omit(x))}, where x is the variable name, to determine the presence of any negative values.  The presence of any \code{NA}s in the vector will return \code{NA}s in the \code{\link{range}} function without the \code{\link{na.omit}}, i.e. \code{range(x)}.
 
 Great care needs to be taken when processing data where a large proportion of the data are less than detects (\code{<}value).  In such cases parametric statistics have limited value, and can be missleading.  Records should be kept of variables containing \code{<}values, and the fixed replacement values changed in tables for reports to the appropriate \code{<}values.  Thus, in tables of percentiles the \code{<}value should replace the fixed value computed from absolute(-value)/2.  Various rules have been proposed as to how many less than detects treated in this way can be tolerated before means, variances, etc. become biassed and of little value.  Less than 5\% in a large data set is usually tolerable, with greater than 10\% concern increases, and with greater than 20\% alternate procedures for processing the data should be sought, for example, the procedures outlined in Helsel (2005).
 }

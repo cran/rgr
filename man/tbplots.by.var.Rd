@@ -2,7 +2,7 @@
 \alias{tbplots.by.var}
 \title{ Plot Vertical Tukey Boxplots for Variables}
 \description{
-Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically.  A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically (base 10).  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
 tbplots.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE, 
@@ -11,7 +11,7 @@ tbplots.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
 	las = 1, cex = 1, adj = 0.5, colr = 8, ...)
 }
 \arguments{
-  \item{xmat}{ the data matrix or dataframe containing the data. }
+  \item{xmat}{ the data matrix or data frame containing the data. }
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{logx}{ if the positions of the Tukey boxplot fences are to be computed on the basis of log transformed data set \code{logx = TRUE}. For general usage, if \code{log = TRUE} then set \code{logx = TRUE}. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is not to notch the boxplots, to have notches set \code{notch = TRUE}. }
@@ -28,7 +28,7 @@ tbplots.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
-There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
+There are two ways to provide data to this function.  Firstly, if all the variables in a data frame are to be displayed, and there are no factor variables, the data frame name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
 
 Long variable names can lead to display problems, changing the \code{las} parameter from its default of \code{las = 1} which plots subset labels parallel to the axis to \code{las = 2}, to plot perpendicular to the axis, can help.  It may also help to use \code{label} and split the character string into two lines, e.g., by changing the string \code{"Specific Conductivity"} that was supplied to replace the variable name \code{SC} to \code{"Specific\\nConductivity"}.  If this, or setting \code{las = 2}, causes a conflict with the x-axis title, if one is needed, the title can be moved down a line by using \code{xlab = "\\nPhysical soil properties"}.  In both cases the \code{\\n} forces the following text to be placed on the next lower line.
 
@@ -63,7 +63,7 @@ detach(kola.c)
 ## Make test data ms.data1 available
 data(ms.data1)
 
-## Display variables in a dataframe, remembering to omit the
+## Display variables in a data frame, remembering to omit the
 ## sample IDs
 tbplots.by.var(ms.data1[, -1], log=TRUE, logx = TRUE)
 }

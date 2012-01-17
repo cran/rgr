@@ -12,7 +12,7 @@ gx.md.gait.closed(xx, wts = NULL, trim = -1, mvtstart = FALSE,
 \arguments{
   \item{xx}{ the n by p matrix for which the Mahalanobis distances are required. }
   \item{wts}{ the vector of weights for the n individuals, either 1 or 0. }
-  \item{trim}{ the desired trim: trim < 0 - no trim, the default; trim >0 & <1 - fraction of individuals to be trimmed; trim >= 1 - the number of individuals with the highest MDs from the previous iteration to trim. }
+  \item{trim}{ the desired trim: trim < 0 - no trim, the default; trim >0 & <1 - fraction, 0 to 1 proportion, of individuals to be trimmed; trim >= 1 - the number of individuals with the highest MDs from the previous iteration to trim. }
   \item{mvtstart}{ set \code{mvtstart = TRUE} for a percentage based MVT (multivariate trim) start. }
   \item{mcdstart}{ set \code{mcdstart = TRUE} for a minimum covariance determinant (mcd) robust start. }
   \item{main}{ an alternative plot title to the default input data matrix name, see Details below. }
@@ -64,12 +64,7 @@ Garrett, R.G., 1989. The Chi-square plot - a tool for multivariate outlier recog
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## To multivariate trim as in IDEAS, see JGE (1989) 32(1-3):319-341,
 ## but recognizing that the data are of a closed compositional form
@@ -87,13 +82,10 @@ gx.md.plot(sind.gait.3, cex.main = 0.8, ifadd = 0.9,
 main = "Howarth & Sinding-Larsen\nStream Sediments")
 gx.md.print(sind.gait.3, pcut = 0.2)
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.gait.1)
 rm(sind.gait.2)
 rm(sind.gait.3)
-detach(sind)
 }
 \keyword{ multivariate }
 \keyword{ hplot }

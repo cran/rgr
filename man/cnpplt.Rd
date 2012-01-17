@@ -12,8 +12,8 @@ cnpplt(xx, xlab = deparse(substitute(xx)),
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
-  \item{xlab}{  a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable text string with a more informative title, e.g., \code{xlab ="Cu (mg/kg) in <2 mm O-horizon soil"}. }
-  \item{ylab}{ a title for the y-axis, defaults to "\% Cumulative Probability". }
+  \item{xlab}{  a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{ylab}{ a title for the y-axis, defaults to \code{"\% Cumulative Probability".} }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by function \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Details below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Ecogeochemistry Project, 1995"}. }
@@ -23,7 +23,7 @@ cnpplt(xx, xlab = deparse(substitute(xx)),
   \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
   \item{cexp}{ by default the size of the plotting symbol, \code{pch}, is set to 100\%, and may be changed if required. }
   \item{cex.axis}{ if overplotting occurs in the y-axis labelling the size of the y-axis labels may be reduced by setting \code{cex.axis} to a number smaller than the default of \code{cex.axis = 0.8}. }
-  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }.  
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }  
 }
 \details{
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being appropriate for a logarithmically scaled plot, i.e. \code{log  = TRUE}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations. 

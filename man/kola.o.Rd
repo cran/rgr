@@ -7,14 +7,14 @@ These data arise from an ecogeochemical survey undertaken by the Central Kola Ex
 }
 \usage{kola.o}
 \source{
-These data are the same as in the R package mvoutlier.  However, note that the names of the spatial coordinates have been changed from XCOO and YCOO to UTME and UTMN, respectively, and COND (specific conductivity) to SC.
+These data are the same as in the R package 'mvoutlier'.  However, note that the names of the spatial coordinates have been changed from XCOO and YCOO to UTME and UTMN, respectively, and COND (specific conductivity) to SC.
 
 The full data set is available from:
 \url{http://doi.pangaea.de/10.1594/PANGAEA.56279}
 
 However, it should be noted that this is a superset containing all geochemical analyses and the spatial coordinates are recorded as Latitudes and Longitudes in the full data set.
 }
-\format{ A dataframe containing 44 observations for 617 sites. }
+\format{ A data frame containing 44 observations for 617 sites. }
 \references{
 Reimann, C., Ayras, M., Chekushin, V., Bogatyrev, I., Boyd, R., de Caritat, P., Dutter, R., Finne, T.E., Halleraker, J.H., Jaeger, O., Kashulina, G., Niskavaara, H., Pavlov, V., Raisanen, M.L., Strand, T. and Volden, T., 1998. A geochemical atlas of the central parts of the Barents Region. Norges Geologiske Undersokelse (NGU) Geological Survey of Norway, Trondheim, Norway. ISBN 82-7385-176-1. 745 p.
 }

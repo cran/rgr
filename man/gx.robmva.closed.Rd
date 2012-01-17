@@ -2,7 +2,7 @@
 \alias{gx.robmva.closed}
 \title{ Function to undertake a Robust Closed Data Multivariate EDA }
 \description{
-The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a closed compositional, geochemical, dataset and places the results in an object to be saved and post-processed for display and further manipulation.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}, or for non-compositional data and robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.
+The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a closed compositional, geochemical, dataset and places the results in an object to be saved and post-processed for display and further manipulation.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}, or for non-compositional data and robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \cr\code{\link{gx.md.plot}}, and \code{\link{gx.md.print}}.
 }
 \usage{
 gx.robmva.closed(xx, proc = "mcd", wts = NULL,
@@ -53,7 +53,7 @@ The following are returned as an object to be saved for subsequent display, etc.
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
-Any rows in the data matrix with \code{NA}s are removed prior to computions.  In the instance of a compositional data opening transformation \code{NA}s have to be removed prior to undertaking the transformation, see \code{\link{na.omit}}, \code{\link{where.na}} and \code{\link{remove.na}}.  When that procedure is followed the opening transformations may be executed on calling the function, see Examples below.
+Any rows in the data matrix with \code{NA}s are removed prior to computations.  In the instance of a compositional data opening transformation \code{NA}s have to be removed prior to undertaking the transformation, see \code{\link{na.omit}}, \code{\link{where.na}} and \code{\link{remove.na}}.  When that procedure is followed the opening transformations may be executed on calling the function, see Examples below.
 
 Warnings are generated when the number of individuals (observations, cases or samples) falls below 5*p, and additional warnings when the number of individuals falls below 3*p.  At these low ratios of individuals to variables the shape of the p-space hyperellipsoid is difficult to reliably define, and therefore the results may lack stability.  These limits 5*p and 3*p are generous, the latter especially so; many statisticians would argue that the number of individuals should not fall below 9*p, see Garrett (1993).
 }
@@ -69,18 +69,13 @@ Grunsky, E.C., 2001. A program for computing RQ-mode principal components analys
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{orthonorm}}, \cr\code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \cr\code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{orthonorm}}, \code{\link{gx.rqpca.screeplot}}, \cr\code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \cr\code{\link{gx.robmva}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Generate gx.robmva.closed object
-sind.save <- gx.robmva(sind.mat2open)
+sind.save <- gx.robmva.closed(sind.mat2open)
 
 ## Display Mahalanobis distances
 gx.md.plot(sind.save)
@@ -112,12 +107,9 @@ main = "Howarth & Sinding-Larsen Stream Sediments\nOpened Data")
 gx.rqpca.plot(sind.save.rot4, v1 = 3, v2 =4, rowids = TRUE, cex = 0.8,
 main = "Howarth & Sinding-Larsen Stream Sediments\nOpened Data")
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.save)
 rm(sind.save.rot4)
-detach(sind)
 }
 \keyword{ multivariate }
 \keyword{ robust }

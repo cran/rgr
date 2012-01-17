@@ -14,7 +14,7 @@ wtd.sums(xx, ri, xloc = NULL, xspread = NULL)
   \item{xspread}{ the default procedure is to use the computed MADs of the input variables.  Alternately, a vector of p estimates of spread may be provided. }
 }
 \details{
-If the data for only some of the variables available in an attached matrix or dataframe are to be processed use the \code{cbind} construct.  Thus, \code{temp.mat <- cbind(varname1, varname3, varname6, varname8)}, or the cbind may be used directly, see Example below. 
+If the data for only some of the variables available in an attached matrix or data frame are to be processed use the \code{cbind} construct.  Thus, \code{temp.mat <- cbind(varname1, varname3, varname6, varname8)}, or the cbind may be used directly, see Example below. 
 }
 \value{
 The following are returned as an object to be saved for further use:

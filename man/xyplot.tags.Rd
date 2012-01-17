@@ -1,7 +1,7 @@
 \name{xyplot.tags}
 \alias{xyplot.tags}
 \title{ Display a Plot of Posted Values for a Third Variable}
-\description{ Displays a x-y plot where the data for a third variable are represented by the \sQuote{written} values of the data at their x-y position. }
+\description{ Displays a x-y plot where the data for a third variable are represented by the \sQuote{written} values of the data at their x-y position.  The x-y plot axes may be optionally displayed with logarithmic (base 10) scaling. }
 \usage{
 xyplot.tags(xx, yy, tag, log = NULL, xlim = NULL, ylim = NULL,
         xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)),
@@ -25,7 +25,7 @@ If \code{taglab} and \code{main} are undefined a default a plot title is generat
 
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being appropriate for a logarithmically scaled plot, i.e. \code{log  = "x"}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  The same procedure applies to setting \code{ylim}. 
 
-If a plot of sample numbers, \sQuote{IDs}, is required and they are not explicitly in the dataframe, a plot of dataframe row numbers may be displayed by specifying \code{dimnames(dfname)[[1]]} as the value of \code{tags}.
+If a plot of sample numbers, \sQuote{IDs}, is required and they are not explicitly in the data frame, a plot of data frame row numbers may be displayed by specifying \code{dimnames(dfname)[[1]]} as the value of \code{tags}.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -42,7 +42,7 @@ attach(sind)
 ## Plot the sample site IDs in the x-y space
 xyplot.tags(Fe, Mn, ID)
 
-## Plot the dataframe row numbers in the x-y space and appropiately
+## Plot the data frame row numbers in the x-y space and appropiately
 ## scale the y-axis
 xyplot.tags(Fe, Mn, dimnames(sind)[[1]], log = "y")
 

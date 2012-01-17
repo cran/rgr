@@ -2,7 +2,7 @@
 \alias{framework.summary}
 \title{ Generate and Save Framework/Subset Summary Statistics }
 \description{
-Function to generate \sQuote{framework} or subset summary statistics and save them as a \sQuote{csv} file in the R working directory.  The file can be directly imported into a spreadsheet, e.g., MS Excel, for inspection, or into other software, e.g., a Geographical Information System (GIS) where the spatial information concerning the \sQuote{framework} units is available, e.g., ecoclassification units.
+Function to generate \sQuote{framework} or subset summary statistics and save them as a \sQuote{.csv} file in the R working directory.  The file can be directly imported into a spreadsheet, e.g., MS Excel, for inspection, or into other software, e.g., a Geographical Information System (GIS) where the spatial information concerning the \sQuote{framework} units is available, e.g., ecoclassification units.
 }
 \usage{
 framework.summary(group, x, file = NULL)

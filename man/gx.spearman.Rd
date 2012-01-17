@@ -23,22 +23,18 @@ For closed compositional data sets, i.e. geochemimical analyses, it is highly re
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{clr}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
+data(sind.mat2open)
 
 ## Compute Spearman correlation coefficients
-gx.pearson(sind.mat)
+gx.spearman(sind.mat2open)
+
+## Note, unlike gx.pearson there is no example with a log
+## transformation.  The logtransformation is monotonic
+## and does not change the ranks
 
 ## Compute Spearmann correlation coefficients following
-## a centred log ratio transformation, note necessity
-## of converting percent Fe to mg/kg
-sind.mat[, 2] <- sind.mat[, 2] * 10000
-gx.pearson(sind.mat, ifclr = TRUE)
-
-## Clean-up and detach test data
-rm(sind.mat)
-detach(sind)  
+## a centred log-ratio transformation
+gx.spearman(sind.mat2open, ifclr = TRUE)
 }
 \keyword{ multivariate }
 \keyword{ nonparametric }

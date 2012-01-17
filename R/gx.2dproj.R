@@ -1,6 +1,6 @@
 gx.2dproj <-
 function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
-         range = FALSE, main = "", ...)
+         range = FALSE, main = "", setseed = FALSE, ...)
 {
      # Function to undertake reduced space (k=2) multidimensional scaling
      # ("mds", principal coordinate analysis), preparation of a minimum 
@@ -14,7 +14,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      # The signs of the 2-d coordinates have been adjusted so that the same
      # general configuration is obtained with the ilr transformed 'sind' data.
      # Note that the fastICA algorithm provides different reflections of the
-     # 2-d projection on repeated execution.
+     # 2-d projection on repeated executions unless setseed = TRUE.
      #
      # Note: Executing a log transform does effect the subsequent computations.
      # Note: A 0-1 range transformation following a SND normalization does not
@@ -69,6 +69,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
          ylabel <- "Classic Multidimensional Scaling Y Coordinate"
      }
      else if(proc == "iso") {
+         if(setseed) seed <- 123456789
          save <- isoMDS(dist.x)
          xxx <- save$points[, 1]
          yyy <- save$points[, 2]
@@ -76,6 +77,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
          ylabel <- "Non-Metric Multidimensional Scaling Y Coordinate"
      }
      else if(proc == "ica") {
+         if(setseed) set.seed(3)
          save <- fastICA(x, n = 2)
          xxx <- save$S[, 1]
          yyy <- save$S[, 2]

@@ -39,8 +39,8 @@ function(xx1, xx2, xlab = " ", x1lab = deparse(substitute(xx1)),
      if(ifresult) {
          H0 <- "accept"
          if(temp$p.value < 0.05) H0 <- "reject"
-         text(locator(1), adj = 0.5, 
-         paste("Two-Sample Kolmogorov-Smirnov Test",
+         text(locator(1), adj = c(0,1),
+             paste("Two-Sample Kolmogorov-Smirnov Test",
              "\nH0: The two data sets are drawn\nfrom the same population\n",
              "\np-value = ",signif(temp$p.value,4),"\n",H0," H0 at 0.05 level",
              sep = ""), cex = cex)

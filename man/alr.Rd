@@ -1,26 +1,26 @@
 \name{alr}
 \alias{alr}
-\title{ Arithmetic Log-Ratio (alr) transformation }
+\title{ Additive Log-Ratio (alr) transformation }
 \description{
-Undertakes an arithmetic log-ratio transformation to remove the effects of closure in a data matrix. }
+Undertakes an additive log-ratio transformation to remove the effects of closure in a data matrix. }
 \usage{
 alr(xx, j = NULL, ifclose = FALSE, ifwarn = TRUE)
 }
 \arguments{
-  \item{xx}{ a n by p matrix to be arithmetically log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
-  \item{j}{ the index number of the element [1:p] to be used as the divisor, \code{j}, must be defined, there is no default index. }
+  \item{xx}{ a n by p matrix to be additively log ratioed.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
+  \item{j}{ the index number of the element in the range [1:p] to be used as the divisor, \code{j}, must be defined, there is no default index. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
-  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a arithmetic log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
+  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out an additive log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
-Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  An arithmetic log-ratio is one procedure for removing closure effects, others are centred log-ratios (\code{clr}) and isometric log-ratios (\code{ilr}).
+Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  An additive log-ratio is one procedure for removing closure effects, others are centred log-ratios (\code{clr}) and isometric log-ratios (\code{ilr}).
 
 Care should be taken in selecting the variable, index = \code{j}, for use as the divisor.  Variables lacking sufficient significant figures in their quantification, or variables measured at close to their measurement detection limits, should be avoided.
 
 It is worth noting that when the \code{alr} transform is undertaken with a geochemically conservative element selected as the divisor and two elements are then displayed in an x-y plot the result is a Pearce Element Ratio plot (Pearce, 1968) with log scaling.
 }
 \value{
-  \item{x}{ a n by (p-1) matrix of arithmetically log-centred values, the j-th column of the matrix being dropped. }
+  \item{x}{ a n by (p-1) matrix of additively log-ratioed values, the j-th column of the matrix being dropped. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

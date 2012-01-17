@@ -17,10 +17,10 @@ function(group, x, xname = deparse(substitute(x)), log = FALSE)
      # attach(dfname) and at close, detach(dfname).
      #
      groupname <- deparse(substitute(group))
-     group.stats <- tapply(x, group, gx.summary, log = log)
+     group.stats <- tapply(x, group, gx.summary, log = log, iftell = FALSE)
      if(log) cat("  Data log10 transformed: SD, CV% and SE in log10 units\n")
      cat("  Summary Stats for", xname, "subset by", groupname, "\n\t",
-         "N NA - Min Q1 M Q2 Max - MAD IQR_SD - Mean SD CV% - SE 95% CI on Mean\n")
+         "N NAs - Min Q1 M Q2 Max - MAD IQR_SD - Mean SD CV% - SE 95% CI on Mean\n")
      nstats <- length(group.stats)
      for(i in 1:nstats) {
          gi <- names(group.stats[i])

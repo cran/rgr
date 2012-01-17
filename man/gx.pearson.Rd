@@ -18,34 +18,26 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any \code{NA}s in the data vector are removed prior to computation.
 
-For closed compositional data sets, i.e. geochemimical analyses, it is highly recommended that \code{ifclr} be set to \code{TRUE} to remove the effects of closure and display the true inter-element variability.  When carrying out a centred log-ratio transformation it is essential that the data are all in the same measurement units, and by default a reminder/warning is display if the data are centred log-ratio transformed, see \code{ifwarn} above.
+For closed compositional data sets, i.e. geochemical analyses, it is highly recommended that \code{ifclr} be set to \code{TRUE} to remove the effects of closure and display the true inter-element variability.  When carrying out a centred log-ratio transformation it is essential that the data are all in the same measurement units, and by default a reminder/warning is display if the data are centred log-ratio transformed, see \code{ifwarn} above.
 
 When a centred log-ratio transformation is undertaken the \code{log} \sQuote{switch} is ignored.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{clr}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{clr}}, \code{\link{sind.mat2open}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
+data(sind.mat2open)
 
 ## Compute Pearson correlation coefficients
-gx.pearson(sind.mat)
+gx.pearson(sind.mat2open)
 
 ## Compute Pearson correlation coefficients following
 ## a logarithmic transformation
-gx.pearson(sind.mat, log = TRUE)
+gx.pearson(sind.mat2open, log = TRUE)
 
 ## Compute Pearson correlation coefficients following
-## a centred log ratio transformation, note necessity of
-## converting percent Fe to mg/kg
-sind.mat[, 2] <- sind.mat[, 2] * 10000
-gx.pearson(sind.mat, ifclr = TRUE)
-
-## Clean-up and detach test data
-rm(sind.mat)
-detach(sind)  
+## a centred log-ratio transformation
+gx.pearson(sind.mat2open, ifclr = TRUE)
 }
 \keyword{ multivariate }
 \keyword{ htest }

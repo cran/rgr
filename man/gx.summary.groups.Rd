@@ -2,7 +2,7 @@
 \alias{gx.summary.groups}
 \title{ Displays Summary Statistics for a Variable Grouped by a Factor }
 \description{ 
-Displays the same concise one-line summary statistics report as \code{\link{gx.summary1}} but with the data grouped by the value of a factor variable.  The table consists of a heading line and a line of summary statistics for each \sQuote{group}, value of the factor variable.
+Displays the same concise one-line summary statistics report as \code{\link{gx.summary1}} but with the data grouped by the value of a factor variable.  The table consists of a heading line and a line of summary statistics for each \sQuote{group}, value of the factor variable.  Optionally the data may be logarithmically (base 10) transformed.
 }
 \usage{
 gx.summary.groups(group, x, xname = deparse(substitute(x)), 
@@ -11,7 +11,7 @@ gx.summary.groups(group, x, xname = deparse(substitute(x)),
 \arguments{
   \item{group}{ the name of the factor variable the data are to be grouped by. }
   \item{x}{ name of the variable to be processed. }
-  \item{xname}{ an informative display title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"} rather than the default variable name of \cr\code{deparse(substitute(xx))}. }
+  \item{xname}{ an informative display title, e.g., \code{xname = "Cu (mg/kg) in <2 mm O-horizon soil"} rather than the default variable name of \cr\code{xname = deparse(substitute(xx))}. }
   \item{log}{ if the summary statistics are required following a log10 transformation, set \code{log = TRUE}. }
 }
 \details{
@@ -20,7 +20,7 @@ Setting \code{log = TRUE} results in a log transformation for the parametric sta
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
-Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.
+Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Display of the number of \code{NAs} found by function \code{remove.na} is suppressed in \code{remove.na} as the information is included in the display from this function.
 
 Alternately, function \code{\link{framework.summary}} generates grouped summary statistics that are exported in a file format that can be directly imported into a spreadsheet, e.g., MS Excel, for inspection, or into other software, e.g., a Geographical Information System (GIS) where the spatial information concerning the \sQuote{framework} units is available, e.g., ecoclassification units.
 

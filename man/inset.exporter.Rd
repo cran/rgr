@@ -2,7 +2,7 @@
 \alias{inset.exporter}
 \title{ Saves an EDA Graphical and Statistical Summary }
 \description{
-Saves the output from functio \code{\link{inset}} as a graphics file in the R working directory for use in report or map preparation. 
+Saves the output from functio \code{\link{inset}} as a graphics file in the R working directory for use in report or map preparation.  Optionally the EDA graphics may be plotted with base 10 logarithmic scaling. 
 }
 \usage{
 inset.exporter(x, xlab = deparse(substitute(x)), log = FALSE, 
@@ -21,7 +21,7 @@ inset.exporter(x, xlab = deparse(substitute(x)), log = FALSE,
 and the text lines overlap.  If this is true \code{table.cex} can be decreased,
 the default is \code{table.cex = 0.85}, conversely it can be increased if the
 table appears \sQuote{skinny}. }
-  \item{gtype}{ the format of the graphics file to be saved.  By default \code{gtype = "wmf"} for a Windows metafile.  Other alternatives are \code{gtype = "jpg"} for a jpeg file, \code{gtype = "png"} for a portable graphics file, \code{gtype = "ps"} for a postscript file, or \code{gtype = "pdf"} for a pdf file.
+  \item{gtype}{ the format of the graphics file to be saved.  By default \code{gtype = "wmf"} for a Windows metafile.  Other alternatives are \code{gtype = "jpg"} for a jpeg file, \code{gtype = "png"} for a portable network graphics file, \code{gtype = "ps"} for a postscript file, or \code{gtype = "pdf"} for a pdf file.
 }
   \item{\dots}{ further arguments to be passed to methods.  For example, by default individual data points in the CPP plot are marked by a plus sign, \code{pch = 3}, if a cross or open circle is desired, then set \code{pch = 4} or \code{pch = 1}, respectively.  See \code{\link{display.marks}} for all available symbols. Adding \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively, in the CPP plot. }
 }

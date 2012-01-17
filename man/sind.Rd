@@ -7,7 +7,7 @@ A small subset of data from a regional geochemical stream sediment survey undert
 }
 \usage{data(sind)}
 \format{
-  A dataframe with 25 observations on the following 9 variables:
+  A data frame with 25 observations on the following 9 variables:
   \describe{
     \item{ID}{ an arbitrary ID (numeric vector). }
     \item{E}{ an Eastings coordinate. }

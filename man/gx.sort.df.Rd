@@ -1,15 +1,15 @@
 \name{gx.sort.df}
 \alias{gx.sort.df}
-\title{ Function to Multi-Column Sort a Dataframe }
+\title{ Function to Multi-Column Sort a Data Frame }
 \description{ 
-Function to sort a dataframe on any combination of numerical values or factors in any combination of ascending or descending orders.  If the function is run as \code{temp <- gx.sort.df(formula, dfname)} the sorted data are not displayed, but retained in \code{temp} for subsequent use or display.
+Function to sort a data frame on any combination of numerical values or factors in any combination of ascending or descending orders.  If the function is run as \code{temp <- gx.sort.df(formula, dfname)} the sorted data are not displayed, but retained in \code{temp} for subsequent use or display.
 }
 \usage{
 gx.sort.df(formula, dfname)
 }
 \arguments{
   \item{formula}{ a \sQuote{formula} defining the variables to be used in the sort and whether the sort for each is to be in ascending or descending order.  The sort order is from left to right in the formula.  See Details and Examples below. }
-  \item{dfname}{ the name of the dataframe to be sorted. }
+  \item{dfname}{ the name of the data frame to be sorted. }
 }
 \details{
 The sort is controlled by a text string in the form of a \sQuote{formula}, so \code{~var1+var2} will sort in ascending order of var1, and then within equal values for var1 in ascending order of var2. A preceding \code{+} or \code{-} before a column name indicates a sort in ascending or descending order, respectively.

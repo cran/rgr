@@ -1,7 +1,8 @@
 map.z <-
-function(xx, yy, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
+function(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, xlab = "Easting",
      ylab = "Northing", zlab = deparse(substitute(zz)), main = "", tol = 0.04,
-     iflgnd = FALSE, ...)
+     symcolr = 1, ifparams = FALSE, iflgnd = FALSE, title = deparse(substitute(zz)),
+     ...)
 {
      # Function to plot an EDA map where the data are plotted as inceasing
      # sized circles.  The rate of increase of the diameter in proportion to
@@ -11,7 +12,9 @@ function(xx, yy, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
      # on plotting is controlled by sfact.  Setting zmin and/or zmax results
      # in the symbol sizes being truncated at those levels, forcing all lower
      # or higher values than those specified by provided values to be plotted
-     # as same sized circles.  Use parameter fg to alter symbol colour.
+     # as same sized circles.  Use parameter fg to alter symbol colour. 
+     # Optionally a legend may be added to the map, and optionally the symbol
+     # plotting parameters may also be added.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # x, y, and z data must be run through ltdl.fix.df to convert any <dl
@@ -34,12 +37,26 @@ function(xx, yy, zz, p = 1, sfact = 1, zmin = NA, zmax = NA, xlab = "Easting",
              banner <- ""
          else banner <- paste("Proportional Symbol Map for", zlab)
      else banner <- main
+     z.min <- min(z)
+     z.max <- max(z)
      zrange <- c(zmin, zmax)
      rgz <- syms(z, zrange, p = p)
      eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol, ...)
-     symbols(x, y, circles = rgz, inches = sfact * 0.05, add = TRUE, ...)
-     if(iflgnd) text(locator(1), paste("Symbols for", zlab,"\np =", p,
-         "& sfact =", sfact, "\nzmin =", zmin, "& zmax =", zmax), adj = 0.5, ...)
+     symbols(x, y, circles = rgz, inches = sfact * 0.05, fg = symcolr, add = TRUE, ...)
+     if(iflgnd) {
+         if(!is.na(zmax)) z[z > zmax] <- zmax
+         if(!is.na(zmin)) z[z < zmin] <- zmin
+         zval <- quantile(z, prob = c(1.0, 0.75, 0.5, 0.25, 0.0))
+         rgz <- syms(zval, zrange, p = p)
+         zval <- signif(zval, 3)
+         legend(locator(1), pch = rep.int(1, 5), pt.cex = rgz[1:5] * sfact / 0.8,
+             col = rep.int(symcolr, 5), paste(" ", zval[1:5]), cex = 0.8,
+             title = title, ...)
+     }
+     if(ifparams) text(locator(1), paste("p =", signif(p, 3), "& sfact =", sfact,
+         "\nz.max =", signif(z.max, 3), "; zmax =", zmax,
+         "\nz.min =", signif(z.min, 3), "; zmin =", zmin),
+         cex = 0.8, adj =c(0, 1))
      invisible()
 }
 

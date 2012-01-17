@@ -1,18 +1,18 @@
 \name{gx.subset}
 \alias{gx.subset}
-\title{ Extracts a Subset of Rows from a Dataframe }
+\title{ Extracts a Subset of Rows from a Data Frame }
 \description{
-The function extracts a subset of rows, and columns if required, from a dataframe and returns the subset as a new dataframe based on the criterion provided by the user.  Unused factor names are dropped.
+The function extracts a subset of rows, and columns if required, from a data frame and returns the subset as a new data frame based on the criterion provided by the user.  Unused factor names are dropped.
 }
 \usage{
 gx.subset(dfname, subset = TRUE)
 }
 \arguments{
-  \item{dfname}{ name of the dataframe from which rows are to be extracted. }
+  \item{dfname}{ name of the data frame from which rows are to be extracted. }
   \item{subset}{ the criterion for selecting the subset (rows). }
 }
 \value{
-  \item{data}{ a dataframe only containing the rows of the input dataframe where the criterion is met. }
+  \item{data}{ a data frame only containing the rows of the input data frame where the criterion is met. }
 }
 \details{
 The subset criterion can be \sQuote{complex} and be a combination of conditions, see Examples below.
@@ -37,9 +37,9 @@ russia.82 <- gx.subset(kola.c, COUNTRY == "RUS" & LITHO == 82)
 norway.cugt50 <- gx.subset(kola.c, COUNTRY == "NOR" & Cu >50)
 
 ## Make single element subsets, e.g. for use with function gx.cnpplts
-## First locate the column in the dataframe where the element of
+## First locate the column in the data frame where the element of
 ## interest is stored using dimnames(kola.c)[[2]], we find that Be is
-## the 19th column in the dataframe
+## the 19th column in the data frame
 dimnames(kola.c)[[2]]
 Norway <- gx.subset(kola.c,COUNTRY=="NOR")[,19]
 Russia <- gx.subset(kola.c,COUNTRY=="RUS")[,19]

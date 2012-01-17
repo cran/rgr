@@ -9,7 +9,7 @@ These magnetic susceptibility data were used by Stanley (2003) to demonstrate th
 \source{
 Stanley (2003), see below.
 }
-\format{ A dataframe containing 2 measurements of magnetic susceptibility for each of 16 rock samples in 32 records. The measurements for the original and duplicate analyses alternate.  So the first duplicate pair are in records 1 and 2, and the last in records 31 and 32. }
+\format{ A data frame containing 2 measurements of magnetic susceptibility for each of 16 rock samples in 32 records. The measurements for the original and duplicate analyses alternate.  So the first duplicate pair are in records 1 and 2, and the last in records 31 and 32. }
 \references{
 Garrett, R.G. and Grunsky, E.C., 2003. S and R functions for the display of Thompson-Howarth plots. Computers & Geosciences, 29(2):239-242.
 

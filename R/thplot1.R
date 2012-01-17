@@ -1,5 +1,5 @@
 thplot1 <-
-function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
+function(x1, x2, xname = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
      rsd = 5, ptile = 95, main = "", ...)
 {
      # Function to display Thompson-Howarth plots of duplicate measurements, 
@@ -53,9 +53,10 @@ function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
           xlab = "Mean of Duplicates", ylab = "Absolute Difference between Duplicates",
           log = "xy", type = "n", main = main, ...)
      points(xbar, xdif)
-     limits <- par("usr")
-     ypos <- 10^(limits[3] + (limits[4] - limits[3]) * 0.05)
-     text(xhih, ypos, paste("No. of", name, "Duplicates =", ndup), cex = 0.8, adj = 1)
+#     limits <- par("usr")
+#     ypos <- 10^(limits[3] + (limits[4] - limits[3]) * 0.05)
+#     text(xhih, ypos, paste("No. of", xname, "Duplicates =", ndup), cex = 0.8, adj = 1)
+     text(locator(1), paste("No. of", xname, "Duplicates =", ndup), cex = 0.8, adj = 0)
      if(rsd <= 0)
          return()
      calc <- qnorm(1 - (1 - ptile/100)/2) * rsd * 0.014142
@@ -70,10 +71,13 @@ function(x1, x2, name = "", ifzero = 0.01, xlow = NA, xhih = NA, yhih = NA,
      }
      nout <- sum(ratio)
      test <- binom.test(nout, ndup, 1 - (ptile/100), "greater")
-     ypos <- 10^(limits[4] - (limits[4] - limits[3]) * 0.05)
-     label <- paste("\n\nRSD =", rsd, "% (2SD Precision =", 2 * rsd, "%)\nPercentile =", ptile, 
+#     ypos <- 10^(limits[4] - (limits[4] - limits[3]) * 0.05)
+#     label <- paste("\n\nRSD =", rsd, "% (2SD Precision =", 2 * rsd, "%)\nPercentile =", ptile, 
+#         "%\nDuplicates 'outside' =", nout, "\nProbability =", round(test$p.value, 4))
+#     text(xlow, ypos, labels = label, cex = 0.8, adj = 0)
+     label <- paste("RSD =", rsd, "% (2SD Precision =", 2 * rsd, "%)\nPercentile =", ptile, 
          "%\nDuplicates 'outside' =", nout, "\nProbability =", round(test$p.value, 4))
-     text(xlow, ypos, labels = label, cex = 0.8, adj = 0)
+     text(locator(1), labels = label, cex = 0.8, adj = c(0,1))
      invisible()
 }
 

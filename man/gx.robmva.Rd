@@ -2,7 +2,7 @@
 \alias{gx.robmva}
 \title{ Function to undertake a Robust Exploratory Multivariate Data Analysis }
 \description{
-The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  For closed compositional, geochemical, data use function \code{\link{gx.robmva.closed}}.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For closed compositional data sets, such as geochemical analyses, use \code{\link{gx.robmva.closed}}.
+The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  For closed compositional, geochemical, data use function \code{\link{gx.robmva.closed}}.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, and \code{\link{gx.md.print}}.
 }
 \usage{
 gx.robmva(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
@@ -69,7 +69,7 @@ Grunsky, E.C., 2001. A program for computing RQ-mode principal components analys
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
 \examples{
 ## Generate a population of synthetic bivariate normal data
 grp1 <- mvrnorm(100, mu = c(40, 30), Sigma = matrix(c(6, 3, 3, 2), 2, 2))

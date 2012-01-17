@@ -2,7 +2,7 @@
 \alias{bwplots}
 \title{ Plot Vertical Box-and-Whisker Plots }
 \description{
-Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically. A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically (base 10). A variety of other plot options are available, see Details and Note below.
 }
 \usage{
 bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "", 

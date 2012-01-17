@@ -1,5 +1,5 @@
 remove.na <-
-function(xx)
+function(xx, iftell = TRUE)
 {
      # Function to remove 'rows' containing NAs from a vector or a matrix
      # and inform the user of how many rows were removed.
@@ -19,8 +19,13 @@ function(xx)
          intype <- "matrix"
      }
      nna <- nx - n
-     if(nna > 0) cat(paste("  ", nna, "row(s) with missing value(s), NA(s), removed from",
-         intype, "\n"))
+     if(iftell & nna > 0) {
+        if(intype == "matrix")
+            cat(paste("\n ", nna, "row(s) with NA(s) removed from matrix\n"))
+        else{
+            cat(paste("\n ", nna, "NA(s) removed from vector\n"))
+        }
+     }
      invisible(list(x = x, n = n, m = m, nna = nna))
 }
 
