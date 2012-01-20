@@ -15,7 +15,7 @@ gx.hist(xx, xlab = deparse(substitute(xx)),
   \item{xlab}{ a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{ylab}{ a default y-axis title of \code{"Number of Observations"} is provided, this may be changed, e.g., \code{ylab = "Counts"}. }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
-  \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
+  \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "Sturges"} or \code{nclass = "FD"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
   \item{colr}{ by default the histogram is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }

@@ -2,7 +2,7 @@
 \alias{shape}
 \title{ An EDA Graphical Summary }
 \description{
-Plots a simple four panel graphical distributional summary for a data set, comprising a histogram, a horizontal Tukey boxplot or box-and-whisker plot, an empirical cumulative distribution function (ECDF), and a cumulative normal percentage probability (CPP) plot.  The plots in all four panels will have identical x-axis scaling.  Optionally the EDA graphics may be plotted with logarithmic scaling.
+Plots a simple four panel graphical distributional summary for a data set, comprising a histogram, a horizontal Tukey boxplot or box-and-whisker plot, an empirical cumulative distribution function (ECDF), and a cumulative normal percentage probability (CPP) plot.  The plots in all four panels will have identical x-axis scaling.  Optionally the EDA graphics may be plotted with logarithmic (base 10) scaling.
 }
 \usage{
 shape(xx, xlab = deparse(substitute(xx)), log = FALSE, 

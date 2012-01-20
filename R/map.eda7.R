@@ -1,7 +1,8 @@
 map.eda7 <-
 function(xx, yy, zz, sfact = 1, logz = FALSE, xlab = "Easting",
          ylab = "Northing", zlab = deparse(substitute(zz)), main = "",
-         ifgrey = FALSE, symcolr = NULL, tol = 0.04, ...)
+         ifgrey = FALSE, symcolr = NULL, tol = 0.04, iflgnd = FALSE,
+         title = deparse(substitute(zz)), ...)
 {
      # Function to plot an EDA map where the data are divided into 7 groups based
      # on a Tukey boxplot.  Data between Q1 and Q3 are plotted as crosses while
@@ -11,6 +12,7 @@ function(xx, yy, zz, sfact = 1, logz = FALSE, xlab = "Easting",
      # The default set of colours from the rainbow(36) pallette are inceasingly
      # deeper blues for<Q2, green for between Q2 and Q3, and oranges and reds for
      # >Q3 (see display.rainbow()).  Alternately a grey-scale map may be generated.
+     # Optionally a legend may be added to the map.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # x, y, and zz data must be run through ltdl.fix.df to convert any <dl
@@ -76,6 +78,19 @@ function(xx, yy, zz, sfact = 1, logz = FALSE, xlab = "Easting",
      }
      cat("\t\t\t      ", length(zzz[zzz == 7]), "\t    ", stype[7], format(size[7],
          nsmall = 2), "  ", symcolr[7], "\n")
+     if(iflgnd) {
+         lgnd.line <- numeric(7)
+         zcut <- signif(zcut, 3)
+         lgnd.line[1] <- paste(">", zcut[6])
+         lgnd.line[2] <- paste(zcut[5], "-", zcut[6])
+         lgnd.line[3] <- paste(zcut[4], "-", zcut[5])
+         lgnd.line[4] <- paste(zcut[3], "-", zcut[4])
+         lgnd.line[5] <- paste(zcut[2], "-", zcut[3])
+         lgnd.line[6] <- paste(zcut[1], "-", zcut[2])
+         lgnd.line[7] <- paste("<", zcut[1])
+         legend(locator(1), pch = npch[7:1], col = symcolr[7:1], pt.cex = size[7:1],
+             lgnd.line[1:7], cex = 0.8, title = title, ...)
+     }
      palette("default")
      invisible()
 }

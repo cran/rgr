@@ -2,7 +2,7 @@
 \alias{gx.rqpca.print}
 \title{ Function to Display PCA Loadings and Scores }
 \description{
-Function to display PCA matrices following computations by functions \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \cr\code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}}.  The user may optionally display the loadings (default), the percentage contribution of the variables to the loadings (not default), and the scores on the PCs (default).  Optionally the entire table of PC scores may be saved as a \sQuote{csv} file for future use. 
+Function to display PCA matrices following computations by functions \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \cr\code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}}.  The user may optionally display the loadings (default), the percentage contribution of the variables to the loadings (not default), and the scores on the PCs (default).  Optionally the entire table of PC scores may be saved as a \sQuote{.csv} file for future use. 
 }
 \usage{
 gx.rqpca.print(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE, 
@@ -16,7 +16,7 @@ gx.rqpca.print(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE,
   \item{file}{ the file name for saving the function output in the R working directory, see Details below. }
 }
 \details{
-By default the PCA laodings and scores on the PCs are displayed on the current device.  Optionally the percentage contribution of each variable to each PC may also be displayed.  When the saved object from \code{gx.rotate} is the input object both the original and Varimax loadings and PC scores will be dispslayed by default.  The last table displayed by the function may be saved as a \sQuote{csv} file in the working directory.  Note, the \sQuote{.csv} extension is appended in the function.  See example below.
+By default the PCA loadings and scores on the PCs are displayed on the current device.  Optionally the percentage contribution of each variable to each PC may also be displayed.  When the saved object from \code{gx.rotate} is the input object both the original and Varimax loadings and PC scores will be dispslayed by default.  The last table displayed by the function may be saved as a \sQuote{csv} file in the working directory.  Note, the \sQuote{.csv} extension is appended in the function.  See example below.
 }
 \value{
 The last displayed table, \code{table.rows}, on the current device is returned and may be saved as an object if required.
@@ -25,12 +25,7 @@ The last displayed table, \code{table.rows}, on the current device is returned a
 \seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.rotate}}. } 
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Estimate and display robust PCA loadings and scores
 sind.save <- gx.robmva.closed(sind.mat2open)
@@ -39,11 +34,8 @@ gx.rqpca.print(sind.save)
 ## Save display for future use
 gx.rqpca.print(sind.save, file = "sind.save.rob.pca")
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.save)
-detach(sind)
 }
 \keyword{ print }
 

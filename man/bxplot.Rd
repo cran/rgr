@@ -2,7 +2,7 @@
 \alias{bxplot}
 \title{ Plot a Horizontal Boxplot or Box-and-Whisker Plot }
 \description{
-Plots a single horizontal boxplot as part of the multi-panel display provided by function \code{\link{shape}}, the default is a Tukey boxplot, alternately a box-and-whisker plot may be displayed.
+Plots a single horizontal boxplot as part of the multi-panel display provided by function \code{\link{shape}}, the default is a Tukey boxplot, alternately a box-and-whisker plot may be displayed.  Optionally the x-axis may be scaled logarithmically (base 10).
 }
 \usage{
 bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE,

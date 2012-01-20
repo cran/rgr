@@ -2,10 +2,10 @@
 \alias{tbplots}
 \title{ Plot Vertical Tukey Boxplots }
 \description{
-Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically and the values of the Tukey fences used to identify near and far outliers may also be optionally based on the logarithmically transformed data.  A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically (base 10) and the values of the Tukey fences used to identify near and far outliers may also be optionally based on the logarithmically transformed data.  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-tbplots(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
+tbplots(x, by, log = FALSE, logx = NULL, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
 	las = 1, cex = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
@@ -32,7 +32,7 @@ tbplots(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
   \item{add}{ permits the user to plot additional boxplots into an existing display.  It is recommended that this option is left as \code{add = FALSE}. }
   \item{ssll}{ determines the minimum data subset size for which a subset will be plotted.  By default this is set to \code{1}, which leads to only a circle with a median bar being plotted, as the subset size increases additional features of the boxplot are displayed.  If \code{ssll} results in subset boxplots not being plotted, a gap is left and the factor label is still plotted on the x-axis. }
   \item{colr}{ by default the boxes are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. } 
-  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\% }
+  \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
 There are two ways to execute this function.  Firstly by defining \code{x} and \code{by}, and secondly by combining the two variables with the \code{\link{split}} function.  See the first two examples below.  The \code{\link{split}} function can be useful if the factors to use in the boxplot are to be generated at run-time, see the last example below.  Note that when the \code{\link{split}} construct is used instead of \code{by} the whole \code{split} statement will be displayed as the default y-axis title.  Also note that when using \code{by} the subsets are listed in the order that the factors are encountered in the data, but when using \code{split} the subsets are listed alphabetically.  In either case they can be re-ordered using \code{plot.order}, see Examples.

@@ -2,17 +2,17 @@
 \alias{gx.rotate}
 \title{ Function to Perform a Kaiser Varimax Rotaion }
 \description{
-Function to perform a Kaiser Varimax rotation on Principal Component (PCA) loadings and scores in an object saved from \code{\link{gx.mva}} or \code{\link{gx.robmva}}.
+Function to perform a Kaiser Varimax rotation on Principal Component (PCA) loadings and scores in an object saved from \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}}.
 }
 \usage{
 gx.rotate(save, nrot = 2)
 }
 \arguments{
-  \item{save}{ a saved object from the execution of function \code{\link{gx.mva}} or \code{\link{gx.robmva}}. }
+  \item{save}{ a saved object from the execution of function \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{gx.robmva.closed}. }
   \item{nrot}{ the number of component loadings to be rotated, by default the first two components are rotated, \code{nrot = 2}. }
 }
 \value{
-The value of \code{nr} is modified in, and the following are appended to, the object that was saved from \code{\link{gx.mva}} or \code{\link{gx.robmva}}:
+The value of \code{nr} is modified in, and the following are appended to, the object that was saved from \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}}:
   \item{nr}{ modified to equal the number of components rotated. }
   \item{vload}{ the new loadings after Varimax rotation. }
   \item{vscore}{ the new scores after Varimax rotation. } 
@@ -26,14 +26,10 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer,  501 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{varimax}}, \code{\link{gx.rqpca.plot}} }
+\seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{varimax}}, \code{\link{gx.rqpca.plot}} }
 \examples{
 ## Make test data available
-data(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Save PCA results and display biplots before and after Varimax rotation
 sind.save <- gx.mva(clr(sind.mat2open))
@@ -47,8 +43,6 @@ main = "Howarth & Sinding Larsen Stream Sediments\nclr transform",
 pch = 4, cex.main = 0.9)
 
 ## Clean-up
-rm(sind.mat)
-rm(sind.mat2open)
 rm(sind.save)
 rm(sind.save.rot2)
 }

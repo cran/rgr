@@ -5,11 +5,12 @@
 This function is a \sQuote{sub-engine} between the main summary statistics engine, \sQuote{gx.stats}, and the \code{gx.summary.*} display functions.  Its \sQuote{sub-engine} function is to select the required results from the \code{gx.stats} computations, and additionally compute 95\% confidence bounds on means.
 }
 \usage{
-gx.summary(xx, log = log)
+gx.summary(xx, log = log, iftell = iftell)
 }
 \arguments{
   \item{xx}{ name of the variable to be processed. }
   \item{log}{ if it will be required to display summary statistics following a log10 transformation of the data, set \code{log = TRUE}. }
+  \item{iftell}{ passes the value of \code{iftell} for controlling the display of the \code{NA} count to function \code{remove.na} from the calling function. }
 }
 \value{
   \item{table}{ a 15-element vector containing summary statistics, see below: }
@@ -32,7 +33,7 @@ The returned table is rounded to 4 significant figures.
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing \code{gx.summary.*} functions that call this function, see \code{\link{ltdl.fix.df}}.
 
-Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.
+Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Depending on the value of \code{iftell}, the \code{NA} count will be displayed, \code{iftell = TRUE}, or suppressed, \code{iftell = FALSE}.
 
 There are no examples for this function.
 }

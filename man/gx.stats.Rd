@@ -5,12 +5,14 @@
 Function to compute summary statistics for a 'one-page' report and display in \code{\link{inset}}.  Function may be used stand-alone, and is used as an \sQuote{engine} for the \code{gx.summary.*} series of functions
 }
 \usage{
-gx.stats(xx, xlab = deparse(substitute(xx)), display = TRUE)
+gx.stats(xx, xlab = deparse(substitute(xx)), display = TRUE,
+	iftell = TRUE)
 }
 \arguments{
   \item{xx}{ name of the variable to be processed. }
   \item{xlab}{ a title for the table. It is often desirable to replace the default table title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{display}{ if \code{display = TRUE} the summary statistics are displayed on the current device.  If \code{display = FALSE} output is suppressed.}
+  \item{iftell}{ by default the NA count is displayed by \code{na.remove} prior to the table of results from this function.  When the function is used as a sQuote{stats} engine the \code{NA} count display may be suppressed by the calling function when the NA count is to be displayed by that calling function. }
 }
 \details{
 The summary statistics comprise the data minimum, maximum and percentile values, robust estimates of standard deviation, the Median Absolute Deviation (MAD) and the Inter Quartile Standard Deviation (IQSD), and the mean, variance, standard deviation (SD), coefficient of variation (CV\%), and the 95\% confidence bounds on the median.  When the minimum data value is \code{> 0} summary statistics are computed after a log10 data transformation and exported back to the calling function.
@@ -39,7 +41,7 @@ If the minimum data value is \code{<= 0}, then \code{stats[29:32] <- NA}.
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
-Any \code{NA}s in the data vector are removed prior to computation.
+Any \code{NA}s in the data vector are removed prior to computation.  Depending on the value of \code{iftell}, the \code{NA} count will be displayed, \code{iftell = TRUE}, or suppressed, \code{iftell = FALSE}.
 
 The confidence bounds on the median are estimated via the binomial theorem, not by normal approximation. 
 }

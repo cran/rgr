@@ -12,7 +12,7 @@ gx.md.gait(xx, wts = NULL, trim = -1, mvtstart = FALSE,
 \arguments{
   \item{xx}{ the n by p matrix for which the Mahalanobis distances are required. }
   \item{wts}{ the vector of weights for the n individuals, either 1 or 0. }
-  \item{trim}{ the desired trim: trim < 0 - no trim, the default; trim >0 & <1 - fraction of individuals to be trimmed; trim >= 1 - the number of individuals with the highest MDs from the previous iteration to trim. }
+  \item{trim}{ the desired trim: trim < 0 - no trim, the default; trim >0 & <1 - fraction, 0 to 1 proportion, of individuals to be trimmed; trim >= 1 - the number of individuals with the highest MDs from the previous iteration to trim. }
   \item{mvtstart}{ set \code{mvtstart = TRUE} for a percentage based MVT (multivariate trim) start. }
   \item{mcdstart}{ set \code{mcdstart = TRUE} for a minimum covariance determinant (mcd) robust start. }
   \item{main}{ an alternative plot title to the default input data matrix name, see Details below. }

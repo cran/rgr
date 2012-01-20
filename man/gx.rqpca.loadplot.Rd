@@ -2,7 +2,7 @@
 \alias{gx.rqpca.loadplot}
 \title{ Function to Graphically Display PCA Loadings }
 \description{
-Function to graphically display PCA loadings computed by functions \code{\link{gx.mva}}, \code{\link{gx.robmva}} or \cr\code{\link{gx.robmva.closed}}.  The user may define the minimum absolute loading below which variables will not be graphically displayed, and modify the display title and text size as required. 
+Function to graphically display PCA loadings computed by functions \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{\link{gx.robmva.closed}}.  The user may define the minimum absolute loading below which variables will not be graphically displayed, and modify the display title and text size as required. 
 }
 \usage{
 gx.rqpca.loadplot(save, main = "", crit = 0.3, cex = 0.8, 
@@ -28,22 +28,14 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 \seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} } 
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Estimate and display robust PCA loadings
 sind.save <- gx.robmva.closed(sind.mat2open)
 gx.rqpca.loadplot(sind.save)
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.save)
-detach(sind)
 }
 \keyword{ hplot }
 

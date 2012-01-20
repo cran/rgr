@@ -20,34 +20,29 @@ Filzmoser, P., Hron, K., Reimann, C. and Garrett, R., 2009. Robust factor analys
 \seealso{ \code{\link{ilr}}, \code{\link{clr}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.md.gait.closed}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Compute and display clr transformed data
 prmatrix(clr(sind.mat2open))
 
-## Compute ilr transformed data
+## Compute and display ilr transformed data
 sind.ilr <-ilr(sind.mat2open)
+prmatrix(sind.ilr)
 
-## Compute orthonormal basis matrix, sind is a 25 by 6 data set
+## Compute and display orthonormal basis matrix
+## sind.mat2open is a 25 by 6 matrix (data set)
 V <- orthonorm(6)
 prmatrix(V)
 
 ## Back-transform ilr transformed data to clr form and display
 temp <- sind.ilr \%*\% t(V)
-dimnames(temp)[[2]] <- dimnames(sind.mat)[[2]]
+dimnames(temp)[[2]] <- dimnames(sind.mat2open)[[2]]
 prmatrix(temp)
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.ilr)
 rm(V)
-detach(sind)
+rm(temp)
 }
 \keyword{ multivariate }
 \keyword{ manip }

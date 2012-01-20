@@ -5,10 +5,11 @@
 Function to remove rows containing \code{NA}s from a data vector or matrix.  Also counts the number of rows remaining, the number of rows deleted, and in the case of a matrix the number of columns.  The results are returned in a list for subsequent processing in the calling function.
 }
 \usage{
-remove.na(xx)
+remove.na(xx, iftell = TRUE)
 }
 \arguments{
   \item{xx}{ name of the vector or matrix to be processed. }
+  \item{iftell}{ if \code{iftell = TRUE}, the default, the number of removed records is displayed. }
 }
 \value{
   \item{x}{ a data vector or matrix containing the elements in the vector or rows of the matrix \code{xx} without \code{NA}s. }
@@ -17,7 +18,10 @@ remove.na(xx)
   \item{nna}{ the number of rows removed from \code{xx}. }
 }
 \details{
-This function is called by many of the procedures in the \sQuote{rgr} package.  If one or more \code{NA}s are found the user is informed of how many.  In general a dataframe will have been cleared of any <values represented by negative values or zeros prior to executing the procedure calling this function, see \code{\link{ltdl.fix.df}}, or \code{\link{ltdl.fix}} if a single vector is being processed.
+This function is called by many of the procedures in the \sQuote{rgr} package.  If one or more \code{NA}s are found the user is informed of how many.  In general a data frame will have been cleared of any <values represented by negative values or zeros prior to executing the procedure calling this function, see \code{\link{ltdl.fix.df}}, or \code{\link{ltdl.fix}} if a single vector is being processed.
+}
+\note{
+The \code{iftell} \sQuote{switch} is used to suppress the display of the \code{NA} count in some summary statistics tables as the information is included in the table. 
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{where.na}} } 

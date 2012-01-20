@@ -16,7 +16,7 @@ function(xx)
      # value, and set zero2na = TRUE if it is required to convert any zero
      # values or other numeric codes representing blanks to NAs.
      #
-     stats <- gx.stats(xx, display = FALSE)
+     stats <- gx.stats(xx, display = FALSE, iftell = FALSE)
      table <- numeric(20)
      table[1] <- stats$stats[20]
      table[2] <- length(xx) - stats$stats[20]

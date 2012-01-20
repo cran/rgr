@@ -36,7 +36,7 @@ Garrett, R.G., 1990. A robust multivariate allocation procedure with application
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.mvalloc.print}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}} }
+\seealso{ \code{\link{gx.md.gait.closed}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.mvalloc.print}}, \code{\link{ltdl.fix.df}}, \cr\code{\link{remove.na}}, \code{\link{na.omit}} }
 \examples{
 ## Make test data available
 data(ogrady)

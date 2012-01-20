@@ -12,7 +12,7 @@ These data are a subset of the full Kola C-horizon data set available from:
 
 However, it should be noted that the spatial coordinates are recorded as Latitudes and Longitudes in the full data set.
 }
-\format{ A dataframe containing 44 observations for 617 sites. }
+\format{ A data frame containing 44 observations for 617 sites. }
 \references{
 Reimann, C., Ayras, M., Chekushin, V., Bogatyrev, I., Boyd, R., de Caritat, P., Dutter, R., Finne, T.E., Halleraker, J.H., Jaeger, O., Kashulina, G., Niskavaara, H., Pavlov, V., Raisanen, M.L., Strand, T. and Volden, T., 1998. A geochemical atlas of the central parts of the Barents Region. Norges Geologiske Undersokelse (NGU) Geological Survey of Norway, Trondheim, Norway. ISBN 82-7385-176-1. 745 p.
 }

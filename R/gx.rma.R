@@ -23,7 +23,7 @@ function(xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute(
              stop("Vector(s) contain one or more <= 0 values\n")
          x1 <- log10(x1)
          x2 <- log10(x2)
-         cat(" Data have been Log10 transformed\n")
+         cat(" Data have been Log10 transformed")
      }
      xlen <- temp.x$n
      x <- cbind(x1, x2)
@@ -44,7 +44,7 @@ function(xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute(
      ciint <- seint * temp
      intll <- incpt - ciint
      intul <- incpt + ciint
-     cat("\n\t\t", x1lab, "\t\t", x2lab, "\n Means =", "\t", signif(xbar[1], 4), 
+     cat("\n\n\t\t", x1lab, "\t\t", x2lab, "\n\n Means =", "\t", signif(xbar[1], 4), 
          "\t\t", signif(xbar[2], 4), "\n SDs =", "\t\t", signif(xsdv[1], 4), 
          "\t\t", signif(xsdv[2], 4), "\n\n Corr =\t\t", round(r, 4), 
          "\n N =\t\t", xlen,  "\n\t\t\t\t   SE\t\t\t95% CLs", "\n Slope =\t", 

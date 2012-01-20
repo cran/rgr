@@ -13,7 +13,7 @@ clr(xx, ifclose = FALSE, ifwarn = TRUE)
   \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
-Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are arithmetic log-ratios (\code{alr}) and isometric log-ratios (\code{ilr}).
+Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are additive log-ratios (\code{alr}) and isometric log-ratios (\code{ilr}).
 }
 \value{
   \item{x}{ a n by p matrix of log-centred values. }
@@ -36,7 +36,7 @@ Aitchison, J. and Egozcue, J.J., 2005. Compositional data analysis; where are we
 
 Buccianti, A., Mateu-Figueras, G, and Pawlowsky-Glahn, V. (eds.), 2006. Compositional data analysis in the geosciences: from theory to practice. The Geological Society Publishing House, Bath, U.K. Special Publication 264, 224 p.
 
-Janousek, V., Farrow, C.M. and Erban, V., 2006. Interprteation of whole-rock geochemical data in igneous geochemistry introducing Geochemical Data Toolkit (GCDkit). Journal of Petrology, 47(6):1255-1259.
+Janousek, V., Farrow, C.M. and Erban, V., 2006. Interpretation of whole-rock geochemical data in igneous geochemistry introducing Geochemical Data Toolkit (GCDkit). Journal of Petrology, 47(6):1255-1259.
 
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. Wiley, 362 p.
 }

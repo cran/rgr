@@ -2,7 +2,7 @@
 \alias{caplot}
 \title{ Prepare a Concentration-Area (C-A) Plot }
 \description{
-Displays a concentration-area (C-A) plot to assess whether the data are spatially multi-fractal (Cheng et al., 1994; Cheng and Agterberg, 1995) as a part of a four panel display.  This procedure is useful for determining if multiple populations that are spatially dependent are present in a data set.  It can be used to determine the practical limits, upper or lower bounds, of the influence of the biogeochemical processes behind the spatial distribution of the data.  Optionally the data may be logarithmically transformed prior to interpolation, the points may be \sQuote{jittered} (see Arguments below), the size of the interpolated grid may be modified, and alternate colour schemes can be chosen for display of the interpolated data.
+Displays a concentration-area (C-A) plot to assess whether the data are spatially multi-fractal (Cheng et al., 1994; Cheng and Agterberg, 1995) as a part of a four panel display.  This procedure is useful for determining if multiple populations that are spatially dependent are present in a data set.  It can be used to determine the practical limits, upper or lower bounds, of the influence of the biogeochemical processes behind the spatial distribution of the data.  Optionally the data may be logarithmically transformed (base 10) prior to interpolation, the points may be \sQuote{jittered} (see Arguments below), the size of the interpolated grid may be modified, and alternate colour schemes can be chosen for display of the interpolated data.
 }
 \usage{
 caplot(x, y, z, zname = deparse(substitute(z)),
@@ -18,11 +18,11 @@ caplot(x, y, z, zname = deparse(substitute(z)),
   \item{caname}{ a title for the image of the interpolated data. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil"}.  For no title, set \code{caname = ""}. }
   \item{log}{ the default is set to \code{log = TRUE} as in most cases this function is used with positively skewed data, where a logarithmic data transform is appropriate.  If it is required to undertake the C-A plot interpolation without a logarithmic data transformation, set \code{log = FALSE}.  This also results in the accompanying probability (CPP) plots being arithmically scaled (x-axes). }
   \item{ifjit}{ if there is a possibility that the data set contains multiple measurements at an identical spatial (x,y) location set \code{ifjit = TRUE}.  The presence of multiple data at an identical location will cause the Akima (1996) interpolation function to fail. }
-  \item{ifrev}{ by default the empirical C-A function is plotted from highest value to lowest, \code{ifrev = FALSE}.  As the C-A plot is a log-log display this provides greater detail for the highest values.  The direction of accumulation can be key in detecting multi-fractal patterns, it is usually informative to also prepare a plot with \code{ifrev = TRUE}, i.e. accumaulation from lowest to highest values.  To see a dramatic example of this, run the Examples below. }
+  \item{ifrev}{ by default the empirical C-A function is plotted from highest value to lowest, \code{ifrev = FALSE}.  As the C-A plot is a log-log display this provides greater detail for the highest values.  The direction of accumulation can be key in detecting multi-fractal patterns, it is usually informative to also prepare a plot with \code{ifrev = TRUE}, i.e. accumulation from lowest to highest values.  To see a dramatic example of this, run the Examples below. }
   \item{ngrid}{ by default \code{ngrid = 100}, this results in the data being interpolated into a 100 x 100 grid that extends between the data set's spatial extremes determined for the (x,y) spatial coordinates for the data.  See Details below. }
   \item{colr}{ by default the \code{topo.colors(16)} pallette is used to render the interpolated grid as an image.  For alternative palettes see \code{\link{colors}}, and see Details below. }
-  \item{xcoord}{ a title for the x-axis, defaults to \dQuote{Easting}. }
-  \item{ycoord}{ a title for the y-axis, defaults to \dQuote{Northing}. }
+  \item{xcoord}{ a title for the x-axis, defaults to \code{Easting}. }
+  \item{ycoord}{ a title for the y-axis, defaults to \code{Northing}. }
 }
 \details{
 The function creates a four panel display.  The percentage cumulative probabity (CPP) plot of the data in the upper left, and the CPP plot of the interpolated data to be used in the C-A plot in the upper right.  The lower left panel contains an image of the interpolated data, and the lower right the C-A plot.
@@ -40,7 +40,7 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any sites with \code{NA}s in the (x,y,z) data vector are removed prior to spatial interpolation and preparation of the C-A plot.
 
-In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user for loading the \sQuote{rgr} package, etc.
+In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \code{first} function prepared by the user for loading the \sQuote{rgr} package, etc.
 }
 \author{ Graham F. Bonham-Carter and Robert G. Garrett }
 \references{

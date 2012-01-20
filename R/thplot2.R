@@ -1,5 +1,5 @@
 thplot2 <-
-function(x, name = deparse(substitute(x)), ifzero = 0.01, xlow = NA, xhih = NA,
+function(x, xname = deparse(substitute(x)), ifzero = 0.01, xlow = NA, xhih = NA,
      yhih = NA, rsd = 5, ptile = 95, main = "", ifalt = FALSE, ...)
 {
      # Function to display a Thompson-Howarth plot for duplicate measurements.
@@ -36,7 +36,7 @@ function(x, name = deparse(substitute(x)), ifzero = 0.01, xlow = NA, xhih = NA,
          }
      }
      #
-     thplot1(x1, x2, name = name, ifzero = ifzero, xlow = xlow, xhih = xhih,
+     thplot1(x1, x2, xname = xname, ifzero = ifzero, xlow = xlow, xhih = xhih,
          yhih = yhih, rsd = rsd, ptile = ptile, main = main, ...)
      invisible()
 }

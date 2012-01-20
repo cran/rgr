@@ -1,5 +1,5 @@
 gx.triples.aov <-
-function (x, name = deparse(substitute(x)), log = FALSE, table = FALSE) 
+function(x, xname = deparse(substitute(x)), log = FALSE, table = FALSE) 
 {
      # Function to undertake an ANOVA for the unbalanced triplicates from a
      # NGR or Tri-National survey.  The data must be in the following order
@@ -33,7 +33,7 @@ function (x, name = deparse(substitute(x)), log = FALSE, table = FALSE)
      } 
      xx <- matrix(x, nrow = ntrip,ncol = 3, byrow = TRUE) 
      if(table) {
-         cat(paste("\n Input triplicate data for:\n", name, "\n"))
+         cat(paste("\n Input triplicate data for:\n", xname, "\n"))
          for (i in 1:ntrip) cat(" ", xx[i, 1:3], "\n")
      }
      ba.ss <- sum((xx[,1]-xx[,2])^2)/2; ba.df <- ws.df <- ntrip
@@ -67,7 +67,7 @@ function (x, name = deparse(substitute(x)), log = FALSE, table = FALSE)
      totvar <- sum(vcomp)
      vcomp.pct <- 100*vcomp/totvar
      #
-     cat(paste("\n ANOVA ('Bainbridge' staggered design) for:\n", name),"\n")
+     cat(paste("\n ANOVA ('Bainbridge' staggered design) for:\n", xname),"\n")
      cat("\n Level   Variation\tSums of     DF    Mean\t\t Synthesized (1)     F       Prob (2)",
          "\n\t  between\tSquares          Square\t\t   MS       DF     Ratio     Value\n")
      cat("\n   3     Sites\t\t", signif(bs.ss, 4), "\t    ", bs.df, "\t", signif(bs.ms, 5),

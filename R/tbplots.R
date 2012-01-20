@@ -1,5 +1,5 @@
 tbplots <-
-function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
+function(x, by, log = FALSE, logx = NULL, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
 	las = 1, cex = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
@@ -75,7 +75,7 @@ function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
          sssz <- length(temp)
          if(sssz >= ssll) {
           bb <- quantile(temp, quant)
-          if(logx) {
+          if(log&is.null(logx)) {
                bb.save <- bb
                bb <- log10(bb)
           }
@@ -84,7 +84,7 @@ function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
           lol <- bb[2] - 3 * hw
           uwl <- bb[4] + 1.5 * hw
           uol <- bb[4] + 3 * hw
-          if(logx) {
+          if(log&is.null(logx)) {
                lwl <- 10^lwl
                lol <- 10^lol
                uwl <- 10^uwl

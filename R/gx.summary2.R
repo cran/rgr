@@ -6,7 +6,7 @@ function(xx, xname = deparse(substitute(xx)))
      #
      nxx <- length(xx)
      table <- numeric(28)
-     stats <- gx.stats(xx, display = FALSE)
+     stats <- gx.stats(xx, display = FALSE, iftell = FALSE)
      table[1] <- stats$stats[20]
      table[2] <- nxx - stats$stats[20]
      table[3] <- stats$stats[23]
@@ -30,7 +30,7 @@ function(xx, xname = deparse(substitute(xx)))
      table[18:28] <- stats$stats[c(1, 3:5, 7, 10, 13, 15:17, 19)]
      table[3:6] <- signif(table[3:6], 4)
      table[8:28] <- signif(table[8:28], 4)
-     cat("  Extended Summary Stats for: ", xname, "\n  N and number of NAs:\t\t", 
+     cat("\n  Extended Summary Stats for: ", xname, "\n  N and number of NAs:\t\t", 
          table[1], " & ", table[2], "\n  Arithmetic Mean and 95% CLs:\t", table[3], 
          " & ", table[4], " <-> ", table[5], "\n  SD and CV%:\t\t\t", table[6], 
          " & ", table[7], "%\n  Geometric Mean and 95% CLs:\t", table[10], " & ", 
@@ -41,7 +41,7 @@ function(xx, xname = deparse(substitute(xx)))
          "\n  Percentiles: Min  2  5  10  25 - 50 - 75  90  95  98  Max\n\t", 
          table[18], " ", table[19]," ", table[20], " ", table[21], " ", 
          table[22], " - ", table[23], " - ", table[24], " ", table[25], " ", 
-         table[26], " ", table[27], " ", table[28], "\n", sep = "")
+         table[26], " ", table[27], " ", table[28], "\n\n", sep = "")
      invisible(table)
 }
 

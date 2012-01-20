@@ -2,7 +2,7 @@
 \alias{bwplots.by.var}
 \title{ Plot Vertical Box-and-Whisker Plots for Variables}
 \description{
-Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically.  A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically (base 10).  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
 bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE, 
@@ -11,7 +11,7 @@ bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
 	las = 1, cex.axis = 1, adj = 0.5, colr = 8, pch = 3, ...)
 }
 \arguments{
-  \item{xmat}{ the data matrix or dataframe containing the data. }
+  \item{xmat}{ the data matrix or data frame containing the data. }
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{wend}{ the locations of the whisker-ends has to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. See Details below. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is not to notch the boxplots, to have notches set \code{notch = TRUE}. }
@@ -29,7 +29,7 @@ bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
-There are two ways to provide data to this function.  Firstly, if all the variables in a dataframe are to be displayed, and there are no factor variables, the dataframe name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
+There are two ways to provide data to this function.  Firstly, if all the variables in a data frame are to be displayed, and there are no factor variables, the data frame name can be entered for \code{xmat}.  However, if there are factor variables, or only a subset of the variables are to be displayed, the data are entered via the \code{\link{cbind}} construct, see Examples below.
 
 In a box-and-whisker plot there are two special cases.  When \code{wend = 0} the whiskers extend to the observed minima and maxima that are not plotted with the plus symbol.  When \code{wend = 0.25} no whiskers or the data minima and maxima are plotted, only the medians and boxes representing the span of the middle 50\% of the data are displayed.
 
@@ -66,7 +66,7 @@ detach(kola.c)
 ## Make test data available
 data(ms.data1)
 
-## Display variables in a dataframe extending the whiskers to the
+## Display variables in a data frame extending the whiskers to the
 ## 2nd and 98th percentiles of the data, remembering to omit the
 ## sample IDs
 bwplots.by.var(ms.data1[, -1], log = TRUE, wend = 0.02)

@@ -1,5 +1,5 @@
 anova1 <-
-function(x1, x2, name = deparse(substitute(x1)), log = FALSE)
+function(x1, x2, xname = deparse(substitute(x1)), log = FALSE)
 {
      # Function to compute pairs ANOVA for simple duplicates, either sampling
      # and analytical, or analytical; duplicate measurements are input as two
@@ -58,7 +58,7 @@ function(x1, x2, name = deparse(substitute(x1)), log = FALSE)
 	prob1 <- 1 - pf(fval1, bdf, 1)
 	fval2 <- wss/rms
 	prob2 <- 1 - pf(fval2, 1, rdf)
-	cat("\n\n Two-Way Random Effects Model for", name, 
+	cat("\n\n Two-Way Random Effects Model for", xname, 
 		"\n Source\t\t  SS\t\tdf\t  MS\t\t  F\t Prob", "\n Between\t", 
 		format(signif(bss, 5)), "\t", bdf, "\t", format(signif(bms, 5)),
 		"\t\t", format(round(fval1, 2)), "\t", format(round(prob1, 4)), 
@@ -74,7 +74,7 @@ function(x1, x2, name = deparse(substitute(x1)), log = FALSE)
 	bms <- bss/bdf
 	fval1 <- round(bms/sams, 2)
 	prob1 <- 1 - pf(fval1, bdf, alen)
-	cat("\n\n One-Way Random Effects Model for", name, 
+	cat("\n\n One-Way Random Effects Model for", xname, 
 		"\n Source\t\t  SS\t\tdf\t  MS\t\t  F\t Prob", "\n Between\t", 
 		format(signif(bss, 5)), "\t", bdf, "\t", format(signif(bms, 5)),
 		"\t\t", format(round(fval1, 2)), "\t", format(round(prob1, 4)), 
@@ -94,7 +94,7 @@ function(x1, x2, name = deparse(substitute(x1)), log = FALSE)
 	vm <- round((2 * bvar)/sams, 2)
 	xmean <- mean(a)
 	rsd <- (100 * sqrt(sams))/xmean
-	cat("\n\n Summary Statistics for", name, "\n Grand Mean =\t", format(
+	cat("\n\n Summary Statistics for", xname, "\n Grand Mean =\t", format(
 		signif(xmean, 5)), "\t\t Variance =\t", format(signif(tms, 5)), 
 		"\n 'Error' S^2 =\t", format(signif(sams, 5)), 
 		"\t\t Std. Dev. =\t", format(signif(sqrt(sams), 5)), 

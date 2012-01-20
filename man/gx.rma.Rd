@@ -11,7 +11,7 @@ gx.rma(xx1, xx2, x1lab = deparse(substitute(xx1)),
 \arguments{
   \item{xx1}{ the name of the first independent variable. }
   \item{xx2}{ the name of the second independent variable. }
-  \item{log}{ if a logarithmic transformation of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. } 
+  \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. } 
   \item{x1lab}{ a title for the first independent variable, the default is the variable name, \cr\code{deparse(substitute(xx1))}. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \cr\code{x1lab = "Magnetic Susceptibility - Measurement 1"}. }
   \item{x2lab}{ a title for the second independent variable, the default is the variable name, \code{deparse(substitute(xx2))}. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{x2lab = "Magnetic Susceptibility - Measurement 2"}. }
 }

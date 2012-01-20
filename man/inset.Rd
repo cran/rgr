@@ -2,7 +2,7 @@
 \alias{inset}
 \title{ An EDA Graphical and Statistical Summary }
 \description{
-Plots a three panel graphical distributional summary for a data set, comprising a histogram and a cumulative normal percentage probability (CPP) plot, together with a table of selected percentiles of the data and summary statistics between them.  Optionally the EDA graphics may be plotted with logarithmic scaling.
+Plots a three panel graphical distributional summary for a data set, comprising a histogram and a cumulative normal percentage probability (CPP) plot, together with a table of selected percentiles of the data and summary statistics between them.  Optionally the EDA graphics may be plotted with base 10 logarithmic scaling.
 }
 \usage{
 inset(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, 
@@ -31,11 +31,11 @@ Any NAs in the data vector are removed prior to displaying the plot.
 
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.
 
-The purpose of this function is to prepare publication quality graphics (wmf) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
+The purpose of this function is to prepare publication quality graphics (.wmf) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
 
 In some instances if the graphics window has been resized the last line(s) of the table may not be displayed, if so, resize the table until it is entirely visible. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
 
-For summary statistics displays to complement the graphics see, \code{\link{gx.summary1}} and \cr\code{\link{gx.summary2}}.
+For summary statistics tables to complement the graphical display see, \code{\link{gx.stats}}, \code{\link{gx.summary1}}, and \code{\link{gx.summary2}}.
 
 In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the \sQuote{rgr} package, etc.
 }

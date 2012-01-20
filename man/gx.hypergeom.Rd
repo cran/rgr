@@ -12,7 +12,7 @@ gx.hypergeom(tt, aa, kk, xx)
   \item{tt}{ total number of sites along a traverse. }
   \item{aa}{ number of sites that a priori should be anomalous. }
   \item{kk}{ total number of > threshold sites. }
-  \item{xx}{ number of the \sQuote{aa} that are > threshold.}
+  \item{xx}{ number of the \code{aa} that are > threshold.}
 }
 \details{
 See Stanley (2003) for details, the examples below reproduce the results in Table 1 and Table 2.

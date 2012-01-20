@@ -1,7 +1,8 @@
 map.eda8 <-
 function(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
          zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE, symcolr = NULL,
-         tol = 0.04, ...)
+         tol = 0.04, iflgnd = FALSE, pctile = FALSE,
+         title = deparse(substitute(zz)), ...)
 {
      # Function to plot an EDA map where the data are divided into 8 groups based
      # on divisions at the 2nd, 5, 25, 50, 75, 95 and 98th percentiles; data below
@@ -10,7 +11,7 @@ function(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
      # as appropriate for the display device.  The default set of colours from the
      # rainbow(36) pallette (see display.rainbow()) are inceasingly deeper blues for
      # <Q2, green for between Q2 and Q3, and oranges and reds for >Q3.  Alternately
-     # a grey-scale map may be generated.
+     # a grey-scale map may be generated.  Optionally a legend may be added to the map.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # x, y, and z data must be run through ltdl.fix.df to convert any <dl
@@ -65,6 +66,33 @@ function(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
      ni <- length(zzz[zzz == 8])
      cat("\t\t\t      ", ni, "\t    ", stype[8], format(size[8], nsmall = 2),
          "  ", symcolr[8], "\n")
+     if(iflgnd) {
+         lgnd.line <- numeric(8)
+         zcut <- signif(zcut, 3)
+         if(pctile) {
+             title <- paste(deparse(substitute(zz)), "Percentiles")
+             lgnd.line[1] <- "> 98th"
+             lgnd.line[2] <- "95th - 98th"
+             lgnd.line[3] <- "75th - 95th" 
+             lgnd.line[4] <- "50th - 75th"
+             lgnd.line[5] <- "25th - 50th"
+             lgnd.line[6] <- "5th - 25th"
+             lgnd.line[7] <- "2nd - 5th"
+             lgnd.line[8] <- "< 2nd"
+         }
+         else {
+             lgnd.line[1] <- paste(">", zcut[7])
+             lgnd.line[2] <- paste(zcut[6], "-", zcut[7])
+             lgnd.line[3] <- paste(zcut[5], "-", zcut[6])
+             lgnd.line[4] <- paste(zcut[4], "-", zcut[5])
+             lgnd.line[5] <- paste(zcut[3], "-", zcut[4])
+             lgnd.line[6] <- paste(zcut[2], "-", zcut[3])
+             lgnd.line[7] <- paste(zcut[1], "-", zcut[2])
+             lgnd.line[8] <- paste("<", zcut[1])
+         }
+         legend(locator(1), pch = npch[8:1], col = symcolr[8:1], pt.cex = size[8:1],
+             lgnd.line[1:8], cex = 0.8, title = title, ...)
+     }
      palette("default")
      invisible()
 }

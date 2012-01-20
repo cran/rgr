@@ -7,7 +7,7 @@ A small data set of QA/QC triplicates samples from the Maritimes 2007 NAmSGLs su
 }
 \usage{data(triples.test1)}
 \format{
-  A dataframe with 27 observations for the following 3 variables:
+  A data frame with 27 observations for the following 3 variables:
   \describe{
     \item{ID}{ the NAmSGLs unique site identifier. }
     \item{RS}{ the Replicate Status code. }

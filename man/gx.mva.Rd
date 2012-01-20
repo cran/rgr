@@ -2,7 +2,7 @@
 \alias{gx.mva}
 \title{ Function to undertake an Exploratory Multivariate Data Analysis }
 \description{
-The function carries out a Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a dataset and places them in an object to be saved and post-processed for display and further manipulation.  Classical procedures are used, for robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.
+The function carries out a Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a dataset and places them in an object to be saved and post-processed for display and further manipulation.  Classical procedures are used, for robust procedures see \code{\link{gx.robmva}}, and \cr\code{\link{gx.robmva.closed}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, and \code{\link{gx.md.print}}.
 }
 \usage{
 gx.mva(xx, main = deparse(substitute(xx)))
@@ -65,15 +65,10 @@ Grunsky, E.C., 2001. A program for computing RQ-mode principal components analys
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \cr\code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} }
 \examples{
 ## Make test data available
-data(sind)
-attach(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Generate gx.mva object after an clr transform for a PCA
 sind.save.clr <- gx.mva(clr(sind.mat2open))
@@ -96,11 +91,8 @@ gx.md.plot(sind.save.ilr,
 main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data",
 cex.main = 0.8)
 
-## Clean-up and detach test data
-rm(sind.mat)
-rm(sind.mat2open)
+## Clean-up
 rm(sind.save.clr)
 rm(sind.save.ilr)
-detach(sind)
 }
 \keyword{ multivariate }

@@ -27,11 +27,7 @@ Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3r
 \seealso{ \code{\link{gx.2dproj}} }
 \examples{
 ## Make test data available
-data(sind)
-sind.mat <- as.matrix(sind[, -c(1:3)])
-## Ensure all data are in the same units (mg/kg)
-sind.mat2open <- sind.mat
-sind.mat2open[, 2] <- sind.mat2open[, 2] * 10000
+data(sind.mat2open)
 
 ## Display default 2-D projection
 sind.save <- gx.2dproj(ilr(sind.mat2open))
@@ -41,7 +37,6 @@ gx.2dproj.plot(sind.save,
 main = "Howarth & Sinding-Larsen\nStream Sediments, ilr Transformed Data")
 
 ## Clean-up
-rm(sind.mat)
 rm(sind.save)
 }
 \keyword{ hplot }
