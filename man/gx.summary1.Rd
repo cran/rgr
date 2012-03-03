@@ -17,7 +17,7 @@ gx.summary1(xx, xname = deparse(substitute(xx)), log = FALSE)
 Setting \code{log = TRUE} results in a log transformation for the parametric statistical estimates.  The maximum, minimum, quartiles and robust estimates of spread are estimated and reported in natural measurement units.  Of the parametric statistics, the mean (the geometric mean) and 95\%confidence are reported backtransformed into natural measurement units.  If all the results are required following a log10, or some other transformation, this can be achieved by executing the transformation in the call, e.g., \code{gx.summary1(log10(Cu))} or \code{gx.summary1(sqrt(Cu))}.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.
 

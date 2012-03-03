@@ -7,7 +7,7 @@ Function to display the results of a Principal Components Analysis (PCA) from th
 \usage{
 gx.rqpca.plot(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE,
 	rowids = NULL, ifrot = TRUE, main = "", cex = 0.7, cex.lab = 0.9,
-        cex.main = 0.9, ...)
+	cex.main = 0.9, ...)
 }
 \arguments{
   \item{save}{ a saved object from the execution of function \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{\link{gx.robmva.closed}}. }

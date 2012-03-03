@@ -9,7 +9,7 @@ anova1(x1, x2, xname = deparse(substitute(x1)), log = FALSE)
 }
 \arguments{
   \item{x1}{ a column vector from a matrix or data frame, \code{x1[1], ..., x1[n]}. }
-  \item{x2}{ another column vector from a matrix or data frame,  \code{x2[1], ..., x2[n]}. \code{x1} and \code{x2} must be of identical length, \code{n}, where \code{x2} is a duplicate measurement of \code{x1}. }
+  \item{x2}{ another column vector from the matrix or data frame,  \code{x2[1], ..., x2[n]}. \code{x1} and \code{x2} must be of identical length, \code{n}, where \code{x2} is a duplicate measurement of \code{x1}. }
   \item{xname}{ a title can be displayed with the results, e.g., \code{xname = Duplicate measurements of Magnetic Susceptibility}.  If this field is undefined the character string for \code{x1} is used as a default. }
   \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
 }
@@ -23,7 +23,7 @@ If the data are as a single concatenated vector from a matrix or data frame as \
 \note{
 The script does not follow a standard computation of Mean Squares, but is based on a procedure developed after Garrett (1969) for use in the field in the 1970s when pocket calculators first had mean and standard deviation functions.
 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
 

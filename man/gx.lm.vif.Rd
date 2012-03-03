@@ -1,6 +1,6 @@
 \name{gx.lm.vif}
 \alias{gx.lm.vif}
-\title{ Estimate Variance Inflation Factosr (VIFs). }
+\title{ Estimate Variance Inflation Factosr (VIFs) }
 \description{
 Function estimates Variance Inflation Factors (VIFs), measures of collinearity in a linear model.  The VIF provides a measure of how much the variance of an estimated regression coefficient is increased because of collinearity.  Collinearity is present when there is a high correlation between the independent, predictor, variables in a model, i.e. they tell the same \sQuote{story}.  Where collinearity exists it is often best to remove predictor variables with high VIFs from the model.
 }

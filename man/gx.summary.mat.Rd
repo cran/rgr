@@ -10,7 +10,7 @@ gx.summary.mat(xmat, vars, banner = deparse(substitute(xmat)),
 }
 \arguments{
   \item{xmat}{ name of the matrix or data frame. }
-  \item{vars}{ the indices, or names (see Eaxample), of the columns of the matrix or data frame for the variables whose summary statistics are to be displayed. }
+  \item{vars}{ the indices, or names (see Example), of the columns of the matrix or data frame for the variables whose summary statistics are to be displayed. }
   \item{banner}{ an informative display title, e.g., \code{banner = "Kola Project, <2 mm O-horizon soils"} rather than the default variable name of \cr\code{banner = deparse(substitute(xmat))}. }
   \item{log}{if the summary statistics are required following a log10 transformation, set \code{log = TRUE}. }
 }
@@ -18,7 +18,7 @@ gx.summary.mat(xmat, vars, banner = deparse(substitute(xmat)),
 Setting \code{log = TRUE} results in a log transformation for the parametric statistical estimates.  The maximum, minimum, quartiles and robust estimates of spread are estimated and reported in natural measurement units.  Of the parametric statistics, the mean (the geometric mean) and 95\%confidence are reported backtransformed into natural measurement units.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Display of the number of \code{NAs} found by function \code{remove.na} is suppressed in \code{remove.na} as the information is included in the display from this function.
 

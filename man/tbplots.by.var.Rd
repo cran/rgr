@@ -37,7 +37,7 @@ If there are more than 7 labels (variables) and no alternate labels are provided
 The notches in the boxplots indicate the 95\% confidence intervals for the medians and can extend beyond the upper and lower limits of the boxes indicating the middle 50\% of the data when subset population sizes are small.  The confidence intervals are estimated using the binomial theorem.  It can be argued that for small populations a normal approximation would be better.  However, it was decided to remain with a non-parametric estimate despite the fact that the calculation of the Tukey fence values involves normality assumptions.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
 

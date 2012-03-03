@@ -6,4 +6,3 @@ function(z)
      p <- exp(z) / (1 + exp(z))
      return(p = p)
 }
-

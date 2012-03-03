@@ -17,7 +17,7 @@ gx.cnpplts(xlab = " ", log = FALSE, xlim = NULL, main = "",
   \item{\dots}{ the names of the data subsets (objects), separated by commas, to be plotted, up to a maximum of nine.  See the example below for subset pre-processing steps that lead to a more presentable legend. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to displaying the plot.
 

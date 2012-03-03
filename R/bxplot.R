@@ -1,6 +1,6 @@
 bxplot <-
 function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0.05, 
-     xlim = NULL, main = "", colr = 8, cex = 1, ...)
+     xlim = NULL, main = "", ifn = TRUE, colr = 8, cex = 1, ...)
 {
      # Function to plot a single horizontal box plot; the default is a Tukey boxplot, 
      # ifbw = T generates an IDEAS style box-and-whisker plot, and wend defines the
@@ -115,17 +115,18 @@ function(xx, xlab = deparse(substitute(xx)), log = FALSE, ifbw = FALSE, wend = 0
      ypos <- c(0, 0, 0.4, 0.4, 0, 0, 0, -0.4, -0.4, 0.4, -0.4, -0.4, 0)
      xpos <- c(lowend, q1, q1, q3, q3, hihend, q3, q3, q2, q2, q2, q1, q1)
      lines(xpos, ypos)
-     if(log)
-         xpos <- 10^(log10(limits[2]) - (log10(limits[2]) - log10(limits[1])) * 
-          0.05)
-     else xpos <- limits[2] - (limits[2] - limits[1]) * 0.05
-     ypos <- limits[3] + (limits[4] - limits[3]) * 0.15
-     text(xpos, ypos, labels = paste("N =", nx), adj = 1, cex = cex)
-     if(nxx != 0) {
-         ypos <- limits[3] + (limits[4] - limits[3]) * 0.06
-         text(xpos, ypos, labels = paste(nxx, "points omitted"), adj = 1,
-             cex = cex * 0.8)
+     if(ifn) {
+         if(log)
+             xpos <- 10^(log10(limits[2]) - (log10(limits[2]) - log10(limits[1])) * 
+             0.05)
+         else xpos <- limits[2] - (limits[2] - limits[1]) * 0.05
+         ypos <- limits[3] + (limits[4] - limits[3]) * 0.15
+         text(xpos, ypos, labels = paste("N =", nx), adj = 1, cex = cex)
+         if(nxx != 0) {
+             ypos <- limits[3] + (limits[4] - limits[3]) * 0.06
+             text(xpos, ypos, labels = paste(nxx, "points omitted"), adj = 1,
+                  cex = cex * 0.8)
+         }
      }
      invisible()
 }
-

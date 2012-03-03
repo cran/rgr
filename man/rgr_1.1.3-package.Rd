@@ -1,16 +1,15 @@
-\name{rgr-package}
+\name{rgr_1.1.3-package}
 \alias{rgr-package}
 \alias{rgr}
 \docType{package}
 \title{
-The GSC (Geological Survey of Canada) Applied Geochemistry EDA
-Package
+The GSC (Geological Survey of Canada) Applied Geochemistry EDA Package
 }
 \description{
 R functions for Exploratory Data Analysis with applied geochemical data. 
 }
 \details{
-The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  This version, 1.1.2, is a maintenace update, with changes to some functions for improved consistency and corrections to the documentation.
+The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  This version, 1.1.3, includes four new functions for the bivariate analysis of compositional data, a function for the display of an Aitchison variability matrix, and maintenance updates.  The latter consists of a formatting change for function fences.summary and corrections to the documentation.
 }
 \author{
 Robert G. Garrett

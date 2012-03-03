@@ -23,7 +23,7 @@ It is worth noting that when the \code{alr} transform is undertaken with a geoch
   \item{x}{ a n by (p-1) matrix of additively log-ratioed values, the j-th column of the matrix being dropped. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any rows containing \code{NA}s in the data matrix are removed prior to undertaking the transformation.
 }

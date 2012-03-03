@@ -28,7 +28,7 @@ The following are returned as an object to be saved for display with \code{\link
   \item{xalloc}{ the reference group, \code{1:kk}, that the individual was allocated into.  All outliers, i.e. all \code{pgm(1:kk) < crit} are allocated to group zero, \code{0}.   Therefore \code{xalloc} will be in the range of \code{0:kk}. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed from the matrix \code{xx} prior to executing this function, see \code{\link{ltdl.fix.df}}.  Any rows in the input data matrix \code{xx} with \code{NA}s are removed prior to computations.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed from the matrix \code{xx} prior to executing this function, see \code{\link{ltdl.fix.df}}.  Any rows in the input data matrix \code{xx} with \code{NA}s are removed prior to computations.
 }
 \references{
 Garrett, R.G., 1990. A robust multivariate allocation procedure with applications to geochemical data. In Proc. Colloquium on Statistical Applications in the Earth Sciences (Eds F.P. Agterberg & G.F. Bonham-Carter). Geological Survey of Canada Paper 89-9, pp. 309-318.

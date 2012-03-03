@@ -44,7 +44,7 @@ The following are returned as an object to be saved for the next iteration or fi
   \item{ppm}{ the vector of predicted probabilities of membership for all the n individuals following the current GAIT step. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any rows in the data matrix with \code{NA}s are removed prior to computations.  In the instance of a log-ratio, e.g., \code{\link{ilr}}, transformation \code{NA}s have to be removed prior to undertaking the transformation, see \code{\link{na.omit}}, \code{\link{where.na}} and \code{\link{remove.na}}.
 

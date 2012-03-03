@@ -32,7 +32,7 @@ See \code{\link{inset}} for details concerning the \code{inset} parameters.
 \note{
 To set the R working directory, if it has not already been set in a \code{first} function, use at the R command line, for example, \code{setwd("C:\\\R\\\WDn")}, where \sQuote{n} is some number, which will result in all saved output being placed in that folder.
 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any NAs in the data vector are removed prior to displaying and saving the plot.
 

@@ -31,7 +31,7 @@ If the data are as a single concatenated vector from a matrix or data frame as \
 The user is prompted for the location of the two legend items added to the plot, the number of duplicate pairs, and whether or not the duplicates have met the RSD\% criterion.  In both instances the user is prompted for the location of left end of the text line, or the top left corner of the text block.
 }
 \note{ 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Duplicate pairs \code{x1,x2} containing any \code{NA}s are omitted from the calculations.
 

@@ -26,7 +26,7 @@ The function compiles summary statistics consisting of the count of valid data, 
   \item{[20]}{ the Coefficient of Variation as a percentage (CV\%). }
 }
 \note{  
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are counted and then removed prior to computing the summary statistics.
 }

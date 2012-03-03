@@ -18,7 +18,7 @@ The fence values are computed by several procedures both with and without a loga
 \note{
 The logit transformation requires that the input value be in the range zero to one.  This transformation takes into consideration the closed, constant sum, nature of geochemical analytical data (Filzmoser et al., 2009).  Therefore the measurement units must be defined so that the the value can be divided by the appropriate constant.  The default is \dQuote{ppm}, and other acceptable units are \dQuote{pct}, \dQuote{ppb} and \dQuote{ppt}.  However, it should be noted that at trace element levels the differences between fences computed with logarithmic and logit transformations are small, and in most applied geochemical applications the logarithmic transformation will suffice.  This is not the case for concentrations at major element levels, where the data are more \sQuote{normally} distributed and fences will be markedly different between untransformed and logit based estimates.
 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to computing the fences.
 }

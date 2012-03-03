@@ -18,7 +18,7 @@ gx.summary.groups(group, x, xname = deparse(substitute(x)),
 Setting \code{log = TRUE} results in a log transformation for the parametric statistical estimates.  The maximum, minimum, quartiles and robust estimates of spread are estimated and reported in natural measurement units.  Of the parametric statistics, the mean (the geometric mean) and 95\%confidence are reported backtransformed into natural measurement units.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Display of the number of \code{NAs} found by function \code{remove.na} is suppressed in \code{remove.na} as the information is included in the display from this function.
 

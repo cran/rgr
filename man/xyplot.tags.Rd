@@ -4,8 +4,8 @@
 \description{ Displays a x-y plot where the data for a third variable are represented by the \sQuote{written} values of the data at their x-y position.  The x-y plot axes may be optionally displayed with logarithmic (base 10) scaling. }
 \usage{
 xyplot.tags(xx, yy, tag, log = NULL, xlim = NULL, ylim = NULL,
-        xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)),
-        taglab = deparse(substitute(tag)),  main = "", ...)
+	xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)),
+	taglab = deparse(substitute(tag)),  main = "", ...)
 }
 \arguments{
   \item{xx}{ name of the x-axis variable. }
@@ -28,7 +28,7 @@ If the default selection for \code{xlim} is inappropriate it can be set, e.g., \
 If a plot of sample numbers, \sQuote{IDs}, is required and they are not explicitly in the data frame, a plot of data frame row numbers may be displayed by specifying \code{dimnames(dfname)[[1]]} as the value of \code{tags}.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the x-y coordinate vectors are removed prior to displaying the plot, thus those \sQuote{data} are not plotted.  However, any \code{NA}s in the third variable to be plotted are replaced with a \sQuote{+} sign to indicate data for the third variable are \sQuote{missing}.
 }
