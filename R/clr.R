@@ -21,4 +21,3 @@ function(xx, ifclose = FALSE, ifwarn = TRUE)
      x <- as.matrix(x)
      return(x = x)
 }
-

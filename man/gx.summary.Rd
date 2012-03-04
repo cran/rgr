@@ -31,7 +31,7 @@ If \code{log = TRUE}, the results for the mean, \code{[13]}, and confidence limi
 The returned table is rounded to 4 significant figures.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing \code{gx.summary.*} functions that call this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing \code{gx.summary.*} functions that call this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Depending on the value of \code{iftell}, the \code{NA} count will be displayed, \code{iftell = TRUE}, or suppressed, \code{iftell = FALSE}.
 

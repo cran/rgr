@@ -34,7 +34,7 @@ If the data are as n duplicate pairs, x1 and x2, use function \code{\link{thplot
 The user is prompted for the location of the two legend items added to the plot, the number of duplicate pairs, and whether or not the duplicates have met the RSD\% criterion.  In both instances the user is prompted for the location of the left end of the text line, or the top left corner of the text block.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 }
 \author{Robert G. Garrett }
 \seealso{ \code{\link{thplot1}}, \code{\link{ltdl.fix.df}} }

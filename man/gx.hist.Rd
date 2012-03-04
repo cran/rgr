@@ -27,7 +27,7 @@ gx.hist(xx, xlab = deparse(substitute(xx)),
   \item{xlim}{ A two element vector containing the actual minimum [1] and maximum [2] x-axis limits used in the histogram display are returned.  These are use in function \code{\link{shape}} to ensure all panels have the same x-axis limits. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
   
 Any \code{NA}s in the data vector are removed prior to displaying the plots. 
 

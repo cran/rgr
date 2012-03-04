@@ -40,7 +40,7 @@ The following are returned as an object to be saved for further use:
   \item{stress}{ the estimated stress of fitting 2-d projection to the p-space data. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any rows in the data matrix with with \code{NA}s are removed prior to computing the 2-d projection.  In the instance of an ilr transformation \code{NA}s have to be removed prior to undertaking the transformation, see \code{\link{remove.na}}.
 

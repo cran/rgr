@@ -16,10 +16,9 @@ function(x, xlab = deparse(substitute(x)), log = FALSE, xlim = NULL, nclass = NU
      if(!info[1] == "Windows") stop("\n  This function only available under the Windows OS\n")
      ##
      if(is.null(file)) stop("\n  Must supply file name for file, e.g., \"c:\\temp\\file\"\n")
-     filename <- paste(file, "_", deparse(substitute(x)) ,sep = "")
+     file.name <- paste(file, "_", deparse(substitute(x)) ,sep = "")
      inset(x, xlab = xlab, log = log, xlim = xlim, nclass = nclass, ifnright = ifnright,
          table.cex = table.cex, ...)
-     savePlot(file = filename, type = gtype)
+     savePlot(filename = file.name, type = gtype)
      invisible()
 }
-

@@ -33,7 +33,7 @@ gx.ks.test(xx1, xx2, xlab = " ", x1lab = deparse(substitute(xx1)),
 By default the results of the Kolmogorov-Smirnov test are added to the plot.  On completion of the ECDF plotting the cursor is activated, locate it at the centre of the area where the results are to added and \sQuote{left button} on the pointing device.  When \code{ifresult = FALSE} the cursor is not activated for this annotation; this is sometimes convenient if there is insufficient space for the results without overprinting on the ECDFs and report quality plots are required.  Also by default a legend is added to the plot, the cursor is activated and should be placed at the top left corner of area where the legend is to be added and \sQuote{left button} on the pointing device. The legend consists of two lines indicating the symbology (symbol and colour), name and size of each distribution.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vectors, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vectors are removed prior to displaying the plot and undertaking the Kolmogorov-Smirnov test.
 }

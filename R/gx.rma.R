@@ -55,4 +55,3 @@ function(xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute(
      invisible(list(n = xlen, mean = xbar, sd = xsdv, corr = r, a0 = incpt, 
                a1 = slope, sea0 = seint, sea1 = seslp))
 }
-

@@ -1,5 +1,6 @@
 gx.stats <-
-function (xx, xlab = deparse(substitute(xx)), display = TRUE, iftell = TRUE) 
+function (xx, xlab = deparse(substitute(xx)), display = TRUE, 
+    iftell = TRUE) 
 {
     rgv <- numeric(13)
     probs <- c(0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 
@@ -9,13 +10,14 @@ function (xx, xlab = deparse(substitute(xx)), display = TRUE, iftell = TRUE)
     temp.x <- remove.na(xx, iftell = iftell)
     if (temp.x$n < 2) {
         rgv[1] <- temp.x$n
-        rgv[2:13] <- qtls[1:19] <- NA  
+        rgv[2:13] <- qtls[1:19] <- NA
         if (temp.x$n == 1) {
-            rgv[9] <- rgv[8] <- rgv[4] <- qtls[c(1,10,19)] <- temp.x$x[1]
-            if(temp.x$x[1] > 0) rgv[10] <- log10(temp.x$x[1])
+            rgv[9] <- rgv[8] <- rgv[4] <- qtls[c(1, 10, 19)] <- temp.x$x[1]
+            if (temp.x$x[1] > 0) 
+                rgv[10] <- log10(temp.x$x[1])
         }
     }
-    else {    
+    else {
         x <- sort(temp.x$x[1:temp.x$n])
         qtls <- quantile(x, probs = probs)
         rgv[1] <- temp.x$n
@@ -40,10 +42,10 @@ function (xx, xlab = deparse(substitute(xx)), display = TRUE, iftell = TRUE)
     if (display) {
         cat("\n Summary Statistics Display for:", xlab, "\n\n Data Set N =  ", 
             rgv[1], "\n Minimum =     ", qtls[1], "\t\tMaximum =", 
-            qtls[19], "\n Median =      ", signif(qtls[10], 4), "\t\tMAD Est =", 
-            signif(rgv[2], 4), "\n\t\t\t\tIQR Est =", signif(rgv[3], 
-                4), "\n 95% CI for the Median =\t  ", rgv[8], 
-            "to", rgv[9], "\n\n Mean =        ", signif(rgv[4], 
+            qtls[19], "\n Median =      ", signif(qtls[10], 4), 
+            "\t\tMAD Est =", signif(rgv[2], 4), "\n\t\t\t\tIQR Est =", 
+            signif(rgv[3], 4), "\n 95% CI for the Median =\t  ", 
+            rgv[8], "to", rgv[9], "\n\n Mean =        ", signif(rgv[4], 
                 4), "\t\tS.D. =   ", signif(rgv[6], 4), "\n Variance =    ", 
             signif(rgv[5], 4), "\t\tC.V. % = ", rgv[7], "\n")
         cat("\n Maximum Value         ", qtls[19], "\n", "99th Percentile       ", 
@@ -64,4 +66,3 @@ function (xx, xlab = deparse(substitute(xx)), display = TRUE, iftell = TRUE)
     stats[20:32] <- rgv[1:13]
     invisible(list(stats = stats))
 }
-

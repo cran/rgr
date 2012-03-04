@@ -51,7 +51,7 @@ The notches in the boxplots indicate the 95\% confidence intervals for the media
 \note{
 This function is based on a script shared by Doug Nychka on S-News, April 28, 1992. 
 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data vector are removed prior to preparing the boxplots.
 

@@ -78,7 +78,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      }
      else if(proc == "ica") {
          if(setseed) set.seed(3)
-         save <- fastICA(x, n = 2)
+         save <- fastICA(x, n.comp = 2)
          xxx <- save$S[, 1]
          yyy <- save$S[, 2]
          xlabel <- "Projection Pursuit (ICA) X Coordinate"
@@ -108,4 +108,3 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      invisible(list(main = banner, usage = usage, xlab = xlabel, ylab = ylabel,
          matnames = matnames, x = xxx, y = yyy, stress = stress))
 }
-

@@ -111,4 +111,3 @@ function(xx, units = "ppm", display = TRUE)
      }
      invisible(table)
 }
-

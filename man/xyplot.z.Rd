@@ -9,7 +9,7 @@ xyplot.z(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, log = NULL,
 	xlim = NULL, ylim = NULL, xlab = deparse(substitute(xx)), 
 	ylab = deparse(substitute(yy)), zlab = deparse(substitute(zz)), 
 	main = "", symcolr = 1, ifparams = FALSE, iflgnd = FALSE,
-        title = deparse(substitute(zz)), ...)
+	title = deparse(substitute(zz)), ...)
 }
 \arguments{
   \item{xx}{ name of the x-axis variable. }
@@ -48,7 +48,7 @@ If \code{zlab} and \code{main} are undefined a default a plot title is generated
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being appropriate for a logarithmically scaled plot, i.e. \code{log  = "x"}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  The same procedure applies to setting \code{ylim}.   
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 The legend consists of five proportional symbols and their corresponding \code{z} values: \code{zmin}; the three quartiles; and \code{zmax}.  If \code{zmin} and \code{zmax} have been user defined it is over their range that the symbol sizes are computed and displayed.  When defining \code{zmin} and/or \code{zmax} it is useful to set \code{ifparams = TRUE} as a reminder, whilst developing the required display.
 

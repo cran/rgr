@@ -28,7 +28,7 @@ The following are returned as an object to be saved for display with \code{\link
   \item{xalloc}{ the reference group, \code{1:kk}, that the individual was allocated into.  All outliers, i.e. all \code{pgm(1:kk) < crit} are allocated to group zero, \code{0}.   Therefore \code{xalloc} will be in the range of \code{0:kk}. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed from the matrix \code{x} prior to executing this function, see \code{\link{ltdl.fix.df}}.  Additionally, any rows in the data matrix with \code{NA}s also must have been removed prior to computations, see \code{\link{na.omit}} and \code{\link{remove.na}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed from the matrix \code{x} prior to executing this function, see \code{\link{ltdl.fix.df}}.  Additionally, any rows in the data matrix with \code{NA}s also must have been removed prior to computations, see \code{\link{na.omit}} and \code{\link{remove.na}}.
 
 It is recommended that when applying this procedure to compositional data an ilr transformation be undertaken, this can be done at execution time, see Example below.  This implies that the reference group means and covariance matrices must have also been estimated following an ilr transformation. 
 }

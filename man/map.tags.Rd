@@ -23,7 +23,7 @@ If \code{taglab} and \code{main} are undefined a default a map title is generate
 If a map of sample numbers, \sQuote{IDs}, is required and they are not explicitly in the data frame, a map of data frame row numbers may be displayed by specifying \code{dimnames(dfname)[[1]]} as the value of \code{tags}.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any data vectors including \code{NA}s for spatial coordinates are removed prior to displaying the map, thus those \sQuote{sites} are not plotted.  However, where coordinates are present any \code{NA}s in the variable to be plotted are replaced with a \sQuote{+} sign to indicate sites with \sQuote{missing data}.
 

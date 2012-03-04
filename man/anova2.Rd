@@ -19,7 +19,7 @@ For further details see \code{\link{anova1}}.
 If the data are as n duplicate pairs, \code{x1} and \code{x2}, use function \code{\link{anova1}}.
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{anova1}}, \code{\link{ltdl.fix.df}} }

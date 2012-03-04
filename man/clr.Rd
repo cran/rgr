@@ -19,7 +19,7 @@ Most analytical chemical data for major, minor and trace elements are of a close
   \item{x}{ a n by p matrix of log-centred values. }
 }
 \note{
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data matrix, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any rows containing \code{NA}s in the data matrix are removed prior to undertaking the transformation.
 

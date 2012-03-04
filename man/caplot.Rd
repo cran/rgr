@@ -36,9 +36,9 @@ For preparation of the C-A plot the ordered vector of interpolated values is use
 \note{
 This wrapper function was developed from a S-Plus function to prepare C-A plots using Akima's (1978, 1996) interpolation procedure written by Graeme Bonham-Carter, Geological Survey of Canada, in April 2004.
 
-Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data vector, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
+Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
-Any sites with \code{NA}s in the (x,y,z) data vector are removed prior to spatial interpolation and preparation of the C-A plot.
+Any sites with \code{NA}s in their (x,y,z) data are removed prior to spatial interpolation and preparation of the C-A plot.
 
 In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \code{first} function prepared by the user for loading the \sQuote{rgr} package, etc.
 }
