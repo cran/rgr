@@ -1,4 +1,4 @@
-e31d393efc1a953e2387915a1fd3f9e4 *DESCRIPTION
+f899e070e2597c2bf40fe5112053934d *DESCRIPTION
 f5d1b149193c97fd020eb475bc729c9b *NAMESPACE
 be1f3e7ef41c771a39462585ab8b5394 *R/alr.R
 32598f5c5212c091283367b3241cba50 *R/anova1.R
@@ -87,7 +87,7 @@ f86998cbe4192f5376d77829a05f1595 *R/rng.R
 2443dd1bec82dc83cf488fe5860502d5 *R/shape.R
 d0a0efeb24df6079037dd1868bab49c7 *R/syms.R
 27deb58a63b2ebd3145d14bc988f7005 *R/syms.pfunc.R
-53094c808af832602a9e51d8c866f6f8 *R/tbplots.R
+26dab59e56baa3f37dca20ce91098995 *R/tbplots.R
 d85396b027294f326b405b705d5e6364 *R/tbplots.by.var.R
 e472e738a13b8c56592b61a53bcfca80 *R/thplot1.R
 3766ee99cff4f9f701c107a0b67a3e50 *R/thplot2.R
@@ -111,9 +111,9 @@ ccdd016ec9e20719778b99d0c71df1f3 *data/kola.o.rda
 04b84871a767a9d719139ade2e6cd365 *data/sind.rda
 01b25988462716b636f2ce3894f02181 *data/triples.test1.rda
 17a8515f691fc71f174895863d2b7de1 *data/triples.test2.rda
-61cdd9526b1c8ba40948764671aa1c6f *inst/doc/What_is_in_rgr_1-1-3.pdf
-117e7df37adfc4d0df4ee2a281c108d3 *inst/doc/rgr_Overview_1-1-3.pdf
-92c7254ec96f0db4c4742e6dd506e681 *inst/doc/rgr_func_list_1-1-3.pdf
+e5081d01ca3ab36450f78f4ea9847188 *inst/doc/What_is_in_rgr_1-1-4.pdf
+28f475b902041f9614bedf482eb103f2 *inst/doc/rgr_Overview_1-1-4.pdf
+92c7254ec96f0db4c4742e6dd506e681 *inst/doc/rgr_func_list_1-1-4.pdf
 7eae07f0491102c45972cad732bcb9ba *man/alr.Rd
 32ac5c334b13641c49cd783ddabc46f8 *man/anova1.Rd
 5c4d5a7b4c9463a2743b44f50b5e6aa1 *man/anova2.Rd
@@ -206,14 +206,14 @@ f105bb0e44c6de4bdb4498ab3a717bf0 *man/ms.data3.Rd
 8f12b323183ec164811180031c0d1672 *man/ogrady.mat2open.Rd
 28394ffa1aa0cda993b5efd699c01dd5 *man/orthonorm.Rd
 cbc87c68d84313b9e032d4a8ec091398 *man/remove.na.Rd
-49b23ae4882d5f5073a1550145cdd392 *man/rgr_1.1.3-package.Rd
+22349ee1cac5349b7566911dc4157a9a *man/rgr_1.1.4-package.Rd
 2a6728d21a7a1ede45ade470260c1253 *man/rng.Rd
 0b7b3987d60c761c6f2ac2e60a6e8f60 *man/shape.Rd
 fcec70f74a4ddec5306e2ad07cbf6adf *man/sind.Rd
 fccd5f81738a063a00ee0f7535703159 *man/sind.mat2open.Rd
 7d1c381e1afb2beda63653104a21cea3 *man/syms.Rd
 25289d0eef3c1fdd108fa81f0830da3a *man/syms.pfunc.Rd
-5e73ad91c2243d9e32f42d8914362534 *man/tbplots.Rd
+b96205121b2370d7dd8f6759fd29dd84 *man/tbplots.Rd
 a5b452a43fb29fcd2004eddd2081e41c *man/tbplots.by.var.Rd
 af795f8d5a3682c8ca6fa5d9d46db31e *man/thplot1.Rd
 53a2e85ddb14a040dd668b22ca13a937 *man/thplot2.Rd

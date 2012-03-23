@@ -5,7 +5,7 @@
 Plots a series of vertical Tukey boxplots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically (base 10) and the values of the Tukey fences used to identify near and far outliers may also be optionally based on the logarithmically transformed data.  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
-tbplots(x, by, log = FALSE, logx = NULL, notch = TRUE, xlab = "", 
+tbplots(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "", 
 	ylab = deparse(substitute(x)), ylim = NULL, main = "", 
 	label = NULL, plot.order = NULL, xpos = NA, width, space = 0.25, 
 	las = 1, cex = 1, adj = 0.5, add = FALSE, ssll = 1, colr = 8, 
@@ -15,7 +15,7 @@ tbplots(x, by, log = FALSE, logx = NULL, notch = TRUE, xlab = "",
   \item{x}{ name of the variable to be plotted. }
   \item{by}{ the name of the factor variable to be used to subdivide the data.  See Details below for when \code{by} is undefined. }
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
-  \item{logx}{ if the position of the Tukey boxplot fences are to be computed on the basis of log transformed data set \code{logx = TRUE}. For general usage, if \code{log = TRUE} then set \code{logx = TRUE}. }
+  \item{logx}{ if the position of the Tukey boxplot fences are to be computed on the basis of the log transformed data set \code{logx = TRUE}.  When \code{logx = TRUE} it is ensured that \code{log = TRUE}. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is to notch the boxplets, to suppress the notches set \code{notch = FALSE}.  See Details below.  }
   \item{xlab}{ a title for the x-axis, by default none is provided. }
   \item{ylab}{ a title for the y-axis. It is often desirable to replace the default y-axis title of the input variable name text string with a more informative title, e.g., \code{ylab = "Cu (mg/kg) in <2 mm C-horizon soil"}. }

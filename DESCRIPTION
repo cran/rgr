@@ -1,7 +1,7 @@
 Package: rgr
 Type: Package
 Title: The GSC Applied Geochemistry EDA Package
-Version: 1.1.3
+Version: 1.1.4
 Author: Robert G. Garrett
 Maintainer: Robert G. Garrett <garrett@NRCan.gc.ca>
 Depends: MASS, akima, fastICA
@@ -12,6 +12,6 @@ Description: Geological Survey of Canada (GSC) R functions for
         environmental studies and mineral exploration.
 License: GPL-2
 URL: http://gsc.nrcan.gc.ca/dir/index_e.php?id=4961
-Packaged: 2012-03-03 22:46:25 UTC; garrett
+Packaged: 2012-03-23 04:23:59 UTC; garrett
 Repository: CRAN
-Date/Publication: 2012-03-04 06:57:48
+Date/Publication: 2012-03-23 05:49:07
