@@ -1,5 +1,6 @@
-\name{rgr_1.1.4-package}
+\name{rgr_1.1.5-package}
 \alias{rgr-package}
+\alias{rgr_1.1.5}
 \alias{rgr}
 \docType{package}
 \title{
@@ -9,12 +10,17 @@ The GSC (Geological Survey of Canada) Applied Geochemistry EDA Package
 R functions for Exploratory Data Analysis with applied geochemical data. 
 }
 \details{
-The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  Version, 1.1.3, included four new functions for the bivariate analysis of compositional data, a function for the display of an Aitchison variability matrix, and maintenance updates.  The latter consists of a formatting change for function fences.summary and corrections to the documentation.  This version, 1.1.4, is the same as version 1.1.3 but for a 'bug' fix to function tbplots.
+The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  The package contains functions for use with univariate and multivariate data, in the latter context tools are provided for compositional, constant sum, data.  Version, 1.1.5, includes three new functions for inspecting QA/QC data.
+\tabular{ll}{
+Package: \tab rgr\cr
+Type: \tab Package\cr
+Version: \tab 1.1.5\cr
+Date: \tab 2012-04-03\cr
+License: \tab GPL2\cr
+}
 }
 \author{
-Robert G. Garrett
-
-Maintainer: Robert G. Garrett <garrett@NRCan.gc.ca>
+Robert G. Garrett <garrett@NRCan.gc.ca>
 }
 \references{
 Reimann, C., Filzmoser, P. and Garrett, R.G., 2005. Background and threshold: critical comparison of methods of determination. Science of the Total Environment, 346(1/3):1-16.
@@ -26,3 +32,4 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer, 501 p.
 }
 \keyword{ package }
+

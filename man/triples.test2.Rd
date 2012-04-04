@@ -11,15 +11,15 @@ A small data set of regional and field duplicate samples from the Maritimes 2007
   \describe{
     \item{ID}{ the NAmSGLs unique site identifier. }
     \item{RS}{ the Replicate Status code. }
-    \item{Ba_ppm}{ the barium analyses, mg/kg }
+    \item{Ba_ppm}{ the barium determinations, mg/kg }
   }
 }
 \details{
-The replicate status codes indicate the \sQuote{position} of the geochemical sample in the QA/QC structure.  RS = 2 indicates the field duplicate, and RS = 1 indicates a routine regional coverage site that was \sQuote{duplicated}.  All other routine regional coverage sites are coded RS = 0. }
+The Replicate Status code indicates the \sQuote{position} of the geochemical sample in the QA/QC structure.  RS = 2 indicates the field duplicate, and RS = 1 indicates a routine regional coverage site that was \sQuote{duplicated}.  All other routine regional coverage sites are coded RS = 0. }
 \source{
 The Geological Survey of Canada, see Open File 6433, from which this data subset for barium (Ba) was extracted.
 }
 \references{
-Friske, P.W.B., Ford, K.L. and McNeil, R.J., 2011. Soil Geochemical, Mineralogical, Radon and Radiometric Data from the 2007 North American Soil Geochemical Landscapes Project in New Brunswick, Nova Scotia and Prince Edward Island.  Geological Survey of Canada, Open File 6433.
+Friske, P.W.B., Ford, K.L. and McNeil, R.J., 2012. Soil Geochemical, Mineralogical, Radon and Radiometric Data from the 2007 North American Soil Geochemical Landscapes Project in New Brunswick, Nova Scotia and Prince Edward Island.  Geological Survey of Canada, Open File 6433.
 }
 \keyword{datasets}
