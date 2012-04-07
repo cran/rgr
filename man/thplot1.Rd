@@ -73,4 +73,5 @@ Thompson, M. and Howarth, R.J., 1978.  A new approach to the estimation of analy
 ##detach(ms.data1)
 }
 \keyword{ univar }
-
+\keyword{ htest }
+\keyword{ hplot }

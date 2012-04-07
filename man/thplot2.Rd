@@ -67,4 +67,6 @@ Any less than detection limit values represented by negative values, or zeros or
 ##detach(ms.data3)
 } 
 \keyword{ univar }
+\keyword{ htest }
+\keyword{ hplot }
 
