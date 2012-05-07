@@ -17,9 +17,11 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any data vectors (rows) containing \code{NA}s are removed prior to computation.
 
+For working with compositional data sets functions \code{\link{gx.vm}} and \code{\link{gx.sm}} are recommended.
+
 This function is not recommended for use with closed compositional data sets, i.e. geochemical analyses, unless correlations are sought between a non-compositional variable and individual compositional variables.  If it is used with compositional data, it is highly recommended that \code{ifclr} be set to \code{TRUE} to remove the effects of closure and display the \sQuote{true} inter-element variability.  However, different groups of elements, subsets, of a data set will yield different inter-element correlations for the same pair of elements due to the nature of the \code{clr} transform.  When carrying out a centred log-ratio transformation it is essential that the data are all in the same measurement units, and by default a reminder/warning is display if the data are centred log-ratio transformed, see \code{ifwarn} above.
 
-For working with compositional data sets functions \code{\link{gx.vm}} and \code{\link{gx.sm}} are recommended.
+For working with compositional data sets functions \code{\link{gx.vm}} and \code{\link{gx.sm}} are recommended.  For visual displays see \code{\link{gx.pairs4parts}} and \code{\link{gx.plot2parts}}.
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{clr}} }
@@ -31,7 +33,7 @@ data(sind.mat2open)
 gx.spearman(sind.mat2open)
 
 ## Note, unlike gx.pearson there is no example with a log
-## transformation.  The logtransformation is monotonic
+## transformation.  The log transformation is monotonic
 ## and does not change the ranks
 
 ## Compute Spearmann correlation coefficients following
@@ -40,5 +42,6 @@ gx.spearman(sind.mat2open, ifclr = TRUE)
 }
 \keyword{ multivariate }
 \keyword{ nonparametric }
+\keyword{ robust }
 \keyword{ htest }
 

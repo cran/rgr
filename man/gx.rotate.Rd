@@ -2,7 +2,7 @@
 \alias{gx.rotate}
 \title{ Function to Perform a Kaiser Varimax Rotaion }
 \description{
-Function to perform a Kaiser Varimax rotation on Principal Component (PCA) loadings and scores in an object saved from \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}}.
+Function to perform a Kaiser Varimax rotation on Principal Component (PCA) loadings and scores in an object saved from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}} or \code{\link{gx.robmva.closed}}.
 }
 \usage{
 gx.rotate(save, nrot = 2)
@@ -12,7 +12,7 @@ gx.rotate(save, nrot = 2)
   \item{nrot}{ the number of component loadings to be rotated, by default the first two components are rotated, \code{nrot = 2}. }
 }
 \value{
-The value of \code{nr} is modified in, and the following are appended to, the object that was saved from \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}}:
+The value of \code{nr} is modified in, and the following are appended to, the object that was saved from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}}:
   \item{nr}{ modified to equal the number of components rotated. }
   \item{vload}{ the new loadings after Varimax rotation. }
   \item{vscore}{ the new scores after Varimax rotation. } 
@@ -26,7 +26,7 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer,  501 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{varimax}}, \code{\link{gx.rqpca.plot}} }
+\seealso{ \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{varimax}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}} }
 \examples{
 ## Make test data available
 data(sind.mat2open)

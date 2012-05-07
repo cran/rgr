@@ -1,6 +1,6 @@
 ad.plot2 <-
-function (x, xname = deparse(substitute(x)), if.order = TRUE, 
-    ad.tol = NULL, log = FALSE, ifalt = FALSE, ...) 
+function (x, xname = deparse(substitute(x)), if.order = TRUE, if.rsds = FALSE,
+    ldl = NULL, ad.tol = NULL, log = FALSE, ifalt = FALSE, ...) 
 {
     n <- length(x)
     ndup <- n/2
@@ -19,7 +19,7 @@ function (x, xname = deparse(substitute(x)), if.order = TRUE,
             x2[i] <- x[ndup + i]
         }
     }
-    ad.plot1(x1, x2, xname = xname, if.order = if.order, ad.tol = ad.tol,
-        log = log, ...)
+    ad.plot1(x1, x2, xname = xname, if.order = if.order, if.rsds = if.rsds,
+        ldl = ldl, ad.tol = ad.tol, log = log, ...)
     invisible()
 }

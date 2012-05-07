@@ -17,7 +17,7 @@ orthonorm(p)
 Filzmoser, P., Hron, K., Reimann, C. and Garrett, R., 2009. Robust factor analysis for compositional data. Computers & Geosciences, 35(9):1854-1861.
 }
 \author{ Based on a function by Peter Filzmoser and Karel Hron }
-\seealso{ \code{\link{ilr}}, \code{\link{clr}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.md.gait.closed}} }
+\seealso{ \code{\link{ilr}}, \code{\link{clr}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.md.gait.closed}} }
 \examples{
 ## Make test data available
 data(sind.mat2open)

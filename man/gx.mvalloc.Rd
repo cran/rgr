@@ -10,7 +10,7 @@ gx.mvalloc(pcrit = 0.05, x, ...)
 \arguments{
   \item{pcrit}{ the critical cut-off probability for group membership below which an individual will be classified as an \sQuote{outlier}.  By default the critical probability of group membership is set to \code{pcrit = 0.05}. }
   \item{x}{ a n by p matrix containing the n individuals, with p variables determined on each, to be allocated, see Details below. }
-  \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from any of functions \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{\link{gx.robmva.closed}}, containing the vectors of means and covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
+  \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from any of functions \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}} or \cr\code{\link{gx.robmva.closed}}, containing the vectors of means and covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
 }
 \details{
 It is imperative that the data matrix \code{x} contains no special codes and all records (individuals) with NAs have been removed, see Notes below.  It is also imperative that the variables in the reference groups and in the matrix \code{x} of individuals to be classified are identical and in the same order. 
@@ -38,7 +38,7 @@ Garrett, R.G., 1990. A robust multivariate allocation procedure with application
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \cr\code{\link{gx.mvalloc.print}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}} }
+\seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.mvalloc.print}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}} }
 \examples{
 ## Generate three groups of synthetic bivariate normal data
 grp1 <- mvrnorm(100, mu = c(40, 30), Sigma = matrix(c(6, 3, 3, 2), 2, 2))

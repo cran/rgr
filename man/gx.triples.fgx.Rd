@@ -18,6 +18,9 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any \code{NA}s in the data must also be removed prior to running the \code{triples.fgx} function.  This requires care as the data must be in complete duplicate sets.
 }
+\references{
+Garrett, R.G., submitted.  Assessment of local spatial and analytical variability in regional geochemical surveys with a simple sampling scheme.  Geochemistry: Exploration, Environment, Analysis.
+}
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{triples.test1}}, \code{\link{gx.triples.fgx}}, \code{\link{triples.test2}} }
 \examples{
