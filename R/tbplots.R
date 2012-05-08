@@ -62,12 +62,13 @@ function(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
          width <- rep(width, cols)
      if(!add) {
          if(is.null(ylim))
-          plot(range(c(xpos - (0.5 * width)/space, xpos + (0.5 * width)/space)), range.data,
-               log = logplot, type = "n", xaxt = "n", ylab = ylab, xlab = xlab, main = 
-               main, ...)
-         else plot(range(c(xpos - (0.5 * width)/space, xpos + (0.5 * width)/space)), range.data,
-               log = logplot, type = "n", xaxt = "n", ylab = ylab, xlab = xlab, ylim = 
-               ylim, main = main, ...)
+             plot(range(c(xpos - (0.5 * width)/space, xpos + (0.5 * width)/space)), 
+                 range.data, log = logplot, type = "n", xaxt = "n", ylab = ylab, 
+                 xlab = xlab, main = main, ...)
+         else 
+             plot(range(c(xpos - (0.5 * width)/space, xpos + (0.5 * width)/space)),
+                 range.data, log = logplot, type = "n", xaxt = "n", ylab = ylab, 
+                 xlab = xlab, ylim = ylim, main = main, ...)
      }
      xmax <- 10^12
      for(i in 1:cols) {

@@ -6,12 +6,15 @@ Function to prepare data stored in alternate forms from that expected by functio
 }
 \usage{
 ad.plot2(x, xname = deparse(substitute(x)), if.order = TRUE, 
-	ad.tol = NULL, log = FALSE, ifalt = FALSE, ...)
+	if.rsds = FALSE, ldl = NULL, ad.tol = NULL, log = FALSE,
+	ifalt = FALSE, ...)
 }
 \arguments{
   \item{x}{ a column vector from a matrix or data frame, \code{x[1], ..., x[2*n]}. The default is that the first n members of the vector are the first measurements and the second n members are the duplicate measurements.  If the measurements alternate, i.e. duplicate pair 1 measurement 1 followed by measurement 2, etc., set \code{ifalt = TRUE}. }
   \item{xname}{ a title can be displayed with the plot and results, e.g., \code{xname = "Cu (mg/kg)"}.  If this field is undefined the character string for \code{x} is used as a default. }
   \item{if.order}{ by default the analytical duplicate results are plotted in the order in which they occur in the data file, this usually corresponds to date of analysis in a time-series.  Alternately, setting \code{if.order = FALSE} results in the individual duplicate results being plotted against their means. }
+  \item{if.rsds}{ by default the absolute difference between the duplicates expressed as a percentage of their mean is plotted on the y-axis.  If it is required to plot the relative standard deviations (RSDs), set \code{if.rsds = TRUE}. }
+  \item{ldl}{ by default the x-axis is defined by the measurement units.  If it is desired to express the duplicate means as a ratio to the lower detection limit (ldl) of the analytical procedure, then set \code{ldl = 'ldl' in measurement units}. }
   \item{ad.tol}{ optionally a tolerance level my be provided for the maximum acceptable percent absolute relative difference between duplicates, in which case a red dotted line is added to the plot. }
   \item{log}{ optionally the x-axis of the plot employing duplicate means may be plotted with logarithmic scaling, if so, set \code{log = TRUE}. }
   \item{ifalt}{ set \code{ifalt = TRUE} to accommodate alternating sets of paired observations. }

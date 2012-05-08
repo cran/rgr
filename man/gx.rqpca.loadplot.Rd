@@ -2,7 +2,7 @@
 \alias{gx.rqpca.loadplot}
 \title{ Function to Graphically Display PCA Loadings }
 \description{
-Function to graphically display PCA loadings computed by functions \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{\link{gx.robmva.closed}}.  The user may define the minimum absolute loading below which variables will not be graphically displayed, and modify the display title and text size as required. 
+Function to graphically display PCA loadings computed by functions \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}}.  The user may define the minimum absolute loading below which variables will not be graphically displayed, and modify the display title and text size as required. 
 }
 \usage{
 gx.rqpca.loadplot(save, main = "", crit = 0.3, cex = 0.8, 
@@ -25,7 +25,7 @@ If the variable names are longer than three characters the display can easily be
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett, based on a script by Peter Filzmoser }
-\seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} } 
+\seealso{ \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.rotate}} } 
 \examples{
 ## Make test data available
 data(sind.mat2open)

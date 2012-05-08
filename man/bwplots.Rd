@@ -19,7 +19,7 @@ bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is to notch the boxplots, to suppress the notches set \code{notch = FALSE}.  See Details below. }
   \item{xlab}{ a title for the x-axis, by default none is provided. }
   \item{ylab}{ a title for the y-axis. It is often desirable to replace the default y-axis title of the input variable name text string with a more informative title, e.g., \code{ylab = "Cu (mg/kg) in <2 mm C-horizon soil"}. }
-  \item{ylim}{ defines the limits of the y-axis if the default limits based on the range of the data are unsatisfactory. It can be used to ensure the y-axis scaling in multiple sets of boxplots are the same to facilitate visual comparison. }
+  \item{ylim}{ only for \code{log = FALSE}, defines the limits of the y-axis if the default limits based on the range of the data are unsatisfactory. It can be used to ensure the y-axis scaling in multiple sets of boxplots are the same to facilitate visual comparison. }
   \item{main}{ a main title may be added optionally above the display by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
   \item{label}{ provides an alternate set of labels for the boxplots along the x-axis.  By default the character strings defining the factors are used.  Thus, \code{label = c("Alt1", "Alt2", "Alt3")}. }
   \item{plot.order}{ provides an alternate order for the boxplots. Thus, \code{plot.order = c(2, 1, 3)} will plot the 2nd ordered factor in the 1st position, the 1st in the 2nd, and the 3rd in its 3rd ordered postion, see Details and Examples below. }

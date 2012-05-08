@@ -1,6 +1,6 @@
 ad.plot1 <-
 function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE, 
-    ad.tol = NULL, log = FALSE, ...) 
+    if.rsds = FALSE, ldl = NULL, ad.tol = NULL, log = FALSE, ...) 
 {
     if (length(x1) != length(x2)) 
         stop("The lengths of the vectors are not the same\n")
@@ -10,6 +10,8 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
     n <- temp.x$n
     means <- (a1 + a2)/2
     diffs <- abs(a1 - a2)
+    sds <- sqrt((diffs * diffs)/2)
+    rsds <- 100 * sds/means
     error.sd <- sqrt(sum(diffs * diffs)/(2 * n))
     mean <- mean(means)
     rsd <- round(100 * error.sd/mean, 2)
@@ -29,18 +31,35 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
     ymax <- max(ad.tol, max(pdiff))
     if (if.order) {
         par(pty = "m")
-        plot(seq(1:n), pdiff, xlab = paste("Ordered determinations of", 
-            xname), ylab = "Difference between duplicates relative to their means, %", 
-            ylim = c(0, ymax), ...)
+        if (if.rsds) {
+            plot(seq(1:n), rsds, xlab = paste("Ordered determinations of", xname),
+                ylab = "Duplicate Relative Standard Deviations, %", ...)
+        }
+        else {
+            plot(seq(1:n), pdiff, xlab = paste("Ordered determinations of", xname),
+                ylab = "Difference between duplicates relative to their means, %", 
+                ylim = c(0, ymax), ...)
+        }
         par(pty = "s")
     }
     else {
         log.plot <- ""
         if (log) 
             log.plot <- "x"
-        plot(means, pdiff, xlab = paste("Mean of duplicates for", 
-            xname), ylab = "Difference between duplicates relative to their means, %", 
-            log = log.plot, ylim = c(0, ymax), ...)
+        if (!is.null(ldl)) {
+            means <- means/ldl
+            xlab <- paste("Ratio of Mean to Lower Detection Limit for", xname)
+        }
+        else xlab = paste("Mean of duplicates for", xname)
+        if (if.rsds) {
+            plot(means, rsds, xlab = xlab, log = log.plot,  
+                ylab = "Duplicate Relative Standard Deviations, %", ...)
+        }
+        else {
+            plot(means, pdiff, xlab = xlab, log = log.plot, ylim = c(0, ymax),  
+                ylab = "Difference between duplicates relative to their means, %",
+                ...)
+        }
     }
     if (!is.null(ad.tol)) 
         abline(h = ad.tol, col = 2, lty = 2)

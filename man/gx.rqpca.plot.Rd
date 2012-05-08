@@ -2,7 +2,7 @@
 \alias{gx.rqpca.plot}
 \title{ Function to Plot Principal Component Analysis Loadings and Scores }
 \description{
-Function to display the results of a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}} as biplots.  Various options for displaying loadings and scores are available, see Details below.
+Function to display the results of a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}} as biplots.  Various options for displaying loadings and scores are available, see Details below.
 }
 \usage{
 gx.rqpca.plot(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE,
@@ -37,7 +37,7 @@ rplot = FALSE & qplot = TRUE & rowids = NULL, crosses (pch default) only\cr
 rplot = FALSE & qplot = TRUE & rowids = TRUE, input matrix row numbers only\cr
 rplot = TRUE & qplot = TRUE & rowids = TRUE, input matrix row numbers and variable names
 
-Because functions \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \code{\link{gx.robmva.closed}} require a matrix as input the sample IDs that may be in a data frame are lost.  To plot in the component score space with Sample IDs, the scores can be recovered from the saved object, e.g., \code{save$rqscore[, 1]} and \code{save$rqscore[, 2]}, and used as the x- and y-coordinates in function \code{xyplot.tags} with the sample IDs from the source data frame. Appropriate plot and axis titling can be displayed by setting the function arguments \sQuote{by hand}.
+Because functions \code{\link{gx.mva}}, \code{\link{gx.robmva}} or \code{\link{gx.robmva.closed}} require a matrix as input the sample IDs that may be in a data frame are lost.  To plot in the component score space with Sample IDs, the scores can be recovered from the saved object, e.g., \code{save$rqscore[, 1]} and \code{save$rqscore[, 2]}, and used as the x- and y-coordinates in function \code{xyplot.tags} with the sample IDs from the source data frame. Appropriate plot and axis titling can be displayed by setting the function arguments \sQuote{by hand}.
 }
 \references{
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
@@ -45,7 +45,7 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer,  501 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{xyplot.tags}} }
+\seealso{ \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.rotate}}, \code{\link{xyplot.tags}} }
 \examples{
 ## Make test data available
 data(sind)

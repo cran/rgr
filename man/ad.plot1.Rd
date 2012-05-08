@@ -6,13 +6,16 @@ Function to plot the results of analytical duplicate analyses as the percent abs
 }
 \usage{
 ad.plot1(x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
-	ad.tol = NULL, log = FALSE, ...)
+	if.rsds = FALSE, ldl = NULL, ad.tol = NULL, log = FALSE, ...)
 }
 \arguments{
   \item{x1}{ a column vector from a matrix or data frame, \code{x1[1], ..., x1[n]}. }
   \item{x2}{ another column vector from the matrix or data frame,  \code{x2[1], ..., x2[n]}. \code{x1} and \code{x2} must be of identical length, \code{n}, where \code{x2} is a duplicate measurement of \code{x1}. }
   \item{xname}{ a title can be displayed with the plot and results, e.g., \code{xname = "Cu (mg/kg)"}.  If this field is undefined the character string for \code{x} is used as a default. }
-  \item{if.order}{ by default the analytical duplicate results are plotted in the order in which they occur in the data file, this usually corresponds to date of analysis.  Alternately, setting \code{if.order = FALSE} results in the results being plotted against their means. }
+  \item{if.order}{ by default the analytical duplicate results are plotted in the order in which they occur in the data file, this usually corresponds to date of analysis.  Alternately, setting 
+\code{if.order = FALSE} results in the results being plotted against their means. }
+  \item{if.rsds}{ by default the absolute difference between the duplicates expressed as a percentage of their mean is plotted on the y-axis.  If it is required to plot the relative standard deviations (RSDs), set \code{if.rsds = TRUE}. }
+  \item{ldl}{ by default the x-axis is defined by the measurement units.  If it is desired to express the duplicate means as a ratio to the lower detection limit (ldl) of the analytical procedure, then set \code{ldl = 'ldl' in measurement units}. }
   \item{ad.tol}{ optionally a tolerance level my be provided for the maximum acceptable percent absolute relative difference between duplicates, in which case a red dotted line is added to the plot. }
   \item{log}{ optionally the x-axis of the plot employing duplicate means may be plotted with logarithmic scaling, if so, set \code{log = TRUE}. }
   \item{\dots}{ any additional arguments to be passed to the \code{plot} function for titling, etc. }

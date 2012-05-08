@@ -24,6 +24,8 @@ Any \code{NA}s in the data must also be removed prior to running the \code{tripl
 \references{
 Bainbridge, T.R., 1963.  Staggered, nested designs for estimating variance components. American Society for Quality Control, Convention Transactions, pp. 93-103.
 
+Garrett, R.G., in press.  Assessment of local spatial and analytical variability in regional geochemical surveys with a simple sampling scheme.  Geochemistry: Exploration, Environment, Analysis.
+
 Garrett, R.G. & Goss, T.I., 1980.  UANOVA: A Fortran IV program for unbalanced nested anaylsis of variance.  Mathematical Geology, 6(1):35-60.
 
 Satterthwaite, F.E., 1946.  An approximate distribution of estimates of variance components.  Biometrics, 2(2):110-114.

@@ -16,13 +16,11 @@ fences.summary(group, x, file = NULL, units = "ppm")
 \details{
 The fence values are computed by several procedures both with and without a logarithic data transformation and with a logistic transformation, together with the 98th percentile of the data for display. These computations are based on results returned from function \code{\link{gx.stats}}. Fences are computed following Tukey's boxplot procedure, as median +/- 2 * MAD (Median Absolute Deviation), and mean +/- 2 * SD (Standard Deviation), see Reimann et al. (2005). It is essential that these estimates are viewed in the context of the graphical distributional displays, e.g., \code{\link{shape}} and its graphical components, \code{\link{gx.hist}}, \code{\link{gx.ecdf}}, \code{\link{cnpplt}} and \code{\link{bxplot}}, and if spatial coordinates for the sample sites are available \code{\link{map.eda7}}, \code{\link{map.eda8}} and \code{\link{caplot}}. The final selection of a range for background or the selection of a threshold level needs to take the statistical and spatial distributions of the data into account.  It is also necessary to be aware that it might be appropriate to have more than one background range/threshold in an area (Reimann and Garrett, 2005). The presence of relevant information in the data frame may permit the data to be subset on the basis of that information for display with the \code{\link{tbplots}}, \code{\link{bwplots}} and \code{\link{gx.cnpplts}} functions. If these indicate that the medians and middle 50\%s of the data are visibly different, multiple background ranges may be advisable.
 
-\code{file} contains the first part of the file name identifying the data source for the file to be saved in the R working directory, see Note below.  The function concatenates the working directory name with \code{file_deparse(substitute(group))_deparse(substitute(x))_fences.txt}\cr as a character string to be used as the file name.
+A default file name is generated from the data frame, group and variable (x) names, \code{data frame name_deparse(substitute(group))_deparse(substitute(x))_fences.txt}.\cr If \code{file} contains text it is used as the first part of the file name identifying the data source for the file to be saved in the specified folder, for example, \code{file = "D://R_work//Project3//C_soils"}.  If no folder is specified the file is saved in the R working directory.
 
 Output to the current device is suppressed.  The output file is formatted as a tab delimited file to be read with a spread sheet program.  It can be inspected with a text viewer, and column spacings edited for cosmetic purposes with an ASCII editor of the user's choice. 
 }
 \note{
-To set the R working directory, if it has not already been set in a \code{first} function, use at the R command line, for example, \code{setwd("C:\\\R\\\WDn")}, where \sQuote{n} is some number, which will result in all saved output being placed in that folder.
-
 The logit transformation requires that the input value be in the range zero to one.  This transformation takes into consideration the closed, constant sum, nature of geochemical analytical data (Filzmoser et al., 2009).  Therefore the measurement units must be defined so that the the value can be divided by the appropriate constant.  The default is \dQuote{ppm}, and other acceptable units are \dQuote{pct}, \dQuote{ppb} and \dQuote{ppt}.  However, it should be noted that at trace element levels the differences between fences computed with logarithmic and logit transformations are small, and in most applied geochemical applications the logarithmic transformation will suffice.  This is not the case for concentrations at major element levels, where the data are more \sQuote{normally} distributed and fences will be markedly different between untransformed and logit based estimates.
 
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -49,7 +47,7 @@ attach(kola.c)
 
 ## Saves the file kola_c_COUNTRY_Cu_fences.txt for later use
 ## in the R working directory.
-fences.summary(COUNTRY, Cu, file = "kola_c")
+fences.summary(COUNTRY, Cu, file = "Kola_c_horizon")
 
 ## Detach test data 
 detach(kola.c)

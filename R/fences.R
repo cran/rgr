@@ -96,18 +96,19 @@ function(xx, units = "ppm", display = TRUE)
      }
      table[3:40] <- signif(table[3:40], 3)
      if(display) {
-         cat(" ", deparse(substitute(xx)), "[ All ] :  N =", table[1], "    NAs =",
-          table[2], "\t\t2%ile =", table[14], "\t98%ile =", table[10], 
-          "\n\t Mean\t  SD\t  Median    MAD\t\t\tMean\2612SD\tMed\2612MAD    Tukey Fences (actual)\n\t",
-          table[3], "\t", table[4], "\t  ", table[5], "  ", table[6], "\t+\t", table[7], "\t\t", table[8], 
+         cat(" ", deparse(substitute(xx)), "(Units =", units, ") :  N =", table[1], "    NAs =",
+          table[2], "\t2%ile =", table[14], "\t98%ile =", table[10], 
+          "\n\t Mean\t SD\t  Median   MAD\t\t Mean\t\t Med\t       Tukey Fences\n",
+          "\t\t\t\t\t\t \2612SD\t\t \2612MAD\t\t     (actual)\n\t", 
+          table[3], "\t", table[4], "\t  ", table[5], "  ", table[6], "\t", table[7], "\t\t", table[8], 
           "\t      ", table[9], " (", table[25], ")",
-          "\n\t\t\t\t\t\t-\t", table[11], "\t\t", table[12], "\t      ", table[13], " (", table[26], ")",
-          "\n  Log10\t", table[15], "\t", table[16], "\t  ", table[17], "  ", table[18], "\t+\t", table[19],
+          "\n\t\t\t\t\t\t", table[11], "\t\t", table[12], "\t      ", table[13], " (", table[26], ")",
+          "\n  Log10\t", table[15], "\t", table[16], "\t  ", table[17], "  ", table[18], "\t", table[19],
           "\t\t", table[20],   "\t      ", table[21], " (", table[27], ")", 
-          "\n\t\t\t\t\t\t-\t", table[22], "\t\t", table[23], "\t      ", table[24], " (", table[28], ")",
-          "\n  Logit\t", table[29], "\t", table[30], "\t  ", table[31], "  ", table[32], "\t+\t", table[33],
+          "\n\t\t\t\t\t\t", table[22], "\t\t", table[23], "\t      ", table[24], " (", table[28], ")",
+          "\n  Logit\t", table[29], "\t", table[30], "\t  ", table[31], " ", table[32], "\t", table[33],
           "\t\t", table[34],   "\t      ", table[35], " (", table[39], ")", 
-          "\n\t\t\t\t\t\t-\t", table[36], "\t\t", table[37], "\t      ", table[38], " (", table[40], ")\n")
+          "\n\t\t\t\t\t\t", table[36], "\t\t", table[37], "\t      ", table[38], " (", table[40], ")\n")
      }
      invisible(table)
 }

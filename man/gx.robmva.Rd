@@ -2,7 +2,7 @@
 \alias{gx.robmva}
 \title{ Function to undertake a Robust Exploratory Multivariate Data Analysis }
 \description{
-The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  For closed compositional, geochemical, data use function \code{\link{gx.robmva.closed}}.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, and \code{\link{gx.md.print}}.
+The function carries out a robust Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a non-compositional dataset and places them in an object to be saved and post-processed for display and further manipulation.  For closed compositional, geochemical, data use function \code{\link{gx.robmva.closed}}.  Robust procedures are used, \sQuote{MCD}, \sQuote{MVE} or user supplied weights, for classical procedures see \code{\link{gx.mva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.print}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For Kaiser varimax rotation see \code{\link{gx.rotate}}.
 }
 \usage{
 gx.robmva(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
@@ -14,7 +14,7 @@ gx.robmva(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
   \item{main}{ by default the name of the object \code{xx}, \code{main = deparse(substitute(xx))}, it may be replaced by the user, but this is not recommended, see Details below. }
 }
 \details{
-If \code{main} is undefined the name of the matrix object passed to the function is used to identify the object.  This is the recommended procedure as it helps to track the progression of a data analysis.  Alternate plot titles are best defined when the saved object is passed to \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.screeplot}} or \code{\link{gx.md.plot}} for display.  If no plot title is required set \code{main = " "}, or if a user defined plot title is required it may be defined, e.g., \code{main = "Plot Title Text"}.
+If \code{main} is undefined the name of the matrix object passed to the function is used to identify the object.  This is the recommended procedure as it helps to track the progression of a data analysis.  Alternate plot titles are best defined when the saved object is passed to \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}} or \code{\link{gx.md.plot}} for display.  If no plot title is required set \code{main = " "}, or if a user defined plot title is required it may be defined, e.g., \code{main = "Plot Title Text"}.
 }
 \value{
 The following are returned as an object to be saved for subsequent display, etc.:
@@ -36,7 +36,7 @@ The following are returned as an object to be saved for subsequent display, etc.
   \item{econtrib}{ the vector of p robustly estimated \code{eigenvalues} each expressed as a percentage of the sum of the eigenvalues. }
   \item{eigenvectors}{ the n by p matrix of robustly estimated \code{eigenvectors}. }
   \item{rload}{ the p by p matrix of robust Principal Component (PC) loadings. }
-  \item{rcr}{ the p by p matrix containing the percentages of the variability of each variable (columns) expressed in each robust PC (rows). } 
+  \item{rcr}{ the p by p matrix containing the percentages of the variability of each variable (rows) expressed in each robust PC (columns). } 
   \item{rqscore}{ the n by p matrix of the n individuals scores on the p robust PCs. }
   \item{vcontrib}{ a vector of p variances of the columns of \code{rqscore}. }
   \item{pvcontrib}{ the vector of p variances of the columns of \code{rqscore} expressed as percentages.  This is a check on vector \code{econtrib}, the values should be identical for a classical PCA.  However, for robust PCAs this is not so as the trimmed individuals from the robust estimation have been re-introduced.  As a consequence \code{pvcontrib} can be very different from \code{econtrib}.  The plotting of PCs containing high proportions of the variance in robust PCAs can be useful for identifying outliers }
@@ -69,7 +69,7 @@ Grunsky, E.C., 2001. A program for computing RQ-mode principal components analys
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.plot}}, \cr\code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rotate}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{na.omit}}, \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.print}}, \code{\link{gx.md.plot}}, \code{\link{gx.md.print}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.rotate}} }
 \examples{
 ## Generate a population of synthetic bivariate normal data
 grp1 <- mvrnorm(100, mu = c(40, 30), Sigma = matrix(c(6, 3, 3, 2), 2, 2))
