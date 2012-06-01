@@ -12,7 +12,7 @@ gx.hist(xx, xlab = deparse(substitute(xx)),
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted }
-  \item{xlab}{ a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{xlab}{ a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g.,\cr\code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{ylab}{ a default y-axis title of \code{"Number of Observations"} is provided, this may be changed, e.g., \code{ylab = "Counts"}. }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }

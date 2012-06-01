@@ -9,7 +9,7 @@ gx.cnpplts(xlab = " ", log = FALSE, xlim = NULL, main = "",
 	iflgnd = FALSE, ...)
 }
 \arguments{
-  \item{xlab}{ a title for the x-axis must be provided, even if it is \sQuote{no title}, i.e. \code{xlab = ""}. It is often desirable to use an informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm C-horizon soil"}. }
+  \item{xlab}{ a title for the x-axis must be provided, even if it is \sQuote{no title}, i.e. \code{xlab = ""}. It is often desirable to use an informative title, e.g., \cr\code{xlab = "Cu (mg/kg) in <2 mm C-horizon soil"}. }
   \item{log}{ \code{log} must be specified, \code{TRUE} or \code{FALSE}.  If it is required to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. If log scaling is not required, set \code{log = FALSE}. }
   \item{xlim}{ if the internally generated values for \code{xlim} are to be replaced see the Note below.  If the internally generated x-axis limits are satisfactory omit any reference to \code{xlim} in the call to the function. }
   \item{main}{ a title must be provided, even if it is \sQuote{no title}, i.e. \code{main = ""}.  If \code{main} is specified a tile will be added above the plot, e.g., \code{main = "Kola Project, 1995"}. }

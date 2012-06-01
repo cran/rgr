@@ -18,7 +18,7 @@ thplot1(x1, x2, xname = "", ifzero = 0.01, xlow = NA, xhih = NA,
   \item{yhih}{ enter an appropriate value of \code{yhih} to ensure all data are displayed on all plots. }
   \item{rsd}{ to assist in QA/QC inspection a target precision may be defined as a RSD\%, a default of \code{rsd = 5} is provided. See comments concerning RSD in Details below. }
   \item{ptile}{ defines the confidence interval for a line to be drawn on the plot above which only 100 - ptile\% of the points should plot if the defined target RSD is being met. A default of \code{ptile = 95} is provided. The function counts the number of points falling \sQuote{out of limits} and reports the probability that this number would have fallen \sQuote{out of limits} by chance alone. }
-  \item{main}{ a title may be added optionally above the display, e.g., \code{main = "Stanley (2003) Test Data"}. }
+  \item{main}{ a title may be added optionally above the display, e.g., \cr\code{main = "Stanley (2003) Test Data"}. }
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }  
 }
 \details{

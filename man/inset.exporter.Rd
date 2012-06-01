@@ -11,7 +11,7 @@ inset.exporter(x, xlab = deparse(substitute(x)), log = FALSE,
 }
 \arguments{
   \item{x}{ name of the variable to be plotted. }
-  \item{xlab}{ a label for the x-axis. It is often desirable to replace the default x-axis label of the input variable name text string with a more informative label, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{xlab}{ a label for the x-axis. It is often desirable to replace the default x-axis label of the input variable name text string with a more informative label, e.g., \cr\code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{default limits of the x-axis are determined in the function.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See \code{\link{inset}} or \code{\link{gx.hist}}. }
