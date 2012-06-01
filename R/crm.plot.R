@@ -11,9 +11,6 @@ function (xx, xname = deparse(substitute(xx)), crm.mean = NULL,
         stop("The accepted CRM mean must be provided\n")
     if (is.null(crm.sd) && is.null(crm.tol))
         stop("Either the crm.sd or crm.tol must be provided\n")
-    oldpar <- par()
-    on.exit(par(oldpar))
-    par(pty = "m")
     temp.x <- remove.na(xx)
     x <- temp.x$x[1:temp.x$n]
     n <- temp.x$n

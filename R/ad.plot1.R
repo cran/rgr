@@ -30,7 +30,6 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
     pdiff <- 100 * diffs/means
     ymax <- max(ad.tol, max(pdiff))
     if (if.order) {
-        par(pty = "m")
         if (if.rsds) {
             plot(seq(1:n), rsds, xlab = paste("Ordered determinations of", xname),
                 ylab = "Duplicate Relative Standard Deviations, %", ...)
@@ -40,7 +39,6 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
                 ylab = "Difference between duplicates relative to their means, %", 
                 ylim = c(0, ymax), ...)
         }
-        par(pty = "s")
     }
     else {
         log.plot <- ""

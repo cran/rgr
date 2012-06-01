@@ -18,7 +18,7 @@ tbplots.by.var(xmat, log = FALSE, logx = FALSE, notch = FALSE,
   \item{xlab}{ a title for the x-axis, by default \code{xlab = "Measured Variables"}. }
   \item{ylab}{ a title for the y-axis, by default \code{ylab = "Reported Values"}. }
   \item{main}{ a main title may be added optionally above the display by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{label}{ provides an alternate set of labels for the boxplots along the x-axis.  By default the character strings defining the factors (variables) are used.  Thus, \code{label = c("Alt1", "Alt2", "Alt3")}. }
+  \item{label}{ provides an alternate set of labels for the boxplots along the x-axis.  By default the character strings defining the factors (variables) are used.  Thus, \cr\code{label = c("Alt1", "Alt2", "Alt3")}. }
   \item{plot.order}{ provides an alternate order for the boxplots.  By default the boxplot are plotted in alphabetical order of the factor variables.  Thus, \code{plot.order = c(2, 1, 3)} will plot the 2nd alphabetically ordered factor in the 1st position, the 1st in the 2nd, and the 3rd in its alphabetically 3rd ordered postion. }
   \item{xpos}{ the locations along the x-axis for the individual vertical boxplots to be plotted.  By default this is set to \code{NA}, which causes default equally spaced positions to be used, i.e. boxplot 1 plots at value 1 on the x-axis, boxplot 2 at value 2, etc., up to boxplot \dQuote{n} at value \dQuote{n}.  See Details below for defining \code{xpos}. }
   \item{las}{ controls whether the x-axis labels are written parallel to the x-axis, the default \code{las = 1}, or are written down from the x-axis by setting \code{las = 2}.  See also, Details below.}

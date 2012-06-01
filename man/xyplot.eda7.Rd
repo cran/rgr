@@ -39,7 +39,7 @@ If \code{zlab} and \code{main} are undefined a default a plot title is generated
 
 If the grey-scale option is chosen the symbols are plotted 100\% black for the far outliers, 85\% black for the near outliers, 70\% black for values within the whiskers, and 60\% black for values falling within the middle 50\% of the data.
 
-The default colours, \code{symcolr = c(25, 22, 20, 13, 6, 4, 1)}, are selected from the \code{rainbow(36)} pallette, and alternate colour schemes need to be selected from the same palette.  See \code{\link{display.rainbow}} for the available colours.  It is essential that 7 colours be provided, e.g., \code{symcolr = c(27, 24, 22, 12, 5, 3, 36)}, if exactly 7 are not provided the default colours will be displayed.
+The default colours, \code{symcolr = c(25, 22, 20, 13, 6, 4, 1)}, are selected from the \code{rainbow(36)} pallette, and alternate colour schemes need to be selected from the same palette.  See \code{\link{display.rainbow}} for the available colours.  It is essential that 7 colours be provided, e.g., \cr\code{symcolr = c(27, 24, 22, 12, 5, 3, 36)}, if exactly 7 are not provided the default colours will be displayed.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

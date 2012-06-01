@@ -19,6 +19,7 @@ function(xx, main = deparse(substitute(xx)))
      # Save variable names and matrix row numbers
      matnames <- dimnames(xx)
      matnames[[1]] <- c(1:n)
+     wts <- numeric(n); wts[1:n] <- 1
      # Issue any warnings re small sample population size
      nc <- n
      cat("  n = ", n, "\tnc = ", nc, "\tp = ", p, "\t\tnc/p = ", round(nc/p, 2), "\n")
@@ -28,10 +29,8 @@ function(xx, main = deparse(substitute(xx)))
          cat("  *** Proceed With Great Care, nc = ", nc, ", which is < 3p ***\n")
      #
      # Perform a clr PCA
-     x.clr <- clr(x)
+     x.clr <- clr(x, ifwarn = TRUE)
      dimnames(x.clr) <- matnames
-     wts <- numeric(n)
-     wts[1:n] <- 1
      save <- cov.wt(x.clr, wt = wts, cor = TRUE)
      center <- save$center
      sd <- sqrt(diag(save$cov))
@@ -45,22 +44,22 @@ function(xx, main = deparse(substitute(xx)))
      cat("  Eigenvalues:", signif(b$d, 4), "\n")
      sumc <- sum(b$d)
      econtrib <- 100 * (b$d/sumc)
-     b1 <- b$v * 0
-     diag(b1) <- sqrt(b$d)
-     rload <- b$v %*% b1
-     rqscore <- snd %*% rload
+     rqscore <- w %*% b$v
      cpvcontrib <- pvcontrib <- vcontrib <- numeric(p)
      for (j in 1:p) vcontrib[j] <- var(rqscore[, j])
      sumv <- sum(vcontrib)
      pvcontrib <- (100 * vcontrib)/sumv
      cpvcontrib <- cumsum(pvcontrib)
+     b1 <- b$v * 0
+     diag(b1) <- sqrt(b$d)
+     rload <- b$v %*% b1
      rcr <- rload[,  ] * 0
      rcr1 <- apply(rload^2, 1, sum)
      rcr <- 100 * sweep(rload^2, 1, rcr1, "/")
      dimnames(rload)[[1]] <- dimnames(rcr)[[1]] <- matnames[[2]]
      #
      # Compute Mahalanobis distances following an ilr transformation
-     x.ilr <- ilr(x)
+     x.ilr <- ilr(x, ifwarn = FALSE)
      # Estimate ilr covariance matrix
      save.ilr <- cov.wt(x.ilr, wt = wts, cor = TRUE)
      # Invert ilr covariance matrix for use in gx.mvalloc.closed
@@ -80,7 +79,7 @@ function(xx, main = deparse(substitute(xx)))
      invisible(list(main = main, input = deparse(substitute(xx)), proc = "cov",
          n = n, nc = nc, p = p, ifilr = TRUE, matnames = matnames, wts = wts,
          mean = center, cov = save$cov, cov.inv = inverted.clr, sd = sd,
-         snd = snd, r = corr, eigenvalues = b$d, econtrib = econtrib,
+         snd = snd, r = save$cor, eigenvalues = b$d, econtrib = econtrib,
          eigenvectors = b$v, rload = rload, rcr = rcr, rqscore = rqscore,
          vcontrib = vcontrib, pvcontrib = pvcontrib, cpvcontrib = cpvcontrib,
          md = md, ppm = ppm, epm = epm, nr = NULL))
