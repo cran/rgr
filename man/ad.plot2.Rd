@@ -15,7 +15,7 @@ ad.plot2(x, xname = deparse(substitute(x)), if.order = TRUE,
   \item{if.order}{ by default the analytical duplicate results are plotted in the order in which they occur in the data file, this usually corresponds to date of analysis in a time-series.  Alternately, setting \code{if.order = FALSE} results in the individual duplicate results being plotted against their means. }
   \item{if.rsds}{ by default the absolute difference between the duplicates expressed as a percentage of their mean is plotted on the y-axis.  If it is required to plot the relative standard deviations (RSDs), set \code{if.rsds = TRUE}. }
   \item{ldl}{ by default the x-axis is defined by the measurement units.  If it is desired to express the duplicate means as a ratio to the lower detection limit (ldl) of the analytical procedure, then set \code{ldl = 'ldl' in measurement units}. }
-  \item{ad.tol}{ optionally a tolerance level my be provided for the maximum acceptable percent absolute relative difference between duplicates, in which case a red dotted line is added to the plot. }
+  \item{ad.tol}{ optionally a tolerance level may be provided for the maximum acceptable percent absolute relative difference between duplicates, in which case a red dotted line is added to the plot. }
   \item{log}{ optionally the x-axis of the plot employing duplicate means may be plotted with logarithmic scaling, if so, set \code{log = TRUE}. }
   \item{ifalt}{ set \code{ifalt = TRUE} to accommodate alternating sets of paired observations. }
   \item{\dots}{ any additional arguments to be passed to the \code{plot} function for titling, etc. }

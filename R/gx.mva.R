@@ -44,12 +44,11 @@ function(xx, main = deparse(substitute(xx)))
      cat("  Eigenvalues:", signif(b$d, 4), "\n")
      sumc <- sum(b$d)
      econtrib <- 100 * (b$d/sumc)
+     cat("     as %ages:", round(econtrib, 1), "\n")
      rqscore <- w %*% b$v
-     cpvcontib <- pvcontrib <- vcontrib <- numeric(p)
+     vcontrib <- numeric(p)
      for (j in 1:p) vcontrib[j] <- var(rqscore[, j])
-     sumv <- sum(vcontrib)
-     pvcontrib <- (100 * vcontrib)/sumv
-     cpvcontrib <- cumsum(pvcontrib)
+     cat("  Score S^2s :", signif(vcontrib, 4), "\n")
      b1 <- b$v * 0
      diag(b1) <- sqrt(b$d)
      rload <- b$v %*% b1
@@ -75,7 +74,6 @@ function(xx, main = deparse(substitute(xx)))
          n = n, nc = nc, p = p, ifilr = FALSE, matnames = matnames, wts = wts,
          mean = xmean, cov = save$cov, sd = xsd, snd = snd, r = save$cor,
          eigenvalues = b$d, econtrib = econtrib, eigenvectors = b$v,
-         rload = rload, rcr = rcr, rqscore = rqscore, vcontrib = vcontrib,
-         pvcontrib = pvcontrib, cpvcontrib = cpvcontrib, md = md, ppm = ppm,
+         rload = rload, rcr = rcr, rqscore = rqscore, md = md, ppm = ppm,
          epm = epm, nr = NULL))
 }
