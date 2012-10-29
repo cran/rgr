@@ -1,6 +1,9 @@
-\name{rgr_1.1.7-package}
+\name{rgr_1.1.8-package}
+\alias{rgr_1.1.8}
+\alias{rgr_package}
+\alias{rgr-1.1.8-package}
+\alias{rgr-1.1.8}
 \alias{rgr-package}
-\alias{rgr_1.1.7}
 \alias{rgr}
 \docType{package}
 \title{
@@ -12,10 +15,10 @@ R functions for Exploratory Data Analysis with applied geochemical data.
 \details{
 The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  The package contains functions for use with univariate and multivariate data, in the latter context tools are provided for compositional, constant sum, data.  Additionally, there are functions to support analytical data QA/QC, ANOVA for investigations of field sampling and analytical variability, and utility tasks.
 \tabular{ll}{
-Package: \tab rgr_1.1.7\cr
+Package: \tab rgr_1.1.8\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2012-06-01\cr
+Date: \tab 2012-10-23\cr
 License: \tab GPL2\cr
 }
 }

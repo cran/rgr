@@ -85,6 +85,7 @@ function(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
                if(notch) {
                     v <- sort(temp)
                     j <- qbinom(0.025, sssz, 0.5)
+                    if (j < 1) j <- 1
                     lci <- v[j]
                     uci <- v[sssz - j + 1]
                     x <- c(hih, low, low, mid, low, low, hih, hih, mid, hih, hih)

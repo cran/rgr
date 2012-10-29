@@ -11,14 +11,20 @@ function (save, main = "", crit = 0.3, cex = 0.8, cex.axis = 0.7,
             "\ndata source:", save$input)
     else banner <- main
     l <- save$rload
+    range.l <- range(l)
+    ly <- -1; uy <- 1 
+    if (range.l[1] < -0.975) ly <- range.l[1] - 0.1
+    if (range.l[2] > 0.975) uy <- range.l[2] + 0.1
     k <- dim(l)[2]
     p <- dim(l)[1]
     lnam <- save$matnames[[2]]
-    plot(cbind(c(0, 1, 1, 0, 0), c(-1, -1, 1, 1, -1)), type = "l", 
+    plot(cbind(c(0, 1, 1, 0, 0), c(uy, uy, ly, ly, uy)), type = "l", 
         axes = FALSE, xlab = "", ylab = "")
     segments(0, 0, 1, 0)
+    if (uy > 1) segments(0, 1, 1, 1, lty = 2)
     segments(0, 0.5, 1, 0.5, lty = 2)
     segments(0, -0.5, 1, -0.5, lty = 2)
+    if (ly < -1) segments(0, -1, 1, -1, lty = 2)
     tplace1 = -0.3
     mtext("-1", side = 2, at = -1, line = tplace1, cex = cex.axis)
     mtext("-0.5", side = 2, at = -0.5, line = tplace1, cex = cex.axis)
@@ -32,7 +38,7 @@ function (save, main = "", crit = 0.3, cex = 0.8, cex.axis = 0.7,
     mtext("0%", side = 3, at = 0, line = tplace1, cex = 0.7)
     tplace2 = -0.5
     for (i in 1:k) {
-        segments(bb1[i], -1, bb1[i], 1)
+        segments(bb1[i], uy, bb1[i], ly)
         lplot <- abs(l[, i]) > crit
         lsel <- l[lplot, i]
         names(lsel) <- lnam[lplot]
