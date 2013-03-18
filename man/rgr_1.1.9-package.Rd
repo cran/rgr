@@ -1,8 +1,8 @@
-\name{rgr_1.1.8-package}
-\alias{rgr_1.1.8}
+\name{rgr_1.1.9-package}
+\alias{rgr_1.1.9}
 \alias{rgr_package}
-\alias{rgr-1.1.8-package}
-\alias{rgr-1.1.8}
+\alias{rgr-1.1.9-package}
+\alias{rgr-1.1.9}
 \alias{rgr-package}
 \alias{rgr}
 \docType{package}
@@ -13,13 +13,13 @@ The GSC (Geological Survey of Canada) Applied Geochemistry EDA Package
 R functions for Exploratory Data Analysis with applied geochemical data.
 }
 \details{
-The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  The package contains functions for use with univariate and multivariate data, in the latter context tools are provided for compositional, constant sum, data.  Additionally, there are functions to support analytical data QA/QC, ANOVA for investigations of field sampling and analytical variability, and utility tasks.
+The functions in this package are used to support the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  The package contains functions for use with univariate and multivariate data, in the latter context tools are provided for compositional, constant sum, data.  Additionally, there are functions to support analytical data QA/QC, ANOVA for investigations of field sampling and analytical variability, and utility tasks.  NOTE: function caplot for concentration-area plots employs package akima, however, akima is only licensed for not-for-profit use.  Therefore, not-for-profit users of rgr will have to independently make package akima available through library(akima); and use of function caplot by for-profit users will fail.
 \tabular{ll}{
-Package: \tab rgr_1.1.8\cr
+Package: \tab rgr_1.1.9\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2012-10-23\cr
-License: \tab GPL2\cr
+Date: \tab 2013-03-18\cr
+License: \tab GPL-2\cr
 }
 }
 \author{

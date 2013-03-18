@@ -10,7 +10,7 @@ gx.triples.aov(x, xname = deparse(substitute(x)), log = FALSE,
 }
 \arguments{
   \item{x}{ a file of triplicate determinations, the order is critical, see Details below. }
-  \item{xname}{ an informative description of the variable, \code{x}, in the data file for a table heading, for example, \cr\code{xname = "Ba (mg/kg - Aqua Regia digestion) in <2 mm unmilled C-horizon soil"}.  The default is simply the data file name, \code{xname = deparse(substitute(x))}. }
+  \item{xname}{ by default the character string for the data file name, \code{x}, is used for the table title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if a logarithmic transformation of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
   \item{table}{ set \code{table = TRUE} if the input data file is to be displayed. the default is no display. }
 }

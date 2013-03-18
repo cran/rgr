@@ -11,7 +11,7 @@ gx.summary.groups(group, x, xname = deparse(substitute(x)),
 \arguments{
   \item{group}{ the name of the factor variable the data are to be grouped by. }
   \item{x}{ name of the variable to be processed. }
-  \item{xname}{ an informative display title, e.g., \code{xname = "Cu (mg/kg) in <2 mm O-horizon soil"} rather than the default variable name of \cr\code{xname = deparse(substitute(xx))}. }
+  \item{xname}{ by default the character string for \code{x} is used for the title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if the summary statistics are required following a log10 transformation, set \code{log = TRUE}. }
 }
 \details{
@@ -38,11 +38,11 @@ attach(kola.c)
 gx.summary.groups(COUNTRY, Cu)
 
 ## Provide a more informative display
-gx.summary.groups(COUNTRY, Cu, "Cu (mg/kg) in <2 mm O-horizon soil")
+gx.summary.groups(COUNTRY, Cu, xname = "Cu (mg/kg) in <2 mm O-horizon soil")
 
 ## As above but with a log10 transformation to display
 ## the geometric mean, etc.
-gx.summary.groups(COUNTRY, Cu, "Cu (mg/kg) in <2 mm O-horizon soil",
+gx.summary.groups(COUNTRY, Cu, xname = "Cu (mg/kg) in <2 mm O-horizon soil",
 	log = TRUE)
 
 ## Detach test data

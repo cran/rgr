@@ -14,9 +14,9 @@ xyplot.tags(xx, yy, tag, log = NULL, xlim = NULL, ylim = NULL,
   \item{log}{ if it is required to display the data with logarithmic axis scaling, set \code{log = "x"} for a logarithmically scaled x-axis, \code{log = "y"} for a logarithmically scaled y-axis, and \code{log = "xy"} for both axes logarithmically scaled. }
   \item{xlim}{ user defined limits for the x-axis, see Details below. }
   \item{ylim}{ user defined limits for the y-axis, see Details below. }
-  \item{xlab}{ the x-axis title, by default the variable name, \code{deparse(substitute(xx))}. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \code{xlab = "Fe (mg/kg) in stream sediment"}. }
-  \item{ylab}{ the y-axis title, by default the variable name, \code{deparse(substitute(yy))}. It is often desirable to replace the default y-axis title of the input variable name text string with a more informative title, e.g., \code{ylab = "Mn (mg/kg) in stream sediment"}. }
-  \item{taglab}{ text to be inserted in the plot title, by default \code{deparse{substitute{tag}}} is used.  See Details below. }
+  \item{xlab}{  by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
+  \item{ylab}{ by default the character string for \code{yy} is used for the y-axis title.  An alternate title can be displayed with \code{ylab = "text string"}, see Examples. }
+  \item{taglab}{ text to be inserted in the plot title, by default \code{deparse(substitute(tag))} is used.  See Details below. }
   \item{main}{ an alternative plot title, see Details below. }
   \item{\dots}{ further arguments to be passed to methods.  For example, if smaller plotting characters are required, specify \code{cex = 0.8}; or if some colour other than black is required for the plotting characters, specify \code{col = 2} to obtain red (see \code{\link{display.lty}} for the default colour palette).  If it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }

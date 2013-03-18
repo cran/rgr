@@ -8,7 +8,7 @@ gx.summary2(xx, xname = deparse(substitute(xx)))
 }
 \arguments{
   \item{xx}{ name of the variable to be processed. }
-  \item{xname}{ an informative display title, e.g., \cr\code{xname = "Cu (mg/kg) in <2 mm O-horizon soil"} rather than the default variable name of \code{xname = deparse(substitute(xx))}. }
+  \item{xname}{ by default the character string for \code{xx} is used for the report title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -28,7 +28,7 @@ attach(kola.o)
 gx.summary2(Cu)
 
 ## Provide a more informative display
-gx.summary2(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil")
+gx.summary2(Cu, xname = "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
 ## Detach test data
 detach(kola.o)

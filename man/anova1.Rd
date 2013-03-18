@@ -10,7 +10,7 @@ anova1(x1, x2, xname = deparse(substitute(x1)), log = FALSE)
 \arguments{
   \item{x1}{ a column vector from a matrix or data frame, \code{x1[1], ..., x1[n]}. }
   \item{x2}{ another column vector from the matrix or data frame,  \code{x2[1], ..., x2[n]}. \code{x1} and \code{x2} must be of identical length, \code{n}, where \code{x2} is a duplicate measurement of \code{x1}. }
-  \item{xname}{ a title can be displayed with the results, e.g., \cr\code{xname = Duplicate measurements of Magnetic Susceptibility}.  If this field is undefined the character string for \code{x1} is used as a default. }
+  \item{xname}{ by default the character string for \code{x1} is used for the title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
 }
 \details{

@@ -26,7 +26,7 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistics with S-Plus, 3rd Edition, Springer,  501 p.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{varimax}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}} }
+\seealso{ \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{varimax}}, \code{\link{gx.rqpca.loadplot}}, \cr\code{\link{gx.rqpca.plot}} }
 \examples{
 ## Make test data available
 data(sind.mat2open)

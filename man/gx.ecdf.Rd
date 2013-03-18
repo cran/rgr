@@ -11,7 +11,7 @@ gx.ecdf(xx, xlab = deparse(substitute(xx)),
 }
 \arguments{
   \item{xx}{name of the variable to be plotted.}
-  \item{xlab}{ a title for the x-axis. It is often desirable to replace the default x-axis title of the input variable name text string with a more informative title, e.g., \cr\code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{xlab}{ by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{ylab}{ a title for the y-axis, defaults to \code{"Emprical Cumulative Distribution Function"}. }
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }

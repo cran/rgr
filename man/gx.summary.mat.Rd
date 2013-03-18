@@ -11,7 +11,7 @@ gx.summary.mat(xmat, vars, banner = deparse(substitute(xmat)),
 \arguments{
   \item{xmat}{ name of the matrix or data frame. }
   \item{vars}{ the indices, or names (see Example), of the columns of the matrix or data frame for the variables whose summary statistics are to be displayed. }
-  \item{banner}{ an informative display title, e.g., \code{banner = "Kola Project, <2 mm O-horizon soils"} rather than the default variable name of \cr\code{banner = deparse(substitute(xmat))}. }
+  \item{banner}{ by default the character string for \code{xmat}, the input matrix, is used for the title.  An alternate title can be displayed with \code{banner = "text string"}, see Examples. }
   \item{log}{if the summary statistics are required following a log10 transformation, set \code{log = TRUE}. }
 }
 \details{

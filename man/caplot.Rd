@@ -14,7 +14,7 @@ caplot(x, y, z, zname = deparse(substitute(z)),
   \item{x}{ name of the x-axis spatial coordinate, the eastings. }
   \item{y}{ name of the y-axis spatial coordinate, the northings. }
   \item{z}{ name of the variable to be processed and plotted. }
-  \item{zname}{ a title for the x-axes of the CPP (Cumulative Normal Percentage Probability) and C-A plot panels. It is often desirable to replace the default x-axis titles of the input variable name text string with a more informative title, e.g., \cr\code{zname = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{zname}{ by default the character string for \code{z} is used for the titles of the x-axes of the CPP (Cumulative Normal Percentage Probability) and C-A plot panels. An alternate title can be displayed wiith \code{zname = "text string"}, see Examples. }
   \item{caname}{ a title for the image of the interpolated data. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil"}.  For no title, set \code{caname = ""}. }
   \item{log}{ the default is set to \code{log = TRUE} as in most cases this function is used with positively skewed data, where a logarithmic data transform is appropriate.  If it is required to undertake the C-A plot interpolation without a logarithmic data transformation, set \code{log = FALSE}.  This also results in the accompanying probability (CPP) plots being arithmically scaled (x-axes). }
   \item{ifjit}{ if there is a possibility that the data set contains multiple measurements at an identical spatial (x,y) location set \code{ifjit = TRUE}.  The presence of multiple data at an identical location will cause the Akima (1996) interpolation function to fail. }
@@ -54,26 +54,31 @@ Cheng, Q., Agterberg, F.P. and Ballantyne, S.B., 1994. The separation of geochem
 }
 \seealso{  \code{\link{cnpplt}}, \code{\link[akima]{interp}}, \code{\link{colors}}, \code{\link{ltdl.fix.df}} }
 \examples{ 
+## The following examples are commented out as package akima is not 
+## automatically made available as it is only a suggest, not a depends,
+## and therefore caplot fails when the examples are run during package
+## checking and building
+
 ## Make test data available
-data(kola.o)
-attach(kola.o)
+## data(kola.o)
+## attach(kola.o)
 
 ## A default (uninformative) C-A plot
-caplot(UTME/1000, UTMN/1000, Cu)
+## caplot(UTME/1000, UTMN/1000, Cu)
 
 ## Plot a more appropriately scaled (log transformed data) and 
 ## titled display
-caplot(UTME/1000, UTMN/1000, Cu, log = TRUE,
-	zname = "Cu (mg/kg) in\n<2 mm O-horizon soil",
-	caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil") 
+## caplot(UTME/1000, UTMN/1000, Cu, log = TRUE,
+##	zname = "Cu (mg/kg) in\n<2 mm O-horizon soil",
+##	caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil") 
 
 ## Plot as above but with the C-A plot accumulation reversed
-caplot(UTME/1000, UTMN/1000, Cu, log = TRUE, ifrev = TRUE,
-	zname = "Cu (mg/kg) in\n<2 mm O-horizon soil",
-	caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil") 
+## caplot(UTME/1000, UTMN/1000, Cu, log = TRUE, ifrev = TRUE,
+##	zname = "Cu (mg/kg) in\n<2 mm O-horizon soil",
+##	caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil") 
 
 ## Detach test data
-detach(kola.o)
+## detach(kola.o)
 } 
 \keyword{ hplot }
 

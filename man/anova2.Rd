@@ -9,7 +9,7 @@ anova2(x, xname = deparse(substitute(x)), log = FALSE, ifalt = FALSE)
 }
 \arguments{
   \item{x}{ a column vector from a matrix or data frame, \code{x[1], ..., x[2*n]}. The default is that the first n members of the vector are the first measurements and the second n members are the duplicate measurements.  If the measurements alternate, i.e. duplicate pair 1 measurement 1 followed by measurement 2, etc., set \code{ifalt = TRUE}. }
-  \item{xname}{ a title can be displayed with the results, e.g.,\cr\code{xname = "Duplicate measurements of Magnetic Susceptibility"}.  If this field is undefined the character string for \code{x} is used as a default. }
+  \item{xname}{ by default the character string for \code{x} is used for the title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
   \item{ifalt}{ set \code{ifalt = TRUE} to accommodate alternating sets of paired observations. } 
 }
