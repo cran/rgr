@@ -22,8 +22,8 @@ map.eda8(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
   \item{ifgrey}{ set \code{ifgrey = TRUE} if a grey-scale map is required, see Details below. }
   \item{symcolr}{ the default is a colour map and default colours are provided, deeper blues for lower values, green for the middle 50\% of the data, and oranges and reds for higher values. A set of alternate symbol colours can be provided by defining \code{symcolr}, see Details below. }
   \item{tol}{ a parameter used to ensure the area included within the neatline around the map is larger than the distribution of the points so that the plotted symbols fall within the neatline. By default \code{tol = 0.04}, if more clearance is required increase the value of \code{tol}. }
-  \item{iflgnd}{ the default is no legend.  If a legend is required set \code{iflegnd = TRUE}, following the plotting of the data the cursor will be activated, locate that at the top left corner of the desired legend position and \sQuote{left button} on the pointing device.  There are two legends to choose from, see \code{pctile} below. }
-  \item{pctile}{ the default legend displays the range of values each symbol represents.  If \code{pctile = TRUE} the range of percentiles will be displayed instead of their actual values. }
+  \item{iflgnd}{ the default is no legend.  If a legend is required set \code{iflgnd = TRUE}, following the plotting of the data the cursor will be activated, locate that at the top left corner of the desired legend position and \sQuote{left button} on the pointing device.  There are two legends to choose from, see \code{pctile} below. }
+  \item{pctile}{ the default legend displays the range of values each symbol represents.  Alternately, the percentiles may be displayed rather than their values by setting \code{pctile = TRUE}. }
   \item{title}{ a short title for the legend, e.g., \code{title = "Cu (mg/kg"}.  The default is the variable name. } 
   \item{\dots}{ further arguments to be passed to methods.  For example, if it is required to make the map title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }

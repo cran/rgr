@@ -12,9 +12,9 @@ crm.plot(xx, xname = deparse(substitute(xx)), crm.mean = NULL,
   \item{xx}{ a column vector of determinations from a data frame or matrix for a measured parameter on a CRM. }
   \item{xname}{ a title can be displayed with the plot and results, e.g., \code{xname = "Cu (mg/kg)"}.  If this field is undefined the character string for \code{xx} is used as a default. }
   \item{crm.mean}{ the recommended value for the CRM.  A value must be provided, otherwise the function will terminate. }
-  \item{crm.sd}{ the standard deviation associated with the recommended value for the CRM. }
+  \item{crm.sd}{ the standard deviation associated with the recommended value for the CRM. Appropriate red dotted control lines are plotted above and below the mean. }
   \item{n.sd}{ by default 2 standard deviation limits are used on the Shewart plot, alternate values may be supplied. }
-  \item{crm.tol}{ optionally a tolerance level my be provided for the maximum acceptable percent absolute relative difference from the CRM recommended value, in which case appropriate (a) red dotted line(s) are added to the plot. }
+  \item{crm.tol}{ optionally a percentage tolerance level my be provided for the maximum acceptable absolute relative percent difference from the CRM recommended value, in which case a red dotted control line is added to the plot. }
   \item{\dots}{ any additional arguments to be passed to the \code{plot} function for titling, etc. }
 }
 \details{

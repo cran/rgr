@@ -1,10 +1,11 @@
 Package: rgr
 Type: Package
 Title: The GSC Applied Geochemistry EDA Package
-Version: 1.1.8
+Version: 1.1.9
 Author: Robert G. Garrett
 Maintainer: Robert G. Garrett <garrett@NRCan.gc.ca>
-Depends: MASS, akima, fastICA
+Depends: MASS, fastICA
+Suggests: akima
 Description: Geological Survey of Canada (GSC) R functions for
         exploratory data analysis with applied geochemical data, with
         special application to the estimation of background ranges and
@@ -12,9 +13,14 @@ Description: Geological Survey of Canada (GSC) R functions for
         environmental studies and mineral exploration.  Additionally,
         there are functions to support analytical data QA/QC, ANOVA for
         investigations of field sampling and analytical variability,
-        and utility tasks.
+        and utility tasks.  NOTE: function caplot for
+        concentration-area plots employs package akima, however, akima
+        is only licensed for not-for-profit use.  Therefore,
+        not-for-profit users of rgr will have to independently make
+        package akima available through library(akima); and use of
+        function caplot by for-profit users will fail.
 License: GPL-2
-URL: http://gsc.nrcan.gc.ca/dir/index_e.php?id=4961
-Packaged: 2012-10-28 21:02:16 UTC; garrett
+Packaged: 2013-03-18 16:01:54 UTC; garrett
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2012-10-29 07:18:44
+Date/Publication: 2013-03-18 19:30:48

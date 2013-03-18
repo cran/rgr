@@ -10,7 +10,7 @@ gx.stats(xx, xlab = deparse(substitute(xx)), display = TRUE,
 }
 \arguments{
   \item{xx}{ name of the variable to be processed. }
-  \item{xlab}{ a title for the table. It is often desirable to replace the default table title of the input variable name text string with a more informative title, e.g., \code{xlab = "Cu (mg/kg) in <2 mm O-horizon soil"}. }
+  \item{xlab}{ by default the character string for \code{xx} is used for the table title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{display}{ if \code{display = TRUE} the summary statistics are displayed on the current device.  If \code{display = FALSE} output is suppressed.}
   \item{iftell}{ by default the NA count is displayed by \code{na.remove} prior to the table of results from this function.  When the function is used as a sQuote{stats} engine the \code{NA} count display may be suppressed by the calling function when the NA count is to be displayed by that calling function. }
 }

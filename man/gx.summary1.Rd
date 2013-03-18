@@ -10,7 +10,7 @@ gx.summary1(xx, xname = deparse(substitute(xx)), log = FALSE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{xx}{ name of the variable to be processed. }
-  \item{xname}{ an informative display title, e.g., \code{xname = "Cu (mg/kg) in <2 mm O-horizon soil"} rather than the default variable name of \cr\code{xname = deparse(substitute(xx))}. }
+  \item{xname}{ by default the character string for \code{xx} is used for the title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if the summary statistics are required following a log10 transformation, set \cr\code{log = TRUE}. }
 }
 \details{
@@ -34,11 +34,11 @@ attach(kola.o)
 gx.summary1(Cu)
 
 ## Provide a more informative display
-gx.summary1(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil")
+gx.summary1(Cu, xname = "Cu (mg/kg) in <2 mm Kola O-horizon soil")
 
 ## As above but with a log10 transformation to display
 ## the geometric mean, etc.
-gx.summary1(Cu, "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE)
+gx.summary1(Cu, xname = "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE)
 
 ## Detach test data
 detach(kola.o)
