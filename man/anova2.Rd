@@ -2,7 +2,7 @@
 \alias{anova2}
 \title{ Analysis of Variance (ANOVA), Alternate Input }
 \description{
-Function to prepare data stored in alternate forms from that expected by function \code{\link{anova1}} for its use. For further details see 'x' in Arguments below. 
+Function to prepare data stored in alternate forms from that expected by function \code{\link{anova1}} for its use. For further details see \code{x} in Arguments below. 
 }
 \usage{
 anova2(x, xname = deparse(substitute(x)), log = FALSE, ifalt = FALSE)

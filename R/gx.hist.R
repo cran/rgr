@@ -1,6 +1,6 @@
 gx.hist <-
 function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", 
-    log = FALSE, xlim = NULL, main = "", nclass = "Scott", colr = 8, 
+    log = FALSE, xlim = NULL, main = "", nclass = "Scott", colr = NULL, 
     ifnright = TRUE, cex = 1, ...) 
 {
     temp.x <- remove.na(xx)
@@ -75,6 +75,7 @@ function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations",
     }
     plot(x, y, log = logx, xlim = xlim, ylim = c(0, kmax), xlab = xlab, 
         ylab = ylab, main = main, type = "n", las = 1, ...)
+    if(is.null(colr)) colr <- 8
     polygon(x, y, col = colr)
     lines(x, y)
     limits <- par("usr")

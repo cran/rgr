@@ -22,7 +22,7 @@ function (x, y, z, zname = deparse(substitute(z)), caname = deparse(substitute(z
     }
     xo <- seq(min(u[, 1]), max(u[, 1]), length.out = ngrid)
     yo <- seq(min(u[, 2]), max(u[, 2]), length.out = ngrid)
-    new <- interp(u[, 1], u[, 2], u[, 3], xo = xo, yo = yo)
+    new <- akima::interp(u[, 1], u[, 2], u[, 3], xo = xo, yo = yo)
     znew <- na.omit(as.vector(new$z))
     if (log) 
         znew <- 10^znew

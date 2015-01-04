@@ -1,6 +1,7 @@
 gx.2dproj <-
-function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
-         range = FALSE, main = "", setseed = FALSE, ...)
+function(xx, proc = "sam", ifilr = FALSE, log = FALSE, rsnd = FALSE,
+         snd = FALSE, range = FALSE, main = "", setseed = FALSE,
+         row.omits = NULL, ...)
 {
      # Function to undertake reduced space (k=2) multidimensional scaling
      # ("mds", principal coordinate analysis), preparation of a minimum 
@@ -11,12 +12,20 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      # Function modified to accomodate isoMDS ("iso") from library MASS and
      # fastICA ("ica") from library fastICA for a projection pursuit option
      # (2011/02/04).
+     #
+     # Individuals (rows) may be trimmed from the input matrix.  Specify the
+     # rows to be trimmed as a concatenation, e.g. c(13,15,16).
+     #
      # The signs of the 2-d coordinates have been adjusted so that the same
      # general configuration is obtained with the ilr transformed 'sind' data.
      # Note that the fastICA algorithm provides different reflections of the
      # 2-d projection on repeated executions unless setseed = TRUE.
      #
+     # Note: For compositional, geochemical data set ifilr = TRUE, and all
+     # other transformation options are ignored.
+     #
      # Note: Executing a log transform does effect the subsequent computations.
+     #
      # Note: A 0-1 range transformation following a SND normalization does not
      # affect the results.  Therefore the software only permits one of the post
      # log transformations, i.e. ether Robust SND, SND or range.  The default
@@ -34,25 +43,43 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      temp.x <- remove.na(xx)
      x <- temp.x$x; n <- temp.x$n
      matnames <- dimnames(xx)
-     matnames[[1]] <- c(1:n)
-     if(log) {
-         x <- log(x)
-         cat("  Data have been Log transformed\n")
+     row.numbers <- c(1:n)
+     if(is.null(matnames[[1]])) matnames[[1]] <- row.numbers
+     #
+     if(!is.null(row.omits)) {
+        x <- x[-row.omits, ]
+        matnames[[1]] <- matnames[[1]][-row.omits]
+        row.numbers <- row.numbers[-row.omits]
+        cat("  The following rows have been removed from the input matrix:\n  "
+            , row.omits, "\n")
      }
-     if(rsnd) snd <- FALSE
-     if(rsnd | snd) range <- FALSE
-     if(!rsnd & !snd & !range)
-         cat("  You have selected no (r)snd or range transformation\n",
-             " Unless the data have been log-ratioed you should consider a transformation\n")
-     if(range) x <- rng(x)
-     else if(rsnd) {
-         x <- scale(x, center = apply(x, 2, median), scale = apply(x, 2, mad))
-         cat("  Data have been normalized to Robust SNDs\n")
+     #
+     if(ifilr) {
+         x <- ilr(x)
+         matnames[[2]] <- dimnames(x)[[2]]
+         cat("  Data have been isometrically log-ratiod\n")
      }
-     else if(snd) {
-         x <- scale(x)
-         cat("  Data have been normalized to SNDs\n")
+     else {
+         if(log) {
+             x <- log(x)
+             cat("  Data have been Log transformed\n")
+         }
+         if(rsnd) snd <- FALSE
+         if(rsnd | snd) range <- FALSE
+         if(!rsnd & !snd & !range)
+             cat("  You have selected no (r)snd or range transformation\n",
+                 " Unless the data have been log-ratioed you should consider a transformation\n")
+         if(range) x <- rng(x)
+         else if(rsnd) {
+             x <- scale(x, center = apply(x, 2, median), scale = apply(x, 2, mad))
+             cat("  Data have been normalized to Robust SNDs\n")
+         }
+         else if(snd) {
+             x <- scale(x)
+             cat("  Data have been normalized to SNDs\n")
+         }
      }
+     #
      dist.x <- dist(x)
      if(proc == "sam") {
          save <- sammon(dist.x)
@@ -94,7 +121,7 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      }
      frame()
      if(main == "")
-         banner <- paste("2-D Projection for:", deparse(substitute(xx)))
+         banner <- paste("2-d Projection for:", deparse(substitute(xx)))
      else banner <- main
      plot(xxx, yyy, xlab = xlabel, ylab = ylabel, main = banner, ...)
      abline(v = 0, lty = 2)
@@ -102,9 +129,12 @@ function(xx, proc = "sam", log = FALSE, rsnd = FALSE, snd = FALSE,
      dist.2d <- dist(cbind(xxx, yyy))
      stress <- signif(sum((dist.x - dist.2d)^2)/sum(dist.2d), 5)
      cat(" ", paste("'", proc, "'", " stress = ", stress, sep = ""), "\n")
-     usage <- paste(deparse(substitute(xx)), "; proc =", proc, "; log =", log, 
-         "; rsnd =", rsnd, "; snd =", snd, "; range =", range)
+     input <- paste(deparse(substitute(xx)), "; row.omits:", 
+         paste(deparse(substitute(row.omits))))
+     usage <- paste(" proc =", proc, "; ifilr =", ifilr, "; log =", log,
+         paste("; rsnd =", rsnd, "; snd =", snd, "; range =", range))
      #
-     invisible(list(main = banner, usage = usage, xlab = xlabel, ylab = ylabel,
-         matnames = matnames, x = xxx, y = yyy, stress = stress))
+     invisible(list(main = banner, input = input, usage = usage, xlab = xlabel, 
+         ylab = ylabel, matnames = matnames, row.numbers = row.numbers, x = xxx, 
+         y = yyy, stress = stress))
 }

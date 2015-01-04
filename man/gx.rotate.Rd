@@ -8,7 +8,7 @@ Function to perform a Kaiser Varimax rotation on Principal Component (PCA) loadi
 gx.rotate(save, nrot = 2)
 }
 \arguments{
-  \item{save}{ a saved object from the execution of function \code{\link{gx.mva}}, \code{\link{gx.robmva}}, or \cr\code{gx.robmva.closed}. }
+  \item{save}{ a saved object from the execution of function \code{\link{gx.mva}}, \code{gx.mva.closed}, \cr\code{\link{gx.robmva}}, or\code{gx.robmva.closed}. }
   \item{nrot}{ the number of component loadings to be rotated, by default the first two components are rotated, \code{nrot = 2}. }
 }
 \value{

@@ -3,7 +3,7 @@
 \alias{ms.data3}
 \title{ Measurement Variability Test Data }
 \description{
-These magnetic susceptibility data were used by Stanley (2003) to demonstrate the Thompson-Howarth (Thompson and Howarth, 1973 & 1978) procedure for estimating analytical variability.  They are used in the rgr package examples for the duplicate analysis ANOVA and Thompson-Howarth plot functions, \code{\link{anova2}} and \code{\link{thplot2}}, respectively, with \code{ifalt = TRUE}.  See also Garrett and Grunsky (2003). 
+A data frame of magnetic susceptibility data used by Stanley (2003) to demonstrate the Thompson-Howarth procedure for estimating analytical variability (Thompson and Howarth, 1973 & 1978).  They are used in the rgr package examples for the duplicate analysis ANOVA and Thompson-Howarth plot functions, \code{\link{anova2}} and \code{\link{thplot2}}, respectively.  See also Garrett and Grunsky (2003). 
 }
 \usage{ms.data3}
 \source{

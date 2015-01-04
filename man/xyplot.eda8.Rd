@@ -28,7 +28,7 @@ xyplot.eda8(xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL,
   \item{symcolr}{ the default is a colour plot and default colours are provided, deeper blues for lower values, green for the middle 50\% of the data, and oranges and reds for higher values.  A set of alternate symbol colours can be provided by defining \code{symcolr}, see Details below. }
   \item{iflgnd}{ the default is no legend.  If a legend is required set \code{iflgnd = TRUE}, following the plotting of the data the cursor will be activated, locate that at the top left corner of the desired legend position and \sQuote{left button} on the pointing device.  There are two legends to choose from, see \code{pctile} below. }
   \item{pctile}{ the default legend displays the range of values each symbol represents.  Alternately, the percentiles may be displayed rather than their values by setting \code{pctile = TRUE}. }
-  \item{title}{ a short title for the legend, e.g., \code{title = "Zn (mg/kg"}.  The default is the variable name. } 
+  \item{title}{ a short title for the legend, e.g., \code{title = "Zn (mg/kg)"}.  The default is the variable name. } 
   \item{\dots}{ further arguments to be passed to methods.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{

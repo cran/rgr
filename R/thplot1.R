@@ -25,7 +25,7 @@ function (x1, x2, xname = "", ifzero = 0.01, xlow = NA, xhih = NA,
         xlab = "Mean of Duplicates", ylab = "Absolute Difference between Duplicates", 
         log = "xy", type = "n", main = main, ...)
     points(xbar, xdif)
-    text(locator(1), paste("No. of", xname, "Duplicates =", ndup), 
+    text(locator(1), paste("No. of", xname, "duplicates =", ndup), 
         cex = 0.8, adj = 0)
     if (rsd <= 0) 
         return()
@@ -41,9 +41,11 @@ function (x1, x2, xname = "", ifzero = 0.01, xlow = NA, xhih = NA,
     }
     nout <- sum(ratio)
     test <- binom.test(nout, ndup, 1 - (ptile/100), "greater")
-    label <- paste("RSD =", rsd, "% (2SD Precision =", 2 * rsd, 
+    test.prob <- test$p.value
+    if(test.prob >= 0.9999) test.prob <- 0.9999
+    label <- paste("RSD =", rsd, "% (2SD precision =", 2 * rsd, 
         "%)\nPercentile =", ptile, "%\nDuplicates 'outside' =", 
-        nout, "\nProbability =", round(test$p.value, 4))
+        nout, "\nProbability =", signif(test.prob, 4))
     text(locator(1), labels = label, cex = 0.8, adj = c(0, 1))
     invisible()
 }

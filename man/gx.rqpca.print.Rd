@@ -9,7 +9,7 @@ gx.rqpca.print(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE,
 	file = NULL)
 }
 \arguments{
-  \item{save}{ a saved object from any of functions \code{gx.mva}, \code{gx.robmva}, \cr\code{gx.robmva.closed} or \code{gx.rotate}. }
+  \item{save}{ a saved object from any of functions \code{gx.mva}, \code{gx.mva.closed}, \cr\code{gx.robmva}, \code{gx.robmva.closed} or \code{gx.rotate}. }
   \item{ifload}{ if \code{ifload = TRUE} the PC loadings are displayed.  The default is to display the PC loadings. }
   \item{ifcntrb}{ if \code{ifcntrb = TRUE} the percentage contribution of each variable (communality) to each PC is displayed.  The default is not to display this table. }
   \item{ifscore}{ if \code{ifscore = TRUE} the scores on the PCs are displayed.  The default is to display the PC loadings.}

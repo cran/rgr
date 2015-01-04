@@ -29,7 +29,7 @@ data(kola.c)
 ## Make a subset of the data for Finland
 finland.c <- gx.subset(kola.c, COUNTRY == "FIN")
 
-## Make a subset of the data for rock type, LITHO, 82 occurring
+## Make a subset of the data for rock type, LITHO 82 occurring
 ## in Russia. Note that both COUNTRY and LITHO are factor variables 
 russia.82 <- gx.subset(kola.c, COUNTRY == "RUS" & LITHO == 82)
 
@@ -46,6 +46,9 @@ Russia <- gx.subset(kola.c,COUNTRY=="RUS")[,19]
 Finland <- gx.subset(kola.c,COUNTRY=="FIN")[,19]
 
 ## Clean-up
+rm(finland.c)
+rm(russia.82)
+rm(norway.cugt50)
 rm(Norway)
 rm(Russia)
 rm(Finland)

@@ -8,10 +8,10 @@ Computes an othonormal basis matrix to be used for the back-transformation of il
 orthonorm(p)
 }
 \arguments{
-  \item{p}{ the dimension of the p-space, the number of original variables. }
+  \item{p}{ the dimension of the \code{p}-space, the number of original variables. }
 }
 \value{
-  \item{V}{ the p by (p-1) orthormal basis matrix. }
+  \item{V}{ the \code{p} by \code{(p-1)} orthormal basis matrix. }
 }
 \references{
 Filzmoser, P., Hron, K., Reimann, C. and Garrett, R., 2009. Robust factor analysis for compositional data. Computers & Geosciences, 35(9):1854-1861.

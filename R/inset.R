@@ -1,6 +1,6 @@
 inset <-
 function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, 
-    nclass = NULL, ifnright = TRUE, table.cex = 0.7, ...) 
+    nclass = NULL, colr = NULL, ifnright = TRUE, table.cex = 0.7, ...) 
 {
     oldpar <- par()
     on.exit(par(oldpar))
@@ -13,8 +13,8 @@ function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
         nclass <- "scott"
     else nclass <- "fd"
     save <- gx.hist(x, xlab = xlab, ylab = "", log = log, xlim = xlim, 
-        main = "Histogram", nclass = nclass, colr = 8, ifnright = ifnright, 
-        cex = 0.8, ...)
+        main = "Histogram", nclass = nclass, colr = colr, 
+        ifnright = ifnright, cex = 0.8, ...)
     xlim <- save$xlim
     frame()
     fms <- par("mai")

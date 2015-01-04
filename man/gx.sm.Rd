@@ -23,7 +23,7 @@ Aitchison, J., 1984. The statistical analysis of geochemical compositions. Mathe
 
 Aitchison, J., 1986. Ths Statistical Analysis of Compositional data. Chapman and Hall, London, U.K., 416 p.
 
-Filzmoser, P, Hron, K. and Reimann, C., 2010. The bivariate statistical analysis of environmental (compositional) data. Science of the Total Environment, 408(19), 4230-4238. 
+Filzmoser, P, Hron, K. and Reimann, C., 2010. The bivariate statistical analysis of environmental (compositional) data. Science of the Total Environment, 408(19):4230-4238. 
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{ilr.stab}}, \code{\link{gx.vm}} }

@@ -18,7 +18,7 @@ function(xx, main = deparse(substitute(xx)))
      x <- temp.x$x; n <- temp.x$n; p <- temp.x$m
      # Save variable names and matrix row numbers
      matnames <- dimnames(xx)
-     matnames[[1]] <- c(1:n)
+     if(is.null(matnames[[1]])) matnames[[1]] <- c(1:n)
      wts <- numeric(n); wts[1:n] <- 1
      # Issue any warnings re small sample population size
      nc <- n

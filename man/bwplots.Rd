@@ -2,7 +2,7 @@
 \alias{bwplots}
 \title{ Plot Vertical Box-and-Whisker Plots }
 \description{
-Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically (base 10). A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical box-and-whisker plots (Garrett, 1988) where the individual plots represent the data subdivided by the value of some factor.  Optionally the y-axis may be scaled logarithmically (base 10). A variety of other plot options are available, see Details and Note below.
 }
 \usage{
 bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "", 
@@ -17,11 +17,11 @@ bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
   \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{wend}{ the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is to notch the boxplots, to suppress the notches set \code{notch = FALSE}.  See Details below. }
-  \item{xlab}{ a title for the x-axis, by default none is provided. A totle may be provided, see Examples.}
+  \item{xlab}{ a title for the x-axis, by default none is provided. A title may be provided, see Examples.}
   \item{ylab}{ by default the character string for \code{x} is used for the y-axis title.  An alternate title can be displayed with \code{ylab = "text string"}, see Examples. }
   \item{ylim}{ only for \code{log = FALSE}, defines the limits of the y-axis if the default limits based on the range of the data are unsatisfactory. It can be used to ensure the y-axis scaling in multiple sets of boxplots are the same to facilitate visual comparison. }
   \item{main}{ a main title may be added optionally above the display by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{label}{ by default the character strings defining the factors are used to label the boxplots along the x-axis.  Alternate labels can be provided with \code{label = c("Alt1", "Alt2", "Alt3")}, see Examples. }
+  \item{label}{ by default the character strings defining the factors are used to label the boxplots along the x-axis.  Alternate labels can be provided with \cr\code{label = c("Alt1", "Alt2", "Alt3")}, see Examples. }
   \item{plot.order}{ provides an alternate order for the boxplots. Thus, \code{plot.order = c(2, 1, 3)} will plot the 2nd ordered factor in the 1st position, the 1st in the 2nd, and the 3rd in its 3rd ordered postion, see Details and Examples below. }
   \item{xpos}{ the locations along the x-axis for the individual vertical boxplots to be plotted.  By default this is set to \code{NA}, which causes default equally spaced positions to be used, i.e. boxplot 1 plots at value 1 on the x-axis, boxplot 2 at value 2, etc., up to boxplot \dQuote{n} at value \dQuote{n}.  See Details below for defining \code{xpos}. }
   \item{width}{ the width of the boxes, by default this is set to the minimum distance between all adjacent boxplots times the value of \code{space}.  With the default values of \code{xpos} this results in a minimum difference of \code{1}, and with the default of \code{space = 0.25} the width is computed as 0.25.  To specify different widths for all boxplots use, for example, \code{width = c(0.3)}.  See Details below for changing individual boxplot widths. }
@@ -30,7 +30,7 @@ bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
   \item{cex.axis}{ controls the size of the font used for the factor labels plotted along the x-axis.  By default this is \code{1}, however, if the labels are long it is sometimes necessary to use a smaller font, for example \code{cex.axis = 0.8} results in a font 80\% of normal size. }
   \item{adj}{ controls justification of the x-axis labels.  By default they are centred, \code{adj = 0.5}, to left justify them if the labels are written downwards set \code{adj = 0}. }
   \item{add}{ permits the user to plot additional boxplots into an existing display.  It is recommended that this option is left as \code{add = FALSE}. }
-  \item{ssll}{ determines the minimum data subset size for which a subset will be plotted.  By default this is set to \code{1}, which leads to only a plus sign being plotted, as the subset size increases additional features of the boxplot are displayed.  If \code{ssll} results in subset boxplots not being plotted, a gap is left and the factor label is still plotted on the x-axis. }
+  \item{ssll}{ determines the minimum data subset size for which a subset will be plotted.  By default this is set to \code{1}, which leads to only a circle with a median bar being plotted, as the subset size increases additional features of the box-and-whisker plot are displayed.  If \code{ssll} results in subset boxplots not being plotted, a gap is left and the factor label is still plotted on the x-axis. }
   \item{colr}{ by default the boxes are infilled in grey, \code{colr = 8} .  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. }
   \item{pch}{ by default the plotting symbol for the subset maxima and minima are set to a plus, \code{pch =} 3, alternate plotting symbols may be chosen from those displayed by \code{\link{display.marks}}. } 
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
@@ -58,6 +58,9 @@ Any \code{NA}s in the data vector are removed prior to preparing the boxplots.
 For summary statistics displays to complement the graphics see \code{\link{gx.summary.groups}} or\cr\code{\link{framework.summary}}.
 }
 \author{ Douglas W. Nychka and Robert G. Garrett }
+\references{ 
+Garrett, R.G., 1988. IDEAS - An Interactive Computer Graphics Tool to Assist the Exploration Geochemist. In Current Research Part F, Geological Survey of Canada Paper 88-1F, pp. 1-13 for a description of box-and-whisker plots. 
+}
 \seealso{ \code{\link{cat2list}}, \code{\link{ltdl.fix.df}} } 
 \examples{
 ## Make test data available

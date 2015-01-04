@@ -9,13 +9,13 @@ gx.mvalloc(pcrit = 0.05, x, ...)
 }
 \arguments{
   \item{pcrit}{ the critical cut-off probability for group membership below which an individual will be classified as an \sQuote{outlier}.  By default the critical probability of group membership is set to \code{pcrit = 0.05}. }
-  \item{x}{ a n by p matrix containing the n individuals, with p variables determined on each, to be allocated, see Details below. }
+  \item{x}{ a \code{n} by \code{p} matrix containing the \code{n} individuals, with \code{p} variables determined on each, to be allocated, see Details below. }
   \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from any of functions \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}} or \cr\code{\link{gx.robmva.closed}}, containing the vectors of means and covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
 }
 \details{
 It is imperative that the data matrix \code{x} contains no special codes and all records (individuals) with NAs have been removed, see Notes below.  It is also imperative that the variables in the reference groups and in the matrix \code{x} of individuals to be classified are identical and in the same order. 
 
-The allocations are made on the assumption that the covariance structures are inhomogeneous, i.e. that the population hyperellipsoids are of different size, shape and orientation in p-space.
+The allocations are made on the assumption that the covariance structures are inhomogeneous, i.e. that the population hyperellipsoids are of different size, shape and orientation in \code{p}-space.
 }
 \value{
 The following are returned as an object to be saved for display with \code{\link{gx.mvalloc.print}}:

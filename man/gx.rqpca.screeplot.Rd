@@ -1,7 +1,7 @@
 \name{gx.rqpca.screeplot}
 \alias{gx.rqpca.screeplot}
 \title{ Display a Scree Plot }
-\description{ Function to display a scree plot arising from a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}},\code{\link{gx.robmva}} or \code{\link{gx.robmva.closed}}.  In addition to the screeplot the cumulative variability explained is also displayed.
+\description{ Function to display a scree plot arising from a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}} or \code{\link{gx.robmva.closed}}.  In addition to the screeplot the cumulative variability explained is also displayed.
 }
 \usage{
 gx.rqpca.screeplot(save, main = "", ...)

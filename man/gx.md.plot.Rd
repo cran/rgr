@@ -24,7 +24,7 @@ By default three fences are placed on the Chi-square plots at probabilities of m
 The Mahalanobis distance, Chi-square, plot x-axis label is set appropriately to indicated the type of robust start or trim using the value of \code{proc} from the saved object passed to the function.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.add.chisq}} }
+\seealso{ \code{\link{gx.md.gait}}, \code{\link{gx.md.gait.closed}}, \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}}, \code{\link{gx.add.chisq}} }
 \examples{
 ## Make test data available
 data(sind.mat2open)

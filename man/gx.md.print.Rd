@@ -8,7 +8,7 @@ Function to display the Mahalanobis distances (MDs) and predicted probabilities 
 gx.md.print(save, pcut = 0.1, file = NULL)
 }
 \arguments{
-  \item{save}{ a saved object from any of functions \code{gx.md.gait}, \code{gx.md.gait.closed}, \code{gx.mva}, \code{gx.robmva}, or \code{gx.robmva.closed}. }
+  \item{save}{ a saved object from any of functions \code{gx.md.gait}, \code{gx.md.gait.closed}, \code{gx.mva}, \code{gx.mva.closed}, \code{gx.robmva}, or \code{gx.robmva.closed}. }
   \item{pcut}{ the probabilitity of group membership below which records will be displayed on the current device in ascending order of membership probability, i.e. most outlying individuals first. }
   \item{file}{ the file name for saving the function output in the R working directory, see Details below. }
 }

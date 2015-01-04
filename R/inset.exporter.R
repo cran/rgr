@@ -1,6 +1,6 @@
 inset.exporter <-
 function(x, xlab = deparse(substitute(x)), log = FALSE, xlim = NULL, nclass = NULL, ifnright = TRUE,
-     file = NULL, table.cex = 0.7, gtype = "wmf" , ...)
+     file = NULL, table.cex = 0.7, gtype = "emf" , ...)
 {
      # Wrapper to save the graphics output from a run of inset.
      #

@@ -31,7 +31,7 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
      temp.x <- remove.na(xx)
      x <- temp.x$x; n <- temp.x$n; p <- temp.x$m
      matnames <- dimnames(xx)
-     matnames[[1]] <- c(1:n)
+     if(is.null(matnames[[1]])) matnames[[1]] <- c(1:n)
      if(is.null(wts)) {
          # Use mve or mcd procedure to identify core background subset
          if(p > 50) proc <- "mve"
@@ -75,8 +75,13 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
      rload <- b$v %*% b1
      rqscore <- snd %*% rload
      vcontrib <- numeric(p)
+     cpvcontrib <- pvcontrib <- vcontrib <- numeric(p)
      for (j in 1:p) vcontrib[j] <- var(rqscore[, j])
+     sumv <- sum(vcontrib)
+     pvcontrib <- (100 * vcontrib)/sumv
+     cpvcontrib <- cumsum(pvcontrib)
      cat("  Score S^2s :", signif(vcontrib, 4), "\n")
+     cat("     as %ages:", round(pvcontrib, 1), "\n")
      rcr <- rload[,  ] * 0
      rcr1 <- apply(rload^2, 1, sum)
      rcr <- 100 * sweep(rload^2, 1, rcr1, "/")
@@ -103,6 +108,7 @@ function(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
          n = n, nc = nc, p = p, ifilr = FALSE, matnames = matnames, wts = wts,
          mean = save$center, cov = save$cov, sd = sd, snd = snd, r = save$cor,
          eigenvalues = b$d, econtrib = econtrib, eigenvectors = b$v,
-         rload = rload, rcr = rcr, rqscore = rqscore, md = md, ppm = ppm, 
+         rload = rload, rcr = rcr, rqscore = rqscore, vcontrib = vcontrib, 
+         pvcontrib = pvcontrib, cpvcontrib = cpvcontrib, md = md, ppm = ppm,
          epm = epm, nr = NULL))
 }

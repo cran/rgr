@@ -3,7 +3,7 @@
 \docType{data}
 \title{ North American Geochemical Soil Landscapes Project QA/QC data}
 \description{
-A small data set of regional and field duplicate samples from the Maritimes 2007 NAmSGLs survey.  The analyses are for <2 mm unmilled C-horizon soil samples, and the determinations were made by ICP-OES or -MS following an Aqua Regia digestion. 
+A data frame of regional and field duplicate samples from the Maritimes 2007 North American Soil Geochemical Landscapes survey.  The analyses are for <2 mm unmilled C-horizon soil samples, and the determinations were made by ICP-OES or -MS following an Aqua Regia digestion. 
 }
 \usage{data(triples.test2)}
 \format{

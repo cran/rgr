@@ -1,7 +1,7 @@
 gx.rqpca.plot <-
 function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL, 
-         ifrot = TRUE, main = "", cex = 0.7, cex.lab = 0.9, cex.main = 0.9,
-         ...)
+         ifrot = TRUE, main = "", cex.lab = 0.9, cex.main = 0.9, rcex = 1,
+         qcex = 0.8, rcol = 1, qcol = 1, ...)
 {
      # Function to plot scores on component v2 vs scores on component v1
      # using the saved output from gx.mva or gx.robmva.  Default is to
@@ -25,6 +25,12 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
      # rplot = F & qplot = T & rowids = T, input matrix row numbers only
      # rplot = T & qplot = T & rowids = F, sample IDs and variable names
      # rplot = T & qplot = T & rowids = T, input matrix row numbers and variable names
+     #
+     # By default variable names and sample/case markers are plotted in black
+     # and at 100% and 80% font sizes, respectively.  Setting rcol = 2 displays
+     # variable names in red, and setting qcol = 4 displays sample/case markers,
+     # either current 'pch', row number or sample ID, in blue.  Similarly, changing
+     # rcex and qcex provides control of the font sizes.
      #
      frame()
      if(main == "") banner <- paste("PC bi-plots for",
@@ -78,6 +84,7 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
                 "% of total variability", sep = "")
          }
      }
+     if(!is.null(rowids)) qplot <- TRUE
      if(rplot & !qplot) {
          x1 <- min(rload[, v1])
          x2 <- max(rload[, v1])
@@ -101,12 +108,12 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
          cex.main = cex.main, cex.lab = cex.lab, ...)
      if((x1 < 0) & (x2 > 0)) abline(v = 0, lty = 2)
      if((y1 < 0) & (y2 > 0)) abline(h = 0, lty = 2)
-     if(rplot) text(rload[, v1], rload[, v2], rnames, cex = cex, ...)
+     if(rplot) text(rload[, v1], rload[, v2], rnames, cex = rcex, col = rcol, ...)
      if(qplot) {
          if(is.null(rowids))
-             points(rqscore[, v1], rqscore[, v2], ...)
-         else if(rowids) text(rqscore[, v1], rqscore[, v2], cex = cex, ...)
-         else text(rqscore[, v1], rqscore[, v2], qnames, cex = cex, ...)
+             points(rqscore[, v1], rqscore[, v2], cex = qcex, col = qcol, ...)
+         else if(rowids) text(rqscore[, v1], rqscore[, v2], cex = qcex, col = qcol, ...)
+         else text(rqscore[, v1], rqscore[, v2], qnames, cex = qcex, col = qcol, ...)
      }
      invisible()
 }

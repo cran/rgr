@@ -3,7 +3,7 @@
 \docType{data}
 \title{ Sinding-Larsen Norwegian Stream Sediment Test Data Set }
 \description{
-A small subset of data from a regional geochemical stream sediment survey undertaken by the Norwegian Geological Survey.
+A data frame for a small subset of data from a regional geochemical stream sediment survey undertaken by the Norwegian Geological Survey.
 }
 \usage{data(sind)}
 \format{

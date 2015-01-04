@@ -15,7 +15,7 @@ A subset of analytical duplicate data from NGR surveys undertaken in 2000 and 20
   }
 }
 \details{
-The Replicate Status code indicates the \sQuote{position} of the geochemical sample in the QA/QC structure.  RS = 8 indicates analytical duplicate, RS = 2 indicates the field duplicate, and RS = 1 indicates a routine regional coverage site that was \sQuote{duplicated}.  All other routine regional coverage sites are coded RS = 0.  In this file the data record for the analytical duplicate is followed by the data record for the physical sample the duplicate was split from.  The analytical duplicate may be split from any field sample, but preferrably from one of the field duplicates, permitting a more incisive investigation of sampling and analytical variability using function \sQuote{triples}.
+The Replicate Status code indicates the \sQuote{position} of the geochemical sample in the QA/QC structure.  RS = 8 indicates analytical duplicate, RS = 2 indicates the field duplicate, and RS = 1 indicates a routine regional coverage site that was \sQuote{duplicated}.  All other routine regional coverage sites are coded RS = 0.  In this file the data record for the analytical duplicate is followed by the data record for the physical sample the duplicate was split from.  The analytical duplicate may be split from any field sample, but preferrably from one of the field duplicates, permitting a more incisive investigation of sampling and analytical variability using function \code{\link{gx.triples.aov}}.
 }
 \source{
 Internal Geological Survey of Canada files.

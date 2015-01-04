@@ -8,7 +8,7 @@ Function computes the Robust ilr Stability for two parts of a composition follow
 ilr.stab(xx1, xx2, ifwarn = T)
 }
 \arguments{
-  \item{xx1}{ a column vector from a matrix or data frame of compositional data, \code{xx1[1], ..., xx1[n]}. }
+  \item{xx1}{ a column vector from a matrix or data frame of compositional data, \cr\code{xx1[1], ..., xx1[n]}. }
   \item{xx2}{ another column vector from the matrix or data frame of compositional data,  \code{xx2[1], ..., xx2[n]}. \code{xx1} and \code{xx2} must be of identical length, \code{n}. }
   \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out analyses of compositional data all data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
@@ -21,9 +21,9 @@ Any less than detection limit values represented by negative values, or zeros or
 Any data vectors (rows) containing \code{NA}s are removed prior to computation.
 }
 \references{
-Buccianti, a. and Pawlowsky-Glahn, V., 2005. New perspectives on water chemistry and compositional data analysis. Mathematical Geology, 37(7), 703-727.
+Buccianti, a. and Pawlowsky-Glahn, V., 2005. New perspectives on water chemistry and compositional data analysis. Mathematical Geology, 37(7):703-727.
 
-Filzmoser, P, Hron, K. and Reimann, C., 2010. The bivariate statistical analysis of environmental (compositional) data. Science of the Total Environment, 408(19), 4230-4238. 
+Filzmoser, P, Hron, K. and Reimann, C., 2010. The bivariate statistical analysis of environmental (compositional) data. Science of the Total Environment, 408(19):4230-4238. 
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}} }

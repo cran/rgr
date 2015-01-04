@@ -32,6 +32,8 @@ Col: 0 = none, 1 = black, 2 = red, 3 = green, 4 = dark blue,\cr
 \author{ Robert G. Garrett }
 \note{
 To edit the function use \code{fix(gx.cnpplts.setup)} to extract a copy of the function from the \sQuote{rgr} library for editing.  It will help to have a colour printed copy of the display, \code{display = TRUE}, from this function at hand.  Note that after editing and saving the function will remain in the workspace and you may get warning messages that can be ignored.
+
+To return to the defaults delete the edited function from the workspace, i.e. \code{rm(gx.cnpplts.setup)}.
 }
 \seealso{ \code{\link{display.marks}}, \code{\link{points}}, \code{\link{display.lty}} }
 \keyword{ color }

@@ -3,7 +3,7 @@
 \docType{data}
 \title{ Lithogeochemical Data Set from the O'Grady Pluton, NWT, 1970 }
 \description{
-A subset of data, for the O'Grady pluton, NWT, (NTS map sheet 105I) from a regional lithogeochemical survey undertaken by the Geological Survey of Canada between 1969 and 1972 of Cretaceous-age granitoid plutons northeast of the Tintina Trench in the Yukon and adjoining NWT.  Samples were collected in pairs from each site and a sub-sample ground to <100 mesh.  Major and, some trace, element analyses were undertaken by direct reading optical spectroscopy (OES) either after a Li-Tetraborate (Li-T) fusion, or directly, other major elements were determined by AAS following HNO3 dissolution of the fusion product.  Other trace-elements were determined by atomic absorption spectrophotometry after a HF-HClO4 digestion, or colorimetry (Col) after an alkaline fusion (AF).  For Na, K, Fe, Mo and W detection limits (DLs) were 0.05, 0.1 and 0.1 \%, and 0.5 and 2 mg/kg, respectively; <DL observations are represented by values of 0.02, 0.05, 0.05 \% and 0.2 and 1 mg/kg, respectively.
+A data frame of major, minor and trace element data for the O'Grady pluton, NWT, (NTS map sheet 105I) from a regional lithogeochemical survey undertaken by the Geological Survey of Canada between 1969 and 1972 of Cretaceous-age granitoid plutons northeast of the Tintina Trench in the Yukon and adjoining NWT.  Samples were collected in pairs from each site and a sub-sample ground to <100 mesh.  Major and, some trace, element analyses were undertaken by direct reading optical spectroscopy (OES) either after a Li-Tetraborate (Li-T) fusion, or directly, other major elements were determined by AAS following HNO3 dissolution of the fusion product.  Other trace-elements were determined by atomic absorption spectrophotometry after a HF-HClO4 digestion, or colorimetry (Col) after an alkaline fusion (AF).  For Na, K, Fe, Mo and W detection limits (DLs) were 0.05, 0.1 and 0.1 \%, and 0.5 and 2 mg/kg, respectively; <DL observations are represented by values of 0.02, 0.05, 0.05 \% and 0.2 and 1 mg/kg, respectively.
 }
 \usage{data(ogrady)}
 \format{
@@ -40,7 +40,5 @@ Garrett, R.G., 1992. Lithogeochemical data release, major and trace elements in 
 }
 \references{
 Garrett, R.G., 1972. Regional geochemical study of Cretaceous acidic igneous rocks in the northern Canadian Cordillera as a tool for broad mineral exploration.  in Proc. 4th International Geochemical Exploration Symp., Geochemical Exploration 1972 (Ed. M.J. Jones). Institute of Mining and Metallurgy, London, pp. 203-219.
-
-Garrett, R.G., 1988. IDEAS - An interactive computer graphics tool to assist the exploration geochemist. In Current Research Part F, Geological Survey of Canada Paper 88-1F, pp. 1-13.
 }
 \keyword{datasets}

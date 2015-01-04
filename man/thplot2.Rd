@@ -10,7 +10,7 @@ thplot2(x, xname = deparse(substitute(x)), ifzero = 0.01,
 	ifalt = FALSE, ...)
 }
 \arguments{
-  \item{x}{ a column vector from a matrix or data frame, \code{x[1], ..., x[2*n]}. The default is that the first n members of the vector are the first measurements and the second n members are the duplicate measurements.  If the measurements alternate, i.e. duplicate pair 1 measurement 1 followed by measurement 2, etc., set \code{ifalt = TRUE}. }
+  \item{x}{ a column vector from a matrix or data frame, \code{x[1], ..., x[2*n]}. The default is that the first n members of the vector are the first measurements and the second \code{n} members are the duplicate measurements.  If the measurements alternate, i.e. duplicate pair 1 measurement 1 followed by measurement 2, etc., set \code{ifalt = TRUE}. }
   \item{xname}{ by default the character string for \code{x} is used for the title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{ifzero}{ as the Thompson-Howarth plot is log-scaled values of zero cannot be displayed, therefore the parameter \code{ifzero} has to be specified.  A suitable choice is a value one order of magnitude lower than the value of the detection limit.  A default value of \code{ifzero = 0.01} units is provided, corresponding to a detection limit of 0.1 units. }
   \item{xlow}{ if is desired to produce plots with consistent scaling this may be achieved by defining \code{xlow}, \code{xhih} and \code{yhih}, the \code{ylow}, the \code{ylow} value is set equal to \code{ifzero}.  Enter an appropriate value of \code{xlow} to ensure all data are displayed on all plots.  }
@@ -23,7 +23,7 @@ thplot2(x, xname = deparse(substitute(x)), ifzero = 0.01,
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }  
 }
 \details{
-This function expects the RSD\% as a measure of measurement repeatability (precision), which is more familiar to the current generation of applied geochemists, rather than the precision at the 2 Standard Deviation level.  The necessary calculations to conform with the Thompson and Howarth procedure are made internally.
+This function expects the RSD\% as a measure of repeatability (precision), which is more familiar to the current generation of applied geochemists, rather than the precision at the 2 Standard Deviation level.  The necessary calculations to conform with the Thompson and Howarth procedure are made internally.
 
 For further details see \code{\link{thplot1}}.
 

@@ -10,7 +10,7 @@ gx.fractile(xx, q, display = TRUE)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{xx}{ the data set for which the quantile is to be estimated. }
-  \item{q}{ the fractile for which the quantile is required. }
+  \item{q}{ the fractile (value) for which the quantile is required, must be within the range of \code{xx}. }
   \item{display}{ the default is to display the quantile and estimated fractile on the current device. If no display is required, set \code{display = FALSE}. }
 }
 \value{

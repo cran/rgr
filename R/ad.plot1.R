@@ -1,6 +1,7 @@
 ad.plot1 <-
 function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE, 
-    if.rsds = FALSE, ldl = NULL, ad.tol = NULL, log = FALSE, ...) 
+    if.rsds = FALSE, ldl = NULL, ad.tol = NULL, log = FALSE, 
+    ...) 
 {
     if (length(x1) != length(x2)) 
         stop("The lengths of the vectors are not the same\n")
@@ -31,12 +32,13 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
     ymax <- max(ad.tol, max(pdiff))
     if (if.order) {
         if (if.rsds) {
-            plot(seq(1:n), rsds, xlab = paste("Ordered determinations of", xname),
-                ylab = "Duplicate Relative Standard Deviations, %", ...)
+            plot(seq(1:n), rsds, xlab = paste("Ordered determinations of", 
+                xname), ylab = "Duplicate Relative Standard Deviations, %", 
+                ...)
         }
         else {
-            plot(seq(1:n), pdiff, xlab = paste("Ordered determinations of", xname),
-                ylab = "Difference between duplicates relative to their means, %", 
+            plot(seq(1:n), pdiff, xlab = paste("Ordered determinations of", 
+                xname), ylab = "Difference between duplicates relative to their means, %", 
                 ylim = c(0, ymax), ...)
         }
     }
@@ -44,18 +46,19 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = TRUE,
         log.plot <- ""
         if (log) 
             log.plot <- "x"
-        if (!is.null(ldl)) {
+        if (is.null(ldl)) xlab = paste("Mean of duplicates for", xname)
+        else {
             means <- means/ldl
-            xlab <- paste("Ratio of Mean to Lower Detection Limit for", xname)
+            xlab <- paste("Ratio of Mean to Lower Detection Limit for", 
+                xname)
         }
-        else xlab = paste("Mean of duplicates for", xname)
         if (if.rsds) {
-            plot(means, rsds, xlab = xlab, log = log.plot,  
+            plot(means, rsds, xlab = xlab, log = log.plot,
                 ylab = "Duplicate Relative Standard Deviations, %", ...)
         }
         else {
-            plot(means, pdiff, xlab = xlab, log = log.plot, ylim = c(0, ymax),  
-                ylab = "Difference between duplicates relative to their means, %",
+            plot(means, pdiff, xlab = xlab, log = log.plot, ylim = c(0, 
+                ymax), ylab = "Difference between duplicates relative to their means, %", 
                 ...)
         }
     }

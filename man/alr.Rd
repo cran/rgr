@@ -13,14 +13,14 @@ alr(xx, j = NULL, ifclose = FALSE, ifwarn = TRUE)
   \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out an additive log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
-Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  An additive log-ratio is one procedure for removing closure effects, others are centred log-ratios (\code{clr}) and isometric log-ratios (\code{ilr}).
+Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a physical individual sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  An additive log-ratio is one procedure for removing closure effects, others are centred log-ratios (\code{\link{clr}}) and isometric log-ratios (\code{\link{ilr}}).
 
 Care should be taken in selecting the variable, index = \code{j}, for use as the divisor.  Variables lacking sufficient significant figures in their quantification, or variables measured at close to their measurement detection limits, should be avoided.
 
 It is worth noting that when the \code{alr} transform is undertaken with a geochemically conservative element selected as the divisor and two elements are then displayed in an x-y plot the result is a Pearce Element Ratio plot (Pearce, 1968) with log scaling.
 }
 \value{
-  \item{x}{ a n by (p-1) matrix of additively log-ratioed values, the j-th column of the matrix being dropped. }
+  \item{x}{ a \code{n} by \code{(p-1)} matrix of additively log-ratioed values, the \code{j}-th column of the matrix being dropped. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -30,7 +30,7 @@ Any rows containing \code{NA}s in the data matrix are removed prior to undertaki
 \references{
 Aitchison, J., 1984. The statistical analysis of geochemical compositions. Mathematical Geology, 16(6):531-564.
 
-Aitchison, J., 1986. Ths Statistical Analysis of Compositional data. Chapman and Hall, London, U.K., 416 p.
+Aitchison, J., 1986. The Statistical Analysis of Compositional data. Chapman and Hall, London, U.K., 416 p.
 
 Aitchison, J. and Egozcue, J.J., 2005. Compositional data analysis; where are we and where should we be heading. Mathematical Geology, 37(7):829-850.
 
@@ -47,7 +47,7 @@ Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data A
 data(sind)
 sind.mat <- as.matrix(sind[, -c(1:3)])
 
-## Undertake alr transform, use Pb [j = 6 ] as the divisor,
+## Undertake alr transform, use Pb [j = 6] as the divisor,
 ## note necessity of converting percent Fe to mg/kg
 sind.mat[, 2] <- sind.mat[, 2] * 10000
 temp <- alr(sind.mat, 6)

@@ -2,7 +2,7 @@
 \alias{bwplots.by.var}
 \title{ Plot Vertical Box-and-Whisker Plots for Variables}
 \description{
-Plots a series of vertical box-and-whisker plots where the individual boxplots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically (base 10).  A variety of other plot options are available, see Details and Note below.
+Plots a series of vertical box-and-whisker plots (Garrett, 1988)where the individual plots represent the data subdivided by variables.  Optionally the y-axis may be scaled logarithmically (base 10).  A variety of other plot options are available, see Details and Note below.
 }
 \usage{
 bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE, 
@@ -18,7 +18,7 @@ bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
   \item{xlab}{ a title for the x-axis, by default \code{xlab = "Measured Variables"}. }
   \item{ylab}{ a title for the y-axis, by default \code{ylab = "Reported Values"}, alternate titling may be provided, see Eaxamples. }
   \item{main}{ a main title may be added optionally above the display by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{label}{ by default the character strings defining the variables are used to label the boxplots along the x-axis.  Alternate labels can be provided with \code{label = c("Alt1", "Alt2", "Alt3")}, see Examples. }
+  \item{label}{ by default the character strings defining the variables are used to label the boxplots along the x-axis.  Alternate labels can be provided with \cr\code{label = c("Alt1", "Alt2", "Alt3")}, see Examples. }
   \item{plot.order}{ provides an alternate order for the boxplots.  By default the boxplots are plotted in alphabetical order of the factor variables.  Thus, \code{plot.order = c(2, 1, 3)} will plot the 2nd alphabetically ordered factor in the 1st position, the 1st in the 2nd, and the 3rd in its alphabetically 3rd ordered postion. }
   \item{xpos}{ the locations along the x-axis for the individual vertical boxplots to be plotted.  By default this is set to \code{NA}, which causes default equally spaced positions to be used, i.e. boxplot 1 plots at value 1 on the x-axis, boxplot 2 at value 2, etc., up to boxplot \dQuote{n} at value \dQuote{n}.  See Details below for defining \code{xpos}. }
   \item{las}{ controls whether the x-axis labels are written parallel to the x-axis, the default \code{las = 1}, or are written down from the x-axis by setting \code{las = 2}.  See also, Details below.}
@@ -47,6 +47,9 @@ Any \code{NA}s in the data vectors are removed prior to preparing the boxplots.
 For a summary statistics display to complement the graphics see \code{\link{gx.summary.mat}}.
 }
 \author{ Robert G. Garrett }
+\references{ 
+Garrett, R.G., 1988. IDEAS - An Interactive Computer Graphics Tool to Assist the Exploration Geochemist. In Current Research Part F, Geological Survey of Canada Paper 88-1F, pp. 1-13 for a description of box-and-whisker plots. 
+}
 \seealso{ \code{\link{bwplots}}, \code{\link{var2fact}}, \code{\link{ltdl.fix.df}} } 
 \examples{
 ## Make test data available

@@ -2,15 +2,15 @@
 \alias{gx.scores}
 \title{ Function to Compute Scores on the Basis of Threshold Estimates }
 \description{
-Computes scores for a user selected group of variables based on the ratio of variable value to the variable threshold, i.e. the upper limit of background variation.  The user must provide thresholds for the the variables contributing to the scores.  Optionally a set of relative weights may be provided that are applied to scores.  If above threshold values occur for a variable whose influence is indicative of a \sQuote{false} anomaly the relative weight for that variable may be set \sQuote{-ve}, which will result in a reduction of the computed score.  This function is a useful alternative to weighted sums when the variable data contains so many below DL values that summary statistics cannot be estimated. An object is created containing all the provided parameters and the scores for later reference and use.
+Computes scores for a user selected group of variables based on the ratio of variable value to the variable threshold, i.e. the upper limit of background variation.  The user must provide thresholds for the variables contributing to the scores.  Optionally a set of relative weights may be provided that are applied to the scores.  If above threshold values occur for a variable whose influence is indicative of a \sQuote{false} anomaly the relative weight for that variable may be set \sQuote{-ve}, which will result in a reduction of the computed score.  This function is a useful alternative to weighted sums when the variable data contains so many below DL values that summary statistics cannot be estimated. An object is created containing all the provided parameters and the scores for later reference and use.
 }
 \usage{
 gx.scores(xx, tholds, rwts = NULL, setna = FALSE)
 }
 \arguments{
-  \item{xx}{ name of the n by p matrix containing the data. }
-  \item{tholds}{ a vector of the threshold estimates for the p variables. }
-  \item{rwts}{ an optional vector of the relative weights for the p variables, negative weights are permisable to indicate that high levels of the variable should have a negative impact on the scores. }
+  \item{xx}{ name of the \code{n} by \code{p} matrix containing the data. }
+  \item{tholds}{ a vector of the threshold estimates for the \code{p} variables. }
+  \item{rwts}{ an optional vector of the relative weights for the \code{p} variables, negative weights are permisable to indicate that high levels of the variable should have a negative impact on the scores. }
   \item{setna}{ if it is required to set any \sQuote{<0} scores to NAs then set \code{setna = TRUE}. }
 }
 \details{
@@ -20,7 +20,6 @@ If the data for only some of the variables available in an attached matrix or da
 The following are returned as an object to be saved for further use:
    \item{input}{ the name of the input data set }
    \item{tholds}{ the vector of thresholds used for the computations }
-   \item{xspread}{ the vector of spreads used for the computations }
    \item{rwts}{ the vector of relative weights provided by the user }
    \item{scores}{ the computed scores }
 }

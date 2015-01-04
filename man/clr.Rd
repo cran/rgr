@@ -8,15 +8,15 @@ Undertakes a centred log-ratio transformation to remove the effects of closure i
 clr(xx, ifclose = FALSE, ifwarn = TRUE)
 }
 \arguments{
-  \item{xx}{ a n by p matrix to be log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
+  \item{xx}{ a \code{n} by \code{p} matrix to be log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
   \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
-Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are additive log-ratios (\code{alr}) and isometric log-ratios (\code{ilr}).
+Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a physical individual sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are additive log-ratios (\code{\link{alr}}) and isometric log-ratios (\code{\link{ilr}}).
 }
 \value{
-  \item{x}{ a n by p matrix of log-centred values. }
+  \item{x}{ a \code{n} by \code{p} matrix of log-centred values. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -30,7 +30,7 @@ The \code{ifclose} option can be useful if a petrochemical ternary system is und
 \references{
 Aitchison, J., 1984. The statistical analysis of geochemical compositions. Mathematical Geology, 16(6):531-564.
 
-Aitchison, J., 1986. Ths Statistical Analysis of Compositional data. Chapman and Hall, London, U.K., 416 p.
+Aitchison, J., 1986. The Statistical Analysis of Compositional data. Chapman and Hall, London, U.K., 416 p.
 
 Aitchison, J. and Egozcue, J.J., 2005. Compositional data analysis; where are we and where should we be heading. Mathematical Geology, 37(7):829-850.
 

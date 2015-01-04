@@ -12,7 +12,7 @@ gx.stats(xx, xlab = deparse(substitute(xx)), display = TRUE,
   \item{xx}{ name of the variable to be processed. }
   \item{xlab}{ by default the character string for \code{xx} is used for the table title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{display}{ if \code{display = TRUE} the summary statistics are displayed on the current device.  If \code{display = FALSE} output is suppressed.}
-  \item{iftell}{ by default the NA count is displayed by \code{na.remove} prior to the table of results from this function.  When the function is used as a sQuote{stats} engine the \code{NA} count display may be suppressed by the calling function when the NA count is to be displayed by that calling function. }
+  \item{iftell}{ by default the NA count is displayed by \code{na.remove} prior to the table of results from this function.  When the function is used as a \sQuote{stats} engine the \code{NA} count display may be suppressed by the calling function when the NA count is to be displayed by that calling function. }
 }
 \details{
 The summary statistics comprise the data minimum, maximum and percentile values, robust estimates of standard deviation, the Median Absolute Deviation (MAD) and the Inter Quartile Standard Deviation (IQSD), and the mean, variance, standard deviation (SD), coefficient of variation (CV\%), and the 95\% confidence bounds on the median.  When the minimum data value is \code{> 0} summary statistics are computed after a log10 data transformation and exported back to the calling function.

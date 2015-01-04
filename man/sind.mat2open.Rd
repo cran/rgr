@@ -3,7 +3,7 @@
 \docType{data}
 \title{ Sinding-Larsen Norwegian Stream Sediment Test Data Set }
 \description{
-A small subset of data from a regional geochemical stream sediment survey undertaken by the Norwegian Geological Survey.  Similar to data set \code{\link{sind}} but ID, Eastings and Northings columns have all been removed, and the measurements are all in mg/kg.
+A matrix for a small subset of data from a regional geochemical stream sediment survey undertaken by the Norwegian Geological Survey.  Similar to data set \code{\link{sind}} but the ID, Eastings and Northings columns have been removed, and the measurements are all in mg/kg.
 }
 \usage{data(sind.mat2open)}
 \format{

@@ -8,13 +8,15 @@ The function carries out a robust Principal Components Analysis (PCA) and estima
 gx.robmva(xx, proc = "mcd", wts = NULL, main = deparse(substitute(xx)))
 }
 \arguments{
-  \item{xx}{ a n by p data matrix to be processed. }
+  \item{xx}{ a \code{n} by \code{p} data matrix to be processed. }
   \item{proc}{ by default \code{proc = "mcd"} for the Minimimum Covariance Determinant (MCD) robust procedure.  Setting \code{proc = "mve"} results in the Minimum Volume Ellipsoid (MVE) procedure being used.  If \code{p > 50} the MVE procedure is used.  See \code{wts} below. }
-  \item{wts}{ by default \code{wts = NULL} and the MCD or MVE estimation procedures will be used.  If, however, a vector of \code{n} \code{0} or \code{1} weights are supplied these will be used for robust estimation and the value of \code{proc} ignored. } 
+  \item{wts}{ by default \code{wts = NULL} and the MCD or MVE estimation procedures will be used.  If, however, a vector of \code{n} zero or \code{1} weights are supplied these will be used for robust estimation and the value of \code{proc} ignored. } 
   \item{main}{ by default the name of the object \code{xx}, \code{main = deparse(substitute(xx))}, it may be replaced by the user, but this is not recommended, see Details below. }
 }
 \details{
 If \code{main} is undefined the name of the matrix object passed to the function is used to identify the object.  This is the recommended procedure as it helps to track the progression of a data analysis.  Alternate plot titles are best defined when the saved object is passed to \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}} or \code{\link{gx.md.plot}} for display.  If no plot title is required set \code{main = " "}, or if a user defined plot title is required it may be defined, e.g., \code{main = "Plot Title Text"}.
+
+The variances of the robust Principal Component scores are displayed, in a non-robust PCA these decrease with increasing component rank.  However, in a robust PCA this may not be the case, and lower-order scores with high variances are often worthy of further inspection.
 }
 \value{
 The following are returned as an object to be saved for subsequent display, etc.:
@@ -25,25 +27,25 @@ The following are returned as an object to be saved for subsequent display, etc.
   \item{nc}{ the number of individuals remaining in the \sQuote{core} data subset following the robust estimation, i.e. the sum of those individuals with \code{wts = 1}. }
   \item{p}{ the number of variables on which the multivariate operations were based. }
   \item{ifilr}{ flag for \code{gx.md.plot}, set to \code{FALSE}. }
-  \item{matnames}{ the row numbers and column headings of the input matrix. }
-  \item{wts}{ the vector of weights for the n individuals arising from the robust estimation of the covariance matrix and means. }
-  \item{mean}{ the length p vector the weighted means for the variables. }
-  \item{cov}{ the p by p weighted covariance matrix for the n by p data matrix. }
-  \item{sd}{ the length p vector of weighted standard deviations for the variables. }
-  \item{snd}{ the n by p matrix of weighted standard normal deviates. }
-  \item{r}{ the p by p matrix of weighted Pearson product moment correlation coefficients. }
-  \item{eigenvalues}{ the vector of p \code{eigenvalues} of the scaled Pearson robust correlation matrix for RQ analysis, see Grunsky (2001). }
-  \item{econtrib}{ the vector of p robustly estimated \code{eigenvalues} each expressed as a percentage of the sum of the eigenvalues. }
-  \item{eigenvectors}{ the n by p matrix of robustly estimated \code{eigenvectors}. }
-  \item{rload}{ the p by p matrix of robust Principal Component (PC) loadings. }
-  \item{rcr}{ the p by p matrix containing the percentages of the variability of each variable (rows) expressed in each robust PC (columns). } 
-  \item{rqscore}{ the n by p matrix of the n individuals scores on the p robust PCs. }
-  \item{vcontrib}{ a vector of p variances of the columns of \code{rqscore}. }
-  \item{pvcontrib}{ the vector of p variances of the columns of \code{rqscore} expressed as percentages.  This is a check on vector \code{econtrib}, the values should be identical for a classical PCA.  However, for robust PCAs this is not so as the trimmed individuals from the robust estimation have been re-introduced.  As a consequence \code{pvcontrib} can be very different from \code{econtrib}.  The plotting of PCs containing high proportions of the variance in robust PCAs can be useful for identifying outliers }
-  \item{cpvcontrib}{ the vector of p cumulative sums of \code{pvcontrib}, see above. }
-  \item{md}{ the vector of n robust Mahalanobis distances (MDs) for the n by p input matrix. }
-  \item{ppm}{ the vector of n robust predicted probabilities of population membership, see Garrett (1990). }
-  \item{epm}{ the vector of n robust empirical Chi-square probabilities for the MDs. }
+  \item{matnames}{ the row numbers or identifiers and column headings of the input matrix. }
+  \item{wts}{ the vector of weights for the \code{n} individuals arising from the robust estimation of the covariance matrix and means. }
+  \item{mean}{ the length \code{p} vector the weighted means for the variables. }
+  \item{cov}{ the \code{p} by \code{p} weighted covariance matrix for the \code{n} by \code{p} data matrix. }
+  \item{sd}{ the length \code{p} vector of weighted standard deviations for the variables. }
+  \item{snd}{ the \code{n} by \code{p} matrix of weighted standard normal deviates. }
+  \item{r}{ the \code{p} by \code{p} matrix of weighted Pearson product moment correlation coefficients. }
+  \item{eigenvalues}{ the vector of \code{p} eigenvalues of the scaled Pearson robust correlation matrix for RQ analysis, see Grunsky (2001). }
+  \item{econtrib}{ the vector of \code{p} robustly estimated eigenvalues each expressed as a percentage of the sum of the eigenvalues. }
+  \item{eigenvectors}{ the \code{n} by \code{p} matrix of robustly estimated \code{eigenvectors}. }
+  \item{rload}{ the \code{p} by \code{p} matrix of robust Principal Component (PC) loadings. }
+  \item{rcr}{ the \code{p} by \code{p} matrix containing the percentages of the variability of each variable (rows) expressed in each robust PC (columns). } 
+  \item{rqscore}{ the\code{n} by \code{p} matrix of the \code{n} individuals scores on the \code{p} robust PCs. }
+  \item{vcontrib}{ a vector of \code{p} variances of the columns of \code{rqscore}. }
+  \item{pvcontrib}{ the vector of \code{p} variances of the columns of \code{rqscore} expressed as percentages.  This is a check on vector \code{econtrib}, the values should be identical for a classical PCA.  However, for robust PCAs this is not so as the trimmed individuals from the robust estimation have been re-introduced.  As a consequence \code{pvcontrib} can be very different from \code{econtrib}.  The plotting of PCs containing high proportions of the variance in robust PCAs can be useful for identifying outliers }
+  \item{cpvcontrib}{ the vector of \code{p} cumulative sums of \code{pvcontrib}, see above. }
+  \item{md}{ the vector of \code{n} robust Mahalanobis distances (MDs) for the n by p input matrix. }
+  \item{ppm}{ the vector of\code{n} robust predicted probabilities of population membership, see Garrett (1990). }
+  \item{epm}{ the vector of \code{n} robust empirical Chi-square probabilities for the MDs. }
   \item{nr}{ the number of PCs that have been rotated.  At this stage of a data analysis \code{nr = NULL} in order to control PC plot axis labelling. }
 }
 \note{
@@ -55,9 +57,9 @@ Passing a set of weights from an investigation with \code{\link{gx.md.gait}} or 
 
 Executing a \code{\link{clr}} transformation leads to both collinearity and singularity such that neither a PCA can be undertaken or Mahalanobis distances be estimated.  The function fails - do not use with a \code{\link{clr}} transformation.
 
-Executing a \code{\link{ilr}} transformation permits the estimation of both Principal Components and Mahalanobis distances and associated probabilities through the use of (p-1) synthetic variables.  However, in that instance the loadings of the (p-1) synthetic variables will be plotted by \code{\link{gx.rqpca.plot}} rather than the loadings for the elements.
+Executing a \code{\link{ilr}} transformation permits the estimation of both Principal Components and Mahalanobis distances and associated probabilities through the use of \code{(p-1)} synthetic variables.  However, in that instance the loadings of the \code{(p-1)} synthetic variables will be plotted by \code{\link{gx.rqpca.plot}} rather than the loadings for the elements.
 
-Warnings are generated when the number of individuals (observations, cases or samples) falls below 5*p, and additional warnings when the number of individuals falls below 3*p.  At these low ratios of individuals to variables the shape of the p-space hyperellipsoid is difficult to reliably define, and therefor the results may lack stability.  These limits 5*p and 3*p are generous, the latter especially so; many statisticians would argue that the number of individuals should not fall below 9*p, see Garrett (1993).
+Warnings are generated when the number of individuals (observations, cases or samples) falls below 5*\code{p}, and additional warnings when the number of individuals falls below 3*\code{p}.  At these low ratios of individuals to variables the shape of the \code{p}-space hyperellipsoid is difficult to reliably define, and therefor the results may lack stability.  These limits 5*\code{p} and 3*\code{p} are generous, the latter especially so; many statisticians would argue that the number of individuals should not fall below 9*\code{p}, see Garrett (1993).
 }
 \references{
 Garrett, R.G., 1990. A robust multivariate allocation procedure with applications to geochemical data. In Proc. Colloquium on Statistical Applications in the Earth Sciences (Eds F.P. Agterberg & G.F. Bonham-Carter). Geological Survey of Canada Paper 89-9, pp. 309-318.
@@ -88,7 +90,7 @@ xyplot.tags(x, y, dimnames(test.robmva)[[1]], cex = 0.75)
 save.rob <- gx.robmva(as.matrix(test.robmva[, c(1:2)]))
 ## Display saved object with alternate main titles
 gx.rqpca.screeplot(save.rob, main = "Bivariate synthetic data")
-gx.rqpca.plot(save.rob, cex.lab = 0.8, rowids = TRUE, cex = 0.7,
+gx.rqpca.plot(save.rob, cex.lab = 0.8, rowids = TRUE,
 main = "Bivariate synthetic data")
 gx.md.plot(save.rob, cex.main = 0.9, cex.lab = 0.8, cex.axis = 0.8,
 main = "Bivariate synthetic data")

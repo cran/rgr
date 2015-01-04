@@ -7,7 +7,7 @@ Plots a histogram for a data set, the user has options for defining the axis and
 \usage{
 gx.hist(xx, xlab = deparse(substitute(xx)), 
 	ylab = "Number of Observations", log = FALSE, xlim = NULL, 
-	main = "", nclass = "Scott", colr = 8, ifnright = TRUE,
+	main = "", nclass = "Scott", colr = NULL, ifnright = TRUE,
 	cex = 1, ...)
 }
 \arguments{
@@ -31,7 +31,7 @@ Any less than detection limit values represented by negative values, or zeros or
   
 Any \code{NA}s in the data vector are removed prior to displaying the plots. 
 
-If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.  
+If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being appropriate for a logarithmically scaled plot, i.e. \code{log = TRUE}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.  
 
 If it is desired to prepare a display of data falling within a defined part of the actual data range, then either a data subset can be prepared externally using the appropriate R syntax, or \code{xx} may be defined in the function call as, for example, \code{Cu[Cu < some.value]} which would remove the influence of one or more outliers having values greater than \code{some.value}.  In this case the number of data values displayed will be the number that are \code{<some.value}.
 }

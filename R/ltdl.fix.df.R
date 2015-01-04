@@ -1,5 +1,5 @@
 ltdl.fix.df <-
-function (x, zero2na = FALSE, coded = NA) 
+function (x, negs2na = FALSE, zero2na = FALSE, coded = NA) 
 {
     if (!(is.matrix(x) | is.data.frame(x))) 
         stop(paste("  ", deparse(substitute(x)), "is not a matrix or data frame"))
@@ -17,6 +17,7 @@ function (x, zero2na = FALSE, coded = NA)
     nna <- sum(is.na(x))
     cat("  n =", n, "by p =", p, "matrix checked,", nna, "NA(s) present\n ", 
         n.f, "factor variable(s) present")
+    ncoded <- 0
     if (!is.na(coded)) {
         x[x == coded] <- NA
         ncoded <- sum(is.na(x)) - nna
@@ -28,8 +29,14 @@ function (x, zero2na = FALSE, coded = NA)
         cat("\n ", nzero, "zero (abs(x) < 10^-5) value(s) set to NA")
     }
     nfix <- length(x[!is.na(x) & x < 0])
-    x[!is.na(x) & x < 0] <- abs(x[!is.na(x) & x < 0])/2
-    cat("\n ", nfix, "-ve value(s) set to +ve half the negative value\n")
+    if (negs2na) {
+        x[!is.na(x) & x < 0] <- NA
+        cat("\n ", nfix, "-ve value(s) set to NA\n")
+    }
+    else {
+        x[!is.na(x) & x < 0] <- abs(x[!is.na(x) & x < 0])/2
+        cat("\n ", nfix, "-ve value(s) set to +ve half the negative value\n")
+    }
     x <- as.data.frame(x)
     if (if.df) {
         xsav[, ind.num] <- x

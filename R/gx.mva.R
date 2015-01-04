@@ -19,7 +19,7 @@ function(xx, main = deparse(substitute(xx)))
      temp.x <- remove.na(xx)
      x <- temp.x$x; n <- temp.x$n; p <- temp.x$m
      matnames <- dimnames(xx)
-     matnames[[1]] <- c(1:n)
+     if(is.null(matnames[[1]])) matnames[[1]] <- c(1:n)
      wts <- numeric(n); wts[1:n] <- 1
      nc <- n
      cat("  n =", n, "\tnc =", n, "\tp =", p, "\t\tnc/p =", round(nc/p, 2), "\n")

@@ -2,7 +2,7 @@
 \alias{anova1}
 \title{ Analysis of Variance (ANOVA) }
 \description{
-Undertakes a random effects model Analysis of Variance (ANOVA) on a set of duplicate measurements to determine if the analytical, or combined sampling and analytical, (within) variability is significantly smaller than the variability across the duplicates.
+Undertakes a random effects model Analysis of Variance (ANOVA) on a set of duplicate measurements to determine if the analytical, or combined sampling and analytical, (within) variability is significantly smaller than the variability across the duplicates.  For data stored in alternate form use \code{\link{anova2}}
 }
 \usage{
 anova1(x1, x2, xname = deparse(substitute(x1)), log = FALSE)

@@ -8,10 +8,10 @@ Function to undertake a range transformation on a data matrix in order that each
 rng(xx)
 }
 \arguments{
-  \item{xx}{ a n by p matrix to be range transformed. }
+  \item{xx}{ a \code{n} by \code{p} matrix to be range transformed. }
 }
 \value{
-  \item{x}{ a n by p matrix of range-transformed values. }
+  \item{x}{ a \code{n} by \code{p} matrix of range-transformed values. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

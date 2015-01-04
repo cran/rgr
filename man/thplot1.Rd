@@ -22,13 +22,13 @@ thplot1(x1, x2, xname = "", ifzero = 0.01, xlow = NA, xhih = NA,
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be change by setting \code{cex.axis}, the size of the axis titles by seetting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }  
 }
 \details{
-This function expects the RSD\% as a measure of measurement repeatability (precision), which is more familiar to the current generation of applied geochemists, rather than the precision at the 2 Standard Deviation level.  The necessary calculations to conform with the Thompson and Howarth procedure are made internally.
+This function expects the RSD\% as a measure of repeatability (precision), which is more familiar to the current generation of applied geochemists, rather than the precision at the 2 Standard Deviation level.  The necessary calculations to conform with the Thompson and Howarth procedure are made internally.
      
 Duplicate pairs containing any \code{NA}s are omitted from the calculations. 
 
 If the data are as a single concatenated vector from a matrix or data frame as \code{x[1], ..., x[n]} followed by \code{x[n+1], ..., x[2n]}, or alternated as \code{x[1]} and \code{x[2]} being a pair through to \code{x[2*i+1]} and \code{x[2*i+2]}, for the \code{i in 1:n} duplicate pairs use function \code{\link{thplot2}}.
 
-The user is prompted for the location of the two legend items added to the plot, the number of duplicate pairs, and whether or not the duplicates have met the RSD\% criterion.  In both instances the user is prompted for the location of left end of the text line, or the top left corner of the text block.
+The user is prompted for the location of the two legend items added to the plot, the number of duplicate pairs, and whether or not the duplicates have met the RSD\% criterion.  In both instances the user is prompted for the location of left end of the text line, or the top left corner of the text block.  The probability that the plotted data have met the RSD criterion is displayed ib the text block; if the probability exceeds 0.9999 it is displayed as 0.9999.
 }
 \note{ 
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

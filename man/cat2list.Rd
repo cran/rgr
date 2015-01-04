@@ -12,7 +12,7 @@ cat2list(x, a)
   \item{a}{ name of the factor variable by which the data are to be split. }
 }
 \value{
-  \item{data}{ a list containing factors as columns and the values for those factors as rows.  The order of the resulting groups, subsets, is the order in which the factor variable names were encountered in parameter \sQuote{a} passed to the function. }
+  \item{data}{ a list containing factors as columns and the values for those factors as rows.  The order of the resulting groups, subsets, is the order in which the factor variable names were encountered in parameter \code{a} passed to the function. }
 }
 \note{
 This function is called by functions \code{\link{tbplots}} and \code{\link{bwplots}} to prepare Tukey boxplots and box-and-whisker plots, respectively. It is an integral part of the script shared by Doug Nychka on S-News, April 28, 1992.  As such it may pre-date the time that \code{\link{split}} was added to the S-Plus library.

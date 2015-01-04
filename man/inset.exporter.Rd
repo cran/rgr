@@ -2,12 +2,12 @@
 \alias{inset.exporter}
 \title{ Saves an EDA Graphical and Statistical Summary }
 \description{
-Saves the output from functio \code{\link{inset}} as a graphics file in the R working directory for use in report or map preparation.  Optionally the EDA graphics may be plotted with base 10 logarithmic scaling. 
+Saves the output from function \code{\link{inset}} as a graphics file in the R working directory for use in report or map preparation.  Optionally the EDA graphics may be plotted with base 10 logarithmic scaling. 
 }
 \usage{
 inset.exporter(x, xlab = deparse(substitute(x)), log = FALSE, 
 	xlim = NULL, nclass = NULL, ifnright = TRUE, file = NULL, 
-	table.cex = 0.7, gtype = "wmf", ...)
+	table.cex = 0.7, gtype = "emf", ...)
 }
 \arguments{
   \item{x}{ name of the variable to be plotted. }
@@ -21,7 +21,7 @@ inset.exporter(x, xlab = deparse(substitute(x)), log = FALSE,
 and the text lines overlap.  If this is true \code{table.cex} can be decreased,
 the default is \code{table.cex = 0.85}, conversely it can be increased if the
 table appears \sQuote{skinny}. }
-  \item{gtype}{ the format of the graphics file to be saved.  By default \code{gtype = "wmf"} for a Windows metafile.  Other alternatives are \code{gtype = "jpg"} for a jpeg file, \code{gtype = "png"} for a portable network graphics file, \code{gtype = "ps"} for a postscript file, or \code{gtype = "pdf"} for a pdf file.
+  \item{gtype}{ the format of the graphics file to be saved.  By default \code{gtype = "emf"} for a Windows extended metafile.  Other alternatives are \code{gtype = "jpg"} for a jpeg file, \code{gtype = "png"} for a portable network graphics file, \code{gtype = "ps"} for a postscript file, or \code{gtype = "pdf"} for a pdf file.
 }
   \item{\dots}{ further arguments to be passed to methods.  For example, by default individual data points in the CPP plot are marked by a plus sign, \code{pch = 3}, if a cross or open circle is desired, then set \code{pch = 4} or \code{pch = 1}, respectively.  See \code{\link{display.marks}} for all available symbols. Adding \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively, in the CPP plot. }
 }
@@ -30,15 +30,15 @@ See \code{\link{inset}} for details concerning the \code{inset} parameters.
 
 \code{file} contains the first part of the file name identifying the data source for the output file to be saved in the R working directory, see Note below.  The function concatenates the working directory name with \code{file}\code{_}\code{deparse(substitute(x))}\code{_inset} as a character string for the file name.  Subsequently the \sQuote{value} of \code{gtype} is appended as the file type and the file saved in the R working directory. }
 \note{
-To set the R working directory, if it has not already been set in a \code{first} function, use at the R command line, for example, \code{setwd("C:\\\R\\\WDn")}, where \sQuote{n} is some number, which will result in all saved output being placed in that folder.
+To set the R working directory, if it has not already been set in a \code{first} function, use at the R command line, for example, \code{setwd("C:\\R\\WDn")}, where \sQuote{n} is some number, which will result in all saved output being placed in that folder.
 
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any NAs in the data vector are removed prior to displaying and saving the plot.
 
-If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.
+If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being apprpriate for a logarithmically scaled plot, i.e. \code{log = TRUE}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.
 
-In some instances if the graphics window has been resized the last line(s) of the table may not be displayed, if so, resize the table until it is entirely visible. Resizing the window to be smaller will display the whole table. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
+In some instances if the graphics window has been resized the last line(s) of the table may not be displayed, if so, resize the table until it is entirely visible. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
 
 In some R installations the generation of multi-panel displays and the use of function eqscplot from package MASS causes warning messages related to graphics parameters to be displayed on the current device. These may be suppressed by entering \code{options(warn = -1)} on the R command line, or that line may be included in a \sQuote{first} function prepared by the user that loads the \sQuote{rgr} package, etc.
 }

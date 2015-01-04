@@ -2,16 +2,16 @@
 \alias{wtd.sums}
 \title{ Function to Compute Weighted Sums }
 \description{
-Computes weighted sums for a user selected group of variables (Garrett and Grunsky, 2001).  The user must provide the relative importances of the the variables contributing to the weighted sums.  By default the median and MAD are estimated as measures of location and spread for the data.  These may be replaced with alternate estimates if the user wishes, see Details below.  An object is created containing all the estimated parameters and the weighted sums for later reference and use.
+Computes weighted sums for a user selected group of variables (Garrett et al., 1980; Garrett and Grunsky, 2001).  The user must provide the relative importances of the the variables contributing to the weighted sums.  By default the median and MAD are estimated as measures of location and spread for the data.  These may be replaced with alternate estimates if the user wishes, see Details below.  An object is created containing all the estimated parameters and the weighted sums for later reference and use.
 }
 \usage{
 wtd.sums(xx, ri, xloc = NULL, xspread = NULL)
 }
 \arguments{
-  \item{xx}{ name of the n by p matrix containing the data. }
-  \item{ri}{ a vector of the relative weights for the p variables, negative weights are permisable to indicate that high levels of the variable should have a negative impact on the weighted sums. }
-  \item{xloc}{ the default procedure is to use the computed medians of the input variables.  Alternately, a vector of p estimates of location may be provided. }
-  \item{xspread}{ the default procedure is to use the computed MADs of the input variables.  Alternately, a vector of p estimates of spread may be provided. }
+  \item{xx}{ name of the \code{n} by \code{p} matrix containing the data. }
+  \item{ri}{ a vector of the relative weights for the \code{p} variables, negative weights are permisable to indicate that high levels of the variable should have a negative impact on the weighted sums. }
+  \item{xloc}{ the default procedure is to use the computed medians of the input variables.  Alternately, a vector of \code{p} estimates of location may be provided. }
+  \item{xspread}{ the default procedure is to use the computed MADs of the input variables.  Alternately, a vector of \code{p} estimates of spread may be provided. }
 }
 \details{
 If the data for only some of the variables available in an attached matrix or data frame are to be processed use the \code{cbind} construct.  Thus, \code{temp.mat <- cbind(vname1, vname3, vname6, vname8)}, or the cbind may be used directly, see Example below. 
@@ -34,6 +34,8 @@ Any rows in the data matrix with with \code{NA}s are removed prior to computing 
 \author{ Robert G. Garrett }
 \references{
 Garrett, R.G. and Grunsky, E.G., 2001. Weighted Sums - Knowledge based empirical indices for use in exploration geochemistry.  Geochemistry: Exploration, Environment and Analysis, 1(2):135-141.
+
+Garrett, R.G, Kane, V.E. and Zeigler, R.K., 1980. The management and analysis of regional geochemical data.  Journal of Geochemical Exploration, 13(1/2):115-152.
 }
 \seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}} }
 \examples{

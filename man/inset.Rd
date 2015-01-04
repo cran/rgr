@@ -6,7 +6,7 @@ Plots a three panel graphical distributional summary for a data set, comprising 
 }
 \usage{
 inset(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, 
-	nclass = NULL, ifnright = TRUE, table.cex = 0.7, ...)
+	nclass = NULL, colr = NULL, ifnright = TRUE, table.cex = 0.7, ...)
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
@@ -14,6 +14,7 @@ inset(xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
   \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{default limits of the x-axis are determined in the function.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
+  \item{colr}{ by default the histogram is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }
   \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}. }
   \item{table.cex}{ on some display devices the table may be \sQuote{cramped}
 and the text lines overlap.  If this is true \code{table.cex} can be decreased,
@@ -31,7 +32,7 @@ Any NAs in the data vector are removed prior to displaying the plot.
 
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  If this occurs the number of data points omitted is displayed below the total number of observations.
 
-The purpose of this function is to prepare publication quality graphics (.wmf) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
+The purpose of this function is to prepare publication quality graphics (.emf or .ps) files that can be included in reports or used as inset statistical summaries for maps.  If a series of these are to be prepared the function \code{\link{inset.exporter}} can be used to advantage as it saves a graphics file as part of its procedure.
 
 In some instances if the graphics window has been resized the last line(s) of the table may not be displayed, if so, resize the table until it is entirely visible. If the whole table is not visible it will not be saved properly to the graphics file in \code{\link{inset.exporter}}. Once as a complete graphics file the image may be resized in the receiving document.
 

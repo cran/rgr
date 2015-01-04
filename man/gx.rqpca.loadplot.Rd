@@ -9,7 +9,7 @@ gx.rqpca.loadplot(save, main = "", crit = 0.3, cex = 0.8,
 	cex.axis = 0.7, cex.main = 0.8)
 }
 \arguments{
-  \item{save}{ a saved object from any of functions \code{gx.mva}, \code{gx.robmva} or \cr\code{gx.robmva.closed}. }
+  \item{save}{ a saved object from any of functions \code{gx.mva}, \code{gx.mva.closed}, \cr\code{gx.robmva} or \code{gx.robmva.closed}. }
   \item{main}{ an alternate plot title from that generated automatically from information in the saved object, see Details below. }
   \item{crit}{ the lower limit of the absolute value of a loading for a variable to be displayed, by default \code{crit = 0.3}. }
   \item{cex}{ the text scale expansion factor for the variable names in the display, by default \code{cex = 0.8}, a 20\% font size reduction. }

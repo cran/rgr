@@ -2,13 +2,13 @@
 \alias{gx.mva}
 \title{ Function to undertake an Exploratory Multivariate Data Analysis }
 \description{
-The function carries out a Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a dataset and places them in an object to be saved and post-processed for display and further manipulation.  Classical procedures are used, for robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.print}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For Kaiser varimax rotation see \code{\link{gx.rotate}}.
+The function carries out a Principal Components Analysis (PCA) and estimates the Mahalanobis distances for a dataset and places them in an object to be saved and post-processed for display and further manipulation.  Classical procedures are used, for robust procedures see \code{\link{gx.robmva}}.  For results display see \code{\link{gx.rqpca.screeplot}}, \code{\link{gx.rqpca.loadplot}}, \code{\link{gx.rqpca.plot}}, \code{\link{gx.rqpca.print}}, \code{\link{gx.md.plot}} and \code{\link{gx.md.print}}.  For Kaiser varimax rotation see \code{\link{gx.rotate}}.  For closed. compositional, data use \code{\link{gx.mva.closed}}.
 }
 \usage{
 gx.mva(xx, main = deparse(substitute(xx)))
 }
 \arguments{
-  \item{xx}{ a n by p data matrix to be processed. }
+  \item{xx}{ a \code{n} by \code{p} data matrix to be processed. }
   \item{main}{ by default the name of the object \code{xx}, \code{main = deparse(substitute(xx))}, it may be replaced by the user, but this is not recommended, see Details below. }
 }
 \details{
@@ -23,25 +23,25 @@ The following are returned as an object to be saved for subsequent display, etc.
   \item{nc}{ the number of individuals remaining in the \sQuote{core} data subset after trimming.  At this stage of a data analysis \code{nc = n}. }
   \item{p}{ the number of variables on which the multivariate operations were based. }
   \item{ifilr}{ flag for \code{gx.md.plot}, set to \code{FALSE}. }
-  \item{matnames}{ the row numbers and column headings of the input matrix. }
-  \item{wts}{ the vector of weights for the n individuals used to compute the covariance matrix and means.  At this stage of the data analysis all weights are set to \sQuote{1}. }
-  \item{mean}{ the vector the weighted means for the p variables. }
-  \item{cov}{ the p by p weighted covariance matrix for the n by p data matrix. }
-  \item{sd}{ the vector of weighted standard deviations for the p variables. }
-  \item{snd}{ the n by p matrix of weighted standard normal deviates. }
-  \item{r}{ the p by p matrix of weighted Pearson product moment correlation coefficients. }
-  \item{eigenvalues}{ the vector of p \code{eigenvalues} of the scaled Pearson correlation matrix for RQ analysis, see Grunsky (2001). }
-  \item{econtrib}{ the vector of p \code{eigenvalues} each expressed as a percentage of the sum of the \code{eigenvalues}. }
-  \item{eigenvectors}{ the n by p matrix of \code{eigenvectors}. }
-  \item{rload}{ the p by p matrix of Principal Component (PC) loadings. }
-  \item{rcr}{ the p by p matrix containing the percentages of the variability of each variable (rows) expressed in each PC (columns). } 
-  \item{rqscore}{ the n by p matrix of the n individuals scores on the p PCs. }
-  \item{vcontrib}{ a vector of p variances of the columns of \code{rqscore}. }
-  \item{pvcontrib}{ the vector of p variances of the columns of \code{rqscore} expressed as percentages.  This is a check on vector \code{econtrib}, the values should be identical. }
-  \item{cpvcontrib}{ the vector of p cumulative sums of \code{pvcontrib}, see above. }
-  \item{md}{ the vector of n Mahalanobis distances (MDs) for the n by p input matrix. }
-  \item{ppm}{ the vector of n predicted probabilities of population membership, see Garrett (1990). }
-  \item{epm}{ the vector of n empirical Chi-square probabilities for the MDs. }
+  \item{matnames}{ the row numbers or identifiers and column headings of the input matrix. }
+  \item{wts}{ the vector of weights for the \code{n} individuals used to compute the covariance matrix and means.  At this stage of the data analysis all weights are set to \sQuote{1}. }
+  \item{mean}{ the vector the weighted means for the \code{p} variables. }
+  \item{cov}{ the \code{p} by \code{p} weighted covariance matrix for the \code{n} by \code{p} data matrix. }
+  \item{sd}{ the vector of weighted standard deviations for the \code{p} variables. }
+  \item{snd}{ the \code{n} by \code{p} matrix of weighted standard normal deviates. }
+  \item{r}{ the \code{p} by \code{p} matrix of weighted Pearson product moment correlation coefficients. }
+  \item{eigenvalues}{ the vector of \code{p} eigenvalues of the scaled Pearson correlation matrix for RQ analysis, see Grunsky (2001). }
+  \item{econtrib}{ the vector of \code{p} eigenvalues each expressed as a percentage of the sum of the \code{eigenvalues}. }
+  \item{eigenvectors}{ the \code{n} by \code{p} matrix of \code{eigenvectors}. }
+  \item{rload}{ the \code{p} by \code{p} matrix of Principal Component (PC) loadings. }
+  \item{rcr}{ the \code{p} by p matrix containing the percentages of the variability of each variable (rows) expressed in each PC (columns). } 
+  \item{rqscore}{ the \code{n} by \code{p} matrix of the n individuals scores on the \code{p} PCs. }
+  \item{vcontrib}{ a vector of \code{p} variances of the columns of \code{rqscore}. }
+  \item{pvcontrib}{ the vector of \code{p} variances of the columns of \code{rqscore} expressed as percentages.  This is a check on vector \code{econtrib}, the values should be identical. }
+  \item{cpvcontrib}{ the vector of \code{p} cumulative sums of \code{pvcontrib}, see above. }
+  \item{md}{ the vector of \code{n} Mahalanobis distances (MDs) for the n by \code{p} input matrix. }
+  \item{ppm}{ the vector of \code{n} predicted probabilities of population membership, see Garrett (1990). }
+  \item{epm}{ the vector of \code{n} empirical Chi-square probabilities for the MDs. }
   \item{nr}{ the number of PCs that have been rotated.  At this stage of a data analysis \code{nr = NULL} in order to control PC plot axis labelling. }
 }
 \note{
@@ -49,15 +49,13 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any rows in the data matrix with \code{NA}s are removed prior to computions.  In the instance of a compositional data opening transformation \code{NA}s have to be removed prior to undertaking the transformation, see \code{\link{na.omit}}, \code{\link{where.na}} and \code{\link{remove.na}}.  When that procedure is followed the opening transformations may be executed on calling the function, see Examples below.
 
-For compositional, geochemical, data use function \code{\link{gx.mva.closed}}.
-
 Note that, executing a \code{\link{clr}} transformation leads to a singular matrix that can not be inverted for the estimation of Mahalanobis distances.  In that case the values of \code{md}, \code{ppm} and \code{epm} are all set to \code{NULL}.
 
 Note that, executing a \code{\link{ilr}} transformation permits the estimation of Mahalanobis distances and associated probabilities through the use of \code{p-1} synthetic variables.  However, in that instance the loadings of the \code{p-1} synthetic variables will be plotted by \code{\link{gx.rqpca.plot}} rather than the loadings for the elements.
 
 Therefore, use function \code{\link{gx.mva.closed}} for compositional, geochemical, data.
 
-Warnings are generated when the number of individuals (observations, cases or samples) falls below \code{5p}, and additional warnings when the number of individuals falls below \code{3p}.  At these low ratios of individuals to variables the shape of the p-space hyperellipsoid is difficult to reliably define, and therefor the results may lack stability.  These limits \code{5p} and \code{3p} are generous, the latter especially so; many statisticians would argue that the number of individuals should not fall below \code{9p}, see Garrett (1993).
+Warnings are generated when the number of individuals (observations, cases or samples) falls below \code{5p}, and additional warnings when the number of individuals falls below \code{3p}.  At these low ratios of individuals to variables the shape of the \code{p}-space hyperellipsoid is difficult to reliably define, and therefor the results may lack stability.  These limits \code{5p} and \code{3p} are generous, the latter especially so; many statisticians would argue that the number of individuals should not fall below \code{9p}, see Garrett (1993).
 }
 \references{
 Garrett, R.G., 1990. A robust multivariate allocation procedure with applications to geochemical data. In Proc. Colloquium on Statistical Applications in the Earth Sciences (Eds F.P. Agterberg & G.F. Bonham-Carter). Geological Survey of Canada Paper 89-9, pp. 309-318.

@@ -2,15 +2,24 @@ gx.summary.mat <-
 function (xmat, vars, banner = deparse(substitute(xmat)), log = FALSE) 
 {
     if (!(is.matrix(xmat) | is.data.frame(xmat))) 
-        stop(paste("  ", banner, "is not a matrix or data frame"))
+        stop(paste("  ", deparse(substitute(xmat)), "is not a matrix or data frame"))
+    if.df <- FALSE
+    if (is.data.frame(xmat)) {
+        xsav <- xmat
+        ind.num <- sapply(xmat, is.numeric)
+        xmat <- as.matrix(xmat[, ind.num])
+        if.df <- TRUE
+    }
     nvars <- length(vars)
     if (log) 
         cat("  Data log10 transformed: SD, CV% and SE in log10 units\n")
     cat("  Summary Stats for", banner, "\n\n\t", "N NAs - Min Q1 M Q2 Max - MAD IQR_SD - Mean SD CV% - SE 95% CI on Mean\n")
     for (i in 1:nvars) {
         ii <- vars[i]
-        if (is.numeric(vars[i])) 
-            xname <- dimnames(xmat)[[2]][ii]
+        if (is.numeric(vars[i])){ 
+            if (if.df) xname <- dimnames(xmat)[[2]][ii]
+            else {xname <- as.character(ii)}
+           }
         else {
             xname <- vars[i]
         }
