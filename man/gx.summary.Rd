@@ -2,14 +2,14 @@
 \alias{gx.summary}
 \title{ Compiles a Table of Summary Statistics }
 \description{
-This function is a \sQuote{sub-engine} between the main summary statistics engine, \sQuote{gx.stats}, and the \code{gx.summary.*} display functions.  Its \sQuote{sub-engine} function is to select the required results from the \code{gx.stats} computations, and additionally compute 95\% confidence bounds on means.
+This function is a \sQuote{sub-engine} between the main summary statistics engine, \sQuote{gx.stats}, and the \code{gx.summary.*} display functions, it does generate any output to the current device.  Its \sQuote{sub-engine} function is to select the required results from the \code{gx.stats} computations, and additionally compute 95\% confidence bounds on means.
 }
 \usage{
 gx.summary(xx, log = log, iftell = iftell)
 }
 \arguments{
   \item{xx}{ name of the variable to be processed. }
-  \item{log}{ if it will be required to display summary statistics following a log10 transformation of the data, set \code{log = TRUE}. }
+  \item{log}{ set \code{log = TRUE} if it is required to compute statistics following a log10 transformation of the data. }
   \item{iftell}{ passes the value of \code{iftell} for controlling the display of the \code{NA} count to function \code{remove.na} from the calling function. }
 }
 \value{
@@ -35,7 +35,7 @@ Any less than detection limit values represented by negative values, or zeros or
 
 Any \code{NA}s in the data vector will be removed prior to computation in function \code{gx.stats}.  Depending on the value of \code{iftell}, the \code{NA} count will be displayed, \code{iftell = TRUE}, or suppressed, \code{iftell = FALSE}.
 
-There are no examples for this function.
+There are no examples for this function.  To display the summary statistics use one of the summary statistics display functions: \code{\link{gx.stats}}, \code{\link{gx.summary1}}; \code{\link{gx.summary2}}; \code{\link{gx.summary.mat}}; \cr\code{\link{gx.summary.groups}}; \code{\link{framework.stats}}; or \code{\link{framework.summary}}. 
 }
 \author{ Robert G. Garrett }
 \seealso{ \code{\link{gx.stats}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, }

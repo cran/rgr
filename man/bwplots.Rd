@@ -14,7 +14,7 @@ bwplots(x, by, log = FALSE, wend = 0.05, notch = TRUE, xlab = "",
 \arguments{
   \item{x}{ name of the variable to be plotted. }
   \item{by}{ the name of the factor variable to be used to subdivide the data.  See Details below for when \code{by} is undefined. }
-  \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
+  \item{log}{ to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{wend}{ the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is to notch the boxplots, to suppress the notches set \code{notch = FALSE}.  See Details below. }
   \item{xlab}{ a title for the x-axis, by default none is provided. A title may be provided, see Examples.}

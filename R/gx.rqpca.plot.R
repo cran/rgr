@@ -1,20 +1,21 @@
 gx.rqpca.plot <-
 function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL, 
          ifrot = TRUE, main = "", cex.lab = 0.9, cex.main = 0.9, rcex = 1,
-         qcex = 0.8, rcol = 1, qcol = 1, ...)
+         qcex = 0.8, rcol = 1, qcol = 1, ifray = TRUE, if34 = TRUE, ...)
 {
-     # Function to plot scores on component v2 vs scores on component v1
-     # using the saved output from gx.mva or gx.robmva.  Default is to
-     # plot Principal Component 2 vs. Principal Component 1, and data
-     # points are plotted as default crosses.  If other than a cross is
-     # required, pch is set to the required value.
+     # Function to prepare plots scores on component v2 vs scores on 
+     # component v1, loadings of v2 vs v1, or biplots using the saved 
+     # output from gx.mva, gx,mva.closed. gx.robmva or gx.robmva.closed.
+     # The default is to plot PC-2 vs. PC-1, with data points plotted as
+     # default crosses, and the variable names identified.  If other than
+     # a cross is required, pch is set to the required value, or the input
+     # matrix row number or sample ID may be displayed.
      #
      # Other component combinations may be plotted by setting v1 and v2
      # appropriately.  The plots are always scaled so that both variables
-     # and cases (samples) will plot in the space, this may result in
-     # "white space" if either variables or cases are not plotted.
-     # Setting ifrot = FALSE causes the unrotated loadings and scores to
-     # be plotted from the gx.rotate saved object.
+     # and cases (samples) will plot in the space.  Setting ifrot = FALSE
+     # causes the unrotated loadings and scores to be plotted from the 
+     # gx.rotate saved object.
      #
      # Note: Default is rplot = T & qplot = T & rowids = NULL.
      # The following combinations result in the following plots:
@@ -33,7 +34,7 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
      # rcex and qcex provides control of the font sizes.
      #
      frame()
-     if(main == "") banner <- paste("PC bi-plots for",
+     if(main == "") banner <- paste("PC biplot for",
          deparse(substitute(save)), "\ndata source:", save$input)
      else banner <- main
      nr <- save$nr
@@ -108,12 +109,37 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
          cex.main = cex.main, cex.lab = cex.lab, ...)
      if((x1 < 0) & (x2 > 0)) abline(v = 0, lty = 2)
      if((y1 < 0) & (y2 > 0)) abline(h = 0, lty = 2)
-     if(rplot) text(rload[, v1], rload[, v2], rnames, cex = rcex, col = rcol, ...)
      if(qplot) {
          if(is.null(rowids))
              points(rqscore[, v1], rqscore[, v2], cex = qcex, col = qcol, ...)
          else if(rowids) text(rqscore[, v1], rqscore[, v2], cex = qcex, col = qcol, ...)
          else text(rqscore[, v1], rqscore[, v2], qnames, cex = qcex, col = qcol, ...)
+     }
+     if(rplot) {
+         if(save$proc == "cov" || !(qplot)) {
+             text(rload[, v1], rload[, v2], rnames, cex = rcex, col = rcol, ...)
+         }
+     else {
+         oldpar <- par
+         on.exit(par(oldpar))
+         par(new = TRUE)
+         plot(rload[, v1], rload[, v2], type= "n", xaxt = "n", yaxt = "n",
+             xlab = "", ylab = "")
+         text(rload[, v1], rload[, v2], rnames, cex = rcex, col = rcol, ...)
+         if(if34) {
+             axis(3)
+             mtext(paste("Robust (", save$proc, ") PC-", v1, " loading", sep = ""),
+                 side = 3, line = 2.5, col = rcol)
+             axis(4)
+             mtext(paste("Robust (", save$proc, ") PC-", v2, " loading", sep = ""),
+                 side = 4, line = 2.5, col = rcol)
+         } 
+     }
+         if(ifray) {
+             for (i in 1:save$p) {
+                 lines(c(0, rload[i, v1]), c(0, rload[i, v2]), col = rcol, lty = 3)
+             }
+         }
      }
      invisible()
 }

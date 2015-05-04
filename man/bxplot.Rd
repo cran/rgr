@@ -12,7 +12,7 @@ bxplot(xx, xlab = deparse(substitute(xx)), log = FALSE,
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
-  \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. } 
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. } 
   \item{ifbw}{ the default is to plot a horizontal Tukey boxplot, if a box-and-whisker plot is required set \code{ifbw = TRUE}. }
   \item{wend}{ if \code{ifbw = TRUE} the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }

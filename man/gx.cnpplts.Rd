@@ -10,7 +10,7 @@ gx.cnpplts(xlab = " ", log = FALSE, xlim = NULL, main = "",
 }
 \arguments{
   \item{xlab}{ a title for the x-axis must be provided, even if it is \sQuote{no title}, i.e. \code{xlab = ""}, or an informative title may be provided, see Examples. }
-  \item{log}{ \code{log} must be specified, \code{TRUE} or \code{FALSE}.  If it is required to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. If log scaling is not required, set \code{log = FALSE}. }
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. }
   \item{xlim}{ if the internally generated values for \code{xlim} are to be replaced see the Note below.  If the internally generated x-axis limits are satisfactory omit any reference to \code{xlim} in the call to the function. }
   \item{main}{ a title must be provided, even if it is \sQuote{no title}, i.e. \code{main = ""}.  If \code{main} is specified a title will be added above the plot, e.g., \code{main = "Kola Project, 1995"}. }
   \item{iflgnd}{ \code{iflgnd} must be specified, \code{TRUE} or \code{FALSE}.  If a R generated legend is to be be placed on the plot, set \code{iflgnd = TRUE}.  On completion of CPP plotting the cursor is activated, locate it at the top left of the space where the legend is to be added and \sQuote{left button} on the pointing device.   The legend comprises the symbol/colour combination, the name of the subset plotted and the data subset size; this information is also displayed on the current device. If no legend is required, set \code{iflgnd = FALSE}. }

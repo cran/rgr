@@ -8,23 +8,23 @@ Plots a histogram for a data set, the user has options for defining the axis and
 gx.hist(xx, xlab = deparse(substitute(xx)), 
 	ylab = "Number of Observations", log = FALSE, xlim = NULL, 
 	main = "", nclass = "Scott", colr = NULL, ifnright = TRUE,
-	cex = 1, ...)
+	cex = 0.8, ...)
 }
 \arguments{
   \item{xx}{ name of the variable to be plotted }
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{ylab}{ a default y-axis title of \code{"Number of Observations"} is provided, this may be changed, e.g., \code{ylab = "Counts"}. }
-  \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "Sturges"} or \code{nclass = "FD"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
   \item{colr}{ by default the histogram is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }
-  \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}. }
+  \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}.  If neither option generates an acceptable plot, setting \code{ifnright = NULL} suppresses the display of the data set size.  }
   \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis titles may be changed by setting \code{cex.lab}, the size of the axis labels by setting \code{cex.axis}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \value{
-  \item{xlim}{ A two element vector containing the actual minimum [1] and maximum [2] x-axis limits used in the histogram display are returned.  These are use in function \code{\link{shape}} to ensure all panels have the same x-axis limits. }
+  \item{xlim}{ A two element vector containing the actual minimum [1] and maximum [2] x-axis limits used in the histogram display are returned.  These are used in function \code{\link{shape}} to ensure all panels have the same x-axis limits. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

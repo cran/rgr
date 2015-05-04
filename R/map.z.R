@@ -1,8 +1,8 @@
 map.z <-
 function(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, xlab = "Easting",
      ylab = "Northing", zlab = deparse(substitute(zz)), main = "", tol = 0.04,
-     symcolr = 1, ifparams = FALSE, iflgnd = FALSE, title = deparse(substitute(zz)),
-     ...)
+     col = 1, iflgnd = FALSE, title = deparse(substitute(zz)), cex.lgnd = 0.8, 
+     ifparams = FALSE, cex.params = 0.8, ...)
 {
      # Function to plot an EDA map where the data are plotted as inceasing
      # sized circles.  The rate of increase of the diameter in proportion to
@@ -42,7 +42,7 @@ function(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, xlab = "Easting
      zrange <- c(zmin, zmax)
      rgz <- syms(z, zrange, p = p)
      eqscplot(x, y, type = "n", xlab = xlab, ylab = ylab, main = banner, tol = tol, ...)
-     symbols(x, y, circles = rgz, inches = sfact * 0.05, fg = symcolr, add = TRUE, ...)
+     symbols(x, y, circles = rgz, inches = sfact * 0.05, fg = col, add = TRUE, ...)
      if(iflgnd) {
          if(!is.na(zmax)) z[z > zmax] <- zmax
          if(!is.na(zmin)) z[z < zmin] <- zmin
@@ -50,12 +50,12 @@ function(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, xlab = "Easting
          rgz <- syms(zval, zrange, p = p)
          zval <- signif(zval, 3)
          legend(locator(1), pch = rep.int(1, 5), pt.cex = rgz[1:5] * sfact / 0.8,
-             col = rep.int(symcolr, 5), paste(" ", zval[1:5]), cex = 0.8,
-             title = title, ...)
+             col = rep.int(col, 5), paste(" ", zval[1:5]), cex = cex.lgnd,
+             title = title)
      }
      if(ifparams) text(locator(1), paste("p =", signif(p, 3), "& sfact =", sfact,
          "\nz.max =", signif(z.max, 3), "; zmax =", zmax,
          "\nz.min =", signif(z.min, 3), "; zmin =", zmin),
-         cex = 0.8, adj =c(0, 1))
+         adj =c(0, 1), cex = cex.params, ...)
      invisible()
 }

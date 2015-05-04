@@ -9,7 +9,7 @@ xyplot.eda7(xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL,
 	log = NULL, logz = FALSE, xlab = deparse(substitute(xx)), 
 	ylab = deparse(substitute(yy)), zlab = deparse(substitute(zz)), 
 	main = "", ifgrey = FALSE, symcolr = NULL, iflgnd = FALSE,
-	title = deparse(substitute(zz)), ...)
+	title = deparse(substitute(zz)), cex.lgnd = 0.8, ...)
 }
 \arguments{
   \item{xx}{ name of the x-axis variable. }
@@ -27,7 +27,8 @@ xyplot.eda7(xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL,
   \item{ifgrey}{ set \code{ifgrey = TRUE} if a grey-scale plot is required, see Details below. }
   \item{symcolr}{ the default is a colour plot and default colours are provided, deeper blues for lower values, green for the middle 50\% of the data, and oranges and reds for higher values.  A set of alternate symbol colours can be provided by defining \code{symcolr}, see Details below. }
   \item{iflgnd}{ the default is no legend.  If a legend is required set \code{iflgnd = TRUE}, following the plotting of the data the cursor will be activated, locate that at the top left corner of the desired legend position and \sQuote{left button} on the pointing device. }
-  \item{title}{ a short title for the legend, e.g., \code{title = "Zn (mg/kg)"}.  The default is the variable name. } 
+  \item{title}{ a short title for the legend, e.g., \code{title = "Zn (mg/kg)"}.  The default is the character string for \code{zz}. } 
+  \item{cex.lgnd}{ controls the scaling of the legend box and text, but not the symbols so that they match those on the plot, the default is \code{cex.lgnd = 0.8}. } 
   \item{\dots}{ further arguments to be passed to methods.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{

@@ -8,13 +8,13 @@ function (x, xname = deparse(substitute(x)), log = FALSE, table = FALSE)
     if (n != ntrip * 3) 
         stop("Incomplete set of triplicates")
     if (log) {
-        data.name <- deparse(substitute(x))
+        data.name <- xname
         x <- log10(x)
-        cat(paste("\n Data for", data.name, "have been log10 tansformed\n"))
+        cat("\n Data for", data.name, "have been log10 tansformed\n")
     }
     xx <- matrix(x, nrow = ntrip, ncol = 3, byrow = TRUE)
     if (table) {
-        cat(paste("\n Input triplicate data for:\n", xname, "\n"))
+        cat("\n Input triplicate data for", xname, "\n")
         for (i in 1:ntrip) cat(" ", xx[i, 1:3], "\n")
     }
     ba.ss <- sum((xx[, 1] - xx[, 2])^2)/2
@@ -54,8 +54,7 @@ function (x, xname = deparse(substitute(x)), log = FALSE, table = FALSE)
         vcomp[k] = 0
     totvar <- sum(vcomp)
     vcomp.pct <- 100 * vcomp/totvar
-    cat(paste("\n ANOVA ('Bainbridge' staggered design) for:\n", 
-        xname), "\n")
+    cat("\n ANOVA ('Bainbridge' staggered design) for:", xname, "\n")
     cat("\n Level   Variation\tSums of     DF    Mean\t\t Synthesized (1)     F       Prob (2)", 
         "\n\t  between\tSquares          Square\t\t   MS       DF     Ratio     Value\n")
     cat("\n   3     Sites\t\t", signif(bs.ss, 4), "\t    ", bs.df, 

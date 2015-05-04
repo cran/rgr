@@ -2,7 +2,7 @@
 \alias{crm.plot}
 \title{ Plot Results of Control Reference Material (CRM) Analyses }
 \description{
-Function to plot the results of Control Reference material (CRM) analyses in the order in which they occur in a file, assuming that this order is a time-series, so that the presence of \sQuote{drift} may be recognized, in addition to the presence of gross outliers reflecting \sQuote{analytical problems}.  The data are plotted as either values, when the associated standard deviation of the CRM is provided, or percent absolute relative difference from the \sQuote{recommended} value when a target tolerance level is provided (see below).  The expected \sQuote{recommended} value (long-term mean) for the CRM being displayed must be supplied, together with its associated standard deviation, or a target tolerance level for percent absolute relative difference.  By default the CRM recommended value and standard deviation are used to plot red dashed lines at the recommended value +/- 2 standard deviations, and a green line for the recommended value, alternate standard deviation multiples may be provided.  This display is also known as a Shewart plot. 
+Function to plot the results of Control Reference Material (CRM) analyses in the order in which they occur in a file, assuming that this order is a time-series, so that the presence of \sQuote{drift} may be recognized, in addition to the presence of gross outliers reflecting \sQuote{analytical problems}.  The data are plotted as either values, when the associated standard deviation of the CRM is provided, or percent absolute relative difference from the \sQuote{recommended} value when a target tolerance level is provided (see below).  The expected \sQuote{recommended} value (long-term mean) for the CRM being displayed must be supplied, together with its associated standard deviation, or a target tolerance level for percent absolute relative difference.  By default the CRM recommended value and standard deviation are used to plot red dashed lines at the recommended value +/- 2 standard deviations, and a green line for the recommended value, alternate standard deviation multiples may be provided.  This display is also known as a Shewart plot. 
 }
 \usage{
 crm.plot(xx, xname = deparse(substitute(xx)), crm.mean = NULL, 
@@ -32,16 +32,16 @@ attach(crm.test)
 
 ## Plot CRM analyses time-series for CRM-X using the CRM SD estimate
 ## and the default 2 SD tolerance bounds
-crm.plot(Cu[CRM=="X"], "Cu(mg/g) in CRM-X", crm.mean = 34.5, crm.sd = 2.19)
+crm.plot(Cu[CRM=="X"], "Cu(mgkg) in CRM-X", crm.mean = 34.5, crm.sd = 2.19)
 
 ## Plot CRM analyses time-series for CRM-X using the CRM SD estimate
 ## and 2.5 SD tolerance bounds
-crm.plot(Cu[CRM=="X"], "Cu(mg/g) in CRM-X", crm.mean = 34.5, crm.sd = 2.19,
+crm.plot(Cu[CRM=="X"], "Cu(mg/kg) in CRM-X", crm.mean = 34.5, crm.sd = 2.19,
 n.sd = 2.5)
 
 ## Plot CRM analyses time-series for CRM-X using a maximum acceptable
 ## percantage tolerance bound
-crm.plot(Cu[CRM=="X"], "Cu(mg/g) in CRM-X", crm.mean = 34.5, crm.tol = 15)
+crm.plot(Cu[CRM=="X"], "Cu(mg/kg) in CRM-X", crm.mean = 34.5, crm.tol = 15)
 
 ## Detach test data
 detach(crm.test)

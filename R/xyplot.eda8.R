@@ -2,7 +2,7 @@ xyplot.eda8 <-
 function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, xlab = deparse(substitute(xx)), 
     ylab = deparse(substitute(yy)), zlab = deparse(substitute(zz)), 
     main = "", log = NULL, ifgrey = FALSE, symcolr = NULL, iflgnd = FALSE, 
-    pctile = FALSE, title = deparse(substitute(zz)), ...) 
+    pctile = FALSE, title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
 {
     frame()
     oldpar <- par()
@@ -81,8 +81,8 @@ function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, xlab = deparse(substi
             lgnd.line[8] <- paste("<", zcut[1])
         }
         legend(locator(1), pch = npch[8:1], col = symcolr[8:1], 
-            pt.cex = size[8:1], lgnd.line[1:8], cex = 0.8, title = title, 
-            ...)
+            pt.cex = size[8:1], lgnd.line[1:8], cex = cex.lgnd,
+            title = title, ...)
     }
     palette("default")
     invisible()

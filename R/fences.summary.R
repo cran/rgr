@@ -1,26 +1,49 @@
 fences.summary <-
 function (group, x, file = NULL, units = "ppm") 
 {
+    # Function to generate files of framework summary statistics to be saved,
+    # by default in the R working directory.  If provided "file" should name 
+    # the folder where the results are to be saved.  The function appends the 
+    # data frame, framework grouping and variable names together with ".csv" 
+    # prior to opening a file for the results; these can be opened/viewed 
+    # with MS Excel.  To function correctly the data frame containing the
+    # data must be attached prior to running this function, if it has not
+    # already been done so, i.e. attach(dfname), and at close it should be
+    # detached if necesary, detach(dfname).
+    #
+    # To function correctly the data frame containing the data must be attached 
+    # prior to running this function, if it has not already been done so, i.e. 
+    # attach(dfname), and at close it should be detached if necesary, detach(dfname).
+    #
+    # NOTE: Prior to using this function the data frame/matrix containing the
+    # variable, 'x', data must be run through ltdl.fix.df to convert any <dl
+    # -ve values to positive half that value, and set zero2na = TRUE if it is
+    # required, to convert any zero values or other numeric codes representing 
+    # blanks to NAs.
+    #
+    # Functions fences and summary.stats is used to compute the fences. 
+    #
+    dfname <- search()[[2]]
     groupname <- deparse(substitute(group))
     xname <- deparse(substitute(x))
+    filename <- paste(dfname, "_", groupname, "_", xname, "_fences.txt", sep = "")
+
     if (is.null(file)) {
         wdname <- getwd()
-        dfname <- search()[[2]]
         cat("  By default the output file will be saved in the R working directory as:\n",
             "  \"dataframename_groupname_xname_fences.txt\"\n",
             " To specify an alternate location and file name prefix, to which:\n",
-            "  \"_groupname_xname_fences.txt\" will be appended, set, for example:\n",
-            "  file = \"D://R_work//Project3//C_soils\"\n",
-            "  If no directory is specified, the file will be saved in the R working directory\n\n")
-        filename <- paste(wdname, "/" ,dfname, "_", groupname, "_", xname, "_fences.txt", 
-            sep = "")
+            "  \"/dfname_groupname_xname_fences.txt\" will be appended, set, for example:\n",
+            "  file = \"D://R_work//Project3//C_soils\"\n")
+        filename <- paste(wdname, "/", filename, sep = "")
     }
-    else filename <- paste(file, "_", groupname, "_", xname, "_fences.txt", sep = "")  
+    else filename <- paste(file, "/", filename, sep = "")  
     #
-    cat("  Variable", xname, "subset by", groupname, "- output will be in:\n  ", 
-        filename, "\n")
+    cat("\n  Fences for", xname, "subset by", groupname, "- output will be in:\n  ", 
+        filename, "\n\n")
     sink(filename)
     on.exit(sink())
+    #
     framework.fences <- tapply(x, group, fences, units = units, 
         display = FALSE)
     nfences <- length(framework.fences)

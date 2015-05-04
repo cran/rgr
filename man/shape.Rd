@@ -12,13 +12,13 @@ shape(xx, xlab = deparse(substitute(xx)), log = FALSE,
 \arguments{
   \item{xx}{ name of the variable to be plotted. }
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis plot titles.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
-  \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ is determined by \code{\link{gx.hist}} and used to ensure all four panels in this function have the same x-axis scaling. \code{xlim} may be defined, see Note below. }
   \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
   \item{ifbw}{ the default is to plot a horizontal Tukey boxplot, if a box-and-whisker plot is required set \code{ifbw = TRUE}. }
   \item{wend}{ if \code{ifbw = TRUE} the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data, setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{colr}{ by default the histogram and Tukey boxplot, or box-and-whisker plot, are infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }
-  \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}. }
+  \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}.  If \code{ifnright = NULL} there will be no display of the sample size. }
   \item{cex}{ by default the size of the text sample size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
   \item{\dots}{ further arguments to be passed to methods.  For example, the size of the axis scale annotation can be changed by setting \code{cex.axis}, the size of the axis titles by setting \code{cex.lab}, and the size of the plot title by setting \code{cex.main}.  For example, if it is required to make the plot title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%.  By default individual data points in the ECDF and CPP plots are marked by a plus sign, \code{pch = 3}, if a cross or open circle is desired, then set \code{pch = 4} or \code{pch = 1}, respectively. See \code{\link{display.marks}} for all available symbols. Adding \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively, in the ECDF and CPP plots.  By default the histogram and \sQuote{box} are infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}.  See \code{\link{display.lty}} for the range of available colours. }
 }
@@ -41,10 +41,10 @@ In some R installations the generation of multi-panel displays and the use of fu
 For summary statistics displays to complement the graphics see, \code{\link{gx.summary1}}, \code{\link{gx.summary2}} and \code{\link{inset}}.
 }
 \author{ Robert G. Garrett }
-\references{ 
+\references{
+Garrett, R.G., 1988. IDEAS - An Interactive Computer Graphics Tool to Assist the Exploration Geochemist. In Current Research Part F, Geological Survey of Canada Paper 88-1F, pp. 1-13.  See pp. 5 for a description of box-and-whisker plots.
+ 
 Venables, W.N. and Ripley, B.D., 2001. Modern Applied Statistsis with S-Plus, 3rd Edition, Springer, 501 p. See pp. 119 for a description of histogram bin selection computations.
-
-Garrett, R.G., 1988. IDEAS - An Interactive Computer Graphics Tool to Assist the Exploration Geochemist. In Current Research Part F, Geological Survey of Canada Paper 88-1F, pp. 1-13 for a description of box-and-whisker plots.
 }
 \seealso{ \code{\link{gx.hist}}, \code{\link{bxplot}}, \code{\link{gx.ecdf}}, \code{\link{cnpplt}}, \code{\link{remove.na}}, \code{\link{display.lty}}, \code{\link{display.marks}}, \code{\link{ltdl.fix.df}}, \code{\link{inset}} }  
 \examples{

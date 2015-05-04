@@ -2,7 +2,7 @@ map.eda8 <-
 function (xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing", 
     zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE, 
     symcolr = NULL, tol = 0.04, iflgnd = FALSE, pctile = FALSE, 
-    title = deparse(substitute(zz)), ...) 
+    title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
 {
     frame()
     oldpar <- par()
@@ -80,8 +80,8 @@ function (xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
             lgnd.line[8] <- paste("<", zcut[1])
         }
         legend(locator(1), pch = npch[8:1], col = symcolr[8:1], 
-            pt.cex = size[8:1], lgnd.line[1:8], cex = 0.8, title = title, 
-            ...)
+            pt.cex = size[8:1], lgnd.line[1:8], title = title, 
+            cex = cex.lgnd, ...)
     }
     palette("default")
     invisible()

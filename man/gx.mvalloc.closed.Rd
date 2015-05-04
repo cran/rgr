@@ -68,8 +68,7 @@ gx.mvalloc.print(ogrady.mvalloc)
 ogrady.mvalloc$xalloc
 
 ## Save allocations as a csv file
-gx.mvalloc.print(ogrady.mvalloc, ifprint = FALSE,
-file = "ogrady.gait.closed.mcd.mvalloc")
+gx.mvalloc.print(ogrady.mvalloc, ifprint = FALSE, file = " ")
 
 ## Clean-up and detach test data
 rm(ogrady.grdr)

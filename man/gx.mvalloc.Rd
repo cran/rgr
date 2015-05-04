@@ -30,7 +30,7 @@ The following are returned as an object to be saved for display with \code{\link
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed from the matrix \code{x} prior to executing this function, see \code{\link{ltdl.fix.df}}.  Additionally, any rows in the data matrix with \code{NA}s also must have been removed prior to computations, see \code{\link{na.omit}} and \code{\link{remove.na}}.
 
-It is recommended that when applying this procedure to compositional data an ilr transformation be undertaken, this can be done at execution time, see Example below.  This implies that the reference group means and covariance matrices must have also been estimated following an ilr transformation. 
+It is recommended that when applying this procedure to compositional data an ilr transformation be undertaken, this can be done at execution time.  This implies that the reference group means and covariance matrices must have also been estimated following an ilr transformation. 
 }
 \references{
 Garrett, R.G., 1990. A robust multivariate allocation procedure with applications to geochemical data. In Proc. Colloquium on Statistical Applications in the Earth Sciences (Eds F.P. Agterberg & G.F. Bonham-Carter). Geological Survey of Canada Paper 89-9, pp. 309-318.
@@ -71,7 +71,7 @@ gx.mvalloc.print(test.save.mvalloc)
 
 ## Save the allocation as a csv file
 gx.mvalloc.print(test.save.mvalloc, ifprint = FALSE,
-file = "test.mvalloc")
+file = " ")
 
 ## Clean-up and detach synthetic test data
 rm(grp1)

@@ -1,26 +1,33 @@
 gx.md.print <-
-function(save, pcut = 0.1, file = NULL) 
+function(save, pcut = 0.1, ifprint = TRUE, file = NULL) 
 {
-     ppm <- save$ppm
-     nrows <- length(ppm[ppm < pcut])
-     table.rows <- cbind(save$matnames[[1]], signif(save$md, 3), signif(ppm, 3))
+     # NOTE: When printed the Mahanalobis Distances are listed in descending
+     # order, i.e. most extreme first.
+     #
+     save.name <- deparse(substitute(save))
+     cat("  Mahalanobis Distances for", save.name, "\n  Source data matrix:",
+         save$input, "\n\n")
+     ppm <- save$ppm; nrows <- length(ppm[ppm < pcut])
+     md <- save$md; row.i <- rev(order(md))
+     table.rows <- cbind(save$matnames[[1]], signif(md, 3), signif(ppm, 3))
      dimnames(table.rows)[[2]] <- c("Row ID", "MD", "p_gm")
-     table.rows.sorted <- gx.sort(table.rows, 2, reverse = TRUE)
-     dimnames(table.rows.sorted)[[2]] <- dimnames(table.rows)[[2]]
-     if(is.null(file)) {
+     #
+     if(ifprint) {
          cat(paste("  Table of Mahalanobis Distances where probabilities of ", 
-             "group membership (p_gm) are <", pcut, sep = ""), "\n")
-         print(table.rows.sorted[1:nrows, ])
+             "group membership (p_gm) are <", pcut, sep = ""), "\n\n",
+             "  ID\t\t  MD     p_gm\n\n")
+         for (i in 1:nrows) {
+             cat("  ", table.rows[row.i[i], 1], "\t\t", 
+                 table.rows[row.i[i], 2], "\t", table.rows[row.i[i], 3], "\n")
+         }
          cat("\n")
      }
-     else {
-         wdname <- getwd()
-         if(file == "" | file == " ") 
-             filename <- paste(save$input, "_MDs.csv", sep="")
-         else filename <- paste(file, ".csv", sep = "") 
+     if(!is.null(file)) {
+         if(file == "" | file == " ") folder <- getwd()
+         else folder <- file 
+         filename <- paste(folder, "/", save.name, "_MDs.csv", sep="")
+         cat("  Saved table will be in:\n  ", filename, "\n\n")
          write.csv(table.rows, file = filename, row.names = FALSE)
-         filename <- paste(wdname, "/", filename, sep = "")
-         cat("  Saved table will be in:\n  ", filename, "\n")
      }
      invisible(table.rows)
 }

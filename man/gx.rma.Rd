@@ -1,19 +1,27 @@
 \name{gx.rma}
 \alias{gx.rma}
+\alias{gx.youden}
+\alias{youden}
+\alias{youden.plot}
+\alias{youden-plot}
+\alias{youden_plot}
 \title{ Estimate the Coefficients of the Reduced Major Axis }
 \description{
-Function to estimate the coefficients and their standard errors of the Reduced Major Axis, the case of orthogonal regression, and also known as total least squares or errors in variables regression.  The procedure is based on the methodology described in Miller and Kahn (1962). 
+Function to estimate the coefficients and their standard errors of the Reduced Major Axis, the case of orthogonal regression, and also known as total least squares or errors in variables regression.  The procedure is based on the methodology described in Miller and Kahn (1962).  Function will also prepare a Youden plot. 
 }
 \usage{
-gx.rma(xx1, xx2, x1lab = deparse(substitute(xx1)),
-	x2lab = deparse(substitute(xx2)), log = FALSE)
+gx.rma(xx1, xx2, x1lab = NULL, x2lab = NULL, log = FALSE, if.plot = FALSE,
+if.rma = FALSE, ...)
 }
 \arguments{
-  \item{xx1}{ the name of the first independent variable. }
-  \item{xx2}{ the name of the second independent variable. }
-  \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. } 
-  \item{x1lab}{ a title for the first independent variable, the default is the variable name, \cr\code{deparse(substitute(xx1))}. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \cr\code{x1lab = "Magnetic Susceptibility - Measurement 1"}. }
-  \item{x2lab}{ a title for the second independent variable, the default is the variable name, \code{deparse(substitute(xx2))}. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{x2lab = "Magnetic Susceptibility - Measurement 2"}. }
+  \item{xx1}{ the name of the first independent variable, or a n by 2 matrix of independent variables, for instance from \code{\link{alts2dups}}. }
+  \item{xx2}{ the name of the second independent variable, omit if \code{xx1} is a matrix. }
+  \item{x1lab}{ a title for the first independent variable, the default is the variable name, \cr\code{deparse(substitute(xx1))} or the name from the first column of the n by 2 matrix. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \cr\code{x1lab = "Magnetic Susceptibility - Measurement 1"}. }
+  \item{x2lab}{ a title for the second independent variable, the default is the variable name, \code{deparse(substitute(xx2))} or the name from the second column of the n by 2 matrix. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g.,\cr\code{x2lab = "Magnetic Susceptibility - Measurement 2"}. }
+  \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
+  \item{if.plot}{ if a x-y plot of the independent variables is required set \code{if.plot = TRUE}.  The plot is equi-scaled and the 1:1 line is added. If \code{if.rma = TRUE} \code{if.plot} will be set to \code{TRUE}. }
+  \item{if.rma}{ if the Reduced Major Axis is to be added to the plot set \code{if.rma = TRUE}.  }
+ \item{\dots}{ further arguments to be passed to methods concerning the plot.  For example, if it is required to add a title, add \code{main = "Youden Plot"}. }
 }
 \value{
 A list comprising of:
@@ -46,26 +54,23 @@ data(ms.data1)
 attach(ms.data1)
 
 ## Estimate RMA coefficients for duplicate measurements on rock samples
-gx.rma(MS.1, MS.2, log = TRUE, 
-	x1lab = "MS - 1", x2lab = "MS - 2")
+gx.rma(MS.1, MS.2, x1lab = "MS - 1", x2lab = "MS - 2", log = TRUE)
 
-## Display an x-y plot of the data and the RMA, ensuring a 
-## square plot with similar x- and y-axis labelling and
-## appropriate axis labelling 
-save.rma <- gx.rma(MS.1, MS.2, log = TRUE,
-	x1lab = "MS - 1", x2lab = "MS - 2")
-oldpar <- par()
-par(pty = "s", pch = 3)
-plot(MS.1, MS.2, log = "xy", xlim = c(min(MS.1, MS.2), max(MS.1, MS.2)),
-	ylim  = c(min(MS.1, MS.2), max(MS.1, MS.2)),
-	xlab = "Magnetic Susceptibility - Measurement 1",
-	ylab = "Magnetic Susceptibility - Measurement 2")
-abline(save.rma$a0, save.rma$a1, lty = 3)
-par <- oldpar	
+## Display an x-y plot of the data and the RMA
+gx.rma(MS.1, MS.2, x1lab = "MS - 1", x2lab = "MS - 2", log = TRUE, 
+	if.plot = TRUE, if.rma = TRUE)
 
-## Clean-up and detach test data
-rm(save.rma)
+## Detach test data
 detach(ms.data1)
+
+## Using function alts2dups
+data(ms.data3)
+attach(ms.data3)
+gx.rma(alts2dups(MS, ifalt = TRUE), log = TRUE, if.plot = TRUE,
+	if.rma = TRUE)
+
+## Detach test data
+detach(ms.data3)
 }
 \keyword{ regression }
 \keyword{ htest }

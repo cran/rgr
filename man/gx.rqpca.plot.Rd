@@ -2,28 +2,31 @@
 \alias{gx.rqpca.plot}
 \title{ Function to Plot Principal Component Analysis Loadings and Scores }
 \description{
-Function to display the results of a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}} as bi-plots.  Various options for displaying loadings and scores are available, see Details below.
+Function to display the results of a Principal Components Analysis (PCA) from the saved object from \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}} as biplots.  Various options for displaying loadings and scores are available, see Details below.
 }
 \usage{
 gx.rqpca.plot(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE,
 	rowids = NULL, ifrot = TRUE, main = "", cex.lab = 0.9,
-	cex.main = 0.9, rcex = 1, qcex = 0.8, rcol = 1, qcol = 1, ...)
+	cex.main = 0.9, rcex = 1, qcex = 0.8, rcol = 1, qcol = 1,
+	ifray = TRUE, if34 = TRUE, ...)
 }
 \arguments{
   \item{save}{ a saved object from the execution of function \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}}, \cr\code{\link{gx.robmva.closed}} or \code{\link{gx.rotate}}. }
-  \item{v1}{ the component to be plotted on the x-axis of the bi-plot, default is the first component, \code{v1 = 1}. }
-  \item{v2}{ the component to be plotted on the y-axis of the bi-plot, default is the second component, \code{v1 = 2}. }
+  \item{v1}{ the component to be plotted on the x-axis of the biplot, default is the first component, \code{v1 = 1}. }
+  \item{v2}{ the component to be plotted on the y-axis of the biplot, default is the second component, \code{v1 = 2}. }
   \item{rplot}{ the default is to plot the variables.  If the variables are not required set \code{rplot = FALSE}.  Note, if an ilr transform has been undertaken the loadings of the (p-1) synthetic variables will be displayed. }
   \item{qplot}{ the default is to plot the observation (individual, case or sample) scores.  If scores are not required set \code{qplot = FALSE}. }
   \item{rowids}{ \sQuote{switch} to determine if the input matrix row numbers are to be displayed instead of default plotting symbols.  The default is for default plotting symbols, i.e. \code{rowids = NULL}, set \code{rowids = TRUE} if the row numbers are to be displayed, or set \code{rowids = FALSE} for the sample IDs to be displayed if they are present in the input matrix, if they are not, row numbers will be displayed. }
-  \item{ifrot}{ by default the post-Varimax rotation scores are displayed if a rotation has been made, see \code{\link{gx.rotate}}.  If rotated scores are available in the saved object but the unrotated bi-plot is to be displayed set \code{ifrot = FALSE}. }
+  \item{ifrot}{ by default the post-Varimax rotation scores are displayed if a rotation has been made, see \code{\link{gx.rotate}}.  If rotated scores are available in the saved object but the unrotated biplot is to be displayed set \code{ifrot = FALSE}. }
   \item{main}{ an alternate plot title from that generated automatically from information in the saved object, see Details below. }
   \item{cex.lab}{ the text scale expansion factor for the axis labels of the display, by default \code{cex.axis = 0.9}, a 10\% font size reduction. }
   \item{cex.main}{ the text scale expansion factor for the display title, by default \code{cex.axis = 0.9}, a 10\% font size reduction. }
   \item{rcex}{ the text scale expansion factor for the variable names in the display, by default \code{cex = 1}, 100\%, no font size reduction. }
   \item{qcex}{ the text scale expansion factor for the observation symbols, row numbers or sample IDs in the display, by default \code{cex = 0.8}, a 20\% font size reduction. }
   \item{rcol}{ the colour of the variable names in the display, by default \code{rcol = 1}, black, setting \code{rcol = 2} will result in red variable names (see \code{\link{display.lty}} for the default colour palette). }
-  \item{qcol}{ the colour of the observation symbols, row numbers or sample IDs in the display, by default \code{rcol = 1}, black, setting \code{qcol = 4} will result in blue variable names (see \code{\link{display.lty}} for the default colour palette). }
+  \item{qcol}{ the colour of the observation symbols, row numbers or sample IDs in the display, by default \code{qcol = 1}, black, setting \code{qcol = 4} will result in blue variable names (see \code{\link{display.lty}} for the default colour palette). }
+  \item{ifray}{ by default \sQuote{rays} are plotted from the R loadings origin to the variable name in the same colour as the variable names, to omit the \sQuote{rays} set \code{ifray = FALSE}. }
+  \item{if34}{ this applies to a robust biplot only, by default the top (3) and right side (4) of the plot frame are annotated in black with the R loadings scale and with axis titles in the same colour as the variable names.  To suppress these annotations set \code{if34 = FALSE}.  When this extra annotation is provided the top (3) scale and annotation overwrites the plot title, therefore, set \code{main = " "} to suppress adding the plot title. }
   \item{\dots}{ further arguments to be passed to methods concerning the plot. }
 }
 \details{
@@ -43,6 +46,9 @@ rplot = TRUE & qplot = TRUE & rowids = TRUE, input matrix row numbers and variab
 
 Because functions \code{\link{gx.mva}}, \code{\link{gx.mva.closed}}, \code{\link{gx.robmva}} or \code{\link{gx.robmva.closed}} require a matrix as input the sample IDs that may be in a data frame may be lost.  They may be re-inserted by copying dimnames(...)[[1]] from a data frame into the matrix.  Alternately, to plot in the component score space with Sample IDs, the scores can be recovered from the saved object, e.g., \code{save$rqscore[, 1]} and \code{save$rqscore[, 2]}, and used as the x- and y-coordinates in function \code{xyplot.tags} with the sample IDs from the source data frame. Appropriate plot and axis titling can be displayed by setting the function arguments \sQuote{by hand}.
 }
+\note{
+The scaling for the PCA ensures that the loadings and scores may be plotted in the same numerical space to create a biplot.  However, when robust covariance matrix and mean estimation is employed this is not possible due to the extreme values some scores may attain for outliers.  In this case the variables are plotted in the same physical space but with different scaling and addition scaling provided for the top and right side of the plot frame.
+}
 \references{
 Reimann, C., Filzmoser, P., Garrett, R. and Dutter, R., 2008. Statistical Data Analysis Explained: Applied Environmental Statistics with R. John Wiley & Sons, Ltd., 362 p.
 
@@ -56,7 +62,7 @@ data(sind)
 data(sind.mat2open)
 attach(sind)
 
-## Save PCA results and display bi-plots
+## Save PCA results and display biplots
 sind.save <- gx.mva.closed(sind.mat2open)
 gx.rqpca.plot(sind.save)
 gx.rqpca.plot(sind.save,
@@ -67,8 +73,9 @@ gx.rqpca.plot(sind.save, rplot = FALSE, qplot = TRUE, rowids = NULL)
 gx.rqpca.plot(sind.save, rplot = FALSE, qplot = TRUE, rowids = TRUE)
 gx.rqpca.plot(sind.save, rplot = TRUE, qplot = TRUE, rowids = FALSE,
 rcol = 2, qcol = 4)
-#
-attach(sind)
+
+##
+## Alternately
 xyplot.tags(sind.save$rqscore[, 1],sind.save$rqscore[, 2], ID, cex = 0.9)
 
 ## Clean-up and detach test data

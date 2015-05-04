@@ -1,17 +1,11 @@
 gx.rqpca.print <-
-function(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE, file = NULL)
+function(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE)
 {
      # Function to print the PCA matrices saved from gx.mva, gx.mva.closed,
-     # gx.robmva, gx.robmva.closed and gx.rotate, and optionally save the
-     # scores on the PCs as a '.csv' file in the Working Directory.  The 
-     # last table generated, by default the scores, is returned and may be
-     # saved as an object for easy access by users, rather than having to 
-     # extract the scores from a saved object.
-     # If ifload and ifcntrb and ifscore are all FALSE, and file contains
-     # text, that text will be used for the name of a '.csv' file of the
-     # PC or rotated PC scores.  In the foregoing instance if file is not
-     # defined the function fails with "object 'table.rows' not found".
-     # Note, '.csv' is appended to the provided file name in the function.
+     # gx.robmva, gx.robmva.closed and gx.rotate.  To save the matrices as
+     # '.csv' files use function gx.rqpca.save.  The last table saved as an
+     # object for easy access by users, rather than having to extract the
+     # scores from a saved object.
      #
      cat("  PCA matrices for", deparse(substitute(save)), 
          "\n  Source data matrix:", save$input, "\n\n")
@@ -48,40 +42,22 @@ function(save, ifload = TRUE, ifcntrb = FALSE, ifscore = TRUE, file = NULL)
          cat("\n")
      }
      if(!is.null(save$nr)) {
-         cat("  Following a Varimax rotation:\n")
+         cat("  Following a Varimax rotation:\n\n")
          if(ifload) {
-             table.rows <- round(save$vload, 5)
+             cat("  Rotated PC Loadings:\n")
+             table.rows <- round(unlist(unclass(save$vload)), 5)
              dimnames(table.rows)[[1]] <- save$matnames[[2]]
-             dimnames(table.rows)[[2]] <- paste("PC-", 1:save$p, sep="")
+             dimnames(table.rows)[[2]] <- paste("RPC-", 1:save$nr, sep="")
              print(table.rows)
              cat("\n")
          }
          if(ifscore) {
-             cat("  Scores on the rotated PCs:\n")
+             cat("  Scores on the Rotated PCs:\n\n")
              table.rows <- round(save$vscore, 4)
-             dimnames(table.rows)[[2]] <- paste("PC-", 1:save$nr, sep="")
+             dimnames(table.rows)[[2]] <- paste("RPC-", 1:save$nr, sep="")
              print(table.rows)
              cat("\n")
          }
-     }
-     if(!is.null(file)) {
-         wdname <- getwd()
-         filename <- paste(file, ".csv", sep = "") 
-         if(!ifload&!ifcntrb&!ifscore) {
-             if(is.null(save$nr)) {
-                 table.rows <- round(save$rqscore, 4)
-                 dimnames(table.rows)[[2]] <- paste("PC-", 1:save$p, sep="")
-                 cat("  PC scores will be saved in:")
-             }
-             else {
-                 table.rows <- round(save$vscore, 4)
-                 dimnames(table.rows)[[2]] <- paste("PC-", 1:save$nr, sep="")
-                 cat("  Rotated PC scores will be saved in:")
-             }      
-         }
-         write.csv(table.rows, file = filename, row.names = TRUE)
-         filename <- paste(wdname, "/", filename, sep = "")
-         cat("\n  ", filename, "\n")
      }
      invisible(table.rows)
 }

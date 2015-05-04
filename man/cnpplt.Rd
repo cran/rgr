@@ -14,7 +14,7 @@ cnpplt(xx, xlab = deparse(substitute(xx)),
   \item{xx}{ name of the variable to be plotted. }
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{ylab}{ a title for the y-axis, defaults to \code{"\% Cumulative Probability".} }
-  \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. }
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log  = TRUE}. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by function \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Details below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Ecogeochemistry Project, 1995"}. }
   \item{ifqs}{ setting \code{ifqs = TRUE} results in horizontal and vertical dotted lines being plotted at the three central quartiles and their values, respectively. }

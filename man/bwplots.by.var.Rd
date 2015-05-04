@@ -12,7 +12,7 @@ bwplots.by.var(xmat, log = FALSE, wend = 0.05, notch = FALSE,
 }
 \arguments{
   \item{xmat}{ the data matrix or data frame containing the data (variables). }
-  \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
+  \item{log}{ to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{wend}{ the locations of the whisker-ends has to be defined.  By default these are at the 5th and 95th percentiles of the data.  Setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. See Details below. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is not to notch the boxplots, to have notches set \code{notch = TRUE}. }
   \item{xlab}{ a title for the x-axis, by default \code{xlab = "Measured Variables"}. }

@@ -13,7 +13,7 @@ gx.ecdf(xx, xlab = deparse(substitute(xx)),
   \item{xx}{name of the variable to be plotted.}
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis title.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{ylab}{ a title for the y-axis, defaults to \code{"Emprical Cumulative Distribution Function"}. }
-  \item{log}{ if it is required to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
+  \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ when used in the \code{\link{shape}} function, \code{xlim} is determined by \code{\link{gx.hist}} and used to ensure all four panels in \code{\link{shape}} have the same x-axis scaling.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
   \item{pch}{ by default the plotting symbol is set to a plus, \code{pch = 3}, alternate plotting symbols may be chosen from those displayed by \code{\link{display.marks}}, see also \bold{Notes} below. }

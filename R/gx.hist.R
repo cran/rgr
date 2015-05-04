@@ -1,7 +1,7 @@
 gx.hist <-
 function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", 
     log = FALSE, xlim = NULL, main = "", nclass = "Scott", colr = NULL, 
-    ifnright = TRUE, cex = 1, ...) 
+    ifnright = TRUE, cex = 0.8, ...) 
 {
     temp.x <- remove.na(xx)
     x <- temp.x$x[1:temp.x$n]
@@ -79,19 +79,21 @@ function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations",
     polygon(x, y, col = colr)
     lines(x, y)
     limits <- par("usr")
-    if (ifnright) {
-        xpos <- limits[2] - (limits[2] - limits[1]) * 0.05
-        adj <- 1
+    if (!is.null(ifnright)) {
+        if (ifnright) {
+            xpos <- limits[2] - (limits[2] - limits[1]) * 0.05
+            adj <- 1
+        }
+        else {
+            xpos <- limits[1] + (limits[2] - limits[1]) * 0.05
+            adj <- 0
+        }
+        if (log) 
+            xpos <- 10^xpos
+            ypos <- limits[4] - (limits[4] - limits[3]) * 0.1
+            text(xpos, ypos, labels = paste("N =", nx), adj = adj, cex = cex, 
+                ...)
     }
-    else {
-        xpos <- limits[1] + (limits[2] - limits[1]) * 0.05
-        adj <- 0
-    }
-    if (log) 
-        xpos <- 10^xpos
-    ypos <- limits[4] - (limits[4] - limits[3]) * 0.1
-    text(xpos, ypos, labels = paste("N =", nx), adj = adj, cex = cex, 
-        ...)
     if (nnx >= 1) {
         ypos <- limits[4] - (limits[4] - limits[3]) * 0.2
         text(xpos, ypos, labels = paste("Bins for", nnx, "\npoints omitted"), 

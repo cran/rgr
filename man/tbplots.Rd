@@ -14,7 +14,7 @@ tbplots(x, by, log = FALSE, logx = FALSE, notch = TRUE, xlab = "",
 \arguments{
   \item{x}{ name of the variable to be plotted. }
   \item{by}{ the name of the factor variable to be used to subdivide the data.  See Details below for when \code{by} is undefined. }
-  \item{log}{ if it is required to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
+  \item{log}{ to display the data with logarithmic (y-axis) scaling, set \code{log = TRUE}. } 
   \item{logx}{ if the position of the Tukey boxplot fences are to be computed on the basis of the log transformed data set \code{logx = TRUE}.  When \code{logx = TRUE} it is ensured that \code{log = TRUE}. }
   \item{notch}{ determines if the boxplots are to be \dQuote{notched} such that the notches indicate the 95\% confidence intervals for the medians. The default is to notch the boxplets, to suppress the notches set \code{notch = FALSE}.  See Details below.  }
   \item{xlab}{ a title for the x-axis, by default none is provided. }

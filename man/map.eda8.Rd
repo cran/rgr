@@ -8,7 +8,7 @@ Displays a simple map where the data are represented at their spatial locations 
 map.eda8(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing", 
 	zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE,  
 	symcolr = NULL, tol = 0.04, iflgnd = FALSE, pctile = FALSE,
-	title = deparse(substitute(zz)), ...)
+	title = deparse(substitute(zz)), cex.lgnd = 0.8, ...)
 }
 \arguments{
   \item{xx}{ name of the x-axis spatial coordinate, the eastings. }
@@ -24,7 +24,8 @@ map.eda8(xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
   \item{tol}{ a parameter used to ensure the area included within the neatline around the map is larger than the distribution of the points so that the plotted symbols fall within the neatline. By default \code{tol = 0.04}, if more clearance is required increase the value of \code{tol}. }
   \item{iflgnd}{ the default is no legend.  If a legend is required set \code{iflgnd = TRUE}, following the plotting of the data the cursor will be activated, locate that at the top left corner of the desired legend position and \sQuote{left button} on the pointing device.  There are two legends to choose from, see \code{pctile} below. }
   \item{pctile}{ the default legend displays the range of values each symbol represents.  Alternately, the percentiles may be displayed rather than their values by setting \code{pctile = TRUE}. }
-  \item{title}{ a short title for the legend, e.g., \code{title = "Cu (mg/kg)"}.  The default is the variable name. } 
+  \item{title}{ a short title for the legend, e.g., \code{title = "Cu (mg/kg)"}.  The default is the character string for \code{zz}. }
+  \item{cex.lgnd}{ controls the scaling of the legend box and text, but not the symbols so that they match those on the map, the default is \code{cex.lgnd = 0.8}. }
   \item{\dots}{ further arguments to be passed to methods.  For example, if it is required to make the map title smaller, add \code{cex.main = 0.9} to reduce the font size by 10\%. }
 }
 \details{
