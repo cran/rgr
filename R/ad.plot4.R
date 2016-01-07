@@ -1,5 +1,5 @@
 ad.plot4 <-
-function (x, xname = deparse(substitute(x)), if.order = TRUE,
+function (x, xname = deparse(substitute(x)), if.order = FALSE,
     ad.tol = NULL, ifalt = FALSE, ldl = NULL, maxrat = NULL,
     if.text = FALSE, if.cpp = FALSE, ...) 
 {

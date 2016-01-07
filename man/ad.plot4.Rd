@@ -5,7 +5,7 @@
 Function to prepare data stored in alternate forms from that expected by function \code{\link{ad.plot3}} for its use, for further details see \code{x} in Arguments below.  The data will be plotted as ratios, i.e. \code{dup1/dup2}, with logarithmic scaling relative to their means.
 }
 \usage{
-ad.plot4(x, xname = deparse(substitute(x)), if.order = TRUE, ad.tol = NULL,
+ad.plot4(x, xname = deparse(substitute(x)), if.order = FALSE, ad.tol = NULL,
         ifalt = FALSE, ldl = NULL, maxrat = NULL, if.text = FALSE,
         if.cpp = FALSE, ...)
 }

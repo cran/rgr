@@ -1,7 +1,6 @@
-shape <-
+shape.alt <-
 function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, 
-    nclass = NULL, ifbw = FALSE, wend = 0.05, ifnright = TRUE, 
-    colr = 8, cex = 0.8, ...) 
+    nclass = NULL, ifnright = TRUE, ifrev = FALSE, colr = 8, ...) 
 {
     frame()
     oldpar <- par()
@@ -14,19 +13,15 @@ function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
     if ((is.null(nclass)) && (nobs > 500)) nclass <- "fd"
     save <- gx.hist(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, 
         main = "Histogram", nclass = nclass, ifnright = ifnright, 
-        cex = cex, colr = colr, ...)
+        colr = colr, ...)
     xlim <- save$xlim
-    if (ifbw) 
-        banner <- "Box and Whisker Plot"
-    else banner <- "Tukey Boxplot"
-    bxplot(x, xlab = xlab, log = log, xlim = xlim, main = banner, 
-        ifbw = ifbw, col = colr, wend = wend, cex = cex, colr = colr, 
-        ...)
-    gx.ecdf(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, 
-        main = "Empirical Cumulative Distribution\nFunction (ECDF)", 
-        cex = cex, ...)
     cnpplt(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, 
         main = "% Cumulative Percentage\n(Normal) Probability (CPP) Plot", 
-        ifshape = TRUE, cex = cex, ...)
+        ifshape = TRUE, ...)
+    gx.ecdf(x, xlab = xlab, ylab = " ", log = log, xlim = xlim, 
+        main = "Empirical Cumulative Distribution\nFunction (ECDF)", 
+        ...)
+    gx.mf(x, ifrev = ifrev, xlab = xlab, ylab = "Cumulative Percentage of Data",
+        main = "Concentration-Number (C-N) Plot", xlim, ...)
     invisible()
 }

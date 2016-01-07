@@ -5,17 +5,16 @@
 Displays a concentration-area (C-A) plot to assess whether the data are spatially multi-fractal (Cheng et al., 1994; Cheng and Agterberg, 1995) as a part of a four panel display.  This procedure is useful for determining if multiple populations that are spatially dependent are present in a data set.  It can be used to determine the practical limits, upper or lower bounds, of the influence of the biogeochemical processes behind the spatial distribution of the data.  Optionally the data may be logarithmically transformed (base 10) prior to interpolation, the points may be \sQuote{jittered} (see Arguments below), the size of the interpolated grid may be modified, and alternate colour schemes can be chosen for display of the interpolated data.
 }
 \usage{
-caplot(x, y, z, zname = deparse(substitute(z)),
-	caname = deparse(substitute(z)), log =  TRUE, ifjit = FALSE,
-	ifrev = FALSE, ngrid = 100, colr = topo.colors(16), 
-	xcoord = "Easting", ycoord = "Northing")
+caplot(x, y, z, zname = deparse(substitute(z)), caname = NULL, 
+        log =  TRUE, ifjit = FALSE, ifrev = FALSE, ngrid = 100, 
+        colr = topo.colors(16), xcoord = "Easting", ycoord = "Northing")
 }
 \arguments{
   \item{x}{ name of the x-axis spatial coordinate, the eastings. }
   \item{y}{ name of the y-axis spatial coordinate, the northings. }
   \item{z}{ name of the variable to be processed and plotted. }
   \item{zname}{ by default the character string for \code{z} is used for the titles of the x-axes of the CPP (Cumulative Normal Percentage Probability) and C-A plot panels. An alternate title can be displayed wiith \code{zname = "text string"}, see Examples. }
-  \item{caname}{ a title for the image of the interpolated data. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{caname = "Kola Project, 1995\nCu (mg/kg) in <2 mm O-horizon soil"}.  For no title, set \code{caname = ""}. }
+  \item{caname}{ a title for the image of the interpolated data, by default the character string for \code{z}, suitably modified if the z data are log10 transformed. It is often desirable to replace the default title of the input variable name text string with a more informative title, e.g., \code{caname = "Cu (mg/kg) in <2 mm O-horizon soil"}.  For no title, set \code{caname = ""}. }
   \item{log}{ the default is set to \code{log = TRUE} as in most cases this function is used with data from a \sQuote{closed} composition or are positively skewed, where a logarithmic data transform is appropriate.  If it is required to undertake the C-A plot interpolation without a logarithmic data transformation, set \code{log = FALSE}.  This also results in the accompanying probability (CPP) plots being arithmically scaled (x-axes). }
   \item{ifjit}{ if there is a possibility that the data set contains multiple measurements at an identical spatial (x,y) location set \code{ifjit = TRUE}.  The presence of multiple data at an identical location will cause the Akima (1996) interpolation function to fail. }
   \item{ifrev}{ by default the empirical C-A function is plotted from highest value to lowest, \code{ifrev = FALSE}.  As the C-A plot is a log-log display this provides greater detail for the highest values.  The direction of accumulation can be key in detecting multi-fractal patterns, it is usually informative to also prepare a plot with \code{ifrev = TRUE}, i.e. accumulation from lowest to highest values.  To see a dramatic example of this, run the Examples below. }
@@ -52,12 +51,13 @@ Cheng, Q. and Agterberg, F.P., 1995. Multifractal modeling and spatial point pro
 
 Cheng, Q., Agterberg, F.P. and Ballantyne, S.B., 1994. The separation of geochemical anomalies from background by fractal methods.  Journal of Geochemical Exploration, 51(2):109-130.
 }
-\seealso{  \code{\link{cnpplt}}, \code{\link[akima]{interp}}, \code{\link{colors}}, \code{\link{ltdl.fix.df}} }
+\seealso{  \code{\link{cnpplt}}, \code{\link[akima]{interp}}, \code{\link{gx.mf}}, \code{\link{shape.alt}}, \code{\link{colors}}, \code{\link{ltdl.fix.df}} }
 \examples{ 
 ## The following examples are commented out as package akima is not 
 ## automatically made available as it is only a suggest, not a depends,
 ## and therefore caplot fails when the examples are run during package
-## checking and building
+## checking and building.  Functions shape.alt and/or gx.mf also be used
+## to study mulifractality, and these have no restrictions
 
 ## Make test data available
 ## data(kola.o)

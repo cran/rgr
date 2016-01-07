@@ -2,12 +2,12 @@
 \alias{gx.hist}
 \title{ Plot a Histogram }
 \description{
-Plots a histogram for a data set, the user has options for defining the axis and main titles, the x-axis limits, arithmetic or logarithmic x-axis scaling, the number of bins the data are displayed in, and the colour of the infill.
+Plots a histogram for a data set, the user has options for defining the axis and main titles, the x-axis limits, arithmetic or logarithmic x-axis scaling, the method for calculating the number of bins the data are displayed in, and the colour of the infill.
 }
 \usage{
 gx.hist(xx, xlab = deparse(substitute(xx)), 
 	ylab = "Number of Observations", log = FALSE, xlim = NULL, 
-	main = "", nclass = "Scott", colr = NULL, ifnright = TRUE,
+	main = "", nclass = NULL, colr = NULL, ifnright = TRUE,
 	cex = 0.8, ...)
 }
 \arguments{
@@ -17,7 +17,7 @@ gx.hist(xx, xlab = deparse(substitute(xx)),
   \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ default limits of the x-axis are determined in the function for use in other panel plots of function \code{shape}.  However, when used stand-alone the limits may be user-defined by setting \code{xlim}, see Note below. }
   \item{main}{ when used stand-alone a title may be added optionally above the plot by setting \code{main}, e.g., \code{main = "Kola Project, 1995"}. }
-  \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "Sturges"} or \code{nclass = "FD"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
+  \item{nclass}{ the default procedure for preparing the histogram depends on sample size.  Where N <= 500 the Scott (1979) rule is used, and when N > 500 the Freedman-Diaconis (1981) rule; both these rules are resistant to the presence of outliers, and usually provide informative histograms.  Alternately, the user may define the histogram binning by setting \code{nclass}, i.e. \code{nclass = "scott"}, \code{nclass = "fd"} or \code{nclass = "sturges"}; the latter being designed for normal distributions (Scott, 1992).  See Venables and Ripley (2001) for details. }
   \item{colr}{ by default the histogram is infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }
   \item{ifnright}{ controls where the sample size is plotted in the histogram display, by default this in the upper right corner of the plot.  If the data distribution is such that the upper left corner would be preferable, set \code{ifnright = FALSE}.  If neither option generates an acceptable plot, setting \code{ifnright = NULL} suppresses the display of the data set size.  }
   \item{cex}{ by default the size of the text for data set size, N, is set to 80\%, i.e. \code{cex = 0.8}, and may be changed if required. }
@@ -52,10 +52,10 @@ gx.hist(Cu)
 ## Provides a more appropriate initial display
 gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE)
 
-## Causes the Friedman-Diaconis rule to be used to select the number 
+## Causes the Sturges rule to be used to select the number 
 ## of histogram bins
 gx.hist(Cu, xlab = "Cu (mg/kg) in <2 mm Kola O-horizon soil", log = TRUE, 
-	nclass = "fd")
+	nclass = "sturges")
 
 ## Detach test data
 detach(kola.o)

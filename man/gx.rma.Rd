@@ -11,7 +11,7 @@ Function to estimate the coefficients and their standard errors of the Reduced M
 }
 \usage{
 gx.rma(xx1, xx2, x1lab = NULL, x2lab = NULL, log = FALSE, if.plot = FALSE,
-if.rma = FALSE, ...)
+if.rma = FALSE, if.coeffs = FALSE, ...)
 }
 \arguments{
   \item{xx1}{ the name of the first independent variable, or a n by 2 matrix of independent variables, for instance from \code{\link{alts2dups}}. }
@@ -21,6 +21,7 @@ if.rma = FALSE, ...)
   \item{log}{ if a logarithmic transformation (base 10) of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
   \item{if.plot}{ if a x-y plot of the independent variables is required set \code{if.plot = TRUE}.  The plot is equi-scaled and the 1:1 line is added. If \code{if.rma = TRUE} \code{if.plot} will be set to \code{TRUE}. }
   \item{if.rma}{ if the Reduced Major Axis is to be added to the plot set \code{if.rma = TRUE}.  }
+ \item{if.coeffs}{ if the coefficients of the Reduced Major Axis and the result of the test for the RMA being (0,1) are to be displayed on the plot, set \code{if.coeffs = TRUE}.  The cursor will be activated, and the upper left corner of the text block may be placed where most appropriate, then \sQuote{left button} the pointing device. }
  \item{\dots}{ further arguments to be passed to methods concerning the plot.  For example, if it is required to add a title, add \code{main = "Youden Plot"}. }
 }
 \value{

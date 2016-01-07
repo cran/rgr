@@ -9,9 +9,8 @@ function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
     x <- temp.x$x[1:temp.x$n]
     stats <- gx.stats(x, display = FALSE)
     nobs <- stats$stats[20]
-    if ((is.null(nclass)) && (nobs < 500)) 
-        nclass <- "scott"
-    else nclass <- "fd"
+    if ((is.null(nclass)) && (nobs <= 500)) nclass <- "scott"
+    if ((is.null(nclass)) && (nobs > 500)) nclass <- "fd"
     save <- gx.hist(x, xlab = xlab, ylab = "", log = log, xlim = xlim, 
         main = "Histogram", nclass = nclass, colr = colr, 
         ifnright = ifnright, cex = 0.8, ...)

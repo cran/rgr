@@ -2,7 +2,7 @@
 \alias{gx.mvalloc.closed}
 \title{ Function for Allocation on the basis of Multivariate Data for closed Compositional Data }
 \description{
-Function to allocate individuals (observations, cases or samples) from closed compositional, geochemical, data sets into one of up to nine (9) reference groups (populations) on the basis of their Mahalanobis distances.  If an individual's predicted probability of group membership (typicality) falls below a user defined \sQuote{cut-off}, \code{pcrit}, the individual is allocated to an \sQuote{outlier bin}.
+Function to allocate individuals (observations, cases or samples) from closed compositional, geochemical, data sets into one of multiple reference groups (populations) on the basis of their Mahalanobis distances.  If an individual's predicted probability of group membership (typicality) falls below a user defined \sQuote{cut-off}, \code{pcrit}, the individual is allocated to an \sQuote{outlier bin}.
 }
 \usage{
 gx.mvalloc.closed(pcrit = 0.05, xx, ...)
@@ -10,7 +10,7 @@ gx.mvalloc.closed(pcrit = 0.05, xx, ...)
 \arguments{
   \item{pcrit}{ the critical cut-off probability for group membership below which an individual will be classified as an \sQuote{outlier}.  By default the critical probability of group membership is set to \code{pcrit = 0.05}. }
   \item{xx}{ a \code{n} by \code{p} matrix containing the \code{n} individuals, with \code{p} variables determined on each, to be allocated, see Details below. }
-  \item{\dots}{ a list of objects, up to a maximum of nine (9), saved from either function \cr\code{\link{gx.md.gait.closed}} or \code{\link{gx.robmva.closed}}, containing the vectors of means and inverse covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
+  \item{\dots}{ a list of objects saved from either function \cr\code{\link{gx.md.gait.closed}} or \code{\link{gx.robmva.closed}}, containing the vectors of means and inverse covariance matrices for the \sQuote{reference} groups into which the individuals are to be classified. }
 }
 \details{
 It is imperative that the data matrix \code{xx} contains no special codes, see Note below.  It is also imperative that the variables in the reference groups and in the matrix \code{x} of individuals to be classified are identical in number and in the same order. 

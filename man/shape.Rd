@@ -2,11 +2,11 @@
 \alias{shape}
 \title{ An EDA Graphical Summary }
 \description{
-Plots a simple four panel graphical distributional summary for a data set, comprising a histogram, a horizontal Tukey boxplot or box-and-whisker plot (Garrett, 1988), an empirical cumulative distribution function (ECDF), and a cumulative normal percentage probability (CPP) plot.  The plots in all four panels will have identical x-axis scaling.  Optionally the EDA graphics may be plotted with logarithmic (base 10) scaling.
+Plots a simple four panel graphical distributional summary for a dataset, comprising a histogram, a horizontal Tukey boxplot or box-and-whisker plot (Garrett, 1988), an empirical cumulative distribution function (ECDF), and a cumulative normal percentage probability (CPP) plot.  The plots in all four panels will have identical x-axis scaling.  Optionally the EDA graphics may be plotted with logarithmic (base 10) scaling.
 }
 \usage{
 shape(xx, xlab = deparse(substitute(xx)), log = FALSE, 
-	xlim = NULL, nclass = "Scott", ifbw = FALSE, wend = 0.05, 
+	xlim = NULL, nclass = NULL, ifbw = FALSE, wend = 0.05, 
 	ifnright = TRUE, colr = 8, cex = 0.8, ...)
 }
 \arguments{
@@ -14,7 +14,7 @@ shape(xx, xlab = deparse(substitute(xx)), log = FALSE,
   \item{xlab}{ by default the character string for \code{xx} is used for the x-axis plot titles.  An alternate title can be displayed with \code{xlab = "text string"}, see Examples. }
   \item{log}{ to display the data with logarithmic (x-axis) scaling, set \code{log = TRUE}. }
   \item{xlim}{ is determined by \code{\link{gx.hist}} and used to ensure all four panels in this function have the same x-axis scaling. \code{xlim} may be defined, see Note below. }
-  \item{nclass}{ the default procedure for preparing the histogram is to use the Scott (1979) rule. This usually provides an informative histogram, other optional rules are \code{nclass = "sturges"} or \code{nclass = "fd"}; the later standing for Freedman-Diaconis (1981), a rule that is resistant to the presence of outliers in the data.  See Venables and Ripley (2001) for details. }
+  \item{nclass}{ the default procedure for preparing the histogram depends on sample size.  Where N <= 500 the Scott (1979) rule is used, and when N > 500 the Freedman-Diaconis (1981) rule; both these rules are resistant to the presence of outliers, and usually provide informative histograms.  Alternately, the user may define the histogram binning by setting \code{nclass}, i.e. \code{nclass = "scott"}, \code{nclass = "fd"} or \code{nclass = "sturges"}; the latter being designed for normal distributions (Scott, 1992).  See Venables and Ripley (2001) for details. }
   \item{ifbw}{ the default is to plot a horizontal Tukey boxplot, if a box-and-whisker plot is required set \code{ifbw = TRUE}. }
   \item{wend}{ if \code{ifbw = TRUE} the locations of the whisker-ends have to be defined.  By default these are at the 5th and 95th percentiles of the data, setting \code{wend = 0.02} plots the whisker ends at the 2nd and 98th percentiles. }
   \item{colr}{ by default the histogram and Tukey boxplot, or box-and-whisker plot, are infilled in grey, \code{colr = 8}.  If no infill is required, set \code{colr = 0}. See function \code{\link{display.lty}} for the range of available colours. }

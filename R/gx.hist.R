@@ -1,10 +1,13 @@
 gx.hist <-
 function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations", 
-    log = FALSE, xlim = NULL, main = "", nclass = "Scott", colr = NULL, 
+    log = FALSE, xlim = NULL, main = "", nclass = NULL, colr = NULL, 
     ifnright = TRUE, cex = 0.8, ...) 
 {
     temp.x <- remove.na(xx)
     x <- temp.x$x[1:temp.x$n]
+    nx <- temp.x$n
+    if ((is.null(nclass)) && (nx <= 500)) nclass <- "scott"
+    if ((is.null(nclass)) && (nx > 500)) nclass <- "fd"
     xrange <- range(x)
     if (log) {
         logx <- "x"
@@ -14,7 +17,6 @@ function (xx, xlab = deparse(substitute(xx)), ylab = "Number of Observations",
             xlim[1] <- xrange[1]
     }
     else logx <- ""
-    nx <- length(x)
     q <- as.vector(quantile(x, c(0.25, 0.75)))
     h <- switch(pmatch(nclass, c("sturges", "Sturges", "scott", 
         "Scott", "fd", "FD"), nomatch = ""), `1` = diff(range(x))/(logb(nx, 
