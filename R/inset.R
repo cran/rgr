@@ -2,8 +2,7 @@ inset <-
 function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL, 
     nclass = NULL, colr = NULL, ifnright = TRUE, table.cex = 0.7, ...) 
 {
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(mfrow = c(1, 3), pty = "s")
     temp.x <- remove.na(xx)
     x <- temp.x$x[1:temp.x$n]

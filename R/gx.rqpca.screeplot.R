@@ -2,8 +2,7 @@ gx.rqpca.screeplot <-
 function (save, main = "", ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     if (main == "") 
         banner <- paste("Scree plot for", deparse(substitute(save)), 
             "\ndata source:", save$input)

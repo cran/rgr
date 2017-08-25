@@ -30,8 +30,7 @@ function (xx, wts = NULL, trim = -1, mvtstart = FALSE, mcdstart = FALSE,
     md <- mahalanobis(x, xmean, xcov)
     frame()
     if (trim > 0) {
-        oldpar <- par()
-        on.exit(par(oldpar))
+        old.par <- par(); on.exit(par(old.par))
         par(mfrow = c(1, 2))
         if (proc == "mcd") 
             wts <- rep(1, n)

@@ -23,8 +23,7 @@ function (save, main = "", ifadd = c(0.98, 0.95, 0.9), cexf = 0.6,
             ifadd = ifadd, cexf = cexf, cex = cex, ...)
     }
     else {
-        oldpar <- par()
-        on.exit(par(oldpar))
+        old.par <- par(); on.exit(par(old.par))
         par(mfrow = c(1, 2))
         wts <- save$wts
         core.md <- md[wts[1:n] == 1]

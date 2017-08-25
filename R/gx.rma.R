@@ -1,9 +1,10 @@
 gx.rma <-
 function (xx1, xx2, x1lab = NULL, x2lab = NULL, log = FALSE, 
-    if.plot = FALSE, if.rma = FALSE, if.coeffs = FALSE, ...) 
+    ifplot = FALSE, ifrma = FALSE, ifcoeffs = FALSE, 
+    ifform = FALSE, iftest = FALSE, ...) 
 {
-    if (!if.plot) 
-        if.rma <- FALSE
+    if (!ifplot) 
+        ifrma <- FALSE
     if (is.matrix(xx1)) {
         xx1.name <- dimnames(xx1)[[2]][1]
         xx2.name <- dimnames(xx1)[[2]][2]
@@ -26,7 +27,7 @@ function (xx1, xx2, x1lab = NULL, x2lab = NULL, log = FALSE,
     if (is.null(x2lab)) 
         x2lab <- xx2.name
     cat("\n Reduced Major Axis for", x1lab, "and", x2lab)
-    if (if.plot) {
+    if (ifplot) {
         x.min <- min(min(x1), min(x2))
         x.max <- max(max(x1), max(x2))
         if (log) 
@@ -68,26 +69,44 @@ function (xx1, xx2, x1lab = NULL, x2lab = NULL, log = FALSE,
     ciint <- seint * temp
     intll <- incpt - ciint
     intul <- incpt + ciint
+    fit <- round(100 * r * r, 1)
     cat("\n\n Means =\t", signif(xbar[1], 4), "\t\t", signif(xbar[2], 4), 
-        "\n SDs =\t\t", signif(xsdv[1], 4), "\t\t", signif(xsdv[2], 4), 
-        "\n\n Corr =\t\t", round(r, 4), "\n N =\t\t", xlen, 
+        "\n SDs =\t\t", signif(xsdv[1], 4), "\t\t", signif(xsdv[2], 4),
+        "\n\n Corr =\t\t", round(r, 4), "\n N =\t\t", xlen,
+        "\n", paste("Fit = \t\t ", fit, "%", sep = ""), 
         "\n\t\t\t\t   SE\t\t\t95% CLs", "\n Slope =\t", signif(slope, 4),
-        "\t", signif(seslp, 4), "\t  ", signif(slpll, 4), "<->",
-        signif(slpul, 4), "\n Intercept =\t", signif(incpt, 4), "\t", 
-        signif(seint, 6), "\t  ", signif(intll, 4), "<->", signif(intul, 4), 
-        "\n\n")
+        "\t", signif(seslp, 4), "\t  ", signif(slpll, 4),
+        "<->", signif(slpul, 4), "\n Intercept =\t", 
+        signif(incpt, 4), "\t", signif(seint, 6), "\t  ", signif(intll, 4),
+        "<->", signif(intul, 4), "\n\n")
     H0text <- "Reject"
-    if ((abs(slope - 1) <= cislp) & (incpt <= ciint)) H0text <- "Accept"
-    cat(paste(" ", H0text, " hypothesis that RMA is (0,1)\n\n", sep = ""))
-    if (if.rma) 
+    if ((abs(slope - 1) <= cislp) & (abs(incpt) <= ciint)) 
+        H0text <- "Accept"
+    cat(paste(" ", H0text, " hypothesis that RMA is (0,1)\n\n", 
+        sep = ""))
+    if (ifrma) 
         abline(incpt, slope, lty = 3, col = 2)
-    if (if.coeffs) {
-        text <- paste("Reduced Major Axis - Orthogonal Regression\n",
-            "N = ", xlen, ", Coefficients:\na0 = ", signif(incpt, 3),
+    if (ifcoeffs) {
+        text <- paste("Reduced Major Axis - Orthogonal Regression\n", 
+            "N = ", xlen, "             Fit = ", fit, "%\n", 
+            "Coefficients:\n a0 = ", signif(incpt, 3),
             "  95% CLs: ", signif(intll, 4), "<->", signif(intul, 4),
-            "\na1 = ", signif(slope, 4), "  95% CLs: ",
-            signif(slpll, 4), "<->", signif(slpul, 4), "\n", H0text,
-            " hypothesis that RMA is (0,1)", sep = "")
+            "\n a1 = ", signif(slope, 4), "  95% CLs: ", 
+            signif(slpll, 4), "<->", signif(slpul, 4), "\n", 
+            H0text, " hypothesis that RMA is (0,1)", sep = "")
+        text(locator(1), text, adj = c(0, 1), cex = 0.8)
+    }
+    if (ifform) {
+        if (iftest) {
+            text <- paste("y = ", signif(incpt, 3), " + ", 
+            signif(slope, 4), " * x\nN = ", xlen, ", Fit = ", fit, 
+            "%\n", H0text, " hypothesis that RMA is (0,1)", sep = "")
+        }
+        else {
+            text <- paste("y = ", signif(incpt, 3), " + ", 
+            signif(slope, 4), " * x\nN = ", xlen, ", Fit = ", fit,
+            "%\n", sep = "")
+        }
         text(locator(1), text, adj = c(0, 1), cex = 0.8)
     }
     invisible(list(n = xlen, mean = xbar, sd = xsdv, corr = r, 

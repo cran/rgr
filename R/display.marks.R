@@ -2,8 +2,7 @@ display.marks <-
 function () 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(usr = c(0, 5, 0, 5))
     mtext("R plotting marks, e.g., use\npch = 3 to plot plusses", 
         side = 1, line = 2, cex = 2)

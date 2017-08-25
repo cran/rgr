@@ -3,6 +3,8 @@
 \title{ Display a Third Variable in a X-Y Plot using Tukey Boxplot Symbology }
 \description{
 Displays a third variable where the data are represented by symbols using Tukey boxplot-based symbology. Tukey boxplots divide data into 7 groups, the middle 50\%, and three lower and higher groupings, see Details below. The computation of the fences used to subdivide the data may be carried out following a logarithmic transformation of the data. The colours of the symbols may be optionally changed.  The x-y plot axes may be optionally displayed with logarithmic (base 10) scaling.  Optionally a legend may be added to the plot.
+
+Where the x-y data are parts from a composition they should be plotted as symmetric coordinates, and the third variable as a log-ratio if it is from the same composition.
 }
 \usage{
 xyplot.eda7(xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL,  
@@ -41,6 +43,8 @@ If \code{zlab} and \code{main} are undefined a default a plot title is generated
 If the grey-scale option is chosen the symbols are plotted 100\% black for the far outliers, 85\% black for the near outliers, 70\% black for values within the whiskers, and 60\% black for values falling within the middle 50\% of the data.
 
 The default colours, \code{symcolr = c(25, 22, 20, 13, 6, 4, 1)}, are selected from the \code{rainbow(36)} pallette, and alternate colour schemes need to be selected from the same palette.  See \code{\link{display.rainbow}} for the available colours.  It is essential that 7 colours be provided, e.g., \cr\code{symcolr = c(27, 24, 22, 12, 5, 3, 36)}, if exactly 7 are not provided the default colours will be displayed.
+
+For compositional data the function \code{\link{gx.symm.coords.mat}} is required, and arguments \code{xx} and \code{yy} are replaced by a call to that function which returms the symmetric coordinated for those parts of the composition, and the axes are labelled appropriately.  See example below.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -48,7 +52,7 @@ Any less than detection limit values represented by negative values, or zeros or
 Any data vectors including \code{NA}s are removed prior to displaying the plot.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{display.rainbow}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}} }
+\seealso{ \code{\link{display.rainbow}}, \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{gx.symm.coords.mat}} }
 \examples{
 ## Make test data available
 data(sind)
@@ -79,6 +83,19 @@ xyplot.eda7(Fe, Mn, Zn, sfact = 2, log = "y", logz = TRUE,
 
 ## Detach test data
 detach(sind)
+rm(sind)
+
+## More appropriately for compositional data
+data(nockolds)
+attach(nockolds)
+
+## Plot a minor element log ratio against the symmetric coordinates for
+## Si and Al
+xyplot.eda7(gx.symm.coords.mat(nockolds, 1, 2), log(P/Ti))
+
+## Detach test data
+detach(nockolds)
+rm(nockolds)
 }
 \keyword{ hplot }
 

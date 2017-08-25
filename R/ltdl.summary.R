@@ -1,16 +1,12 @@
-gx.ngr.ltdl <-
+ltdl.summary <-
 function (xmat, vars = NULL, coded = -9999) 
 {
-    if (!(is.matrix(xmat) | is.data.frame(xmat))) 
-        stop(paste("  ", deparse(substitute(xmat)),
-            "is not a matrix or data frame"))
-    if.df <- FALSE
-    if (is.data.frame(xmat)) {
-        xsav <- xmat
-        ind.num <- sapply(xmat, is.numeric)
-        xmat <- as.matrix(xmat[, ind.num])
-        if.df = TRUE
-    }
+    xmat.name <- deparse(substitute(xmat))
+    if (!is.data.frame(xmat)) 
+        stop(paste("  ", xmat.name, "is not a data frame"))
+    xsav <- xmat
+    ind.num <- sapply(xmat, is.numeric)
+    xmat <- as.matrix(xmat[, ind.num])
 #
     if(is.null(vars)) {
         xname <- dimnames(xmat)[[2]]
@@ -27,6 +23,7 @@ function (xmat, vars = NULL, coded = -9999)
             else xname[i] <- vars[i]
         }
     }
+    cat("  Data frame:", xmat.name, "\n")    
     cat("  Variable        N     NA     <DL (-ve)", coded, "\n\n")
 #
     for (i in 1:nvars) {
@@ -34,11 +31,9 @@ function (xmat, vars = NULL, coded = -9999)
         x <- xmat[, ii]
         n <- length(x)
         ncoded <- length(x[!is.na(x) & x == coded])
-        x[x == coded] <- 0
         nna <- length(x[is.na(x)])
-        nneg <- length(x[!is.na(x) & x < 0])
+        nneg <- length(x[x < 0]) - nna - ncoded
         cat(" ", xname[i], "    \t", n, "\t", nna, "\t", nneg, "\t   ",
-            ncoded, "\n")
-    }
+            ncoded, "\n")    }
     invisible()
 }

@@ -4,8 +4,7 @@ function (xx, xlab = deparse(substitute(xx)), log = FALSE, xlim = NULL,
     colr = 8, cex = 0.8, ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(mfrow = c(2, 2), pty = "m", cex.main = 0.9)
     temp.x <- remove.na(xx)
     x <- temp.x$x[1:temp.x$n]

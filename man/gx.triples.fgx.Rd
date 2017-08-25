@@ -9,11 +9,13 @@ gx.triples.fgx(x, RepStat, xname = deparse(substitute(x)),
 }
 \arguments{
   \item{x}{ a file of regional coverage and field duplicate data. }
-  \item{RepStat}{ the Replicate Status code. }
+  \item{RepStat}{ the Replicate Status code, see below. }
   \item{xname}{ by default the character string for the data file name, \code{x}, is used for the table title.  An alternate title can be displayed with \code{xname = "text string"}, see Examples. }
   \item{log}{ if a logarithmic transformation of the data is required to meet homogeneity of variance considerations (i.e. severe heteroscedasticity) set \code{log = TRUE}. This is also advisable if the range of the observations exceeds 1.5 orders of magnitude. }
 }
 \note{
+RepStat (Replicate Status) is a code used within the National Geochemical Reconnaissance protocol that indicates an individual geochemical sample's position in the QA/QC structure.  0 indicates a routine survey sample; 1 indicates a routine survey sample which has an associated duplicate sample; and 2 indicates that duplicate sample.
+
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
 Any \code{NA}s in the data must also be removed prior to running the \code{triples.fgx} function.  This requires care as the data must be in complete duplicate sets.

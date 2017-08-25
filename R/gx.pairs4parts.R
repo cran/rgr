@@ -1,6 +1,13 @@
 gx.pairs4parts <-
 function (xx, cex = 2, ifwarn = TRUE, ...) 
 {
+    # NOTE: Prior to using this function the data frame/matrix containing the
+    # parts, xx, must be run through ltdl.fix.df to convert any <dl -ve
+    # values to positive half that value, and set zero2na = TRUE if it is
+    # required to convert any zero values or other numeric codes representing 
+    # blanks to NAs.  Parts in the data frame/matrix, xx, should be in the 
+    # same units.
+    #
     if (!is.matrix(xx)) 
         stop(deparse(substitute(xx)), " is not a Matrix")
     if (ifwarn) 
@@ -9,8 +16,7 @@ function (xx, cex = 2, ifwarn = TRUE, ...)
     x <- temp.x$x
     nx <- temp.x$m
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(mfrow = c(nx, nx), pty = "s", mar = c(2, 2, 2, 2), oma = c(0, 
         0, 0, 0))
     for (i in 1:nx) {

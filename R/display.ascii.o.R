@@ -2,8 +2,7 @@ display.ascii.o <-
 function () 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(usr = c(0, 17, 0, 17))
     mtext("Windows 3.1 Latin 1 Octal Table\nUse in R text strings, e.g., \\265 for mu", 
         side = 1, line = 1.1, cex = 1.2)

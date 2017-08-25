@@ -1,9 +1,19 @@
 xyplot.tags <-
-function (xx, yy, tag, log = NULL, xlim = NULL, ylim = NULL, 
+function (xx, yy, tag = NULL, log = NULL, xlim = NULL, ylim = NULL, 
     xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)), 
-    taglab = deparse(substitute(tag)), main = "", ...) 
+    taglab = NULL, main = "", ...) 
 {
     frame()
+    if (is.matrix(xx)) {
+        if(is.null(taglab)) taglab <- deparse(substitute(yy))
+        ylab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][2])
+        xlab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][1])
+        tag <- yy
+        yy <- xx[, 2]
+        xx <- xx[, 1]
+        log <- NULL
+    }
+    else if(is.null(taglab)) taglab <- deparse(substitute(tag))
     temp.x <- remove.na(cbind(xx, yy))
     x <- temp.x$x[1:temp.x$n, 1]
     y <- temp.x$x[1:temp.x$n, 2]

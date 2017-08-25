@@ -15,7 +15,7 @@ alts2dups(x, ifalt = FALSE)
 Function provides an easy procedure with function \code{plot} to present duplicate data as an x-y plot.  The matrix generated can be passed directly to \code{plot} in its call and the matrix column headings synthesized from the input variable name are used as plot axis titles.
 }
 \value{
-  \item{xx}{ an \code{ndup} by \code{2} matrix containing the duplicate pairs.  Row names are sequenced \code{1:ndup} and the two column names are generated from the input variable name, \code{x} with \code{.1} or \code{.2} appended, respectively. }
+  \item{xx}{ a \code{ndup} by \code{2} matrix containing the duplicate pairs.  Row names are sequenced \code{1:ndup} and the two column names are generated from the input variable name, \code{x} with \code{.1} or \code{.2} appended, respectively. }
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.

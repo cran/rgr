@@ -1,11 +1,14 @@
 \name{xyplot.tags}
 \alias{xyplot.tags}
 \title{ Display a Plot of Posted Values for a Third Variable}
-\description{ Displays a x-y plot where the data for a third variable are represented by the \sQuote{written} values of the data at their x-y position.  The x-y plot axes may be optionally displayed with logarithmic (base 10) scaling. }
+\description{ Displays a x-y plot where the data for a third variable are represented by the \sQuote{written} values of the data at their x-y position.  The x-y plot axes may be optionally displayed with logarithmic (base 10) scaling. 
+
+Where the x-y data are parts from a composition they should be plotted as symmetric coordinates, and the third variable as a log-ratio if it is from the same composition.
+}
 \usage{
-xyplot.tags(xx, yy, tag, log = NULL, xlim = NULL, ylim = NULL,
+xyplot.tags(xx, yy, tag = NULL, log = NULL, xlim = NULL, ylim = NULL,
 	xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)),
-	taglab = deparse(substitute(tag)),  main = "", ...)
+	taglab = NULL, main = "", ...)
 }
 \arguments{
   \item{xx}{ name of the x-axis variable. }
@@ -26,6 +29,8 @@ If \code{taglab} and \code{main} are undefined a default a plot title is generat
 If the default selection for \code{xlim} is inappropriate it can be set, e.g., \code{xlim = c(0, 200)} or \code{c(2, 200)}, the latter being appropriate for a logarithmically scaled plot, i.e. \code{log  = "x"}.  If the defined limits lie within the observed data range a truncated plot will be displayed.  The same procedure applies to setting \code{ylim}. 
 
 If a plot of sample numbers, \sQuote{IDs}, is required and they are not explicitly in the data frame, a plot of data frame row numbers may be displayed by specifying \code{dimnames(dfname)[[1]]} as the value of \code{tags}.
+
+For compositional data the function \code{\link{gx.symm.coords.mat}} is required, and arguments \code{xx} and \code{yy} are replaced by a call to that function which returms the symmetric coordinated for those parts of the composition, and the axes are labelled appropriately.  See example below.
 }
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
@@ -33,7 +38,7 @@ Any less than detection limit values represented by negative values, or zeros or
 Any \code{NA}s in the x-y coordinate vectors are removed prior to displaying the plot, thus those \sQuote{data} are not plotted.  However, any \code{NA}s in the third variable to be plotted are replaced with a \sQuote{+} sign to indicate data for the third variable are \sQuote{missing}.
 }
 \author{ Robert G. Garrett }
-\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{display.lty}} }
+\seealso{ \code{\link{ltdl.fix.df}}, \code{\link{remove.na}}, \code{\link{display.lty}}, \code{\link{gx.symm.coords.mat}} }
 \examples{
 ## Make test data available
 data(sind)
@@ -53,8 +58,24 @@ xyplot.tags(Fe, Mn, Zn, log = "y", xlab = "Fe (pct) in stream sediment",
 	ylab = "Mn (mg/kg) in stream sediment",
 	main = "Howarth & Sinding-Larsen Test Data\nZn (mg/kg)", cex = 0.8, col = 2) 
 
+# Detach test data
+detach(sind)
+rm(sind) 
+
+## More appropriately for compositional data
+data(nockolds)
+
+## Plot the lithological abbreviations against the symmetric
+## coordinates for Si and Al
+xyplot.tags(gx.symm.coords.mat(nockolds, 1, 2), dimnames(nockolds)[[1]])
+
+## Plot the lithological abbreviations against the symmetric
+## coordinates for Si and Al more appropriately scaled and titled
+xyplot.tags(gx.symm.coords.mat(nockolds, 1, 2), dimnames(nockolds)[[1]],
+        cex = 0.7, main = "Display of lithological abbreviations" )
+
 ## Detach test data
-detach(sind) 
+rm(nockolds)
 }
 \keyword{ hplot }
 

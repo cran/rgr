@@ -3,8 +3,7 @@ function (save, main = "", crit = 0.3, cex = 0.8, cex.axis = 0.7,
     cex.main = 0.8) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(pty = "m", las = 1)
     if (main == "") 
         banner <- paste("PC loadings >", crit, "for", deparse(substitute(save)), 

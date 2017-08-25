@@ -4,8 +4,7 @@ function (x, y, z, zname = deparse(substitute(z)), caname = NULL,
     xcoord = "Easting", ycoord = "Northing") 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(mfrow = c(2, 2), pty = "m", cex.main = 0.8)
     u <- na.exclude(cbind(x, y, z))
     xlim <- range(u[, 3])

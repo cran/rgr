@@ -1,13 +1,21 @@
 xyplot.eda7 <-
-function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, log = NULL, 
+function (xx, yy, zz = NULL, sfact = 1, xlim = NULL, ylim = NULL, log = NULL, 
     logz = FALSE, xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)), 
-    zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE, 
-    symcolr = NULL, iflgnd = FALSE, title = deparse(substitute(zz)),
-    cex.lgnd = 0.8, ...) 
+    zlab = deparse(substitute(zz)), main = "", ifgrey = FALSE, symcolr = NULL,
+    iflgnd = FALSE, title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
+    if (is.matrix(xx)) {
+        zlab <- deparse(substitute(yy))
+        ylab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][2])
+        xlab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][1])
+        if (title == "NULL") title <- zlab
+        zz <- yy
+        yy <- xx[, 2]
+        xx <- xx[, 1]
+        log <- NULL
+    }
     temp.z <- remove.na(cbind(xx, yy, zz))
     x <- temp.z$x[1:temp.z$n, 1]
     y <- temp.z$x[1:temp.z$n, 2]
@@ -54,7 +62,7 @@ function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, log = NULL,
         points(x[i], y[i], pch = npch[zzz[i]], cex = size[zzz[i]], 
             col = symcolr[zzz[i]])
     }
-    cat("\tCut Levels\t  No. of Symbols   Symbol - size - Colour\n\tLog =", 
+    cat("\n\tCut Levels\t  No. of Symbols   Symbol - size - Colour\n\tLog =", 
         logz, "\t\t\t\tsfact =", format(sfact, nsmall = 2), "\n\n")
     stype <- character(7)
     stype[1:3] <- "Circle "

@@ -5,8 +5,7 @@ function (xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
     title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(pty = "m")
     temp.x <- remove.na(cbind(xx, yy, zz))
     x <- temp.x$x[1:temp.x$n, 1]
@@ -39,8 +38,8 @@ function (xx, yy, zz, sfact = 1, xlab = "Easting", ylab = "Northing",
         points(x[i], y[i], pch = npch[zzz[i]], cex = size[zzz[i]], 
             col = symcolr[zzz[i]])
     }
-    cat("\tCut Levels\t No. of Symbols   Symbol - size - Colour\n\t\t\t\t\t\tsfact =", 
-        format(sfact, nsmall = 2), "\n\n")
+    cat("\n\tCut Levels\t No. of Symbols   Symbol - size - Colour",
+        "\n\t\t\t\t\t\tsfact =", format(sfact, nsmall = 2), "\n\n")
     stype <- character(8)
     stype[1:4] <- "Circle"
     stype[5:8] <- "Square"

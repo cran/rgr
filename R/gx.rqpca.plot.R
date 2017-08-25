@@ -120,8 +120,7 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
              text(rload[, v1], rload[, v2], rnames, cex = rcex, col = rcol, ...)
          }
      else {
-         oldpar <- par
-         on.exit(par(oldpar))
+         old.par <- par; on.exit(par(old.par))
          par(new = TRUE)
          plot(rload[, v1], rload[, v2], type= "n", xaxt = "n", yaxt = "n",
              xlab = "", ylab = "")

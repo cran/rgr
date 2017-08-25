@@ -7,8 +7,7 @@ function (display = FALSE)
     cexp <- 0.9
     if (display) {
         frame()
-        oldpar <- par()
-        on.exit(par(oldpar))
+        old.par <- par(); on.exit(par(old.par))
         par(usr = c(0, 3, 0, 3))
         mtext("Symbology for function gx.cnpplts", side = 3, 
             line = 2, cex = 2)

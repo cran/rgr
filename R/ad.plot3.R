@@ -80,8 +80,7 @@ function (x1, x2, xname = deparse(substitute(x1)), if.order = FALSE,
         }
     }
     else {
-        oldpar <- par()
-        on.exit(par(oldpar))
+        old.par <- par(); on.exit(par(old.par))
         par(mfrow = c(1, 2), pty = "s")
         plot(xbar, xrat, ylim = c(1/maxrat, maxrat), xlab = paste("Mean of duplicates for", 
             xname), ylab = "Ratio of duplicates", log = "xy", 

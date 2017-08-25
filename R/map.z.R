@@ -25,8 +25,7 @@ function(xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, xlab = "Easting
      # The V&R MASS Library must be attached to access eqscplot.
      #
      frame()
-     oldpar <- par()
-     on.exit(par(oldpar))
+     old.par <- par(); on.exit(par(old.par))
      par(pty = "m")
      temp.z <- remove.na(cbind(xx, yy, zz))
      x <- temp.z$x[1:temp.z$n, 1]

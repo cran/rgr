@@ -1,11 +1,21 @@
 xyplot.z <-
-function (xx, yy, zz, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, 
+function (xx, yy, zz = NULL, p = 0.5, sfact = 2.5, zmin = NA, zmax = NA, 
     log = NULL, xlim = NULL, ylim = NULL, xlab = deparse(substitute(xx)), 
     ylab = deparse(substitute(yy)), zlab = deparse(substitute(zz)), 
     main = "", col = 1, iflgnd = FALSE, title = deparse(substitute(zz)), 
     cex.lgnd = 0.8, ifparams = FALSE, cex.params = 0.8, ...) 
 {
     frame()
+    if (is.matrix(xx)) {
+        zlab <- deparse(substitute(yy))
+        ylab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][2])
+        xlab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][1])
+        if (title == "NULL") title <- zlab
+        zz <- yy
+        yy <- xx[, 2]
+        xx <- xx[, 1]
+        log <- NULL
+    }
     temp.z <- remove.na(cbind(xx, yy, zz))
     x <- temp.z$x[1:temp.z$n, 1]
     y <- temp.z$x[1:temp.z$n, 2]

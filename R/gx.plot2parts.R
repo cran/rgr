@@ -5,7 +5,8 @@ function (xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute
      # Function to support the investigation of 2 parts of a composition following 
      # the procedures outlined in Filzmoser et al. (2010).  The stability measure
      # (replacing the correlation coefficient) measuring the consistency of the
-     # ratio of part xx1 to part xx2, is estimated robustly with the MAD.
+     # ratio of part xx1 to part xx2, is estimated robustly with the MAD.  Parts 
+     # xx1 and xx2 should be in the same units.
      #
      # NOTE: Prior to using this function the data frame/matrix containing the
      # variables, xx1 and xx2, must be run through ltdl.fix.df to convert any <dl
@@ -14,8 +15,7 @@ function (xx1, xx2, x1lab = deparse(substitute(xx1)), x2lab = deparse(substitute
      # blanks to NAs.
      #
      frame()
-     oldpar <- par()
-     on.exit(par(oldpar))
+     old.par <- par(); on.exit(par(old.par))
      par(mfrow = c(2, 2), cex.main = 0.9)
      if (length(xx1) != length(xx2)) 
          stop("Input vectors must be of equal length\n")

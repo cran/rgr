@@ -3,8 +3,7 @@ function (xx, yy, tag, xlab = "Easting", ylab = "Northing", taglab = deparse(sub
     main = "", tol = 0.04, ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
     par(pty = "m")
     temp.x <- remove.na(cbind(xx, yy))
     x <- temp.x$x[1:temp.x$n, 1]

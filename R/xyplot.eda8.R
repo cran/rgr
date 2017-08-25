@@ -1,12 +1,22 @@
 xyplot.eda8 <-
-function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, xlab = deparse(substitute(xx)), 
-    ylab = deparse(substitute(yy)), zlab = deparse(substitute(zz)), 
-    main = "", log = NULL, ifgrey = FALSE, symcolr = NULL, iflgnd = FALSE, 
-    pctile = FALSE, title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
+function (xx, yy, zz = NULL, sfact = 1, xlim = NULL, ylim = NULL, 
+    xlab = deparse(substitute(xx)), ylab = deparse(substitute(yy)),
+    zlab = deparse(substitute(zz)), main = "", log = NULL, ifgrey = FALSE,
+    symcolr = NULL, iflgnd = FALSE, pctile = FALSE, 
+    title = deparse(substitute(zz)), cex.lgnd = 0.8, ...) 
 {
     frame()
-    oldpar <- par()
-    on.exit(par(oldpar))
+    old.par <- par(); on.exit(par(old.par))
+    if (is.matrix(xx)) {
+        zlab <- deparse(substitute(yy))
+        ylab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][2])
+        xlab <- paste("Symmetric coordinate for", dimnames(xx)[[2]][1])
+        if (title == "NULL") title <- zlab
+        zz <- yy
+        yy <- xx[, 2]
+        xx <- xx[, 1]
+        log <- NULL
+    }
     temp.z <- remove.na(cbind(xx, yy, zz))
     x <- temp.z$x[1:temp.z$n, 1]
     y <- temp.z$x[1:temp.z$n, 2]
@@ -40,8 +50,8 @@ function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, xlab = deparse(substi
         points(x[i], y[i], pch = npch[zzz[i]], cex = size[zzz[i]], 
             col = symcolr[zzz[i]])
     }
-    cat("\tCut Levels\t No. of Symbols   Symbol - size - Colour\n\t\t\t\t\t\tsfact =", 
-        format(sfact, nsmall = 2), "\n\n")
+    cat("\n\tCut Levels\t No. of Symbols   Symbol - size - Colour",
+        "\n\t\t\t\t\t\tsfact =", format(sfact, nsmall = 2), "\n\n")
     stype <- character(8)
     stype[1:4] <- "Circle"
     stype[5:8] <- "Square"
@@ -60,7 +70,7 @@ function (xx, yy, zz, sfact = 1, xlim = NULL, ylim = NULL, xlab = deparse(substi
         lgnd.line <- numeric(8)
         zcut <- signif(zcut, 3)
         if (pctile) {
-            title <- paste(deparse(substitute(zz)), "Percentiles")
+            title <- paste(zlab, "Percentiles")
             lgnd.line[1] <- "> 98th"
             lgnd.line[2] <- "95th - 98th"
             lgnd.line[3] <- "75th - 95th"
