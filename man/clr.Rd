@@ -10,7 +10,7 @@ clr(xx, ifclose = FALSE, ifwarn = TRUE)
 \arguments{
   \item{xx}{ a \code{n} by \code{p} matrix to be log centred.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
-  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
+  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out a centred log-ratio transformation all the data/parts must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
 Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a physical individual sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  A centred log-ratio is one procedure for removing closure effects, others are additive log-ratios (\code{\link{alr}}) and isometric log-ratios (\code{\link{ilr}}).

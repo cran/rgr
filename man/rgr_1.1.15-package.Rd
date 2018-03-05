@@ -1,8 +1,8 @@
-\name{rgr_1.1.14-package}
-\alias{rgr_1.1.14}
+\name{rgr_1.1.15-package}
+\alias{rgr_1.1.15}
 \alias{rgr_package}
-\alias{rgr-1.1.14-package}
-\alias{rgr-1.1.14}
+\alias{rgr-1.1.15-package}
+\alias{rgr-1.1.15}
 \alias{rgr-package}
 \alias{rgr}
 \docType{package}
@@ -10,15 +10,15 @@
 Geological Survey of Canada Applied Geochemistry EDA
 }
 \description{
-Functions for Exploratory Data Analysis with applied geochemical data.
+Functions for Exploratory Data Analysis with Applied Geochemical Data.
 }
 \details{
 This package supports the display and analysis of applied geochemical survey data, particularly in the context of estimating the ranges of background variation due to natural phenomena and the identification of outliers that may be due to natural processes or anthropogenic contamination.  Functions are provided for use with univariate and multivariate data, in the latter context tools are provided for compositional, constant sum, data.  Additional functions support analytical data QA/QC, ANOVA for investigations of field sampling and analytical variability, and utility tasks.  NOTE: function caplot for concentration-area plots employs package akima, however, akima is only licensed for not-for-profit use.  Therefore, not-for-profit users of rgr will have to independently make package akima available through library(akima); and use of function caplot by for-profit users will fail.
 \tabular{ll}{
-Package: \tab rgr_1.1.14\cr
+Package: \tab rgr_1.1.15\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2017-06-13\cr
+Date: \tab 2018-03-05\cr
 License: \tab GPL-2\cr
 }
 }

@@ -3,7 +3,7 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
          ifrot = TRUE, main = "", cex.lab = 0.9, cex.main = 0.9, rcex = 1,
          qcex = 0.8, rcol = 1, qcol = 1, ifray = TRUE, if34 = TRUE, ...)
 {
-     # Function to prepare plots scores on component v2 vs scores on 
+     # Function to prepare plots of scores on component v2 vs. scores on 
      # component v1, loadings of v2 vs v1, or biplots using the saved 
      # output from gx.mva, gx,mva.closed. gx.robmva or gx.robmva.closed.
      # The default is to plot PC-2 vs. PC-1, with data points plotted as
@@ -34,7 +34,7 @@ function(save, v1 = 1, v2 = 2, rplot = TRUE, qplot = TRUE, rowids = NULL,
      # rcex and qcex provides control of the font sizes.
      #
      frame()
-     if(main == "") banner <- paste("PC biplot for",
+     if(main == "") banner <- paste("PC plot for",
          deparse(substitute(save)), "\ndata source:", save$input)
      else banner <- main
      nr <- save$nr

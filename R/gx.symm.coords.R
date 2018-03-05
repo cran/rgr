@@ -10,8 +10,10 @@ function (x)
     # parts, xx, must be run through ltdl.fix.df to convert any <dl -ve
     # values to positive half that value, and set zero2na = TRUE if it is
     # required to convert any zero values or other numeric codes representing 
-    # blanks to NAs.  Parts in the matrix, xx, must be in the same units.
-    # 
+    # blanks to NAs.  Parts in the matrix, xx, must be in the same units, any
+    # rows conatining NAs will be removed.
+    #
+    x <- na.omit(x) 
     D <- ncol(x)
     # 
     Z.av <- matrix(NA, ncol = 2, nrow = nrow(x)) 

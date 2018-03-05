@@ -2,7 +2,7 @@
 \alias{gx.summary}
 \title{ Compiles a Table of Summary Statistics }
 \description{
-This function is a \sQuote{sub-engine} between the main summary statistics engine, \sQuote{gx.stats}, and the \code{gx.summary.*} display functions, it does generate any output to the current device.  Its \sQuote{sub-engine} function is to select the required results from the \code{gx.stats} computations, and additionally compute 95\% confidence bounds on means.
+This function is a \sQuote{sub-engine} between the main summary statistics engine, \sQuote{gx.stats}, and the \code{gx.summary.*} display functions, it does not generate any output to the current device.  Its \sQuote{sub-engine} function is to select the required results from the \code{gx.stats} computations, and additionally compute 95\% confidence bounds on means.
 }
 \usage{
 gx.summary(xx, log = log, iftell = iftell)

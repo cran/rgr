@@ -18,7 +18,7 @@ gx.quantile(xx, f, display = TRUE)
 \note{
 Any less than detection limit values represented by negative values, or zeros or other numeric codes representing blanks in the data, must be removed prior to executing this function, see \code{\link{ltdl.fix.df}}.
 
-Any \code{NA}s in the data vector are removed prior to preparing the boxplots.
+Any \code{NA}s in the data vector are removed prior to estimation.
 
 The result is an approximation, and the result from the \code{quantile} function will likely differ by some small amount.
 }

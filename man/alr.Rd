@@ -10,12 +10,14 @@ alr(xx, j = NULL, ifclose = FALSE, ifwarn = TRUE)
   \item{xx}{ a n by p matrix to be additively log ratioed.  It is essential that a single unit of measurement is used.  Thus it may be required to convert, for example, determinations in percent to ppm (mg/kg) so that all measurements are in ppm prior to executing this function.  Natural logarithms are used. }
   \item{j}{ the index number of the element in the range [1:p] to be used as the divisor, \code{j}, must be defined, there is no default index. }
   \item{ifclose}{ if it is required to close a data set prior to transformation set \code{ifclose = TRUE}. }
-  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out an additive log-ratio transformation all the data must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
+  \item{ifwarn}{ by default \code{ifwarn = TRUE} which generates a reminder/warning that when carrying out an additive log-ratio transformation all the data/parts must be in the same measurement units.  The message can be suppressed by setting \code{ifwarn = FALSE}. }
 }
 \details{
 Most analytical chemical data for major, minor and trace elements are of a closed form, i.e. for a physical individual sample they sum to a constant, whether it be percent, ppm (mg/kg), or some other units.  It does not matter that only some components contributing to the constant sum are present in the matrix, the data are closed.  As a result, as some elements increase in concentration others must decrease, this leads to correlation measures and graphical presentations that do not reflect the true underlying relationships.  An additive log-ratio is one procedure for removing closure effects, others are centred log-ratios (\code{\link{clr}}) and isometric log-ratios (\code{\link{ilr}}).
 
 Care should be taken in selecting the variable, index = \code{j}, for use as the divisor.  Variables lacking sufficient significant figures in their quantification, or variables measured at close to their measurement detection limits, should be avoided.
+
+The name of the divisor, \code{j}, retrieved from the matrix column names is displayed.
 
 It is worth noting that when the \code{alr} transform is undertaken with a geochemically conservative element selected as the divisor and two elements are then displayed in an x-y plot the result is a Pearce Element Ratio plot (Pearce, 1968) with log scaling.
 }
